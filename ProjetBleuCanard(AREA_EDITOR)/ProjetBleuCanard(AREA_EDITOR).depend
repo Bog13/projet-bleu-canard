@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1401190805 source:c:\users\bérenger\desktop\projet-bleu-canard\src\area.cpp
+	"../include/area.h"
+
+1401190805 c:\users\bérenger\desktop\projet-bleu-canard\include\area.h
+	"../include/tile.h"
+	"../include/character.h"
+	<vector>
+
+1401184571 c:\users\bérenger\desktop\projet-bleu-canard\include\tile.h
+
+1401184571 c:\users\bérenger\desktop\projet-bleu-canard\include\character.h
+
+1401190810 source:c:\users\bérenger\desktop\projet-bleu-canard\src\areamanager.cpp
+	"../include/areamanager.h"
+
+1401184571 c:\users\bérenger\desktop\projet-bleu-canard\include\areamanager.h
+	"area.h"
+

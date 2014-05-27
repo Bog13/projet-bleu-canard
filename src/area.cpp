@@ -1,4 +1,4 @@
-#include "area.h"
+#include "../include/area.h"
 
 Area::Area()
 {

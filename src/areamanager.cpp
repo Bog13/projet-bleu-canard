@@ -1,4 +1,4 @@
-#include "areamanager.h"
+#include "../include/areamanager.h"
 
 AreaManager::AreaManager()
 {
