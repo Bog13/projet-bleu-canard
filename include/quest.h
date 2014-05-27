@@ -1,6 +1,6 @@
 #ifndef QUEST_H
 #define QUEST_H
-
+#include <vector>
 #include "event.h"
 
 /*

@@ -38,7 +38,10 @@
 		<Unit filename="include/area.h" />
 		<Unit filename="include/areamanager.h" />
 		<Unit filename="include/bandit.h" />
+		<Unit filename="include/bank.h" />
 		<Unit filename="include/behavior.h" />
+		<Unit filename="include/blacksmith.h" />
+		<Unit filename="include/building.h" />
 		<Unit filename="include/character.h" />
 		<Unit filename="include/charactermanager.h" />
 		<Unit filename="include/clock.h" />
@@ -51,6 +54,7 @@
 		<Unit filename="include/creditgraphics.h" />
 		<Unit filename="include/creditmanager.h" />
 		<Unit filename="include/creditobserver.h" />
+		<Unit filename="include/dojo.h" />
 		<Unit filename="include/engine.h" />
 		<Unit filename="include/event.h" />
 		<Unit filename="include/eventbeat.h" />
@@ -74,6 +78,8 @@
 		<Unit filename="include/inventory.h" />
 		<Unit filename="include/inventorymanager.h" />
 		<Unit filename="include/item.h" />
+		<Unit filename="include/letter.h" />
+		<Unit filename="include/letterbox.h" />
 		<Unit filename="include/menu.h" />
 		<Unit filename="include/menucontrol.h" />
 		<Unit filename="include/menugraphics.h" />
@@ -104,8 +110,11 @@
 		<Unit filename="include/socialbehaviortalk.h" />
 		<Unit filename="include/soundmanager.h" />
 		<Unit filename="include/stuff.h" />
+		<Unit filename="include/teleporter.h" />
+		<Unit filename="include/temple.h" />
 		<Unit filename="include/tile.h" />
 		<Unit filename="include/tool.h" />
+		<Unit filename="include/transporter.h" />
 		<Unit filename="include/trigger.h" />
 		<Unit filename="include/usuable.h" />
 		<Unit filename="include/villager.h" />
@@ -118,7 +127,10 @@
 		<Unit filename="src/area.cpp" />
 		<Unit filename="src/areamanager.cpp" />
 		<Unit filename="src/bandit.cpp" />
+		<Unit filename="src/bank.cpp" />
 		<Unit filename="src/behavior.cpp" />
+		<Unit filename="src/blacksmith.cpp" />
+		<Unit filename="src/building.cpp" />
 		<Unit filename="src/character.cpp" />
 		<Unit filename="src/charactermanager.cpp" />
 		<Unit filename="src/clock.cpp" />
@@ -131,6 +143,7 @@
 		<Unit filename="src/creditgraphics.cpp" />
 		<Unit filename="src/creditmanager.cpp" />
 		<Unit filename="src/creditobserver.cpp" />
+		<Unit filename="src/dojo.cpp" />
 		<Unit filename="src/engine.cpp" />
 		<Unit filename="src/event.cpp" />
 		<Unit filename="src/eventbeat.cpp" />
@@ -154,6 +167,8 @@
 		<Unit filename="src/inventory.cpp" />
 		<Unit filename="src/inventorymanager.cpp" />
 		<Unit filename="src/item.cpp" />
+		<Unit filename="src/letter.cpp" />
+		<Unit filename="src/letterbox.cpp" />
 		<Unit filename="src/menu.cpp" />
 		<Unit filename="src/menucontrol.cpp" />
 		<Unit filename="src/menugraphics.cpp" />
@@ -184,8 +199,11 @@
 		<Unit filename="src/socialbehaviortalk.cpp" />
 		<Unit filename="src/soundmanager.cpp" />
 		<Unit filename="src/stuff.cpp" />
+		<Unit filename="src/teleporter.cpp" />
+		<Unit filename="src/temple.cpp" />
 		<Unit filename="src/tile.cpp" />
 		<Unit filename="src/tool.cpp" />
+		<Unit filename="src/transporter.cpp" />
 		<Unit filename="src/trigger.cpp" />
 		<Unit filename="src/usuable.cpp" />
 		<Unit filename="src/villager.cpp" />
