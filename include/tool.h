@@ -4,7 +4,7 @@
 #include <utility>
 #include <string>
 #include <fstream>
-#include <cmaths>
+#include <cmath>
 
 /*
     Contient les méthodes générales (sauvegarder dans un fichier par ex)

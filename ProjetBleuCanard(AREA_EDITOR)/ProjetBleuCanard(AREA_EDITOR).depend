@@ -1,13 +1,15 @@
 # depslib dependency file v1.0
-1401191031 source:c:\users\bérenger\desktop\projet-bleu-canard\src\area.cpp
+1401196984 source:c:\users\bérenger\desktop\projet-bleu-canard\src\area.cpp
 	"../include/area.h"
 
-1401190805 c:\users\bérenger\desktop\projet-bleu-canard\include\area.h
+1401196732 c:\users\bérenger\desktop\projet-bleu-canard\include\area.h
 	"../include/tile.h"
 	"../include/character.h"
+	"../include/global.h"
 	<vector>
+	<iostream>
 
-1401191236 c:\users\bérenger\desktop\projet-bleu-canard\include\tile.h
+1401196732 c:\users\bérenger\desktop\projet-bleu-canard\include\tile.h
 
 1401184571 c:\users\bérenger\desktop\projet-bleu-canard\include\character.h
 
@@ -17,18 +19,20 @@
 1401184571 c:\users\bérenger\desktop\projet-bleu-canard\include\areamanager.h
 	"area.h"
 
-1401190812 source:c:\users\bérenger\desktop\projet-bleu-canard\src\tile.cpp
+1401196732 source:c:\users\bérenger\desktop\projet-bleu-canard\src\tile.cpp
 	"../include/tile.h"
 
-1401194062 source:c:\users\bérenger\desktop\projet-bleu-canard\projetbleucanard(area_editor)\main.cpp
+1401197402 source:c:\users\bérenger\desktop\projet-bleu-canard\projetbleucanard(area_editor)\main.cpp
 	<iostream>
 	"../include/tool.h"
+	"../include/global.h"
+	"../include/area.h"
 	<SFML/Graphics.hpp>
 
 1401191237 source:c:\users\bérenger\desktop\projet-bleu-canard\src\global.cpp
 	"../include/global.h"
 
-1401191283 c:\users\bérenger\desktop\projet-bleu-canard\include\global.h
+1401196013 c:\users\bérenger\desktop\projet-bleu-canard\include\global.h
 
 1401191925 source:c:\users\bérenger\desktop\projet-bleu-canard\src\tool.cpp
 	"../include/tool.h"

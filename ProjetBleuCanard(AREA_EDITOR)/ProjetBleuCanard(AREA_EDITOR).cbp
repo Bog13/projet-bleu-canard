@@ -18,9 +18,9 @@
 					<Add directory="../include" />
 				</Compiler>
 				<Linker>
-					<Add option="-lsfml-graphics" />
-					<Add option="-lsfml-window" />
-					<Add option="-lsfml-system" />
+					<Add option="-lsfml-graphics-s-d" />
+					<Add option="-lsfml-window-s-d" />
+					<Add option="-lsfml-system-s-d" />
 					<Add library="..\libSFML\libsfml-audio-s-d.a" />
 					<Add library="..\libSFML\libsfml-graphics-s-d.a" />
 					<Add library="..\libSFML\libsfml-window-s-d.a" />

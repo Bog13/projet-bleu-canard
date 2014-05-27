@@ -11,6 +11,8 @@ class Tile
 {
     public:
         Tile();
+        Tile(int id,int x,int y);
+        Tile(int x,int y);
         virtual ~Tile();
     protected:
         int m_id;
