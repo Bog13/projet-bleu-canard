@@ -32,13 +32,27 @@ std::pair<int,int> Tool::toInvIso(int x,int y)
     return iso;
 }
 
+static std::string Load(std::string name)
+{
+    std::fstream reader(name.c_str());
+    if(!reader) {std::cout<<" There was a problem loading the " << name << " from the Tool::Load member function. " << std::endl;}
+    if(reader)
+    {
+        std::string line, finalResult;
+        while(std::getline(reader,line))    {finalResult+=line;}
+
+        return finalResult;
+
+
+    }
+
+}
+
 const void Tool::Save(std::string name,std::string text)
 {
     std::fstream writter(name.c_str(),std::ios::out);
     if(!writter) {std::cout<<"There was a problem writting the " << name << " file." << std::endl;}
-        {
-            writter<<text;
-        }
+    if(writter) {writter<<text;}
     writter.close();
 }
 

@@ -375,15 +375,17 @@
 	<string>
 	<vector>
 
-1401190975 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\area.cpp
+1401197835 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\area.cpp
 	"../include/area.h"
 
-1401190975 c:\users\j0sh-u_a\desktop\projetbleucanard\include\area.h
+1401197835 c:\users\j0sh-u_a\desktop\projetbleucanard\include\area.h
 	"../include/tile.h"
 	"../include/character.h"
+	"../include/global.h"
 	<vector>
+	<iostream>
 
-1401194596 c:\users\j0sh-u_a\desktop\projetbleucanard\include\tile.h
+1401197835 c:\users\j0sh-u_a\desktop\projetbleucanard\include\tile.h
 
 1401183323 c:\users\j0sh-u_a\desktop\projetbleucanard\include\character.h
 
@@ -393,22 +395,23 @@
 1401182980 c:\users\j0sh-u_a\desktop\projetbleucanard\include\areamanager.h
 	"area.h"
 
-1401190975 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\tile.cpp
+1401197835 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\tile.cpp
 	"../include/tile.h"
 
 1401194597 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\global.cpp
 	"../include/global.h"
 
-1401184838 c:\users\j0sh-u_a\desktop\projetbleucanard\include\global.h
+1401197835 c:\users\j0sh-u_a\desktop\projetbleucanard\include\global.h
 
 1401195660 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\tool.cpp
 	"../include/tool.h"
 
-1401195623 c:\users\j0sh-u_a\desktop\projetbleucanard\include\tool.h
+1401197532 c:\users\j0sh-u_a\desktop\projetbleucanard\include\tool.h
 	<iostream>
 	<utility>
 	<string>
 	<fstream>
+	<cmaths>
 
 1401195738 source:c:\users\j0sh-u_a\desktop\projetbleucanard\projetbleucanard(area_editor)\main.cpp
 	<iostream>

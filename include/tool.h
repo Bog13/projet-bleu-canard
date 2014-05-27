@@ -18,6 +18,7 @@ class Tool
         static std::pair<int,int> toIso(int x,int y);
         std::pair<int,int> toInvIso(int x,int y);
         static const void Save(std::string name, std::string text);
+        static std::string Load(std::string name);
 
 
 
