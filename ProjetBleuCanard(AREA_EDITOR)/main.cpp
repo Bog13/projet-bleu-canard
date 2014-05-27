@@ -25,6 +25,9 @@ int main()
                         case Keyboard::Escape:
                             window.close();
                             break;
+                        case Keyboard::A:
+                            Tool::Save("test.txt","Je suis un bel idiot 123456789");
+                            break;
 
                         default:
                             break;
