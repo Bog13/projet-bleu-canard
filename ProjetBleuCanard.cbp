@@ -34,6 +34,34 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+<<<<<<< .mine
+		<Unit filename="include/animation.h" />
+		<Unit filename="include/animationmanager.h" />
+		<Unit filename="include/clock.h" />
+		<Unit filename="include/clockmanager.h" />
+		<Unit filename="include/controler.h" />
+		<Unit filename="include/core.h" />
+		<Unit filename="include/credit.h" />
+		<Unit filename="include/creditgraphics.h" />
+		<Unit filename="include/creditmanager.h" />
+		<Unit filename="include/creditobserver.h" />
+		<Unit filename="include/engine.h" />
+		<Unit filename="include/global.h" />
+		<Unit filename="include/graphicsengine.h" />
+		<Unit filename="include/menu.h" />
+		<Unit filename="include/menugraphics.h" />
+		<Unit filename="include/menumanager.h" />
+		<Unit filename="include/menuobserver.h" />
+		<Unit filename="include/pause.h" />
+		<Unit filename="include/pausegraphics.h" />
+		<Unit filename="include/pausemanager.h" />
+		<Unit filename="include/pauseobserver.h" />
+		<Unit filename="include/settings.h" />
+		<Unit filename="include/settingsgraphics.h" />
+		<Unit filename="include/settingsmanager.h" />
+		<Unit filename="include/settingsobserver.h" />
+		<Unit filename="include/tool.h" />
+=======
 		<Unit filename="include/area.h" />
 		<Unit filename="include/areamanager.h" />
 		<Unit filename="include/behavior.h" />
@@ -51,7 +79,36 @@
 		<Unit filename="include/world.h" />
 		<Unit filename="include/worldmanager.h" />
 		<Unit filename="include/worldobserver.h" />
+>>>>>>> .r9
 		<Unit filename="main.cpp" />
+<<<<<<< .mine
+		<Unit filename="src/animation.cpp" />
+		<Unit filename="src/animationmanager.cpp" />
+		<Unit filename="src/clock.cpp" />
+		<Unit filename="src/clockmanager.cpp" />
+		<Unit filename="src/controler.cpp" />
+		<Unit filename="src/core.cpp" />
+		<Unit filename="src/credit.cpp" />
+		<Unit filename="src/creditgraphics.cpp" />
+		<Unit filename="src/creditmanager.cpp" />
+		<Unit filename="src/creditobserver.cpp" />
+		<Unit filename="src/engine.cpp" />
+		<Unit filename="src/global.cpp" />
+		<Unit filename="src/graphicsengine.cpp" />
+		<Unit filename="src/menu.cpp" />
+		<Unit filename="src/menugraphics.cpp" />
+		<Unit filename="src/menumanager.cpp" />
+		<Unit filename="src/menuobserver.cpp" />
+		<Unit filename="src/pause.cpp" />
+		<Unit filename="src/pausegraphics.cpp" />
+		<Unit filename="src/pausemanager.cpp" />
+		<Unit filename="src/pauseobserver.cpp" />
+		<Unit filename="src/settings.cpp" />
+		<Unit filename="src/settingsgraphics.cpp" />
+		<Unit filename="src/settingsmanager.cpp" />
+		<Unit filename="src/settingsobserver.cpp" />
+		<Unit filename="src/tool.cpp" />
+=======
 		<Unit filename="src/area.cpp" />
 		<Unit filename="src/areamanager.cpp" />
 		<Unit filename="src/behavior.cpp" />
@@ -69,6 +126,7 @@
 		<Unit filename="src/world.cpp" />
 		<Unit filename="src/worldmanager.cpp" />
 		<Unit filename="src/worldobserver.cpp" />
+>>>>>>> .r9
 		<Extensions>
 			<code_completion />
 			<envvars />
