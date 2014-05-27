@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,7 +34,41 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/area.h" />
+		<Unit filename="include/areamanager.h" />
+		<Unit filename="include/behavior.h" />
+		<Unit filename="include/character.h" />
+		<Unit filename="include/charactermanager.h" />
+		<Unit filename="include/friendlybehavior.h" />
+		<Unit filename="include/friendlybehaviorattack.h" />
+		<Unit filename="include/friendlybehaviordefend.h" />
+		<Unit filename="include/friendlybehaviorfollow.h" />
+		<Unit filename="include/friendlybehaviorpanic.h" />
+		<Unit filename="include/hostilebehavior.h" />
+		<Unit filename="include/npc.h" />
+		<Unit filename="include/tile.h" />
+		<Unit filename="include/trigger.h" />
+		<Unit filename="include/world.h" />
+		<Unit filename="include/worldmanager.h" />
+		<Unit filename="include/worldobserver.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/area.cpp" />
+		<Unit filename="src/areamanager.cpp" />
+		<Unit filename="src/behavior.cpp" />
+		<Unit filename="src/character.cpp" />
+		<Unit filename="src/charactermanager.cpp" />
+		<Unit filename="src/friendlybehavior.cpp" />
+		<Unit filename="src/friendlybehaviorattack.cpp" />
+		<Unit filename="src/friendlybehaviordefend.cpp" />
+		<Unit filename="src/friendlybehaviorfollow.cpp" />
+		<Unit filename="src/friendlybehaviorpanic.cpp" />
+		<Unit filename="src/hostilebehavior.cpp" />
+		<Unit filename="src/npc.cpp" />
+		<Unit filename="src/tile.cpp" />
+		<Unit filename="src/trigger.cpp" />
+		<Unit filename="src/world.cpp" />
+		<Unit filename="src/worldmanager.cpp" />
+		<Unit filename="src/worldobserver.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
