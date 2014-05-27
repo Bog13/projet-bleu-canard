@@ -35,52 +35,90 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/animationmanager.h" />
+<<<<<<< .mine
+		<Unit filename="include/area.h" />
+		<Unit filename="include/areamanager.h" />
+		<Unit filename="include/behavior.h" />
+		<Unit filename="include/character.h" />
+		<Unit filename="include/charactermanager.h" />
+=======
 		<Unit filename="include/area.h" />
 		<Unit filename="include/areamanager.h" />
 		<Unit filename="include/bandit.h" />
 		<Unit filename="include/behavior.h" />
 		<Unit filename="include/character.h" />
 		<Unit filename="include/charactermanager.h" />
+>>>>>>> .r11
 		<Unit filename="include/clock.h" />
 		<Unit filename="include/clockmanager.h" />
+		<Unit filename="include/controlengine.h" />
 		<Unit filename="include/controler.h" />
 		<Unit filename="include/core.h" />
 		<Unit filename="include/credit.h" />
+		<Unit filename="include/creditcontrol.h" />
 		<Unit filename="include/creditgraphics.h" />
 		<Unit filename="include/creditmanager.h" />
 		<Unit filename="include/creditobserver.h" />
 		<Unit filename="include/engine.h" />
+<<<<<<< .mine
 		<Unit filename="include/friendlybehavior.h" />
 		<Unit filename="include/friendlybehaviorattack.h" />
 		<Unit filename="include/friendlybehaviordefend.h" />
 		<Unit filename="include/friendlybehaviorfollow.h" />
 		<Unit filename="include/friendlybehaviorpanic.h" />
+		<Unit filename="include/gamecontrol.h" />
+		<Unit filename="include/gamegraphics.h" />
+=======
+		<Unit filename="include/friendlybehavior.h" />
+		<Unit filename="include/friendlybehaviorattack.h" />
+		<Unit filename="include/friendlybehaviordefend.h" />
+		<Unit filename="include/friendlybehaviorfollow.h" />
+		<Unit filename="include/friendlybehaviorpanic.h" />
+>>>>>>> .r11
 		<Unit filename="include/global.h" />
 		<Unit filename="include/graphicsengine.h" />
+<<<<<<< .mine
+		<Unit filename="include/hostilebehavior.h" />
+=======
 		<Unit filename="include/hostilebehavior.h" />
 		<Unit filename="include/hostilebehaviorattack.h" />
 		<Unit filename="include/hostilebehaviordefend.h" />
+>>>>>>> .r11
 		<Unit filename="include/menu.h" />
+		<Unit filename="include/menucontrol.h" />
 		<Unit filename="include/menugraphics.h" />
 		<Unit filename="include/menumanager.h" />
 		<Unit filename="include/menuobserver.h" />
+<<<<<<< .mine
+		<Unit filename="include/musicmanager.h" />
+		<Unit filename="include/npc.h" />
+=======
 		<Unit filename="include/neutralbehavior.h" />
 		<Unit filename="include/neutralbehaviorflee.h" />
 		<Unit filename="include/neutralbehaviorstroll.h" />
 		<Unit filename="include/npc.h" />
+>>>>>>> .r11
 		<Unit filename="include/pause.h" />
+		<Unit filename="include/pausecontrol.h" />
 		<Unit filename="include/pausegraphics.h" />
 		<Unit filename="include/pausemanager.h" />
 		<Unit filename="include/pauseobserver.h" />
 		<Unit filename="include/pet.h" />
 		<Unit filename="include/settings.h" />
+		<Unit filename="include/settingscontrol.h" />
 		<Unit filename="include/settingsgraphics.h" />
 		<Unit filename="include/settingsmanager.h" />
 		<Unit filename="include/settingsobserver.h" />
+<<<<<<< .mine
+		<Unit filename="include/soundengine.h" />
+		<Unit filename="include/soundmanager.h" />
+		<Unit filename="include/tile.h" />
+=======
 		<Unit filename="include/socialbehavior.h" />
 		<Unit filename="include/socialbehaviorsell.h" />
 		<Unit filename="include/socialbehaviortalk.h" />
 		<Unit filename="include/tile.h" />
+>>>>>>> .r11
 		<Unit filename="include/tool.h" />
 		<Unit filename="include/trigger.h" />
 		<Unit filename="include/villager.h" />
@@ -90,52 +128,90 @@
 		<Unit filename="include/worldobserver.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/animationmanager.cpp" />
+<<<<<<< .mine
+		<Unit filename="src/area.cpp" />
+		<Unit filename="src/areamanager.cpp" />
+		<Unit filename="src/behavior.cpp" />
+		<Unit filename="src/character.cpp" />
+		<Unit filename="src/charactermanager.cpp" />
+=======
 		<Unit filename="src/area.cpp" />
 		<Unit filename="src/areamanager.cpp" />
 		<Unit filename="src/bandit.cpp" />
 		<Unit filename="src/behavior.cpp" />
 		<Unit filename="src/character.cpp" />
 		<Unit filename="src/charactermanager.cpp" />
+>>>>>>> .r11
 		<Unit filename="src/clock.cpp" />
 		<Unit filename="src/clockmanager.cpp" />
+		<Unit filename="src/controlengine.cpp" />
 		<Unit filename="src/controler.cpp" />
 		<Unit filename="src/core.cpp" />
 		<Unit filename="src/credit.cpp" />
+		<Unit filename="src/creditcontrol.cpp" />
 		<Unit filename="src/creditgraphics.cpp" />
 		<Unit filename="src/creditmanager.cpp" />
 		<Unit filename="src/creditobserver.cpp" />
 		<Unit filename="src/engine.cpp" />
+<<<<<<< .mine
 		<Unit filename="src/friendlybehavior.cpp" />
 		<Unit filename="src/friendlybehaviorattack.cpp" />
 		<Unit filename="src/friendlybehaviordefend.cpp" />
 		<Unit filename="src/friendlybehaviorfollow.cpp" />
 		<Unit filename="src/friendlybehaviorpanic.cpp" />
+		<Unit filename="src/gamecontrol.cpp" />
+		<Unit filename="src/gamegraphics.cpp" />
+=======
+		<Unit filename="src/friendlybehavior.cpp" />
+		<Unit filename="src/friendlybehaviorattack.cpp" />
+		<Unit filename="src/friendlybehaviordefend.cpp" />
+		<Unit filename="src/friendlybehaviorfollow.cpp" />
+		<Unit filename="src/friendlybehaviorpanic.cpp" />
+>>>>>>> .r11
 		<Unit filename="src/global.cpp" />
 		<Unit filename="src/graphicsengine.cpp" />
+<<<<<<< .mine
+		<Unit filename="src/hostilebehavior.cpp" />
+=======
 		<Unit filename="src/hostilebehavior.cpp" />
 		<Unit filename="src/hostilebehaviorattack.cpp" />
 		<Unit filename="src/hostilebehaviordefend.cpp" />
+>>>>>>> .r11
 		<Unit filename="src/menu.cpp" />
+		<Unit filename="src/menucontrol.cpp" />
 		<Unit filename="src/menugraphics.cpp" />
 		<Unit filename="src/menumanager.cpp" />
 		<Unit filename="src/menuobserver.cpp" />
+<<<<<<< .mine
+		<Unit filename="src/musicmanager.cpp" />
+		<Unit filename="src/npc.cpp" />
+=======
 		<Unit filename="src/neutralbehavior.cpp" />
 		<Unit filename="src/neutralbehaviorflee.cpp" />
 		<Unit filename="src/neutralbehaviorstroll.cpp" />
 		<Unit filename="src/npc.cpp" />
+>>>>>>> .r11
 		<Unit filename="src/pause.cpp" />
+		<Unit filename="src/pausecontrol.cpp" />
 		<Unit filename="src/pausegraphics.cpp" />
 		<Unit filename="src/pausemanager.cpp" />
 		<Unit filename="src/pauseobserver.cpp" />
 		<Unit filename="src/pet.cpp" />
 		<Unit filename="src/settings.cpp" />
+		<Unit filename="src/settingscontrol.cpp" />
 		<Unit filename="src/settingsgraphics.cpp" />
 		<Unit filename="src/settingsmanager.cpp" />
 		<Unit filename="src/settingsobserver.cpp" />
+<<<<<<< .mine
+		<Unit filename="src/soundengine.cpp" />
+		<Unit filename="src/soundmanager.cpp" />
+		<Unit filename="src/tile.cpp" />
+=======
 		<Unit filename="src/socialbehavior.cpp" />
 		<Unit filename="src/socialbehaviorsell.cpp" />
 		<Unit filename="src/socialbehaviortalk.cpp" />
 		<Unit filename="src/tile.cpp" />
+>>>>>>> .r11
 		<Unit filename="src/tool.cpp" />
 		<Unit filename="src/trigger.cpp" />
 		<Unit filename="src/villager.cpp" />
