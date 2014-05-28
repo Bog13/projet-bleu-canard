@@ -395,7 +395,7 @@
 1401182980 c:\users\j0sh-u_a\desktop\projetbleucanard\include\areamanager.h
 	"area.h"
 
-1401197835 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\tile.cpp
+1401261682 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\tile.cpp
 	"../include/tile.h"
 
 1401194597 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\global.cpp
@@ -403,19 +403,23 @@
 
 1401197835 c:\users\j0sh-u_a\desktop\projetbleucanard\include\global.h
 
-1401195660 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\tool.cpp
+1401265847 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\tool.cpp
 	"../include/tool.h"
 
-1401197532 c:\users\j0sh-u_a\desktop\projetbleucanard\include\tool.h
+1401263961 c:\users\j0sh-u_a\desktop\projetbleucanard\include\tool.h
 	<iostream>
 	<utility>
 	<string>
 	<fstream>
-	<cmaths>
+	<cmath>
+	<vector>
+	"../include/Global.h"
 
-1401195738 source:c:\users\j0sh-u_a\desktop\projetbleucanard\projetbleucanard(area_editor)\main.cpp
+1401266296 source:c:\users\j0sh-u_a\desktop\projetbleucanard\projetbleucanard(area_editor)\main.cpp
 	<iostream>
 	"../include/tool.h"
+	"../include/global.h"
+	"../include/area.h"
 	<SFML/Graphics.hpp>
 
 1401194596 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics.hpp

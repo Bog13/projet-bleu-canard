@@ -9,7 +9,8 @@ Tile::Tile()
 Tile::Tile(int id,int x,int y)
 {
     m_id=id;
-    m_posX=m_posY=0;
+    m_posX=x;
+    m_posY=y;
 }
 
 Tile::Tile(int x,int y)
