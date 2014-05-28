@@ -81,15 +81,21 @@ void display(Area* area,RenderWindow* window)
 
 void displayIso(Area* area,RenderWindow* window)
 {
-    /** A refaire totalement car n'utilise pas l'area.
-    Pour le moment, ca crée un ConvexIsoShape et l'affiche au bon endroit. **/
+    float   width=Global::TILE_WIDTH,
+            height=Global::TILE_HEIGHT;
+    /** A revoir **/
     for(int i=0;i<Global::NB_TILE_HEIGHT;i++)
     {
         for(int j=0;j<Global::NB_TILE_WIDTH;j++)
         {
-            ConvexShape myTile=createIsoConvex(j*Global::TILE_HEIGHT,i*Global::TILE_WIDTH,Global::TILE_WIDTH,Global::TILE_HEIGHT);
+            //ConvexShape myTile=createIsoConvex(j*Global::TILE_HEIGHT,i*Global::TILE_WIDTH,Global::TILE_WIDTH,Global::TILE_HEIGHT);
+            //window->draw(myTile);
 
-            window->draw(myTile);
+            window->draw(createIsoConvex(width*area->getTile(j,i)->getPositionX(),
+                                         height*area->getTile(j,i)->getPositionY(),
+                                         width,
+                                         height)
+                         );
         }
     }
 }
@@ -131,11 +137,11 @@ int main()
         }
 
         window.clear(Color(4,139,154));
-        //displayIso(&currentArea, &window);
-        window.draw(createIsoConvex(200,                //x
+        displayIso(&currentArea, &window);
+        /*window.draw(createIsoConvex(200,                //x
                                     200,                //y
                                     Global::TILE_WIDTH, //width
-                                    Global::TILE_HEIGHT));//height
+                                    Global::TILE_HEIGHT));//height*/
         window.display();
     }
 

@@ -13,6 +13,9 @@ class Tile
         Tile();
         Tile(int id,int x,int y);
         Tile(int x,int y);
+
+        float getPositionX() {return m_posX;}
+        float getPositionY() {return m_posY;}
         virtual ~Tile();
     protected:
         int m_id;

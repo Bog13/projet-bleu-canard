@@ -5,6 +5,7 @@ Tool::Tool()
     //ctor
 }
 
+/**
 std::pair<float,float> Tool::toIso(float x,float y)
 {
             /**
@@ -12,7 +13,7 @@ std::pair<float,float> Tool::toIso(float x,float y)
                 Matrice[indice] tel que:
                     B0  [0 1 ]
                          2 3
-            **/
+
 
 
     std::pair<float,float> iso;
@@ -27,10 +28,10 @@ std::pair<float,float> Tool::toIso(float x,float y)
     iso.first=xRes;
     iso.second=yRes;
     return iso;
-}
+}**/
 
 
-/** Ce qui suit est un essaie pour le moment infructueux de ToIso()
+/** Ce qui suit est un essaie pour le moment infructueux de ToIso() **/
 
 
 std::pair<float,float> Tool::toIso(float x,float y)
@@ -39,6 +40,7 @@ std::pair<float,float> Tool::toIso(float x,float y)
                 Matrice[indice] tel que:
                     B0  [0 1 ]
                          2 3
+                         */
 
 
     std::pair<float,float> iso;
@@ -49,21 +51,22 @@ std::pair<float,float> Tool::toIso(float x,float y)
 
             /*
                 Ce que j'ai nommé i et j est expliqué dans le "i&j.jpg" que j'ai mis en dropBox
+            */
 
 
 
-    matrix.push_back( 1         );              //0     /// Ici il nous faut une matrice qui marche.
-    matrix.push_back( 1-i         );               //1
-    matrix.push_back(  0         );              //2
-    matrix.push_back( 1-j          );              //3
+    matrix.push_back(0.5        );              //0
+    matrix.push_back(sqrt(2)/2 );               //1
+    matrix.push_back(-0.5          );              //2
+    matrix.push_back(0          );              //3
 
-    float   yRes=matrix[0]*x+matrix[1]*y,
-            xRes=matrix[2]*x+matrix[3]*y;
+    float   xRes=matrix[0]*x+matrix[1]*y,
+            yRes=matrix[2]*x+matrix[3]*y;
     iso.first=xRes;
     iso.second=yRes;
     return iso;
 }
-**/
+
 
 std::pair<float,float> Tool::toInvIso(float x,float y)
 ///A mettre à jour
