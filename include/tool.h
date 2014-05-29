@@ -8,6 +8,7 @@
 #include <vector>
 #include "../include/Global.h"
 
+
 /*
     Contient les méthodes générales (sauvegarder dans un fichier par ex)
 */
@@ -16,7 +17,6 @@ class Tool
 {
     public:
         Tool();
-
         static std::pair<float,float>   toIso(float x,float y);
         static std::pair<float,float>   toInvIso(float x,float y);
         static std::pair<float,float>   toOrtho(float x,float y);

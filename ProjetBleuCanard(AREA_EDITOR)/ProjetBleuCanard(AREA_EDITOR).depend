@@ -9,7 +9,7 @@
 	<vector>
 	<iostream>
 
-1401196732 c:\users\bérenger\desktop\projet-bleu-canard\include\tile.h
+1401370262 c:\users\bérenger\desktop\projet-bleu-canard\include\tile.h
 
 1401184571 c:\users\bérenger\desktop\projet-bleu-canard\include\character.h
 
@@ -19,10 +19,10 @@
 1401184571 c:\users\bérenger\desktop\projet-bleu-canard\include\areamanager.h
 	"area.h"
 
-1401196732 source:c:\users\bérenger\desktop\projet-bleu-canard\src\tile.cpp
+1401370263 source:c:\users\bérenger\desktop\projet-bleu-canard\src\tile.cpp
 	"../include/tile.h"
 
-1401197402 source:c:\users\bérenger\desktop\projet-bleu-canard\projetbleucanard(area_editor)\main.cpp
+1401374202 source:c:\users\bérenger\desktop\projet-bleu-canard\projetbleucanard(area_editor)\main.cpp
 	<iostream>
 	"../include/tool.h"
 	"../include/global.h"
@@ -32,14 +32,19 @@
 1401191237 source:c:\users\bérenger\desktop\projet-bleu-canard\src\global.cpp
 	"../include/global.h"
 
-1401196013 c:\users\bérenger\desktop\projet-bleu-canard\include\global.h
+1401199033 c:\users\bérenger\desktop\projet-bleu-canard\include\global.h
 
-1401191925 source:c:\users\bérenger\desktop\projet-bleu-canard\src\tool.cpp
+1401370969 source:c:\users\bérenger\desktop\projet-bleu-canard\src\tool.cpp
 	"../include/tool.h"
 
-1401191843 c:\users\bérenger\desktop\projet-bleu-canard\include\tool.h
+1401370908 c:\users\bérenger\desktop\projet-bleu-canard\include\tool.h
 	<iostream>
 	<utility>
+	<string>
+	<fstream>
+	<cmath>
+	<vector>
+	"../include/Global.h"
 
 1368000880 c:\users\bérenger\desktop\projet-bleu-canard\include\sfml\graphics.hpp
 	<SFML/Window.hpp>

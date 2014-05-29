@@ -5,16 +5,53 @@ Tool::Tool()
     //ctor
 }
 
+
+
 /**
 std::pair<float,float> Tool::toIso(float x,float y)
+>>>>>>> .r23
 {
+<<<<<<< .mine
+    std::pair<float,float> res;
+    float xres=x;
+    float yres=y - Global::WINDOW_HEIGHT;
+=======
             /**
             on pose l'écriture d'une matrice:
                 Matrice[indice] tel que:
                     B0  [0 1 ]
                          2 3
+>>>>>>> .r23
 
+<<<<<<< .mine
+    res.first=xres;
+    res.second=yres;
+}
+=======
+>>>>>>> .r23
 
+<<<<<<< .mine
+std::pair<float,float> Tool::toInvOrtho(int x,int y)
+{
+    std::pair<float,float> res;
+    float xres=x;
+    float yres=y + Global::WINDOW_HEIGHT;
+
+    res.first=xres;
+    res.second=yres;
+}
+
+std::pair<float,float> Tool::toIso(float x,float y)
+{
+    std::pair<float,float> iso;
+    float alpha=-3.14/3;
+    int i=x;
+    int j=y;
+
+    float xRes=i*cos(alpha)  - j*sin(alpha);
+    float yRes=i*sin(alpha) +  j*cos(alpha);
+
+=======
 
     std::pair<float,float> iso;
     std::vector<float> matrix;
@@ -25,6 +62,7 @@ std::pair<float,float> Tool::toIso(float x,float y)
 
     float   yRes=matrix[0]*x+matrix[1]*y,
             xRes=matrix[2]*x+matrix[3]*y;
+>>>>>>> .r23
     iso.first=xRes;
     iso.second=yRes;
     return iso;

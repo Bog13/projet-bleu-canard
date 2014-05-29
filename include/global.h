@@ -10,8 +10,8 @@ class Global
         Global();
         virtual ~Global();
 
-        static const int WINDOW_WIDTH=800;
-        static const int WINDOW_HEIGHT=600;
+        static const int WINDOW_WIDTH=640;
+        static const int WINDOW_HEIGHT=480;
 
         static const int TILE_WIDTH=32;
         static const int TILE_HEIGHT=32;
