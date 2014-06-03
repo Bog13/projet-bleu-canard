@@ -15,16 +15,30 @@ int main()
         {
             switch(event.type)
             {
-                default:break;
-                case Event::Closed:window.close();
 
-                switch(event.key.code)
-                {
-                    default:break;
-                    case Keyboard::Escape:window.close();
-                }
+                case Event::Closed:
+                    window.close();
+                    break;
+
+                default:
+                    break;
+
+                case Event::KeyPressed:
+
+                    switch(event.key.code)
+                    {
+
+                        case Keyboard::Escape:
+                            window.close();
+                            break;
+
+                        default:
+                            break;
+                    }
+                    break;
             }
         }
+
         window.clear(Color(4,139,154));
         window.display();
     }
