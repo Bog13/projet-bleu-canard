@@ -1,46 +1,16 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-
+#include <vector>
+#include "core.h"
 using namespace std;
 using namespace sf;
 
 int main()
 {
-    RenderWindow window(VideoMode(800,600), "test");
-    Event event;
+    RenderWindow window(VideoMode(800,600,64), "test");
 
-    while (window.isOpen())
-    {
-        while(window.pollEvent(event))
-        {
-            switch(event.type)
-            {
+    Core core(&window);
+    core.run();
 
-                case Event::Closed:
-                    window.close();
-                    break;
-
-                default:
-                    break;
-
-                case Event::KeyPressed:
-
-                    switch(event.key.code)
-                    {
-
-                        case Keyboard::Escape:
-                            window.close();
-                            break;
-
-                        default:
-                            break;
-                    }
-                    break;
-            }
-        }
-
-        window.clear(Color(4,139,154));
-        window.display();
-    }
     return 0;
 }
