@@ -3,6 +3,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <sstream>
 using namespace std;
 using namespace sf;
 
@@ -28,7 +29,7 @@ class Global
         static const int ID_ROCK=3;
 
 
-
+        static string intToStr(int n);
     protected:
 
 

@@ -12,7 +12,9 @@ class Tile
 {
     public:
         Tile();
+        Tile(int type);
         void setType(int type){m_type=type;}
+        void update();
         virtual ~Tile();
     protected:
         int m_type;

@@ -16,7 +16,7 @@ class TileGraphic
         TileGraphic();
         Animation* getAnimation(){return &m_animation;}
         ConvexShape* getConvexShape(){return &m_convexShape;}
-
+        void update();
         void setAnimation(Animation a){m_animation=a;}
         void setConvexShape(ConvexShape cs){m_convexShape=cs;}
         virtual ~TileGraphic();

@@ -5,12 +5,17 @@ vector<TileGraphic> TileFactory::m_vector;
 
 void TileFactory::load()
 {
-    ///ground
-    Animation a(AnimationFactory::get(0));
+
     ConvexShape c=Graphics::createSquare(0,0,Global::TILE_WIDTH,Global::TILE_HEIGHT);
 
-    TileGraphic tg(a,c);
-    m_vector.push_back(tg);
+    {Animation a(AnimationFactory::get(Global::ID_NONE));TileGraphic tg(a,c);m_vector.push_back(tg);}
+    {Animation a(AnimationFactory::get(Global::ID_GROUND));TileGraphic tg(a,c);m_vector.push_back(tg);}
+    {Animation a(AnimationFactory::get(Global::ID_GRASS));TileGraphic tg(a,c);m_vector.push_back(tg);}
+    {Animation a(AnimationFactory::get(Global::ID_ROCK));TileGraphic tg(a,c);m_vector.push_back(tg);}
+
+
+
+
 
     cout<<"Tiles loaded !"<<endl;
 

@@ -34,6 +34,19 @@ void Graphics::drawTile(TileGraphic t)
     m_window->draw(cs);
 }
 
+void Graphics::drawArea(AreaGraphic *ag)
+{
+
+    for(int i=0;i<ag->getHeight();i++)
+    {
+        for(int j=0;j<ag->getWidth();j++)
+        {
+            ag->getTileGraphic(j,i)->getConvexShape()->setPosition(Vector2f(j*Global::TILE_WIDTH,i*Global::TILE_HEIGHT));
+            drawTile(*ag->getTileGraphic(j,i));
+        }
+    }
+}
+
 Graphics::~Graphics()
 {
     //dtor
