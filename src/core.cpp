@@ -7,9 +7,12 @@ Core::Core(RenderWindow* window)
     m_graphic=new Graphics(m_window);
     ag=new AreaGraphic(4,4);
 
+
     m_fps=0;
     m_clockFps=0;
     m_clock.restart();
+
+    m_viewActivated=false;
 }
 
 
@@ -23,6 +26,8 @@ void Core::update()
 
         m_clockFps=time(NULL);
     }
+
+    m_graphic->update();
 }
 
 void Core::draw()
@@ -30,6 +35,9 @@ void Core::draw()
      m_window->clear(Color(4,139,154));
      m_graphic->drawArea(ag);
 }
+
+
+
 
 void Core::run()
 {
@@ -59,6 +67,40 @@ void Core::run()
                         case Keyboard::Escape:
                             m_window->close();
                             break;
+
+
+                        /**
+                        La suite sert temporairement à tester la vue. CdC- ID 001 (Dropbox)
+                            Concrètement, appuyer sur V inverse la présence d'une vue et les flèches dirigent.
+                        **/
+                        { /// Ouvre avec le '+' à gauche si nécessaire.
+
+                        case Keyboard::V:
+
+                            m_viewActivated=!m_viewActivated;
+                            m_graphic->enableView(m_viewActivated);
+                            break;
+
+                        case Keyboard::Right:
+                            m_graphic->moveViewRight(10);
+                            break;
+
+                        case Keyboard::Left:
+                            m_graphic->moveViewLeft(10);
+                            break;
+
+                        case Keyboard::Up:
+                            m_graphic->moveViewUp(10);
+                            break;
+
+                        case Keyboard::Down:
+                            m_graphic->moveViewDown(10);
+                            break;
+
+                        case Keyboard::Right && Keyboard::Up : /// Ca compile !
+                            m_graphic->moveView(0,10,-10,0);
+                            break;
+                        }
 
                         default:
                             break;

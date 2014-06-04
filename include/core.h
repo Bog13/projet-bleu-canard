@@ -20,6 +20,7 @@ class Core
         void run();
         void update();
         void draw();
+
         virtual ~Core();
 
     protected:
@@ -30,6 +31,10 @@ class Core
         int m_fps;
         int m_clockFps;
         Clock m_clock;
+
+        bool m_viewActivated;
+
+
 
     private:
 };
