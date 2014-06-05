@@ -30,6 +30,9 @@ class Global
 
 
         static string intToStr(int n);
+        static int strToInt(string str);
+        static int sizeWithoutSpace(string str);
+
     protected:
 
 

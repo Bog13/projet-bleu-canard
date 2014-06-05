@@ -26,7 +26,11 @@ class Core
     protected:
         RenderWindow* m_window;
         Graphics* m_graphic;
+
+        ///pour le test des areas
         AreaGraphic *ag;
+        Area *a;
+        ///
 
         int m_fps;
         int m_clockFps;

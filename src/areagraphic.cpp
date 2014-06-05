@@ -1,10 +1,11 @@
 #include "areagraphic.h"
 
-AreaGraphic::AreaGraphic(int w,int h)
+AreaGraphic::AreaGraphic(Area *a)
 {
+    m_area=a;
 
-    m_width=w;
-    m_height=h;
+    m_width=a->getWidth();
+    m_height=a->getHeight();
 
     initTile();
 }
@@ -20,7 +21,7 @@ void AreaGraphic::initTile()
         for(int j=0;j<m_width;j++)
         {
 
-            vecTile->push_back(TileFactory::get(Global::ID_GRASS));
+            vecTile->push_back(TileFactory::get( m_area->getTile(j,i)->getType() ));
 
         }
 

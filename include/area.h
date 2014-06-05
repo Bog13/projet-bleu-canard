@@ -9,9 +9,13 @@ using namespace std;
 class Area
 {
     public:
-        Area();
+        Area(int w,int h);
         void initTile();
+        void newSize(int w,int h);
+        void killTiles();
+        void setTiles(vector<vector<int> > values);
         Tile* getTile(int x,int y);
+
         void update();
 
         int getWidth(){return m_width;}

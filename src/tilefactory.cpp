@@ -28,7 +28,11 @@ TileGraphic TileFactory::get(int i)
     {
         return m_vector[i];
     }
-    else cerr<<"ERREUR TILEFACTORY "<<i<<endl;
+    else
+    {
+        cerr<<"ERREUR TILEFACTORY "<<i<<endl;
+        return m_vector[Global::ID_NONE];
+    }
 }
 
 

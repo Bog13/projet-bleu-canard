@@ -5,8 +5,12 @@ Core::Core(RenderWindow* window)
 
     m_window=window;
     m_graphic=new Graphics(m_window);
-    ag=new AreaGraphic(4,4);
 
+    /// test area
+    a=new Area(1,1);
+    AreaFactory::loadArea(a,"test2.txt");
+    ag=new AreaGraphic(a);
+    ///
 
     m_fps=0;
     m_clockFps=0;
@@ -69,6 +73,8 @@ void Core::run()
                             break;
 
 
+
+
                         /**
                         La suite sert temporairement à tester la vue. CdC- ID 001 (Dropbox)
                             Concrètement, appuyer sur V inverse la présence d'une vue et les flèches dirigent.
@@ -123,6 +129,6 @@ void Core::run()
 
 Core::~Core()
 {
-    delete ag;
+    delete ag;delete a;//test area
     delete m_graphic;
 }

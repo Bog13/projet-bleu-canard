@@ -14,6 +14,7 @@ class Tile
         Tile();
         Tile(int type);
         void setType(int type){m_type=type;}
+        int getType(){return m_type;}
         void update();
         virtual ~Tile();
     protected:

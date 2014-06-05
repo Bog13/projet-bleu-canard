@@ -1,6 +1,7 @@
 #ifndef AREAFACTORY_H
 #define AREAFACTORY_H
 #include <iostream>
+#include <fstream>
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "tilegraphic.h"
@@ -20,8 +21,8 @@ class AreaFactory
         static void load();
         static AreaGraphic get(int i);
 
-
-
+        static void saveArea(Area *area,string fileName);
+        static void loadArea(Area *a,string fileName);
 
     protected:
         static vector<AreaGraphic> m_vector;
