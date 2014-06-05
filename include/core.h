@@ -9,6 +9,7 @@
 #include "tilegraphic.h"
 #include "areagraphic.h"
 #include "areafactory.h"
+#include "charactergraphic.h"
 using namespace std;
 using namespace sf;
 
@@ -26,10 +27,8 @@ class Core
     protected:
         RenderWindow* m_window;
         Graphics* m_graphic;
-
-        ///pour le test des areas
-        AreaGraphic *ag;
-        Area *a;
+        AreaGraphic *m_ag;
+        Area *m_a;
         ///
 
         int m_fps;

@@ -17,10 +17,13 @@ class TextureFactory
         virtual ~TextureFactory();
 
         static void load();
-        static Texture* get(int i);
+        static vector<Texture>loadPNG(string nameTXT, int nbTileHauteur, int nbTileLargeur, int tileWidth=Global::TILE_WIDTH, int tileHeight=Global::TILE_HEIGHT);
+        static Texture* getTile(int i);
+        static Texture* getChar(int IDchar, int i);
 
     protected:
-        static vector<Texture> m_vector;
+        static vector<Texture> m_tiles;
+        static vector<vector<Texture> > m_characters; ///Nécessité de plusieurs textures par character.
     private:
 };
 

@@ -5,11 +5,10 @@ Core::Core(RenderWindow* window)
 
     m_window=window;
     m_graphic=new Graphics(m_window);
-
-    /// test area
-    a=new Area(1,1);
-    AreaFactory::loadArea(a,"test2.txt");
-    ag=new AreaGraphic(a);
+   /// test area
+    m_a=new Area(1,1);
+    AreaFactory::loadArea(m_a,"test2.txt");
+    m_ag=new AreaGraphic(m_a);
     ///
 
     m_fps=0;
@@ -22,7 +21,7 @@ Core::Core(RenderWindow* window)
 
 void Core::update()
 {
-    ag->update();
+    m_ag->update();
 
     if(time(NULL)-m_clockFps>=1)
     {
@@ -37,7 +36,11 @@ void Core::update()
 void Core::draw()
 {
      m_window->clear(Color(4,139,154));
-     m_graphic->drawArea(ag);
+     m_graphic->drawArea(m_ag);
+
+    ///TEST
+     CharacterGraphic c(AnimationFactory::get(Global::ID_JOSH),Graphics::createSquare(10,10,32,32));
+     m_graphic->drawTile(c);
 }
 
 
@@ -129,6 +132,6 @@ void Core::run()
 
 Core::~Core()
 {
-    delete ag;delete a;//test area
-    delete m_graphic;
+delete m_ag;delete m_a;//test area
+delete m_graphic;
 }

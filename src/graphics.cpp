@@ -48,6 +48,16 @@ void Graphics::drawTile(TileGraphic t)
     m_window->draw(cs);
 }
 
+/*void Graphics::drawCharacter(CharacterGraphic c)
+{
+    Animation a=*c.getAnimation();
+    ConvexShape cs=*c.getConvexShape();
+    cs.setTexture(a.getCurrentFrame());
+
+
+    m_window->draw(cs);
+}*/
+
 void Graphics::drawArea(AreaGraphic *ag)
 {
 

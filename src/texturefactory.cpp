@@ -1,33 +1,57 @@
 #include "texturefactory.h"
 
-vector<Texture> TextureFactory::m_vector;
+vector<Texture> TextureFactory::m_tiles;
+vector<vector<Texture> > TextureFactory::m_characters;
 
-Texture* TextureFactory::get(int i)
+Texture* TextureFactory::getTile(int i)
 {
-    return &m_vector[i];
+
+    if(i>=0);return &m_tiles[i];
+    cerr << " Tentative d'accéder à un tile négatif (TextureFactory::getTile())"<<endl;
+    return 0;
 }
 
-void TextureFactory::load()
+Texture* TextureFactory::getChar(int IDchar, int i)
+/**
+    Cette méthode permet l'accès aux textures de chaque char. Le vector de vector est nécessaire dans la mesure
+    où il existe plusieurs characters aux textures différentes (NPC,pet,perso);
+**/
 {
-    ///tile
-    int nbTileHauteur=1;
-    int nbTileLargeur=4;
+    if(i>=0);return &m_characters[IDchar-Global::ID_FIRST_CHAR][i]; ///C'est là que j'ai eu un soucis d'accès aux vector puisque pas le même.
+    cerr << " Tentative d'accéder à un character négatif (TextureFactory::getChar())"<<endl;
+    return 0;
+}
 
-    for(int i=0;i<nbTileLargeur;i++)
+
+vector<Texture> TextureFactory::loadPNG(string nameTXT, int nbTileHauteur, int nbTileLargeur, int tileWidth, int tileHeight)
+    /**En gros, cette méthode allèche le code. Elle permet de charger une image (tileset etc.) avec des critères modifiables.**/
     {
-        for(int j=0;j<nbTileHauteur;j++)
+        vector<Texture> tiles;
+        for(int i=0;i<nbTileLargeur;i++)
         {
-            Texture texture;
-            if(!texture.loadFromFile("data/img/tileset.png",IntRect(i*Global::TILE_WIDTH,j*Global::TILE_HEIGHT,Global::TILE_WIDTH,Global::TILE_HEIGHT)))
+            for(int j=0;j<nbTileHauteur;j++)
             {
-                cerr<<"Erreur chargement des textures !"<<endl;
+                Texture texture;
+                if(!texture.loadFromFile(nameTXT.c_str(),IntRect(i*tileWidth,j*tileHeight,tileWidth,tileHeight)))
+                {
+                    cerr<<"Erreur chargement des textures des tiles ! [TextureFactory::loadPNG()]"<<endl;
+                }
+                tiles.push_back(texture);
             }
-            m_vector.push_back(texture);
         }
+        return tiles;
     }
 
 
 
+void TextureFactory::load()
+{
+    ///tile
+    m_tiles=loadPNG("data/img/tileset.png",1,4);
+    ///
+
+    ///Characters
+    m_characters.push_back(loadPNG("data/img/player.png",2,3));
     ///
 
     cout<<"Textures loaded !"<<endl;

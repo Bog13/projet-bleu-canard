@@ -8,7 +8,7 @@ vector<AreaGraphic> AreaFactory::m_vector;
 void AreaFactory::load()
 {
 
-    cout<<"Areas loaded !"<<endl;
+    cout<<"Areas should be loaded !"<<endl;
 }
 
 void AreaFactory::saveArea(Area *area,string fileName)
