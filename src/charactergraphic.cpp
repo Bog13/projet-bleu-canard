@@ -7,9 +7,9 @@ CharacterGraphic::CharacterGraphic(Animation a, ConvexShape cs)
 }
 
 
-void update()
+void CharacterGraphic::update()
 {
-
+    m_animation.update();
 
 }
 

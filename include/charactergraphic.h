@@ -2,13 +2,14 @@
 #define CHARACTERGRAPHIC_H
 
 
-#include "tilegraphic.h"
+#include "entitygraphic.h"
 
-class CharacterGraphic: public TileGraphic
+class CharacterGraphic: public EntityGraphic
 {
     public:
 
         CharacterGraphic(Animation a, ConvexShape cs);
+        void update();
         virtual ~CharacterGraphic();
 
     protected:

@@ -1,6 +1,6 @@
 #include "tilefactory.h"
 
-vector<TileGraphic> TileFactory::m_vector;
+vector<EntityGraphic> TileFactory::m_vector;
 
 
 void TileFactory::load()
@@ -8,10 +8,10 @@ void TileFactory::load()
 
     ConvexShape c=Graphics::createSquare(0,0,Global::TILE_WIDTH,Global::TILE_HEIGHT);
 
-    {Animation a(AnimationFactory::get(Global::ID_NONE));TileGraphic tg(a,c);m_vector.push_back(tg);}
-    {Animation a(AnimationFactory::get(Global::ID_GROUND));TileGraphic tg(a,c);m_vector.push_back(tg);}
-    {Animation a(AnimationFactory::get(Global::ID_GRASS));TileGraphic tg(a,c);m_vector.push_back(tg);}
-    {Animation a(AnimationFactory::get(Global::ID_ROCK));TileGraphic tg(a,c);m_vector.push_back(tg);}
+    {Animation a(AnimationFactory::get(Global::ID_NONE));EntityGraphic tg(a,c);m_vector.push_back(tg);}
+    {Animation a(AnimationFactory::get(Global::ID_GROUND));EntityGraphic tg(a,c);m_vector.push_back(tg);}
+    {Animation a(AnimationFactory::get(Global::ID_GRASS));EntityGraphic tg(a,c);m_vector.push_back(tg);}
+    {Animation a(AnimationFactory::get(Global::ID_ROCK));EntityGraphic tg(a,c);m_vector.push_back(tg);}
 
 
 
@@ -22,7 +22,7 @@ void TileFactory::load()
 
 }
 
-TileGraphic TileFactory::get(int i)
+EntityGraphic TileFactory::get(int i)
 {
     if(i>=0 && i< m_vector.size())
     {

@@ -4,7 +4,7 @@
 #include <fstream>
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "tilegraphic.h"
+#include "entitygraphic.h"
 #include "area.h"
 #include "areagraphic.h"
 #include "global.h"

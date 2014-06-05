@@ -13,10 +13,10 @@ AreaGraphic::AreaGraphic(Area *a)
 
 void AreaGraphic::initTile()
 {
-    vector<TileGraphic>* vecTile=0;
+    vector<EntityGraphic>* vecTile=0;
     for(int i=0;i<m_height;i++)
     {
-        vecTile=new  vector<TileGraphic>;
+        vecTile=new  vector<EntityGraphic>;
 
         for(int j=0;j<m_width;j++)
         {
@@ -32,7 +32,7 @@ void AreaGraphic::initTile()
 
 }
 
-TileGraphic* AreaGraphic::getTileGraphic(int x,int y)
+EntityGraphic* AreaGraphic::getTileGraphic(int x,int y)
 {
     return &m_tiles[y][x];
 }

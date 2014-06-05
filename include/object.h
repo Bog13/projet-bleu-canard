@@ -11,14 +11,14 @@ class Object : public Tile
         Object(float positionX, float positionY);
         virtual ~Object();
 
-        float GetpositionX() { return m_positionX; }
-        void SetpositionX(float val) { m_positionX = val; }
+        float getPositionX() { return m_positionX; }
+        void setPositionX(float val) { m_positionX = val; }
 
-        float GetpositionY() { return m_positionY; }
-        void SetpositionY(float val) { m_positionY = val; }
+        float getPositionY() { return m_positionY; }
+        void setPositionY(float val) { m_positionY = val; }
 
-        Vector2f GetPosition() {return Vector2f(m_positionX,m_positionY);}
-        void SetPosition(float x, float y)  {m_positionX=x; m_positionY=y;}
+        Vector2f setPosition() {return Vector2f(m_positionX,m_positionY);}
+        void setPosition(float x, float y)  {m_positionX=x; m_positionY=y;}
 
         void Move(float x=0, float y=0) {m_positionX+=x; m_positionY+=y;} ///A revoir niveau colision je présume.
 

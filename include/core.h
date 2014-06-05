@@ -6,7 +6,7 @@
 #include "texturefactory.h"
 #include "animationfactory.h"
 #include "graphics.h"
-#include "tilegraphic.h"
+#include "entitygraphic.h"
 #include "areagraphic.h"
 #include "areafactory.h"
 #include "charactergraphic.h"
@@ -29,6 +29,7 @@ class Core
         Graphics* m_graphic;
         AreaGraphic *m_ag;
         Area *m_a;
+        CharacterGraphic *m_c;
         ///
 
         int m_fps;

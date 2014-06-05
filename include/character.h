@@ -31,39 +31,6 @@ class Character : public Object
         virtual ~Character();
 
 
-        /// Methods
-
-         int Getlife() { return m_life; }
-        void Setlife( int val) { m_life = val; }
-
-         int Getmana() { return m_mana; }
-        void Setmana( int val) { m_mana = val; }
-
-         int Getlevel() { return m_level; }
-        void Setlevel( int val) { m_level = val; }
-
-        float Getxp() { return m_xp; }
-        void Setxp(float val) { m_xp = val; }
-
-        float GetphysicalDefense() { return m_physicalDefense; }
-        void SetphysicalDefense(float val) { m_physicalDefense = val; }
-
-        float GetmagicalStrength() { return m_magicalStrength; }
-        void SetmagicalStrength(float val) { m_magicalStrength = val; }
-
-        float GetphysicalStrength() { return m_physicalStrength; }
-        void SetphysicalStrength(float val) { m_physicalStrength = val; }
-
-        float GetmagicalDefense() { return m_magicalDefense; }
-        void SetmagicalDefense(float val) { m_magicalDefense = val; }
-
-        float Getspeed() { return m_speed; }
-        void Setspeed(float val) { m_speed = val; }
-
-        int Getorientation() { return m_orientation; }
-        void Setorientation(int val) { m_orientation = val; }
-
-
 
     protected:
 

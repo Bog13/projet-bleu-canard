@@ -5,7 +5,7 @@
 #include <vector>
 #include "graphics.h"
 #include "animation.h"
-#include "tilegraphic.h"
+#include "entitygraphic.h"
 #include "global.h"
 using namespace std;
 using namespace sf;

@@ -39,24 +39,15 @@ ConvexShape Graphics::createSquare(int x,int y,int w,int h)
     return cs;
 }
 
-void Graphics::drawTile(TileGraphic t)
+void Graphics::drawEntity(EntityGraphic *t)
 {
-    Animation a=*t.getAnimation();
-    ConvexShape cs=*t.getConvexShape();
+    Animation a=*(t->getAnimation());
+    ConvexShape cs=*(t->getConvexShape());
     cs.setTexture(a.getCurrentFrame());
 
     m_window->draw(cs);
 }
 
-/*void Graphics::drawCharacter(CharacterGraphic c)
-{
-    Animation a=*c.getAnimation();
-    ConvexShape cs=*c.getConvexShape();
-    cs.setTexture(a.getCurrentFrame());
-
-
-    m_window->draw(cs);
-}*/
 
 void Graphics::drawArea(AreaGraphic *ag)
 {
@@ -66,7 +57,7 @@ void Graphics::drawArea(AreaGraphic *ag)
         for(int j=0;j<ag->getWidth();j++)
         {
             ag->getTileGraphic(j,i)->getConvexShape()->setPosition(Vector2f(j*Global::TILE_WIDTH,i*Global::TILE_HEIGHT));
-            drawTile(*ag->getTileGraphic(j,i));
+            drawEntity(ag->getTileGraphic(j,i));
         }
     }
 }

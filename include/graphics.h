@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "tilefactory.h"
-#include "tilegraphic.h"
+#include "entitygraphic.h"
 #include "areagraphic.h"
 #include "character.h"
 using namespace std;
@@ -16,9 +16,9 @@ class Graphics
     public:
         Graphics(RenderWindow* window);
         static ConvexShape createSquare(int x,int y,int w,int h);
-        void drawTile(TileGraphic t);
+        void drawEntity(EntityGraphic *t);
         void drawArea(AreaGraphic *ag);
-        void drawCharacter(TileGraphic t);
+        void drawCharacter(EntityGraphic t);
         void update();
 
         ///Controle de la view

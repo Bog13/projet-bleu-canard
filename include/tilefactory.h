@@ -3,7 +3,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "tilegraphic.h"
+#include "entitygraphic.h"
 #include "graphics.h"
 #include "animation.h"
 #include "animationfactory.h"
@@ -21,11 +21,11 @@ class TileFactory
         virtual ~TileFactory();
 
         static void load();
-        static TileGraphic get(int i);
+        static EntityGraphic get(int i);
 
 
     protected:
-        static vector<TileGraphic> m_vector;
+        static vector<EntityGraphic> m_vector;
     private:
 };
 

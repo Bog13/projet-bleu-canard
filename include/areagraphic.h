@@ -4,7 +4,7 @@
 #include <vector>
 #include "tile.h"
 #include "global.h"
-#include "tilegraphic.h"
+#include "entitygraphic.h"
 #include "tilefactory.h"
 #include "area.h"
 using namespace std;
@@ -14,7 +14,7 @@ class AreaGraphic
     public:
         AreaGraphic(Area *a);
         void initTile();
-        TileGraphic* getTileGraphic(int x,int y);
+        EntityGraphic* getTileGraphic(int x,int y);
         void update();
 
         int getWidth(){return m_width;}
@@ -26,7 +26,7 @@ class AreaGraphic
         int m_width;
         int m_height;
         Area *m_area;
-        vector<vector<TileGraphic> > m_tiles;
+        vector<vector<EntityGraphic> > m_tiles;
     private:
 };
 #endif // AREAGRAPHIC_H

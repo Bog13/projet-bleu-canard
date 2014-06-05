@@ -5,10 +5,15 @@ Core::Core(RenderWindow* window)
 
     m_window=window;
     m_graphic=new Graphics(m_window);
-   /// test area
+
+    /// test area
     m_a=new Area(1,1);
     AreaFactory::loadArea(m_a,"test2.txt");
     m_ag=new AreaGraphic(m_a);
+    ///
+
+    ///test character
+    m_c= new CharacterGraphic (AnimationFactory::get(Global::ID_JOSH),Graphics::createSquare(10,10,32,32));
     ///
 
     m_fps=0;
@@ -22,7 +27,7 @@ Core::Core(RenderWindow* window)
 void Core::update()
 {
     m_ag->update();
-
+    m_c->update();
     if(time(NULL)-m_clockFps>=1)
     {
         m_window->setTitle(Global::intToStr(m_fps)+" fps");
@@ -39,8 +44,8 @@ void Core::draw()
      m_graphic->drawArea(m_ag);
 
     ///TEST
-     CharacterGraphic c(AnimationFactory::get(Global::ID_JOSH),Graphics::createSquare(10,10,32,32));
-     m_graphic->drawTile(c);
+
+     m_graphic->drawEntity(m_c);
 }
 
 
@@ -133,5 +138,6 @@ void Core::run()
 Core::~Core()
 {
 delete m_ag;delete m_a;//test area
+delete m_c;
 delete m_graphic;
 }

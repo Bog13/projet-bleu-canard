@@ -9,11 +9,11 @@ using namespace sf;
 
 
 
-class TileGraphic
+class EntityGraphic
 {
     public:
-        TileGraphic(Animation a,ConvexShape c);
-        TileGraphic();
+        EntityGraphic(Animation a,ConvexShape c);
+        EntityGraphic();
 
         Animation* getAnimation(){return &m_animation;}
         ConvexShape* getConvexShape(){return &m_convexShape;}
@@ -21,7 +21,7 @@ class TileGraphic
         void update();
         void setAnimation(Animation a){m_animation=a;}
         void setConvexShape(ConvexShape cs){m_convexShape=cs;}
-        virtual ~TileGraphic();
+        virtual ~EntityGraphic();
 
 
     protected:

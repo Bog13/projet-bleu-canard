@@ -52,6 +52,7 @@
 		<Unit filename="include/character.h" />
 		<Unit filename="include/charactergraphic.h" />
 		<Unit filename="include/core.h" />
+		<Unit filename="include/entitygraphic.h" />
 		<Unit filename="include/global.h" />
 		<Unit filename="include/graphics.h" />
 		<Unit filename="include/includes.h" />
@@ -59,7 +60,6 @@
 		<Unit filename="include/texturefactory.h" />
 		<Unit filename="include/tile.h" />
 		<Unit filename="include/tilefactory.h" />
-		<Unit filename="include/tilegraphic.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/animation.cpp" />
 		<Unit filename="src/animationfactory.cpp" />
@@ -69,13 +69,13 @@
 		<Unit filename="src/character.cpp" />
 		<Unit filename="src/charactergraphic.cpp" />
 		<Unit filename="src/core.cpp" />
+		<Unit filename="src/entitygraphic.cpp" />
 		<Unit filename="src/global.cpp" />
 		<Unit filename="src/graphics.cpp" />
 		<Unit filename="src/object.cpp" />
 		<Unit filename="src/texturefactory.cpp" />
 		<Unit filename="src/tile.cpp" />
 		<Unit filename="src/tilefactory.cpp" />
-		<Unit filename="src/tilegraphic.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
