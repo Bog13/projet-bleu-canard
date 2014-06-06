@@ -27,6 +27,31 @@ int Global::strToInt(string str)
     return n;
 }
 
+bool Global::strToBool(string str)
+{
+    istringstream iss(str);
+    bool b;
+    iss>>b;
+    return b;
+}
+
+
+template <class T> T Global::strTo(string str)
+{
+    istringstream iss(str);
+    T t;
+    iss>>t;
+    return t;
+}
+
+float Global::strToFloat(string str)
+{
+    istringstream iss(str);
+    float f;
+    iss>>f;
+    return f;
+}
+
 Global::~Global()
 {
 

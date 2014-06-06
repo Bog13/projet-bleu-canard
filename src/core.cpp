@@ -6,9 +6,11 @@ Core::Core(RenderWindow* window)
     m_window=window;
     m_graphic=new Graphics(m_window);
 
+
     /// test area
     m_a=new Area(1,1);
-    AreaFactory::loadArea(m_a,"test2.txt");
+    AreaFactory::loadArea(m_a,"areaTest.txt");
+
     m_ag=new AreaGraphic(m_a);
     ///
 
@@ -44,7 +46,6 @@ void Core::draw()
      m_graphic->drawArea(m_ag);
 
     ///TEST
-
      m_graphic->drawEntity(m_c);
 }
 
@@ -80,7 +81,9 @@ void Core::run()
                             m_window->close();
                             break;
 
+                        case Keyboard::Space:
 
+                            break;
 
 
                         /**

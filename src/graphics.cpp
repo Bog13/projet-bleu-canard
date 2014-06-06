@@ -41,11 +41,11 @@ ConvexShape Graphics::createSquare(int x,int y,int w,int h)
 
 void Graphics::drawEntity(EntityGraphic *t)
 {
-    Animation a=*(t->getAnimation());
-    ConvexShape cs=*(t->getConvexShape());
-    cs.setTexture(a.getCurrentFrame());
+    Animation *a=t->getAnimation();
+    ConvexShape *cs=t->getConvexShape();
+    cs->setTexture(a->getCurrentFrame());
 
-    m_window->draw(cs);
+    m_window->draw(*cs);
 }
 
 
@@ -59,6 +59,23 @@ void Graphics::drawArea(AreaGraphic *ag)
             ag->getTileGraphic(j,i)->getConvexShape()->setPosition(Vector2f(j*Global::TILE_WIDTH,i*Global::TILE_HEIGHT));
             drawEntity(ag->getTileGraphic(j,i));
         }
+    }
+
+    Object *o=0;
+    for(int i=0;i<ag->nbObject();i++)
+    {
+        if(ag->getObjectGraphic(i)->hasAnEntity())
+        {
+            o= dynamic_cast<Object*>( ag->getObjectGraphic(i)->getEntity() );
+            ag->getObjectGraphic(i)->getConvexShape()->setPosition(Vector2f(o->getX(),o->getY()));
+        }
+        else
+        {
+             ag->getObjectGraphic(i)->getConvexShape()->setPosition(Vector2f(0,0));
+             cerr<<"Affichage d'un objet graphique indépendant"<<endl;
+        }
+
+        drawEntity(ag->getObjectGraphic(i) );
     }
 }
 

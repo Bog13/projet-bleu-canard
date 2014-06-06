@@ -2,19 +2,39 @@
 
 EntityGraphic::EntityGraphic(Animation a,ConvexShape c)
 {
+    m_entity=0;
+    init(a,c);
+
+}
+
+EntityGraphic::EntityGraphic()
+{
+    m_entity=0;
+    m_hasAnEntity=false;
+}
+
+void EntityGraphic::init(Animation &a,ConvexShape &c)
+{
     m_animation=a;
     m_convexShape=c;
+    m_hasAnEntity=false;
 }
+
+EntityGraphic::EntityGraphic(Tile* t,Animation a,ConvexShape c)
+{
+    m_entity=t;
+    m_hasAnEntity=true;
+    init(a,c);
+}
+
+
 
 void EntityGraphic::update()
 {
     m_animation.update();
 }
 
-EntityGraphic::EntityGraphic()
-{
 
-}
 
 
 EntityGraphic::~EntityGraphic()

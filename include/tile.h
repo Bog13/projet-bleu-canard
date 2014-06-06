@@ -7,15 +7,14 @@ using namespace std;
 using namespace sf;
 
 
-
 class Tile
 {
     public:
         Tile();
         Tile(int type);
-        void setType(int type){m_type=type;}
-        int getType(){return m_type;}
-        void update();
+        virtual void setType(int type){m_type=type;}
+        virtual int getType(){return m_type;}
+        virtual void update();
         virtual ~Tile();
     protected:
         int m_type;

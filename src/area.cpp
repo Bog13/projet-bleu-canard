@@ -5,6 +5,7 @@ Area::Area(int w,int h)
     m_width=w;
     m_height=h;
     initTile();
+
 }
 
 void Area::initTile()
@@ -24,7 +25,7 @@ void Area::initTile()
 
 }
 
-///OPTIMISATION POSSIBILE (cad sans tout reallouer)
+///OPTIMISATION POSSIBLE (cad sans tout reallouer)
 /*void Area::addTiles(int w,int h)
 {
     m_height+=h;
@@ -95,6 +96,14 @@ Tile* Area::getTile(int x,int y)
     return m_tiles[y][x];
 }
 
+Object* Area::getObject(int i)
+{
+    if(i>=0 && i<m_objects.size())
+    {
+        return m_objects[i];
+    }else cerr<<"Tentative d'acces à objects["<<i<<"] !"<<endl;
+}
+
 void Area::update()
 {
 
@@ -111,7 +120,16 @@ void Area::killTiles()
     }
 }
 
+void Area::killObjects()
+{
+    for(int i=0;i<m_objects.size();i++)
+    {
+        delete m_objects[i];
+    }
+}
+
 Area::~Area()
 {
     killTiles();
+    killObjects();
 }

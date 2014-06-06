@@ -18,6 +18,28 @@ void AnimationFactory::load()
     cout<<"Animations loaded ! "<<endl;
 }
 
+void AnimationFactory::loadAnimation(Animation *a,string fileName)
+{
+    fstream file(fileName.c_str(),ios::in);
+    int type;
+    string line;
+
+    if(file)
+    {
+        while( getline(file,line) )
+        {
+            type=Global::strToInt(line);
+
+            a->addFrame(*TextureFactory::getTile(type));
+        }
+
+        cout<<fileName<<" loaded !"<<endl;
+
+    }else cerr<<"Cant load "<<fileName<<" !"<<endl;;
+}
+
+
+
 Animation AnimationFactory::get(int i)
 {
     if(i<m_vector.size() && i>=0)return m_vector[i];

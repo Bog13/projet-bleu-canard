@@ -1,6 +1,7 @@
 #ifndef ANIMATIONFACTORY_H
 #define ANIMATIONFACTORY_H
 #include <iostream>
+#include <fstream>
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "graphics.h"
@@ -19,6 +20,7 @@ class AnimationFactory
         virtual ~AnimationFactory();
 
         static void load();
+        static void loadAnimation(Animation *a,string fileName);
         static Animation get(int i);
     protected:
         static vector<Animation> m_vector;

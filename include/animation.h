@@ -15,9 +15,12 @@ class Animation
         void stop();
         void setDelay(int delay);
         void addFrame(Texture t);
+        int nbFrame(){return m_textures.size();}
         void init();
         void update();
         Texture* getCurrentFrame();
+        Texture* getFrame(int i);
+
         virtual ~Animation();
     protected:
         vector<Texture> m_textures;

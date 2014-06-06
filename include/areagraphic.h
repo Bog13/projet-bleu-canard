@@ -13,8 +13,13 @@ class AreaGraphic
 {
     public:
         AreaGraphic(Area *a);
-        void initTile();
+        void initTiles();
+        void initObjects();
         EntityGraphic* getTileGraphic(int x,int y);
+        EntityGraphic* getObjectGraphic(int i);
+        int nbObject(){return m_area->nbObject();}
+        void updateTiles();
+        void updateObjects();
         void update();
 
         int getWidth(){return m_width;}
@@ -26,7 +31,8 @@ class AreaGraphic
         int m_width;
         int m_height;
         Area *m_area;
-        vector<vector<EntityGraphic> > m_tiles;
+        vector<vector<EntityGraphic*> > m_tiles;
+        vector<EntityGraphic* > m_objects;
     private:
 };
 #endif // AREAGRAPHIC_H

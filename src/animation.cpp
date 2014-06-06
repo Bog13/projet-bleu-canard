@@ -35,6 +35,16 @@ Texture* Animation::getCurrentFrame()
     cout<<"ERREUR ANIMATION CURRENT FRAME: pas de frame dans l'anim"<<endl;
 }
 
+Texture* Animation::getFrame(int i)
+{
+    if(i>=0 &&i<m_textures.size())
+    {
+        return &m_textures[m_current];
+    }
+
+    cout<<"ERREUR ANIMATION FRAME: "<<i<<" !"<<endl;
+}
+
 void Animation::play()
 {
     m_running=true;

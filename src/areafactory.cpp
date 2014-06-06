@@ -17,6 +17,7 @@ void AreaFactory::saveArea(Area *area,string fileName)
 
     if(file)
     {
+        /// sauvegarde des types
         for(int i=0;i<area->getHeight();i++)
         {
             for(int j=0;j<area->getWidth();j++)
@@ -24,7 +25,16 @@ void AreaFactory::saveArea(Area *area,string fileName)
                 file<<area->getTile(j,i)->getType()<<" ";
             }file<<endl;
         }
-
+        ///
+        ///sauvegarde des objets
+        Object *o=0;
+        file<<'@'<<" "<<endl; ///marque de fin des tuiles
+        for(int i=0;i<area->nbObject();i++)
+        {
+            o=area->getObject(i);
+            /// '@' indique qu'il s'agit d'un objet
+            file<<'@'<<" "<<o->getType()<<" "<<o->getX()<<" "<<o->getY()<<" "<<o->getWidth()<<" "<<o->getHeight()<<" "<<o->isAnObstacle()<<" "<<endl;
+        }
         file.close();
 
         cout<<fileName<<" saved !"<<endl;
@@ -35,44 +45,109 @@ void AreaFactory::loadArea(Area *a,string fileName)
 {
     fstream file(fileName.c_str(),ios::in);
     string line;
+    int currentLine=0;
+
     string currentNb("");
+    bool tilesOver=false;
 
     vector<int> *tmp=0;
     vector<vector<int> > content;
 
-    int w=10000,w_tmp=0;
-    int h=0,h_tmp=0;
+    int w=10000;
+    int h=0;
+
+    /// pour le chargement de l'objet
+    int obj_type=0;
+    float obj_x=0.,
+          obj_y=0.,
+          obj_w=0.,
+          obj_h=0.;
+    bool obj_obstacle=false;
+    ///
+    string str_tmp="";///intermédiaire pour la conversion en flottant
+    int posInfo=0;///position de l'information sans compter les espaces
 
     if(file)
     {
+
         while( getline(file,line) )
         {
-            tmp=new vector<int>;
-
-
-            for(int j=0;j<line.size();j++)
+            if(!tilesOver)///CHARGEMENT DES TUILES
             {
-                if(line[j]==' ')
+                if(line[0]!='@')//on vérifie qu'on a pas terminé les tuiles
                 {
-                    tmp->push_back( Global::strToInt(currentNb) );
-                    currentNb="";
+                    tmp=new vector<int>;
+
+
+                    for(int j=0;j<line.size();j++)
+                    {
+                        if(line[j]==' ')
+                        {
+                            tmp->push_back( Global::strToInt(currentNb) );
+                            currentNb="";
+                        }
+                        else
+                        {
+                            currentNb+=line[j];
+
+                        }
+                    }
+                    ///détermination de la hauteur et largeur de l'area
+                    if(tmp->size()<w)w=tmp->size(); //on prend la ligne la plus petite
+                    h++;
+                    ///
+
+                    content.push_back(*tmp);
                 }
                 else
                 {
-                    currentNb+=line[j];
+                    a->newSize(w,h);
+                    a->setTiles(content);
+                    delete tmp;
 
+                    tilesOver=true;//on attaque les objets !
+                    //!\\ on perd la première ligne (celle inutile ou il n'y a que '@' )
                 }
             }
-            ///détermination de la hauteur et largeur de l'area
-            if(tmp->size()<w)w=tmp->size(); //on prend la ligne la plus petite
-            h++;
-            ///
+            else ///CHARGEMENT DES OBJETS
+            {
+                posInfo=0;
+                for(int i=0;i<line.size();i++)
+                {
+                    if(line[i]!=' ')
+                    {
+                        str_tmp+=line[i];
+                    }
+                    else
+                    {
+                        switch(posInfo)
+                        {
+                            case 0:break;// '@'
+                            case 1: obj_type=Global::strToInt(str_tmp);break;
+                            case 2: obj_x=Global::strToFloat(str_tmp);break;
+                            case 3: obj_y=Global::strToFloat(str_tmp);break;
+                            case 4: obj_w=Global::strToFloat(str_tmp);break;
+                            case 5: obj_h=Global::strToFloat(str_tmp);break;
+                            case 6: obj_obstacle=Global::strToBool(str_tmp);break;
 
-            content.push_back(*tmp);
+                        }
 
+                        posInfo++;
+                        str_tmp="";
+                    }
+                }
+
+                a->addObject(new Object(obj_type,obj_x,obj_y,obj_w,obj_h,obj_obstacle));//on ajoute l'objet à la zone
+
+
+            }
+
+            currentLine++;
         }
 
-        delete tmp;
+
+
+
         file.close();
 
 
@@ -81,8 +156,7 @@ void AreaFactory::loadArea(Area *a,string fileName)
     }else cerr<<"Cant load "<<fileName<<" in AreaFactory::loadArea !"<<endl;
 
 
-    a->newSize(w,h);
-    a->setTiles(content);
+
 
 }
 

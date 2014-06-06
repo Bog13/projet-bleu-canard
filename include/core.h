@@ -5,6 +5,7 @@
 #include <vector>
 #include "texturefactory.h"
 #include "animationfactory.h"
+#include "animation.h"
 #include "graphics.h"
 #include "entitygraphic.h"
 #include "areagraphic.h"

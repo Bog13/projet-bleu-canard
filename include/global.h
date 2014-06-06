@@ -46,6 +46,10 @@ class Global
 
         static string intToStr(int n);
         static int strToInt(string str);
+        static float strToFloat(string str);
+        static bool strToBool(string str);
+
+         template<typename T> static T strTo(string str);
         static int sizeWithoutSpace(string str);
 
     protected:
