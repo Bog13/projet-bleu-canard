@@ -13,6 +13,7 @@ class Area
         Area(int w,int h);
         void initTile();
         void newSize(int w,int h);
+        void addTiles(int w, int h);
         void killTiles();
         void killObjects();
         void setTiles(vector<vector<int> > values);
@@ -25,6 +26,8 @@ class Area
 
         int getWidth(){return m_width;}
         int getHeight(){return m_height;}
+
+        void showMeYourBody();
 
         virtual ~Area();
     protected:

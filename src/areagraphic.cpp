@@ -61,7 +61,8 @@ void AreaGraphic::initTiles()
 
 EntityGraphic* AreaGraphic::getTileGraphic(int x,int y)
 {
-    return m_tiles[y][x];
+    if(y>=0 && y<m_tiles.size() && x>=0 && x<m_tiles[y].size()) {return m_tiles[y][x];}
+    else cerr<<"getTile hors normes (Area::getTile) indice x:" << x << " y:" << y <<"."<<endl;
 }
 
 EntityGraphic* AreaGraphic::getObjectGraphic(int i)

@@ -25,6 +25,44 @@ void Area::initTile()
 
 }
 
+
+
+void Area::addTiles(int w, int h)
+///Fonctionne parfaitement
+{
+    for(int i(0);i<m_tiles.size();i++)
+    {
+        for (int j(0);j<w;j++)
+        {
+            m_tiles[i].push_back(new Tile(Global::ID_GRASS));
+        }
+    }
+
+    for(int i(0);i<h;i++)
+    {
+        vector<Tile*> temp;
+        for (int j(0);j<=w;j++)
+        {
+            temp.push_back(new Tile(Global::ID_GRASS));
+        }
+        m_tiles.push_back(temp);
+    }
+    m_width+=w;
+    m_height+=h;
+}
+
+void Area::showMeYourBody()
+///Affiche le contenu d'une area.
+{
+    for(int i(0);i<m_tiles.size();i++)
+    {
+        for (int j(0);j<m_tiles[i].size();j++)
+        {
+            cout<<m_tiles[i][j]->getType();
+        }
+        cout<<endl;
+    }
+}
 ///OPTIMISATION POSSIBLE (cad sans tout reallouer)
 /*void Area::addTiles(int w,int h)
 {
@@ -93,7 +131,9 @@ void Area::setTiles(vector<vector<int> > values)
 
 Tile* Area::getTile(int x,int y)
 {
-    return m_tiles[y][x];
+    if(y>=0 && y<m_tiles.size() && x>=0 && x<m_tiles[y].size()) {return m_tiles[y][x];}
+    else cerr<<"getTile hors normes (Area::getTile) indice x:" << x << " y:" << y <<"."<<endl;
+
 }
 
 Object* Area::getObject(int i)

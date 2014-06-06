@@ -118,7 +118,7 @@ void Graphics::moveViewLeft   (float d)
 {
     if(m_viewPositionX-d>=0) {m_viewPositionX-=d;}
 }
-/// ///////////////////////////////////////////////////
+/// ///////////////FIN VUE//////////////////////////
 
 void Graphics::update()
 {

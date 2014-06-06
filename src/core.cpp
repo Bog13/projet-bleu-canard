@@ -9,8 +9,9 @@ Core::Core(RenderWindow* window)
 
     /// test area
     m_a=new Area(1,1);
-    AreaFactory::loadArea(m_a,"areaTest.txt");
-
+    //AreaFactory::loadArea(m_a,"areaTest.txt");
+    m_a->addTiles(20,40);
+    m_a->showMeYourBody();
     m_ag=new AreaGraphic(m_a);
     ///
 
