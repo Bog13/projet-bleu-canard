@@ -51,7 +51,7 @@ void Area::addTiles(int w, int h)
     m_height+=h;
 }
 
-void Area::showMeYourBody()
+void Area::getInfo()
 ///Affiche le contenu d'une area.
 {
     for(int i(0);i<m_tiles.size();i++)

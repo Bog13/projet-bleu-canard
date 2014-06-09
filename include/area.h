@@ -27,7 +27,7 @@ class Area
         int getWidth(){return m_width;}
         int getHeight(){return m_height;}
 
-        void showMeYourBody();
+        void getInfo();
 
         virtual ~Area();
     protected:
