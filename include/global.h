@@ -23,26 +23,18 @@ class Global
         static const int NB_TILE_WIDTH=WINDOW_WIDTH/TILE_WIDTH;
         static const int NB_TILE_HEIGHT=WINDOW_HEIGHT/TILE_HEIGHT;
 
+        static const int NB_STATE_CHAR_NONE=6;
+
         static const int ID_NONE=0;
-        static const int ID_GROUND=1;
-        static const int ID_GRASS=2;
-        static const int ID_ROCK=3;
+        static const int ID_GROUND=ID_NONE+1;
+        static const int ID_GRASS=ID_NONE+2;
+        static const int ID_ROCK=ID_NONE+3;
 
+        static const int ID_CHAR_NONE=4;
+        static const int ID_CHAR_MONSTER=ID_CHAR_NONE+ NB_STATE_CHAR_NONE;
+        //static const int ID_CHAR_MONSTER=ID_CHAR_MONSTER+NB_STATE_CHAR_MONSTER; pour l'exemple
 
-
-        /**J'ai eu des soucis d'accès aux vectors, j'ai trouvé un moyen simple de parer ca:
-            Ca consiste en gros a donner à ID_FIRST_CHAR la valeur juste après la dernière TILE
-            et d'en déduire récursivement l'ID des character.
-            Cela permet de n'avoir à changer qu'un nombre pour décaler tous les char.
-
-            Rq: Je suis tenté par l'idée de le faire également chez les TILE.
-
-        **/
-
-        static const int ID_FIRST_CHAR=4;
-        static const int ID_JOSH=ID_FIRST_CHAR+0;
-        static const int ID_AUTRE_PERSO=ID_FIRST_CHAR+1;
-
+        static  int GET_ID_CHAR(int id);
 
         static string intToStr(int n);
         static int strToInt(string str);

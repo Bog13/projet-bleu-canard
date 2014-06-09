@@ -5,6 +5,11 @@ Global::Global()
 
 }
 
+int Global::GET_ID_CHAR(int id)
+{
+    return ID_CHAR_NONE+id;
+}
+
 int Global:: sizeWithoutSpace(string str)
 {
     int strSize=0;

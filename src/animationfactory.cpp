@@ -6,12 +6,12 @@ vector<Animation> AnimationFactory::m_vector;
 void AnimationFactory::load()
 {
 
-    {Animation a;a.addFrame(*TextureFactory::getTile(Global::ID_NONE)); m_vector.push_back(a);}
-    {Animation a;a.addFrame(*TextureFactory::getTile(Global::ID_GROUND)); m_vector.push_back(a);}
-    {Animation a;a.addFrame(*TextureFactory::getTile(Global::ID_GRASS)); m_vector.push_back(a);}
-    {Animation a;a.addFrame(*TextureFactory::getTile(Global::ID_ROCK)); m_vector.push_back(a);}
+    {Animation a;a.addFrame(*TextureFactory::get(Global::ID_NONE)); m_vector.push_back(a);}
+    {Animation a;a.addFrame(*TextureFactory::get(Global::ID_GROUND)); m_vector.push_back(a);}
+    {Animation a;a.addFrame(*TextureFactory::get(Global::ID_GRASS)); m_vector.push_back(a);}
+    {Animation a;a.addFrame(*TextureFactory::get(Global::ID_ROCK)); m_vector.push_back(a);}
 
-    {Animation a(250);a.addFrame(*TextureFactory::getChar(Global::ID_JOSH,0));a.addFrame(*TextureFactory::getChar(Global::ID_JOSH,2)); m_vector.push_back(a);}
+    {Animation a(250);a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE));a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE+1));m_vector.push_back(a);}
 
 
 
@@ -30,7 +30,7 @@ void AnimationFactory::loadAnimation(Animation *a,string fileName)
         {
             type=Global::strToInt(line);
 
-            a->addFrame(*TextureFactory::getTile(type));
+            a->addFrame(*TextureFactory::get(type));
         }
 
         cout<<fileName<<" loaded !"<<endl;

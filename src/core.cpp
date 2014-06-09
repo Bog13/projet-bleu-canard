@@ -10,13 +10,11 @@ Core::Core(RenderWindow* window)
     /// test area
     m_a=new Area(1,1);
     AreaFactory::loadArea(m_a,"areaTest.txt");
-    //m_a->addTiles(20,40);
-    m_a->getInfo();
     m_ag=new AreaGraphic(m_a);
     ///
 
     ///test character
-    m_c= new CharacterGraphic (AnimationFactory::get(Global::ID_JOSH),Graphics::createSquare(10,10,32,32));
+    m_c= new CharacterGraphic (AnimationFactory::get(Global::ID_CHAR_NONE),Graphics::createSquare(10,10,32,32));
     ///
 
     m_fps=0;
