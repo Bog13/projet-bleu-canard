@@ -28,11 +28,10 @@ EntityGraphic::EntityGraphic(Tile* t,Animation a,ConvexShape c)
 }
 
 
-void EntityGraphic::newType(int type)
+void EntityGraphic::setGraphicalType(int type)
 {
     if(hasAnEntity())
     {
-        m_entity->setType(type);
         m_animation=AnimationFactory::get(m_entity->getType());
     }
 }

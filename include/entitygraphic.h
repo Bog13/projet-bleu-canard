@@ -24,7 +24,7 @@ class EntityGraphic
         Animation* getAnimation(){return &m_animation;}
         ConvexShape* getConvexShape(){return &m_convexShape;}
         Tile* getEntity(){return m_entity;}
-        void newType(int type);
+        void setGraphicalType(int type);
         void setEntity(Tile* e){m_entity=e;m_hasAnEntity=true;}
         bool hasAnEntity(){return m_hasAnEntity;}
         void update();

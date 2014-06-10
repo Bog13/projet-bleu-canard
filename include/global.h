@@ -4,8 +4,10 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <sstream>
+
 using namespace std;
 using namespace sf;
+
 
 class Global
 {
@@ -40,6 +42,8 @@ class Global
         static int strToInt(string str);
         static float strToFloat(string str);
         static bool strToBool(string str);
+        static bool inScreen(int i,int j){return (i>=0 && i<NB_TILE_WIDTH && j>=0 && j<NB_TILE_HEIGHT);}
+
 
          template<typename T> static T strTo(string str);
         static int sizeWithoutSpace(string str);

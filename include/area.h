@@ -22,7 +22,7 @@ class Area
         Object* getObject(int i);
         void addObject(Object* o){m_objects.push_back(o);}
         int nbObject(){return m_objects.size();}
-
+        bool in(int i,int j){return (i>=0 && i<m_width && j>=0 && j<m_height);}
         void update();
 
         int getWidth(){return m_width;}

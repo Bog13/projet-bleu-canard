@@ -16,8 +16,12 @@ void Editor::Modify(Vector2i pos, int id)
     int x_tile=int(x/Global::TILE_WIDTH),
         y_tile=int(y/Global::TILE_HEIGHT);
 
-    m_currentArea->modifyTile(x_tile,y_tile,id);
-    m_ag->getTileGraphic(x_tile,y_tile)->newType(id);
+
+    if( m_currentArea->in(x_tile,y_tile) )
+    {
+        m_currentArea->modifyTile(x_tile,y_tile,id);
+        m_ag->getTileGraphic(x_tile,y_tile)->setGraphicalType(id);
+    }
 
 
 }

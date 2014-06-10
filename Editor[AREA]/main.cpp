@@ -59,13 +59,12 @@ int main()
 
                 case Event::MouseButtonPressed:
                     if(Mouse::isButtonPressed(Mouse::Left))interact=true;;
-                    if(Mouse::isButtonPressed(Mouse::Right))cout<<"right"<<endl;
+                    //if(Mouse::isButtonPressed(Mouse::Right)); on peux ajouter un clique droit ici
                     break;
 
                 case Event::MouseButtonReleased:
                     interact=false;
                     break;
-                //theEditor.Modify(mouse_position, currentID);
                 default: break;
 
 
@@ -73,7 +72,7 @@ int main()
 
 
 
-            //if(Mouse::ButtonPressed(Mouse::Left));
+
         }
          mouse_position=Mouse::getPosition(window);  //window.mapPixelToCoords( peut servir
         if(interact){theEditor.Modify(mouse_position, currentID);}
