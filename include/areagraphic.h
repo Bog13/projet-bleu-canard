@@ -29,6 +29,7 @@ class AreaGraphic
         const void getInfo();
 
 
+
         virtual ~AreaGraphic();
     protected:
         int m_width;

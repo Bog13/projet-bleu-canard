@@ -5,12 +5,41 @@ vector<Animation> AnimationFactory::m_vector;
 
 void AnimationFactory::load()
 {
-
+    ///NONE
     {Animation a;a.addFrame(*TextureFactory::get(Global::ID_NONE)); m_vector.push_back(a);}
-    {Animation a;a.addFrame(*TextureFactory::get(Global::ID_GROUND)); m_vector.push_back(a);}
-    {Animation a;a.addFrame(*TextureFactory::get(Global::ID_GRASS)); m_vector.push_back(a);}
-    {Animation a;a.addFrame(*TextureFactory::get(Global::ID_ROCK)); m_vector.push_back(a);}
 
+    ///HIGHT GRASS
+    {Animation a;
+    for(int i(0); i<Global::NB_STATE_HIGHT_GRASS;i++) ///4 frames
+    {
+        a.addFrame(*TextureFactory::get(Global::ID_TEXTURE_HIGHT_GRASS+i));
+    }
+    m_vector.push_back(a);}
+
+    ///HIGHT_GRASS_tGROUND
+    for (int i(0); i<Global::NB_STATE_HIGHT_GRASS_tGROUND;i++) ///4 textures
+    {
+    {Animation a;a.addFrame(*TextureFactory::get(Global::ID_TEXTURE_HIGHT_GRASS_tGROUND+i)); m_vector.push_back(a);}
+    }
+
+    ///DESERT
+    {Animation a;
+    for(int i(0); i<Global::NB_STATE_DESERT;i++)    ///7 frames
+    {
+        a.addFrame(*TextureFactory::get(Global::ID_TEXTURE_DESERT+i));
+    }
+    m_vector.push_back(a);}
+
+    ///SNOW
+    for (int i(0); i<Global::NB_STATE_SNOW;i++) ///5 textures
+    {
+        {Animation a;a.addFrame(*TextureFactory::get(Global::ID_TEXTURE_SNOW+i)); m_vector.push_back(a);}
+    }
+
+
+
+
+    /*Qu'est-ce que c'est ça ? C'est pas moi je crois.
     {
         Animation a(125);
         a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE));
@@ -18,7 +47,7 @@ void AnimationFactory::load()
         a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE+2));
 
         m_vector.push_back(a);
-    }
+    }*/
 
 
 
@@ -48,9 +77,10 @@ void AnimationFactory::loadAnimation(Animation *a,string fileName)
 
 
 Animation AnimationFactory::get(int i)
+//Plus sû maintenant
 {
     if(i<m_vector.size() && i>=0)return m_vector[i];
-    else cerr<<"ERREUR ANIMATION"<<endl;
+    else cerr<<"ERREUR ANIMATION [AnimFacto::get()] " << i <<endl;
 
 }
 

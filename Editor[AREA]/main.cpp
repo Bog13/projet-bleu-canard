@@ -23,11 +23,6 @@ int main()
     TileFactory::load();
     AreaFactory::load();
 
-    int currentID=1;
-    bool interact=false;
-
-    Vector2i mouse_position;
-
     ///FPS
     Clock clock;//pour calculer le fps
     clock.restart();
@@ -35,7 +30,21 @@ int main()
     int clockFps=0;//fréquence d'affichage
     ///
 
-    Editor theEditor(&window);
+    ///VIEW
+    bool interact=false,
+        movingRight=false,
+        movingUp=false,
+        movingLeft=false,
+        movingDown=false;
+
+    View mainView(FloatRect(0,0,Global::TILE_WIDTH*10,Global::TILE_HEIGHT*10));
+         mainView.setViewport(FloatRect(0,0,1,0.88));
+    View menuView(FloatRect(0,0,Global::TILE_WIDTH*Global::NB_TOTAL_TILE,Global::TILE_HEIGHT*10));
+         menuView.setViewport(FloatRect(0,0.88f,1,1));
+    ///
+
+
+    Editor theEditor(&window, &mainView, &menuView);
     Event event;
 
     while (window.isOpen())
@@ -51,15 +60,33 @@ int main()
                   switch(event.key.code)
                   {
                       case Keyboard::Escape: window.close();
+                      ///VIEW CONTROL
+                      case Keyboard::Subtract:  mainView.zoom(1.1f);break;
+                      case Keyboard::Add:       mainView.zoom(0.9f) ;break;
+
+                      case Keyboard::Left:      movingLeft=true;    break;
+                      case Keyboard::Right:     movingRight=true;   break;
+                      case Keyboard::Up:        movingUp=true;      break;
+                      case Keyboard::Down:      movingDown=true;    break;
+
                       default: break;
                   }
                 }
-
+                case:: Event::KeyReleased:
+                    switch(event.key.code)
+                            {
+                                ///View
+                                case Keyboard::Left:      movingLeft=false;   break;
+                                case Keyboard::Right:     movingRight=false;  break;
+                                case Keyboard::Up:        movingUp=false; break;
+                                case Keyboard::Down:      movingDown=false;  break;
+                                default: break;
+                            }
 
 
                 case Event::MouseButtonPressed:
                     if(Mouse::isButtonPressed(Mouse::Left))interact=true;;
-                    //if(Mouse::isButtonPressed(Mouse::Right)); on peux ajouter un clique droit ici
+                    //if(Mouse::isButtonPressed(Mouse::Right)); on peux ajouter un clique droit ici On peut même mêtre un deuxième modifer tiens !
                     break;
 
                 case Event::MouseButtonReleased:
@@ -74,14 +101,37 @@ int main()
 
 
         }
-         mouse_position=Mouse::getPosition(window);  //window.mapPixelToCoords( peut servir
-        if(interact){theEditor.Modify(mouse_position, currentID);}
 
+    ///Keyboard
+        //Save
+    if(Keyboard::isKeyPressed(Keyboard::LControl) && Keyboard::isKeyPressed(Keyboard::S) )
+    {
+        string name;
+        cout<<" Sous quel nom enregistrer cette Area ? (x.txt) " << endl;
+        cin >> name;
+        theEditor.SaveCurrentArea(name);
+    }
+        //Load
+    if(Keyboard::isKeyPressed(Keyboard::LControl) && Keyboard::isKeyPressed(Keyboard::L) )
+    {
+        string name;
+        cout<<" Sous quel nom est enregistree l'Area souhaitee ?(x.txt) " << endl;
+        cin >> name;
+        theEditor.LoadArea(name);
+    }
+
+
+    ///Mouse
+        Vector2i mouseWindowPosition=Mouse::getPosition(window);
+
+    ///Updates
+        theEditor.Update(mouseWindowPosition,interact,movingRight, movingLeft, movingUp, movingDown);
+
+    ///WINDOW
         window.clear(Color(4,139,154));
-        theEditor.Update();
-
-        theEditor.Draw();
+        theEditor.draw();
         window.display();
+        ////
 
         if(clock.getElapsedTime().asMilliseconds()!=0)fps=1000/clock.getElapsedTime().asMilliseconds();
         updateFps(fps,clockFps,&window);

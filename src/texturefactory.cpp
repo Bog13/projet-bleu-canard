@@ -6,8 +6,8 @@ vector<Texture> TextureFactory::m_textures;
 Texture* TextureFactory::get(int i)
 {
 
-    if(i>=0);return &m_textures[i];
-    cerr << " Tentative d'accéder à un tile négatif (TextureFactory::getTile())"<<endl;
+    if(i>=0&&i<m_textures.size());return &m_textures[i];
+    cerr << " Tentative d'accéder à un tile impossible (TextureFactory::getTile())"<<endl;
     return 0;
 }
 
@@ -36,8 +36,12 @@ void TextureFactory::loadPng(string nameTXT, int nbTileHauteur, int nbTileLargeu
 
 void TextureFactory::load(string path)
 {
-    ///tile
-    loadPng(path+"tileset.png",1,4);
+    ///tileSets
+    loadPng(path+"NONE.png",1,1);
+    loadPng(path+"hight_grass.png",1,4);
+    loadPng(path+"grass-transition-ground.png",1,4);
+    loadPng(path+"desert.png",1,7);
+    loadPng(path+"snow.png",1,5);
     ///
 
     ///Characters

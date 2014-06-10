@@ -26,8 +26,9 @@ ConvexShape Graphics::createSquare(int x,int y,int w,int h)
     cs.setPoint(2,Vector2f(w,h));
     cs.setPoint(3,Vector2f(0,h));
 
-    cs.setOutlineColor(Color::Black);
-    cs.setOutlineThickness(1.);
+    ///Désactivés pour le visuel, peut-être remis librement.
+    //cs.setOutlineColor(Color::Black);
+    //cs.setOutlineThickness(1.);
 
     cs.setFillColor(Color::White);
 

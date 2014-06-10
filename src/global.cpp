@@ -5,10 +5,20 @@ Global::Global()
 
 }
 
-int Global::GET_ID_CHAR(int id)
+bool Global::isInTheRect(float xTarget,float yTarget,float x,float y,float w,float h)
 {
-    return ID_CHAR_NONE+id;
+    if(xTarget>=x && xTarget<=x+w
+     &&yTarget>=y && yTarget<=y+h )
+    {
+        return true;
+    }
+    return false;
 }
+
+    int Global::GET_ID_CHAR(int id)
+    {
+        return ID_CHAR_NONE+id;
+    }
 
 int Global:: sizeWithoutSpace(string str)
 {
