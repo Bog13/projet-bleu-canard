@@ -35,7 +35,7 @@ void AnimationFactory::loadAnimation(Animation *a,string fileName)
 
         cout<<fileName<<" loaded !"<<endl;
 
-    }else cerr<<"Cant load "<<fileName<<" !"<<endl;;
+    }else cerr<<"Can't load "<<fileName<<" !"<<endl;;
 }
 
 

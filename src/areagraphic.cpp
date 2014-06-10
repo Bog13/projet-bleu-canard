@@ -75,12 +75,28 @@ EntityGraphic* AreaGraphic::getObjectGraphic(int i)
 }
 
 void AreaGraphic::updateTiles()
+/**
+    Cette méthode était vide avant. Maintenant elle vérifie que les tiles de l'area membre (pouvant être modifiée)
+    correspond à la copie en tilegraphics.
+    Si oui, tout va bien.
+    Si non, elle modifie l'animation de la tile graphics défaillante (modifiant alors son visuel)
+    Pour cela, elle controle simplement les ID des tuiles (tile.getType() comparé à m_tiles[i][j]).
+**/
 {
     for(int i=0;i<m_height;i++)
     {
         for(int j=0;j<m_width;j++)
         {
-            m_tiles[i][j]->update();
+
+            //GET INFO: cout <<"i= " << i << " j= " <<j << " type = " << m_area->getTile(j,i)->getType() << " type2 = "<< m_tiles[i][j]->getEntity()->getType() << endl;
+            if( *(m_tiles[j][i]->getAnimation()) != AnimationFactory::get(m_area->getTile(j,i)->getType()) ) /// comparaison des animation entre area membre et m_tiles
+               {
+                   Animation a=AnimationFactory::get(m_area->getTile(j,i)->getType());
+                   m_tiles[i][j]->setAnimation(a);                                      ///changement d'anim donc apparence
+
+
+
+                }
         }
     }
 }
@@ -91,6 +107,19 @@ void AreaGraphic::updateObjects()
     {
         m_objects[i]->update();
 
+    }
+}
+
+
+const void AreaGraphic::getInfo()
+{
+    for (int i(0);i<m_tiles.size();i++)
+    {
+        for (int j(0); j<m_tiles[i].size();j++)
+        {
+            cout<<m_tiles[i][j]->getEntity()->getType();
+        }
+        cout <<endl;
     }
 }
 

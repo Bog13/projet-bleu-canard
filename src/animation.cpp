@@ -45,6 +45,15 @@ Texture* Animation::getFrame(int i)
     cout<<"ERREUR ANIMATION FRAME: "<<i<<" !"<<endl;
 }
 
+bool Animation::operator ==(Animation a)
+{
+    for (int i(0); i<a.nbFrame() || i<m_textures.size();i++)
+    {
+        if (getFrame(i)!=a.getFrame(i)) {return false;}
+    }
+    return true;
+}
+
 void Animation::play()
 {
     m_running=true;

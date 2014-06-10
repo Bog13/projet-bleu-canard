@@ -25,6 +25,8 @@ class AreaGraphic
         int getWidth(){return m_width;}
         int getHeight(){return m_height;}
 
+        const void getInfo();
+
 
         virtual ~AreaGraphic();
     protected:

@@ -21,6 +21,9 @@ class Animation
         Texture* getCurrentFrame();
         Texture* getFrame(int i);
 
+        bool operator ==(Animation a);
+        bool operator !=(Animation a) {if(*this==a) return false; return true;}
+
         virtual ~Animation();
     protected:
         vector<Texture> m_textures;

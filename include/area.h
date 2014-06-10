@@ -16,6 +16,7 @@ class Area
         void addTiles(int w, int h);
         void killTiles();
         void killObjects();
+        void modifyTile(int x, int y, int tileID);
         void setTiles(vector<vector<int> > values);
         Tile* getTile(int x,int y);
         Object* getObject(int i);

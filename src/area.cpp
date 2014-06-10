@@ -146,7 +146,7 @@ Object* Area::getObject(int i)
 
 void Area::update()
 {
-
+    cout << " Area::update() inutile :p" << endl;
 }
 
 void Area::killTiles()
@@ -158,6 +158,13 @@ void Area::killTiles()
             delete m_tiles[i][j];
         }
     }
+}
+
+void Area::modifyTile(int x, int y, int tileID)
+{
+     if(y>=0 && y<m_tiles.size() && x>=0 && x<m_tiles[y].size()) {m_tiles[y][x]->setType(tileID);}
+     else cerr<<"Tring to access a m_tiles[x][y] impossible [Area::modifyTile()]"<<endl;
+
 }
 
 void Area::killObjects()
