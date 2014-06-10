@@ -13,7 +13,7 @@ using namespace sf;
 
 
 
-
+class EntityGraphic;
 class TileFactory
 {
     public:

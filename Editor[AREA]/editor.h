@@ -20,7 +20,7 @@ class Editor
 
         void Modify(Vector2i pos, int id);
         const void Draw();
-
+        void Update();
         virtual ~Editor();
     protected:
         RenderWindow* m_window;

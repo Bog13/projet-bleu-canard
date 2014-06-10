@@ -9,6 +9,7 @@
 #include "area.h"
 using namespace std;
 
+class EntityGraphic;
 class AreaGraphic
 {
     public:

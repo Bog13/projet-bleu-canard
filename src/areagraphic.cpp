@@ -125,7 +125,7 @@ const void AreaGraphic::getInfo()
 
 void AreaGraphic::update()
 {
-    updateTiles();
+    //updateTiles();
     updateObjects();
 }
 

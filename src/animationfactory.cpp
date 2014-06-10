@@ -11,7 +11,14 @@ void AnimationFactory::load()
     {Animation a;a.addFrame(*TextureFactory::get(Global::ID_GRASS)); m_vector.push_back(a);}
     {Animation a;a.addFrame(*TextureFactory::get(Global::ID_ROCK)); m_vector.push_back(a);}
 
-    {Animation a(250);a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE));a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE+1));m_vector.push_back(a);}
+    {
+        Animation a(125);
+        a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE));
+        a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE+1));
+        a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE+2));
+
+        m_vector.push_back(a);
+    }
 
 
 

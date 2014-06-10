@@ -25,7 +25,7 @@ class Object : public Tile
         void setPosition(float x, float y)  {m_x=x; m_y=y;}
 
         bool isAnObstacle(){return m_isAnObstacle;}
-        bool setObstacleStatus(int b){m_isAnObstacle=b;}
+        void setObstacleStatus(int b){m_isAnObstacle=b;}
 
         void Move(float x=0, float y=0) {m_x+=x; m_y+=y;} ///A revoir niveau colision je présume.
 

@@ -17,20 +17,24 @@ void Editor::Modify(Vector2i pos, int id)
         y_tile=int(y/Global::TILE_HEIGHT);
 
     m_currentArea->modifyTile(x_tile,y_tile,id);
-    m_currentArea->getInfo();
-    m_ag->getInfo();
+    m_ag->getTileGraphic(x_tile,y_tile)->newType(id);
 
 
-
+}
+void Editor::Update()
+{
+    m_ag->update();
 }
 
 const void Editor::Draw()
 {
-    m_ag->update();
+
     m_graphics->drawArea(m_ag);
 }
 
 Editor::~Editor()
 {
-    //dtor
+    delete m_currentArea;
+    delete m_ag;
+    delete m_graphics;
 }

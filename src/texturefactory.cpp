@@ -34,19 +34,22 @@ void TextureFactory::loadPng(string nameTXT, int nbTileHauteur, int nbTileLargeu
     }
 
 
-
-void TextureFactory::load()
+void TextureFactory::load(string path)
 {
     ///tile
-    loadPng("data/img/tileset.png",1,4);
+    loadPng(path+"tileset.png",1,4);
     ///
 
     ///Characters
-    loadPng("data/img/player.png",2,3);
+    loadPng(path+"player.png",2,3);
     ///
 
     cout<<"Textures loaded !"<<endl;
+}
 
+void TextureFactory::load()
+{
+    TextureFactory::load("data/img/");
 }
 
 
