@@ -3,7 +3,7 @@
 vector<vector<Texture> > TextureFactory::m_textures;
 
 
-Texture* TextureFactory::get(int i, int j)
+Texture* TextureFactory::get(unsigned int i, unsigned int j)
 {
 
     if(i>=0&&i<m_textures.size())
@@ -21,10 +21,11 @@ Texture* TextureFactory::get(int i, int j)
 
 
 
-void TextureFactory::loadPng(string nameTXT, int nbTileHauteur, int nbTileLargeur, int tileWidth, int tileHeight)
+bool TextureFactory::loadPng(string nameTXT, int nbTileHauteur, int nbTileLargeur, int tileWidth, int tileHeight)
     /**En gros, cette méthode allège le code. Elle permet de charger une image (tileset etc.) avec des critères modifiables.**/
     {
         vector<Texture> temp;
+
         for(int i=0;i<nbTileHauteur;i++)//pour chaque ligne
         {
             for(int j=0;j<nbTileLargeur;j++)//on récupère les éléments
@@ -32,33 +33,42 @@ void TextureFactory::loadPng(string nameTXT, int nbTileHauteur, int nbTileLargeu
                 Texture texture;
                 if(!texture.loadFromFile(nameTXT.c_str(),IntRect(j*tileWidth,i*tileHeight,tileWidth,tileHeight)))
                 {
-                    cerr<<"Erreur chargement des textures des tiles ! [TextureFactory::loadPng()]"<<endl;
+                    cerr<<"Erreur chargement des textures des tiles. [TextureFactory::loadPng(" <<nameTXT<<")]"<<endl;
+                    return false;
                 }
                 temp.push_back(texture);
             }
         }
     m_textures.push_back(temp);
+    return true;
     }
 
 
-void TextureFactory::load(string path)
+bool TextureFactory::load(string path)
 {
-    ///tileSets
-    loadPng(path+"NONE.png",1,1);
-    loadPng(path+"hight_grass.png",1,Global::NB_STATE_HIGHT_GRASS);
-    loadPng(path+"grass-transition-ground.png",1,Global::NB_STATE_HIGHT_GRASS_tGROUND);
-    loadPng(path+"desert.png",1,Global::NB_STATE_DESERT);
-    loadPng(path+"snow.png",1,Global::NB_STATE_SNOW);
+
+    if(
+            ///tileSets
+          loadPng(path+"NONE.png",1,1)
+       && loadPng(path+"hight_grass.png",1,Global::NB_STATE_HIGHT_GRASS)
+       && loadPng(path+"grass-transition-ground.png",1,Global::NB_STATE_HIGHT_GRASS_tGROUND)
+       && loadPng(path+"desert.png",1,Global::NB_STATE_DESERT)
+       && loadPng(path+"snow.png",1,Global::NB_STATE_SNOW)
+            ///Characters
+       &&loadPng(path+"player.png",2,3)){cout<<"Textures loaded !"<<endl;}
+        else{cerr<<"Problem appeared during textures loading." << endl;}
+
+
+
     ///
 
-    ///Characters
-    loadPng(path+"player.png",2,3);
+
     ///
 
-    cout<<"Textures loaded !"<<endl;
+
 }
 
-void TextureFactory::load()
+bool TextureFactory::load()
 {
     TextureFactory::load("data/img/");
 }

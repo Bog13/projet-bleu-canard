@@ -42,22 +42,10 @@ void AnimationFactory::load()
     }
 
 
-    /*Qu'est-ce que c'est ça ? C'est pas moi je crois.
-    {
-        Animation a(125);
-        a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE));
-        a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE+1));
-        a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE+2));
-
-        m_vector.push_back(a);
-    }*/
-
-
-
     cout<<"Animations loaded ! "<<endl;
 }
 /*
-void AnimationFactory::loadAnimation(Animation *a,string fileName)
+bool AnimationFactory::loadAnimation(Animation *a,string fileName)
 {
 
     fstream file(fileName.c_str(),ios::in);
@@ -80,11 +68,16 @@ void AnimationFactory::loadAnimation(Animation *a,string fileName)
 
 
 
-Animation AnimationFactory::get(int i)
+Animation AnimationFactory::get(unsigned int i)
 //Plus sû maintenant
 {
-    if(i<m_vector.size() && i>=0)return m_vector[i];
-    else cerr<<"ERREUR ANIMATION [AnimFacto::get()] " << i <<endl;
+    if(i<m_vector.size() && i>=0){return m_vector[i];}
+    else
+    {
+        cerr<<"ERREUR ANIMATION [AnimFacto::get()] " << i <<endl;
+        return m_vector[Global::ID_NONE];
+    }
+
 
 }
 

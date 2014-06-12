@@ -16,10 +16,10 @@ class TextureFactory
         TextureFactory();
         virtual ~TextureFactory();
 
-        static void load();
-        static void load(string path);
-        static void loadPng(string nameTXT, int nbTileHauteur, int nbTileLargeur, int tileWidth=Global::TILE_WIDTH, int tileHeight=Global::TILE_HEIGHT);
-        static Texture* get(int i, int j);
+        static bool load();
+        static bool load(string path);
+        static bool loadPng(string nameTXT, int nbTileHauteur, int nbTileLargeur, int tileWidth=Global::TILE_WIDTH, int tileHeight=Global::TILE_HEIGHT);
+        static Texture* get(unsigned int i, unsigned int j);
 
     protected:
         static vector<vector<Texture> >m_textures;

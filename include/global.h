@@ -51,7 +51,7 @@ class Global
 
 
         static const int ID_NONE=0;
-    )
+
 
         /**Impoooortant !
         Permet l'accès à la bonne texture et donc la série qui va avec. Voir textureFactory

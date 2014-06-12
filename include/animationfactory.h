@@ -20,8 +20,8 @@ class AnimationFactory
         virtual ~AnimationFactory();
 
         static void load();
-        static void loadAnimation(Animation *a,string fileName);
-        static Animation get(int i);
+        static bool loadAnimation(Animation *a,string fileName);
+        static Animation get(unsigned int i);
     protected:
         static vector<Animation> m_vector;
     private:
