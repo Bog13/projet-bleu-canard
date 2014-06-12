@@ -11,7 +11,7 @@
 #include "tilefactory.h"
 using namespace std;
 using namespace sf;
-extern int TYPE_GRASS;
+
 
 class AnimationFactory
 {
@@ -20,7 +20,8 @@ class AnimationFactory
         virtual ~AnimationFactory();
 
         static void load();
-        static bool loadAnimation(Animation *a,string fileName);
+        static bool loadFileAnimation(Animation *a,string fileName);
+        static void loadAnimation(int id);
         static Animation get(unsigned int i);
     protected:
         static vector<Animation> m_vector;

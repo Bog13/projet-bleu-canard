@@ -10,7 +10,7 @@
 #include "entitygraphic.h"
 #include "areagraphic.h"
 #include "areafactory.h"
-
+#include "character.h"
 using namespace std;
 using namespace sf;
 

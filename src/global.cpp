@@ -5,6 +5,42 @@ Global::Global()
 
 }
 
+
+
+
+int const Global::ID[]=
+{
+    TILE_NONE,
+    HIGHT_GRASS,
+    HIGHT_GRASS_tGROUND_1,
+    HIGHT_GRASS_tGROUND_2,
+    HIGHT_GRASS_tGROUND_3,
+    HIGHT_GRASS_tGROUND_4,
+    DESERT,
+    SNOW,
+    CHAR_NONE
+};
+
+int const Global::NB_FRAME_ID[]=
+{
+    1,
+    4,
+    1,
+    1,
+    1,
+    1,
+    7,
+    1,
+    3
+};
+  /*static const int NB_STATE_NONE=0;
+        static const int NB_STATE_HIGHT_GRASS=4;
+        static const int NB_STATE_HIGHT_GRASS_tGROUND=4; //
+        static const int NB_STATE_DESERT=7;
+        static const int NB_STATE_SNOW=5;   //
+        static const int NB_STATE_CHAR_NONE=6;*/
+
+
 bool Global::isInTheRect(float xTarget,float yTarget,float x,float y,float w,float h)
 {
     if(xTarget>=x && xTarget<=x+w
@@ -15,10 +51,6 @@ bool Global::isInTheRect(float xTarget,float yTarget,float x,float y,float w,flo
     return false;
 }
 
-    int Global::GET_ID_CHAR(int id)
-    {
-        return ID_CHAR_NONE+id;
-    }
 
 int Global:: sizeWithoutSpace(string str)
 {

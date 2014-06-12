@@ -10,6 +10,7 @@ Core::Core(RenderWindow* window)
     /// test area
     m_a=new Area(1,1);
     AreaFactory::loadArea(m_a,"areaTest.txt");
+    m_a->addObject(new Object(CHAR_NONE,10,10,50,100,true));
     m_ag=new AreaGraphic(m_a);
     ///
 
@@ -40,6 +41,7 @@ void Core::draw()
 {
      m_window->clear(Color(4,139,154));
      m_graphic->drawArea(m_ag);
+     m_graphic->drawObjects(m_ag);
 }
 
 

@@ -17,7 +17,7 @@ void Area::initTile()
 
         for(int j=0;j<m_width;j++)
         {
-            vecTile.push_back(new Tile(Global::ID_TEXTURE_HIGHT_GRASS));
+            vecTile.push_back(new Tile(Global::ID[HIGHT_GRASS]));
         }
 
         m_tiles.push_back(vecTile);
@@ -34,7 +34,7 @@ void Area::addTiles(int w, int h)
     {
         for (int j(0);j<w;j++)
         {
-            m_tiles[i].push_back(new Tile(Global::ID_TEXTURE_HIGHT_GRASS));
+            m_tiles[i].push_back(new Tile(Global::ID[HIGHT_GRASS]));
         }
     }
 
@@ -43,7 +43,7 @@ void Area::addTiles(int w, int h)
         vector<Tile*> temp;
         for (int j(0);j<=w;j++)
         {
-            temp.push_back(new Tile(Global::ID_TEXTURE_HIGHT_GRASS));
+            temp.push_back(new Tile(Global::ID[HIGHT_GRASS]));
         }
         m_tiles.push_back(temp);
     }

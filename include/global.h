@@ -8,6 +8,18 @@
 using namespace std;
 using namespace sf;
 
+enum
+{
+    TILE_NONE=0,
+    HIGHT_GRASS=1,
+    HIGHT_GRASS_tGROUND_1=2,
+    HIGHT_GRASS_tGROUND_2=3,
+    HIGHT_GRASS_tGROUND_3=4,
+    HIGHT_GRASS_tGROUND_4=5,
+    DESERT=6,
+    SNOW=7,
+    CHAR_NONE=8
+};
 
 class Global
 {
@@ -36,37 +48,17 @@ class Global
         static const int NB_TILE_WIDTH=WINDOW_WIDTH/TILE_WIDTH;
         static const int NB_TILE_HEIGHT=WINDOW_HEIGHT/TILE_HEIGHT;
 
-        /**
-            Peut-être à renommer, mais ici ça défini le nombre d'image dans un tileSet en même temps ( pour les marquées) .
-        **/
-        static const int NB_STATE_NONE=0;
-        static const int NB_STATE_HIGHT_GRASS=4;
-        static const int NB_STATE_HIGHT_GRASS_tGROUND=4; //
-        static const int NB_STATE_DESERT=7;
-        static const int NB_STATE_SNOW=5;   //
-        static const int NB_STATE_CHAR_NONE=6;
 
 
-        static const int NB_TOTAL_TILE=12; /// /!\ A Incrémenter à chaque ajout de tile
 
 
-        static const int ID_NONE=0;
 
 
-        /**Impoooortant !
-        Permet l'accès à la bonne texture et donc la série qui va avec. Voir textureFactory
-        **/
-        static const int ID_TEXTURE_NONE=0;
-        static const int ID_TEXTURE_HIGHT_GRASS=1;
-        static const int ID_TEXTURE_HIGHT_GRASS_tGROUND=2;
-        static const int ID_TEXTURE_DESERT=3;
-        static const int ID_TEXTURE_SNOW=4;
-        static const int ID_CHAR_NONE=5;
+        static const int NB_TOTAL_TILE=9;
+        static const int NB_TOTAL_ID=NB_TOTAL_TILE;
 
-        static const int ID_CHAR_MONSTER=ID_CHAR_NONE+ NB_STATE_CHAR_NONE;
-        //static const int ID_CHAR_MONSTER=ID_CHAR_MONSTER+NB_STATE_CHAR_MONSTER; pour l'exemple (pas compris)
-
-        static  int GET_ID_CHAR(int id);
+        static const int ID[NB_TOTAL_ID];
+        static const int NB_FRAME_ID[NB_TOTAL_ID];
 
 
         static string intToStr(int n);

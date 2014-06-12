@@ -1,6 +1,8 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <typeinfo>
+#include <iomanip>
 #include "core.h"
 using namespace std;
 using namespace sf;
@@ -13,8 +15,9 @@ int main()
     AnimationFactory::load();
     TileFactory::load();
     AreaFactory::load();
-
     Core core(&window);
+
+
     core.run();
 
     return 0;

@@ -6,6 +6,7 @@ vector<EntityGraphic> TileFactory::m_vector;
 
 void TileFactory::loadTile(int clue)
 {
+
     ConvexShape c=Graphics::createSquare(0,0,Global::TILE_WIDTH,Global::TILE_HEIGHT);
     Animation a(AnimationFactory::get(clue));
     EntityGraphic tg(a,c);
@@ -18,7 +19,7 @@ void TileFactory::load()
     ConvexShape c=Graphics::createSquare(0,0,Global::TILE_WIDTH,Global::TILE_HEIGHT);
 
     ///12 Tiles, doit correspondre avec Global::NB_TOTAL_TILE
-    for(int i(Global::ID_TEXTURE_NONE);i<Global::NB_TOTAL_TILE;i++){loadTile(i);}
+    for(int i(Global::ID[TILE_NONE]);i<Global::NB_TOTAL_TILE;i++){loadTile(i);}
     cout<<"Tiles loaded !"<<endl;
 }
 
@@ -31,7 +32,7 @@ EntityGraphic TileFactory::get(int i)
     else
     {
         cerr<<"ERREUR TILEFACTORY "<<i<<endl;
-        return m_vector[Global::ID_NONE];
+        return m_vector[Global::ID[TILE_NONE]];
     }
 }
 

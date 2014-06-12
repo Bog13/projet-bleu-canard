@@ -3,49 +3,33 @@
 
 vector<Animation> AnimationFactory::m_vector;
 
+void AnimationFactory::loadAnimation(int id)
+{
+
+    Animation a;
+    for (int i(0); i<Global::NB_FRAME_ID[id];i++)
+    {
+        a.addFrame(*TextureFactory::get(Global::ID[id],i));
+    }
+        m_vector.push_back(a);
+
+}
+
 void AnimationFactory::load()
 {
-    ///NONE
-    {Animation a;a.addFrame(*TextureFactory::get(Global::ID_NONE,Global::NB_STATE_NONE)); m_vector.push_back(a);}
 
-    ///HIGHT GRASS
-    {Animation a;
-    for(int i(0); i<Global::NB_STATE_HIGHT_GRASS;i++) ///4 frames
+    for(int i=0;i<Global::NB_TOTAL_ID;i++)
     {
-        a.addFrame(*TextureFactory::get(Global::ID_TEXTURE_HIGHT_GRASS,i));
-    }
-    m_vector.push_back(a);}
-
-    ///HIGHT_GRASS_tGROUND
-    for (int i(0); i<Global::NB_STATE_HIGHT_GRASS_tGROUND;i++) ///4 textures
-    {
-    {Animation a;a.addFrame(*TextureFactory::get(Global::ID_TEXTURE_HIGHT_GRASS_tGROUND,i)); m_vector.push_back(a);}
-    }
-
-    ///DESERT
-    {Animation a;
-    for(int i(0); i<Global::NB_STATE_DESERT;i++)    ///7 frames
-    {
-        a.addFrame(*TextureFactory::get(Global::ID_TEXTURE_DESERT,i));
-    }
-    m_vector.push_back(a);}
-
-    ///SNOW
-    for (int i(0); i<Global::NB_STATE_SNOW;i++) ///5 textures
-    {
-        {Animation a;a.addFrame(*TextureFactory::get(Global::ID_TEXTURE_SNOW,i)); m_vector.push_back(a);}
-    }
-
-    for (int i(0); i<Global::NB_STATE_CHAR_NONE;i++) ///5 textures
-    {
-        {Animation a;a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE,i)); m_vector.push_back(a);}
+        loadAnimation(i);
     }
 
 
     cout<<"Animations loaded ! "<<endl;
 }
+
+
 /*
-bool AnimationFactory::loadAnimation(Animation *a,string fileName)
+bool AnimationFactory::loadAnimation(Animation *a,string fileName)///TODO
 {
 
     fstream file(fileName.c_str(),ios::in);
@@ -68,14 +52,15 @@ bool AnimationFactory::loadAnimation(Animation *a,string fileName)
 
 
 
+
+
 Animation AnimationFactory::get(unsigned int i)
-//Plus sû maintenant
 {
     if(i<m_vector.size() && i>=0){return m_vector[i];}
     else
     {
         cerr<<"ERREUR ANIMATION [AnimFacto::get()] " << i <<endl;
-        return m_vector[Global::ID_NONE];
+        return m_vector[Global::ID[TILE_NONE]];
     }
 
 

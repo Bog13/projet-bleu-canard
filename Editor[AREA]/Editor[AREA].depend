@@ -856,10 +856,10 @@
 	<string>
 	<vector>
 
-1402600402 source:c:\users\bérenger\desktop\projet-bleu-canard\src\animationfactory.cpp
+1402608388 source:c:\users\bérenger\desktop\projet-bleu-canard\src\animationfactory.cpp
 	"animationfactory.h"
 
-1402013569 c:\users\bérenger\desktop\projet-bleu-canard\include\animationfactory.h
+1402608389 c:\users\bérenger\desktop\projet-bleu-canard\include\animationfactory.h
 	<iostream>
 	<fstream>
 	<SFML/Graphics.hpp>
@@ -878,7 +878,7 @@
 	"entitygraphic.h"
 	"areagraphic.h"
 
-1402412803 c:\users\bérenger\desktop\projet-bleu-canard\include\tilefactory.h
+1402608389 c:\users\bérenger\desktop\projet-bleu-canard\include\tilefactory.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -902,10 +902,11 @@
 	<SFML/Graphics.hpp>
 	<vector>
 
-1402409135 c:\users\bérenger\desktop\projet-bleu-canard\include\object.h
+1402605605 c:\users\bérenger\desktop\projet-bleu-canard\include\object.h
 	"tile.h"
+	"positionable.h"
 
-1402552468 c:\users\bérenger\desktop\projet-bleu-canard\include\global.h
+1402608389 c:\users\bérenger\desktop\projet-bleu-canard\include\global.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -927,14 +928,11 @@
 	"global.h"
 	"object.h"
 
-1401997690 c:\users\bérenger\desktop\projet-bleu-canard\include\character.h
+1402601878 c:\users\bérenger\desktop\projet-bleu-canard\include\character.h
 	<iostream>
-	<SFML/Graphics.hpp>
-	<vector>
-	<sstream>
 	"object.h"
 
-1402406408 c:\users\bérenger\desktop\projet-bleu-canard\include\texturefactory.h
+1402608389 c:\users\bérenger\desktop\projet-bleu-canard\include\texturefactory.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -943,7 +941,7 @@
 	"entitygraphic.h"
 	"global.h"
 
-1402552468 source:c:\users\bérenger\desktop\projet-bleu-canard\src\area.cpp
+1402608388 source:c:\users\bérenger\desktop\projet-bleu-canard\src\area.cpp
 	"area.h"
 
 1402022985 source:c:\users\bérenger\desktop\projet-bleu-canard\src\areafactory.cpp
@@ -971,10 +969,10 @@
 1402002037 c:\users\bérenger\desktop\projet-bleu-canard\include\charactergraphic.h
 	"entitygraphic.h"
 
-1402590722 source:c:\users\bérenger\desktop\projet-bleu-canard\src\core.cpp
+1402608512 source:c:\users\bérenger\desktop\projet-bleu-canard\src\core.cpp
 	"core.h"
 
-1402590688 c:\users\bérenger\desktop\projet-bleu-canard\include\core.h
+1402602123 c:\users\bérenger\desktop\projet-bleu-canard\include\core.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -985,6 +983,7 @@
 	"entitygraphic.h"
 	"areagraphic.h"
 	"areafactory.h"
+	"character.h"
 
 1402562276 source:c:\users\bérenger\desktop\projet-bleu-canard\src\entitygraphic.cpp
 	"entitygraphic.h"
@@ -995,16 +994,16 @@
 1402599932 source:c:\users\bérenger\desktop\projet-bleu-canard\src\graphics.cpp
 	"graphics.h"
 
-1402022154 source:c:\users\bérenger\desktop\projet-bleu-canard\src\object.cpp
+1402606773 source:c:\users\bérenger\desktop\projet-bleu-canard\src\object.cpp
 	"object.h"
 
-1402600294 source:c:\users\bérenger\desktop\projet-bleu-canard\src\texturefactory.cpp
+1402608388 source:c:\users\bérenger\desktop\projet-bleu-canard\src\texturefactory.cpp
 	"texturefactory.h"
 
 1401979935 source:c:\users\bérenger\desktop\projet-bleu-canard\src\tile.cpp
 	"tile.h"
 
-1402552468 source:c:\users\bérenger\desktop\projet-bleu-canard\src\tilefactory.cpp
+1402608388 source:c:\users\bérenger\desktop\projet-bleu-canard\src\tilefactory.cpp
 	"tilefactory.h"
 
 1402599955 source:c:\users\bérenger\desktop\projet-bleu-canard\editor[area]\editor.cpp
@@ -1028,4 +1027,8 @@
 	"../include/areafactory.h"
 	"editor.h"
 	<SFML/Graphics.hpp>
+
+1402605645 c:\users\bérenger\desktop\projet-bleu-canard\include\positionable.h
+	<iostream>
+	<utility>
 
