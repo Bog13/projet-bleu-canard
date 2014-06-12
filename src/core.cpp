@@ -13,9 +13,7 @@ Core::Core(RenderWindow* window)
     m_ag=new AreaGraphic(m_a);
     ///
 
-    ///test character
-    m_c= new CharacterGraphic (AnimationFactory::get(Global::ID_CHAR_NONE),Graphics::createSquare(10,10,32,32));
-    ///
+
 
     m_fps=0;
     m_clockFps=0;
@@ -28,7 +26,6 @@ Core::Core(RenderWindow* window)
 void Core::update()
 {
     m_ag->update();
-    m_c->update();
     if(time(NULL)-m_clockFps>=1)
     {
         m_window->setTitle(Global::intToStr(m_fps)+" fps");
@@ -43,9 +40,6 @@ void Core::draw()
 {
      m_window->clear(Color(4,139,154));
      m_graphic->drawArea(m_ag);
-
-    ///TEST
-     m_graphic->drawEntity(m_c);
 }
 
 
@@ -140,6 +134,5 @@ void Core::run()
 Core::~Core()
 {
 delete m_ag;delete m_a;//test area
-delete m_c;
 delete m_graphic;
 }

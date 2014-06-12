@@ -49,8 +49,6 @@
 		<Unit filename="include/area.h" />
 		<Unit filename="include/areafactory.h" />
 		<Unit filename="include/areagraphic.h" />
-		<Unit filename="include/character.h" />
-		<Unit filename="include/charactergraphic.h" />
 		<Unit filename="include/core.h" />
 		<Unit filename="include/entitygraphic.h" />
 		<Unit filename="include/global.h" />
@@ -66,8 +64,6 @@
 		<Unit filename="src/area.cpp" />
 		<Unit filename="src/areafactory.cpp" />
 		<Unit filename="src/areagraphic.cpp" />
-		<Unit filename="src/character.cpp" />
-		<Unit filename="src/charactergraphic.cpp" />
 		<Unit filename="src/core.cpp" />
 		<Unit filename="src/entitygraphic.cpp" />
 		<Unit filename="src/global.cpp" />

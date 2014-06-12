@@ -14,6 +14,7 @@ class Animation
         void play();
         void stop();
         void setDelay(int delay);
+        int getDelay(){return m_delay;};
         void addFrame(Texture t);
         int nbFrame(){return m_textures.size();}
         void init();

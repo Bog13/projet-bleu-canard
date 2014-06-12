@@ -36,7 +36,10 @@ void AnimationFactory::load()
         {Animation a;a.addFrame(*TextureFactory::get(Global::ID_TEXTURE_SNOW+i)); m_vector.push_back(a);}
     }
 
-
+    for (int i(0); i<Global::NB_STATE_CHAR_NONE;i++) ///5 textures
+    {
+        {Animation a;a.addFrame(*TextureFactory::get(Global::ID_CHAR_NONE+i)); m_vector.push_back(a);}
+    }
 
 
     /*Qu'est-ce que c'est ça ? C'est pas moi je crois.

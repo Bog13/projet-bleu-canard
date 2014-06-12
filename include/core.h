@@ -10,7 +10,7 @@
 #include "entitygraphic.h"
 #include "areagraphic.h"
 #include "areafactory.h"
-#include "charactergraphic.h"
+
 using namespace std;
 using namespace sf;
 
@@ -30,7 +30,6 @@ class Core
         Graphics* m_graphic;
         AreaGraphic *m_ag;
         Area *m_a;
-        CharacterGraphic *m_c;
         ///
 
         int m_fps;

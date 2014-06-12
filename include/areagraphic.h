@@ -18,6 +18,7 @@ class AreaGraphic
         void initObjects();
         EntityGraphic* getTileGraphic(int x,int y);
         EntityGraphic* getObjectGraphic(int i);
+
         int nbObject(){return m_area->nbObject();}
         void updateTiles();
         void verifyTiles();
@@ -27,7 +28,7 @@ class AreaGraphic
 
         int getWidth(){return m_width;}
         int getHeight(){return m_height;}
-
+        Area* getArea(){return m_area;}
         const void getInfo();
 
 

@@ -6,7 +6,7 @@
 #include "tilefactory.h"
 #include "entitygraphic.h"
 #include "areagraphic.h"
-#include "character.h"
+
 using namespace std;
 using namespace sf;
 
@@ -18,12 +18,16 @@ class Graphics
         static ConvexShape createSquare(int x,int y,int w,int h);
         void drawEntity(EntityGraphic *t);
         void drawArea(AreaGraphic *ag);
+        void drawVisibleArea(AreaGraphic *ag);
+        void drawObjects(AreaGraphic *ag);
         void drawCharacter(EntityGraphic t);
         void update();
 
         ///Controle de la view
         void enableView     (bool b);
         void setViewPosition(float x=0, float y=0);
+        void setView(View const &view);
+        View* getView(){return& m_mainView;}
 
         ///Mouvement de bases pouvant servir plus tard, éventuellement...
         void moveView       (float right, float left, float up, float down);

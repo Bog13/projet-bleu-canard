@@ -37,14 +37,11 @@ int main()
         movingLeft=false,
         movingDown=false;
 
-    View mainView(FloatRect(0,0,Global::TILE_WIDTH*10,Global::TILE_HEIGHT*10));
-         mainView.setViewport(FloatRect(0,0,1,0.88));
-    View menuView(FloatRect(0,0,Global::TILE_WIDTH*Global::NB_TOTAL_TILE,Global::TILE_HEIGHT*10));
-         menuView.setViewport(FloatRect(0,0.88f,1,1));
+
     ///
 
 
-    Editor theEditor(&window, &mainView, &menuView);
+    Editor theEditor(&window);
     Event event;
 
     while (window.isOpen())
@@ -55,38 +52,30 @@ int main()
         {
             switch(event.type)
             {
+                case Event::Closed:
+                    window.close();
+                    break;
                 case Event::KeyPressed:
                 {
                   switch(event.key.code)
                   {
                       case Keyboard::Escape: window.close();
                       ///VIEW CONTROL
-                      case Keyboard::Subtract:  mainView.zoom(1.1f);break;
-                      case Keyboard::Add:       mainView.zoom(0.9f) ;break;
-
-                      case Keyboard::Left:      movingLeft=true;    break;
-                      case Keyboard::Right:     movingRight=true;   break;
-                      case Keyboard::Up:        movingUp=true;      break;
-                      case Keyboard::Down:      movingDown=true;    break;
-
+                      case Keyboard::Subtract:  theEditor.zoom(1.1f);break;
+                      case Keyboard::Add:       theEditor.zoom(0.9f) ;break;
                       default: break;
                   }
                 }
                 case:: Event::KeyReleased:
                     switch(event.key.code)
-                            {
-                                ///View
-                                case Keyboard::Left:      movingLeft=false;   break;
-                                case Keyboard::Right:     movingRight=false;  break;
-                                case Keyboard::Up:        movingUp=false; break;
-                                case Keyboard::Down:      movingDown=false;  break;
-                                default: break;
-                            }
+                    {
+                        default: break;
+                    }
 
 
                 case Event::MouseButtonPressed:
                     if(Mouse::isButtonPressed(Mouse::Left))interact=true;;
-                    //if(Mouse::isButtonPressed(Mouse::Right)); on peux ajouter un clique droit ici On peut même mêtre un deuxième modifer tiens !
+                    //if(Mouse::isButtonPressed(Mouse::Right)); on peux ajouter un clique droit ici On peut même mettre un deuxième modifier tiens !
                     break;
 
                 case Event::MouseButtonReleased:
@@ -96,13 +85,22 @@ int main()
 
 
             }
+            ///Keyboard
+            if(Keyboard::isKeyPressed(Keyboard::Up)){movingUp=true;}else movingUp=false;
+            if(Keyboard::isKeyPressed(Keyboard::Down)){movingDown=true;}else movingDown=false;
+            if(Keyboard::isKeyPressed(Keyboard::Left)){movingLeft=true;}else movingLeft=false;
+            if(Keyboard::isKeyPressed(Keyboard::Right)){movingRight=true;}else movingRight=false;
+
+            if(Keyboard::isKeyPressed(Keyboard::Space)){theEditor.LoadArea("areaTest.area");}///DEBUG
+
+
 
 
 
 
         }
 
-    ///Keyboard
+
         //Save
     if(Keyboard::isKeyPressed(Keyboard::LControl) && Keyboard::isKeyPressed(Keyboard::S) )
     {
@@ -120,12 +118,18 @@ int main()
         theEditor.LoadArea(name);
     }
 
-
+    ///Directions
+    //cout<<movingRight<<endl;
+    if(movingUp)theEditor.moveView(0,-.5);
+    if(movingDown)theEditor.moveView(0,.5);
+    if(movingLeft)theEditor.moveView(-.5,0);
+    if(movingRight)theEditor.moveView(.5,0);
+    if(!movingUp && !movingDown && !movingLeft && !movingRight)theEditor.moveView(0,0);
     ///Mouse
         Vector2i mouseWindowPosition=Mouse::getPosition(window);
 
     ///Updates
-        theEditor.Update(mouseWindowPosition,interact,movingRight, movingLeft, movingUp, movingDown);
+        theEditor.Update(mouseWindowPosition,interact);
 
     ///WINDOW
         window.clear(Color(4,139,154));

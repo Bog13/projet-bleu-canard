@@ -1,7 +1,7 @@
 #include "editor.h"
 
 
-Editor::Editor(RenderWindow* window, View* mainView, View* menuView)
+Editor::Editor(RenderWindow* window)
 {
 
     m_window=window;
@@ -16,8 +16,14 @@ Editor::Editor(RenderWindow* window, View* mainView, View* menuView)
     m_isTheMouseInTheMenu=false;
     m_currentModifer=0;
         //graphics
-    m_mainView=mainView;
-    m_menuView=menuView;
+    ///view
+    m_mainView=m_graphics->getView();
+    m_mainView->setViewport(FloatRect(0,0,1,0.88));
+
+    m_menuView=new View(FloatRect(0,0,Global::TILE_WIDTH*Global::NB_TOTAL_TILE,Global::TILE_WIDTH*10));
+
+    m_menuView->setViewport(FloatRect(0,0.88f,1,1));
+
 
 
     ///Remplissage du vector possèdant les différentes tiles. Peut surement être supprimé.
@@ -65,7 +71,8 @@ const void Editor::draw()
 
         ///Mainview
         m_window->setView(*m_mainView);
-        DrawVisibleArea();
+        m_graphics->drawVisibleArea(m_ag);
+        m_graphics->drawObjects(m_ag);
 
         ///Menuview
         m_window->setView(*m_menuView);
@@ -90,8 +97,13 @@ const void Editor::drawMenu()
 
 }
 
+void Editor::moveView(float x,float y)
+{
+    m_mainView->move(x,y);
+}
 
-void Editor::Update(Vector2i mouseWindowPosition,bool interact, bool movingRight, bool movingLeft, bool movingUp, bool movingDown)
+
+void Editor::Update(Vector2i mouseWindowPosition,bool interact)
 /**
     Globalement:
         * la position de la souris est actualisée
@@ -99,11 +111,8 @@ void Editor::Update(Vector2i mouseWindowPosition,bool interact, bool movingRight
         * Modification de l'area si clique activé
 **/
 {
-    ///Mouvement de la Vue
-       if(movingDown);m_mainView->move(0,0.5);
-        if(movingRight);m_mainView->move(0.5,0);
-        if(movingUp);m_mainView->move(0,-0.5);
-        if(movingLeft);m_mainView->move(-0.5,0);
+
+
     //m_mainView->move(movingLeft*-0.5,movingUp*-0.5); fonctionne surement mais pas avec les bool actuels
 
     ///Actualisation de la position de la souris
@@ -135,7 +144,11 @@ void Editor::Update(Vector2i mouseWindowPosition,bool interact, bool movingRight
 
 
     for(int i(0);i<m_vector.size();i++){m_vector[i].update();} ///Affiche les animations en bas
-    m_ag->update(); ///Inutile, j'arrive pas à lancer les anim' dans l'area en vue
+
+    ///actualisation de la view Graphics
+    m_ag->updateTiles();
+
+
 }
 
 
@@ -148,48 +161,7 @@ const void Editor::DrawArea()
 }
 
 
-const void Editor::DrawVisibleArea()
-/**
-   L'idée est d'optimiser l'affichage en ne montrant que les tiles à l'intérieur de la vue.
-   Le résultat actuel est satisfaisant mais peut probablement être amélioré.
 
-   Légende:
-        ag: AreaGraphic     wdw: Window     vw: View
-         w: widht             h: Height
-         x: pos. horizontale  y: pos. verticale
-**/
-{
-    int ag_w=m_ag->getWidth(),
-        ag_h=m_ag->getHeight();
-    int wdw_w=m_window->getSize().x,
-        wdw_h=m_window->getSize().y;
-    int vw_w=m_mainView->getSize().x,
-        vw_h=m_mainView->getSize().y;
-    float   vw_x=m_mainView->getCenter().x,
-            vw_y=m_mainView->getCenter().y;
-
-
-/**
-   L'optimisation assez énorme à gagner est ici de trouver i et j de manière à ne pas faire le test en boucle.
-   Qqch du style: for (int i(debutView);i<finView;i++) vois-tu ?
-**/
-    for(int i(0);i<ag_h;i++)
-    {
-        for (int j(0); j<ag_w;j++)
-        {
-            int pozX=j*Global::TILE_WIDTH, pozY=i*Global::TILE_HEIGHT; //On saisit la position de la tuile
-            if(Global::isInTheRect(pozX,pozY,vw_x-vw_w/2,vw_y-vw_h/2,vw_w,vw_h)) //On regarde si elle est dans la vue
-                {
-                    EntityGraphic* e=m_ag->getTileGraphic(j,i);
-                    e->getConvexShape()->setPosition(pozX,pozY);
-                    m_graphics->drawEntity(e);
-                }
-            else {}
-
-        }
-    }
-    m_ag->update(); ///Je sais plus si bien utile.
-}
 
 const void Editor::SaveCurrentArea(string name)
 /**
@@ -204,7 +176,10 @@ const void Editor::LoadArea(string name)
      Re-merci...
 **/
 {
+    m_currentArea=new Area(0,0);
     AreaFactory::loadArea(m_currentArea, name);
+    m_ag=new AreaGraphic(m_currentArea);
+
 }
 
 

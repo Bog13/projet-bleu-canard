@@ -38,10 +38,10 @@ void TextureFactory::load(string path)
 {
     ///tileSets
     loadPng(path+"NONE.png",1,1);
-    loadPng(path+"hight_grass.png",1,4);
-    loadPng(path+"grass-transition-ground.png",1,4);
-    loadPng(path+"desert.png",1,7);
-    loadPng(path+"snow.png",1,5);
+    loadPng(path+"hight_grass.png",1,Global::NB_STATE_HIGHT_GRASS);
+    loadPng(path+"grass-transition-ground.png",1,Global::NB_STATE_HIGHT_GRASS_tGROUND);
+    loadPng(path+"desert.png",1,Global::NB_STATE_DESERT);
+    loadPng(path+"snow.png",1,Global::NB_STATE_SNOW);
     ///
 
     ///Characters

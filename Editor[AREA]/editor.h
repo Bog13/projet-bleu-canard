@@ -17,17 +17,17 @@ using namespace sf;
 class Editor
 {
     public:
-        Editor(RenderWindow* window, View* mainView, View* menuView);
+        Editor(RenderWindow* window);
 
         void Modify(Vector2f pos, int id);
         const void draw();
         const void drawMenu();
         const void DrawArea();
-        const void DrawVisibleArea();
-        //const area* GetArea() {return m_currentArea;} Pas utile, encore.
+        void zoom(float f){m_mainView->zoom(f);}
         const void SaveCurrentArea(string name);
         const void LoadArea(string name);
-        void Update(Vector2i mouseWindowPosition,bool interact, bool movingRight, bool movingLeft, bool movingUp, bool movingDown);
+        void Update(Vector2i mouseWindowPosition,bool interact);
+        void moveView(float x,float y);
         void synchroniseTiles();
         virtual ~Editor();
     protected:

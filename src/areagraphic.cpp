@@ -114,13 +114,23 @@ void AreaGraphic::updateTiles()
 
 void AreaGraphic::synchroniseTiles(int f)
 {
+    Clock c;
+    int frame=f;
+    c.restart();
     for(int i=0;i<m_height;i++)
     {
         for(int j=0;j<m_width;j++)
         {
-            m_tiles[i][j]->synchronise(f);
+            if(c.getElapsedTime().asMilliseconds()>=m_tiles[i][j]->getAnimation()->getDelay() )
+            {
+                frame+= static_cast<int>( c.getElapsedTime().asMilliseconds()/m_tiles[i][j]->getAnimation()->getDelay());
+                //c.restart();
+            }
+             m_tiles[i][j]->getAnimation()->setCurrentFrame(frame);
         }
     }
+
+
 }
 
 void AreaGraphic::updateObjects()

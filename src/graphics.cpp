@@ -62,6 +62,12 @@ void Graphics::drawArea(AreaGraphic *ag)
         }
     }
 
+    drawObjects(ag);
+
+}
+
+void Graphics::drawObjects(AreaGraphic *ag)
+{
     Object *o=0;
     for(int i=0;i<ag->nbObject();i++)
     {
@@ -78,6 +84,49 @@ void Graphics::drawArea(AreaGraphic *ag)
 
         drawEntity(ag->getObjectGraphic(i) );
     }
+}
+
+void Graphics::setView(View const &view)
+{
+    m_mainView=View(view);
+}
+
+void Graphics::drawVisibleArea(AreaGraphic *ag)
+{
+    Area* a=ag->getArea();
+
+    int vw_w=m_mainView.getSize().x,
+        vw_h=m_mainView.getSize().y;
+
+    float  vw_x=m_mainView.getCenter().x,
+            vw_y=m_mainView.getCenter().y;
+
+
+    Vector2f center=m_mainView.getCenter();
+    int offsetDisplay=1;
+    int view_height_up= (vw_y-vw_h/2)/Global::TILE_HEIGHT;
+    int view_height_down=(vw_y+vw_h/2)/Global::TILE_HEIGHT+offsetDisplay;
+    int view_width_left= (vw_x-vw_w/2)/Global::TILE_WIDTH;
+    int view_width_right=(vw_x+vw_w/2)/Global::TILE_WIDTH+offsetDisplay;
+
+    //on vérifie de rester dans l'écran
+    if(view_height_up<0)view_height_up=0;
+    if(view_height_down>a->getHeight())view_height_down=a->getHeight();
+    if(view_width_left<0)view_width_left=0;
+    if(view_width_right>a->getWidth()-1)view_width_right=a->getWidth();
+
+
+    for(int i=view_height_up;i<view_height_down;i++)
+    {
+        for(int j=view_width_left;j<view_width_right;j++)
+        {
+            EntityGraphic* e= ag->getTileGraphic(j,i);
+            e->getConvexShape()->setPosition(j*Global::TILE_WIDTH,i*Global::TILE_HEIGHT);
+            drawEntity(e);
+        }
+    }
+
+
 }
 
 /** Controle de la vue principale **/
