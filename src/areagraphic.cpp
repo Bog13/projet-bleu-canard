@@ -74,7 +74,7 @@ EntityGraphic* AreaGraphic::getObjectGraphic(int i)
     }else cerr<<"Tentative d'acces à objects["<<i<<"] !"<<endl;
 }
 
-void AreaGraphic::updateTiles()
+void AreaGraphic::verifyTiles()
 /**
     Cette méthode était vide avant. Maintenant elle vérifie que les tiles de l'area membre (pouvant être modifiée)
     correspond à la copie en tilegraphics.
@@ -97,6 +97,17 @@ void AreaGraphic::updateTiles()
 
 
                 }
+        }
+    }
+}
+
+void AreaGraphic::updateTiles()
+{
+    for(int i=0;i<m_height;i++)
+    {
+        for(int j=0;j<m_width;j++)
+        {
+            m_tiles[i][j]->update();
         }
     }
 }
@@ -125,7 +136,7 @@ const void AreaGraphic::getInfo()
 
 void AreaGraphic::update()
 {
-    //updateTiles();
+    updateTiles();
     updateObjects();
 }
 

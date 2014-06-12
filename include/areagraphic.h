@@ -20,6 +20,7 @@ class AreaGraphic
         EntityGraphic* getObjectGraphic(int i);
         int nbObject(){return m_area->nbObject();}
         void updateTiles();
+        void verifyTiles();
         void updateObjects();
         void update();
 
