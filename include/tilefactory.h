@@ -21,6 +21,7 @@ class TileFactory
         virtual ~TileFactory();
 
         static void load();
+        static void loadTile(int clue);
         static EntityGraphic get(int i);
 
 

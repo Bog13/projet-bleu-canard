@@ -39,6 +39,7 @@ class Global
         /**
             Peut-être à renommer, mais ici ça défini le nombre d'image dans un tileSet en même temps ( pour les marquées) .
         **/
+        static const int NB_STATE_NONE=0;
         static const int NB_STATE_HIGHT_GRASS=4;
         static const int NB_STATE_HIGHT_GRASS_tGROUND=4; //
         static const int NB_STATE_DESERT=7;
@@ -50,38 +51,18 @@ class Global
 
 
         static const int ID_NONE=0;
-
-        static const int ID_HIGHT_GRASS=ID_NONE+1;
-            //Transition Ground
-            static const int ID_HIGHT_GRASS_tGROUND_UL=ID_NONE+2;
-            static const int ID_HIGHT_GRASS_tGROUND_UR=ID_NONE+3;
-            static const int ID_HIGHT_GRASS_tGROUND_DL=ID_NONE+4;
-            static const int ID_HIGHT_GRASS_tGROUND_DR=ID_NONE+5;
-
-        static const int ID_DESERT=ID_NONE+6;
-
-
-        static const int ID_SNOW_1=ID_NONE+7;
-        static const int ID_SNOW_2=ID_NONE+8;
-        static const int ID_SNOW_3=ID_NONE+9;
-        static const int ID_SNOW_4=ID_NONE+10;
-        static const int ID_SNOW_5=ID_NONE+11;
+    )
 
         /**Impoooortant !
         Permet l'accès à la bonne texture et donc la série qui va avec. Voir textureFactory
         **/
         static const int ID_TEXTURE_NONE=0;
         static const int ID_TEXTURE_HIGHT_GRASS=1;
-        static const int ID_TEXTURE_HIGHT_GRASS_tGROUND=5;
-        static const int ID_TEXTURE_DESERT=9;
-        static const int ID_TEXTURE_SNOW=16;
+        static const int ID_TEXTURE_HIGHT_GRASS_tGROUND=2;
+        static const int ID_TEXTURE_DESERT=3;
+        static const int ID_TEXTURE_SNOW=4;
+        static const int ID_CHAR_NONE=5;
 
-
-        /* USELESS
-        static const int ID_ROCK=ID_NONE+3;
-        */
-
-        static const int ID_CHAR_NONE=21;
         static const int ID_CHAR_MONSTER=ID_CHAR_NONE+ NB_STATE_CHAR_NONE;
         //static const int ID_CHAR_MONSTER=ID_CHAR_MONSTER+NB_STATE_CHAR_MONSTER; pour l'exemple (pas compris)
 

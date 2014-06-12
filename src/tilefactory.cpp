@@ -3,6 +3,15 @@
 vector<EntityGraphic> TileFactory::m_vector;
 
 
+
+void TileFactory::loadTile(int clue)
+{
+    ConvexShape c=Graphics::createSquare(0,0,Global::TILE_WIDTH,Global::TILE_HEIGHT);
+    Animation a(AnimationFactory::get(clue));
+    EntityGraphic tg(a,c);
+    m_vector.push_back(tg);
+}
+
 void TileFactory::load()
 /**
     Je préconise une méthode qui allègerait ce code ! :p Sinon, c'est juste une initialisation banale.
@@ -12,8 +21,13 @@ void TileFactory::load()
     ConvexShape c=Graphics::createSquare(0,0,Global::TILE_WIDTH,Global::TILE_HEIGHT);
 
     ///12 Tiles, doit correspondre avec Global::NB_TOTAL_TILE
-    {Animation a(AnimationFactory::get(Global::ID_NONE));EntityGraphic tg(a,c);m_vector.push_back(tg);}
-    {Animation a(AnimationFactory::get(Global::ID_HIGHT_GRASS));EntityGraphic tg(a,c);m_vector.push_back(tg);}
+    for(int i(Global::ID_TEXTURE_NONE);i<Global::NB_TOTAL_TILE;i++)
+    {
+        loadTile(i);
+    }
+    /*{Animation a(AnimationFactory::get(Global::ID_NONE));EntityGraphic tg(a,c);m_vector.push_back(tg);}
+
+    {Animation a(AnimationFactory::get(Global::ID_TEXTURE_HIGHT_GRASS));EntityGraphic tg(a,c);m_vector.push_back(tg);}
     {Animation a(AnimationFactory::get(Global::ID_HIGHT_GRASS_tGROUND_UL));EntityGraphic tg(a,c);m_vector.push_back(tg);}
     {Animation a(AnimationFactory::get(Global::ID_HIGHT_GRASS_tGROUND_UR));EntityGraphic tg(a,c);m_vector.push_back(tg);}
     {Animation a(AnimationFactory::get(Global::ID_HIGHT_GRASS_tGROUND_DL));EntityGraphic tg(a,c);m_vector.push_back(tg);}
@@ -23,7 +37,7 @@ void TileFactory::load()
     {Animation a(AnimationFactory::get(Global::ID_SNOW_2));EntityGraphic tg(a,c);m_vector.push_back(tg);}
     {Animation a(AnimationFactory::get(Global::ID_SNOW_3));EntityGraphic tg(a,c);m_vector.push_back(tg);}
     {Animation a(AnimationFactory::get(Global::ID_SNOW_4));EntityGraphic tg(a,c);m_vector.push_back(tg);}
-    {Animation a(AnimationFactory::get(Global::ID_SNOW_5));EntityGraphic tg(a,c);m_vector.push_back(tg);}
+    {Animation a(AnimationFactory::get(Global::ID_SNOW_5));EntityGraphic tg(a,c);m_vector.push_back(tg);}*/
 
     cout<<"Tiles loaded !"<<endl;
 }
