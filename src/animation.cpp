@@ -5,10 +5,21 @@ Animation::Animation()
     init();
 }
 
+
+
 Animation::Animation(int delay)
 {
    init();
    setDelay(delay);
+}
+
+void Animation::setCurrentFrame(int i)
+{
+    if(m_textures.size()>1)
+    {
+        m_current=i;
+        m_current%=m_textures.size();
+    }
 }
 
 void Animation::addFrame(Texture t)

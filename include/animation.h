@@ -19,6 +19,7 @@ class Animation
         void init();
         void update();
         Texture* getCurrentFrame();
+        void setCurrentFrame(int i);
         Texture* getFrame(int i);
 
         bool operator ==(Animation a);

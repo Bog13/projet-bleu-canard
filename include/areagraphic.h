@@ -23,6 +23,7 @@ class AreaGraphic
         void verifyTiles();
         void updateObjects();
         void update();
+        void synchroniseTiles(int f);
 
         int getWidth(){return m_width;}
         int getHeight(){return m_height;}

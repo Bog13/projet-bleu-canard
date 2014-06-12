@@ -28,6 +28,7 @@ class EntityGraphic
         void setEntity(Tile* e){m_entity=e;m_hasAnEntity=true;}
         bool hasAnEntity(){return m_hasAnEntity;}
         void update();
+        void synchronise(int f);
         void setAnimation(Animation a){m_animation=a;}
         void setConvexShape(ConvexShape cs){m_convexShape=cs;}
         virtual ~EntityGraphic();

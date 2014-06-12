@@ -42,6 +42,11 @@ void EntityGraphic::update()
     m_animation.update();
 }
 
+void EntityGraphic::synchronise(int f)
+{
+    m_animation.setCurrentFrame(f);
+}
+
 
 
 

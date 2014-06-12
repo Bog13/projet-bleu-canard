@@ -28,7 +28,7 @@ class Editor
         const void SaveCurrentArea(string name);
         const void LoadArea(string name);
         void Update(Vector2i mouseWindowPosition,bool interact, bool movingRight, bool movingLeft, bool movingUp, bool movingDown);
-
+        void synchroniseTiles();
         virtual ~Editor();
     protected:
         RenderWindow* m_window;

@@ -42,10 +42,16 @@ void Editor::Modify(Vector2f pos, int id)
     if( m_currentArea->in(x_tile,y_tile) )
     {
         m_currentArea->modifyTile(x_tile,y_tile,id);
-        m_ag->getTileGraphic(x_tile,y_tile)->setGraphicalType(id); // Le problème d'animation vient-il d'ici ?
+        m_ag->getTileGraphic(x_tile,y_tile)->setGraphicalType(id);
+        synchroniseTiles();
     }
 
 
+}
+
+void Editor::synchroniseTiles()
+{
+    m_ag->synchroniseTiles(0);
 }
 
 const void Editor::draw()

@@ -112,6 +112,17 @@ void AreaGraphic::updateTiles()
     }
 }
 
+void AreaGraphic::synchroniseTiles(int f)
+{
+    for(int i=0;i<m_height;i++)
+    {
+        for(int j=0;j<m_width;j++)
+        {
+            m_tiles[i][j]->synchronise(f);
+        }
+    }
+}
+
 void AreaGraphic::updateObjects()
 {
     for(int i=0;i<m_objects.size();i++)
