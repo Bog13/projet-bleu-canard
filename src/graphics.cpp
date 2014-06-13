@@ -11,8 +11,13 @@ Graphics::Graphics(RenderWindow* window)
     m_viewPositionY=0;
     m_mainView.setSize(m_viewWidth,m_viewHeight);
     m_mainView.setCenter(m_viewPositionX,m_viewPositionY);
-    m_viewActivated=false;
+    m_viewActivated=true;
 
+}
+
+void Graphics::setViewSize(int w,int h)
+{
+    m_mainView.setSize(w,h);
 }
 
 

@@ -35,6 +35,7 @@ class Graphics
         void moveViewDown   (float d);
         void moveViewRight  (float d);
         void moveViewLeft   (float d);
+        void setViewSize(int w,int h);
 
         virtual ~Graphics();
     protected:

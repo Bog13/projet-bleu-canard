@@ -18,7 +18,8 @@ enum
     HIGHT_GRASS_tGROUND_4=5,
     DESERT=6,
     SNOW=7,
-    CHAR_NONE=8
+    FLOOR_WOOD=8,
+    CHAR_NONE=9
 };
 
 class Global
@@ -54,7 +55,7 @@ class Global
 
 
 
-        static const int NB_TOTAL_TILE=9;
+        static const int NB_TOTAL_TILE=10;
         static const int NB_TOTAL_ID=NB_TOTAL_TILE;
 
         static const int ID[NB_TOTAL_ID];

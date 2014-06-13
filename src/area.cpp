@@ -17,7 +17,7 @@ void Area::initTile()
 
         for(int j=0;j<m_width;j++)
         {
-            vecTile.push_back(new Tile(Global::ID[HIGHT_GRASS]));
+            vecTile.push_back(new Tile(Global::ID[FLOOR_WOOD]));
         }
 
         m_tiles.push_back(vecTile);

@@ -74,6 +74,7 @@ bool TextureFactory::load(string path)
        && loadPngRect(path+"grass-transition-ground.png",3,0)
        && loadPng(path+"desert.png",1,Global::NB_FRAME_ID[DESERT])
        && loadPng(path+"snow.png",1,Global::NB_FRAME_ID[SNOW])
+       && loadPng(path+"floor_wood.png",1,Global::NB_FRAME_ID[FLOOR_WOOD])
             ///Characters
        &&loadPng(path+"player.png",2,3)){cout<<"Textures loaded !"<<endl;}
         else{cerr<<"Problem appeared during textures loading." << endl;}

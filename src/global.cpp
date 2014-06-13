@@ -18,6 +18,7 @@ int const Global::ID[]=
     HIGHT_GRASS_tGROUND_4,
     DESERT,
     SNOW,
+    FLOOR_WOOD,
     CHAR_NONE
 };
 
@@ -30,6 +31,7 @@ int const Global::NB_FRAME_ID[]=
     1,
     1,
     7,
+    1,
     1,
     3
 };
