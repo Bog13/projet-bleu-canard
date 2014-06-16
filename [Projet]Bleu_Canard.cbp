@@ -51,11 +51,13 @@
 		<Unit filename="include/areagraphic.h" />
 		<Unit filename="include/character.h" />
 		<Unit filename="include/collisionable.h" />
+		<Unit filename="include/controller.h" />
 		<Unit filename="include/core.h" />
 		<Unit filename="include/entitygraphic.h" />
 		<Unit filename="include/global.h" />
 		<Unit filename="include/graphics.h" />
 		<Unit filename="include/includes.h" />
+		<Unit filename="include/keyboardcontroller.h" />
 		<Unit filename="include/movable.h" />
 		<Unit filename="include/object.h" />
 		<Unit filename="include/positionable.h" />
@@ -70,10 +72,12 @@
 		<Unit filename="src/areagraphic.cpp" />
 		<Unit filename="src/character.cpp" />
 		<Unit filename="src/collisionable.cpp" />
+		<Unit filename="src/controller.cpp" />
 		<Unit filename="src/core.cpp" />
 		<Unit filename="src/entitygraphic.cpp" />
 		<Unit filename="src/global.cpp" />
 		<Unit filename="src/graphics.cpp" />
+		<Unit filename="src/keyboardcontroller.cpp" />
 		<Unit filename="src/movable.cpp" />
 		<Unit filename="src/object.cpp" />
 		<Unit filename="src/positionable.cpp" />

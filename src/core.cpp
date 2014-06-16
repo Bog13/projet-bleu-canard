@@ -14,6 +14,7 @@ Core::Core(RenderWindow* window)
     m_window=window;
     m_graphic=new Graphics(m_window);
     m_graphic->setViewSize(Global::WINDOW_WIDTH,Global::WINDOW_HEIGHT);
+    m_controller=new KeyboardController();
 
     /// test area
     m_a=new Area(50,50);
@@ -35,6 +36,7 @@ Core::Core(RenderWindow* window)
 
 void Core::update()
 {
+
     m_ag->update();
     if(time(NULL)-m_clockFps>=1)
     {
@@ -44,6 +46,23 @@ void Core::update()
     }
 
     m_graphic->update();
+}
+
+void Core::lookAtControl()
+{
+    if(m_controller->noOp() )
+    {
+    }
+    else
+    {
+        if(m_controller->up())cout<<"up"<<endl;
+        if(m_controller->down())cout<<"down"<<endl;
+        if(m_controller->left())cout<<"left"<<endl;
+        if(m_controller->right())cout<<"right"<<endl;
+        if(m_controller->yes())cout<<"yes"<<endl;
+        if(m_controller->no())cout<<"no"<<endl;
+    }
+
 }
 
 void Core::draw()
@@ -60,15 +79,15 @@ void Core::run()
 {
     bool viewMoovement[4]; ///Bool pour le contrôle de la view
     for(int i(0);i<4;i++){viewMoovement[i]=false;}
-    Event event;
+
 
     while (m_window->isOpen())
     {
         m_clock.restart();
 
-        while(m_window->pollEvent(event))
+        while(m_window->pollEvent(*m_controller->getEvent()))
         {
-            switch(event.type)
+            switch(m_controller->getEvent()->type)
             {
 
                 case Event::Closed:
@@ -77,7 +96,7 @@ void Core::run()
 
                 case Event::KeyPressed:
 
-                    switch(event.key.code)
+                    switch((*m_controller->getEvent() ).key.code)
                     {
 
                         case Keyboard::Escape:
@@ -126,7 +145,7 @@ void Core::run()
 
                 case Event::KeyReleased:
 
-                    switch(event.key.code)
+                    switch(( *m_controller->getEvent() ).key.code)
                     {
                         case Keyboard::Right:
                             viewMoovement[RIGHT]=false;
@@ -156,13 +175,15 @@ void Core::run()
 
 
             }
+
+        lookAtControl();
+
         ///View Update
         if(viewMoovement[RIGHT]){m_graphic->moveViewRight(0.5);}
         if(viewMoovement[UP]){m_graphic->moveViewUp(0.5);}
         if(viewMoovement[LEFT]){m_graphic->moveViewLeft(0.5);}
         if(viewMoovement[DOWN]){m_graphic->moveViewDown(0.5);}
         else{}
-        //m_graphic->moveView(viewMoovement[RIGHT]*0.5,viewMoovement[LEFT]*0.5,viewMoovement[UP]*0.5,viewMoovement[DOWN]*0.5);
         ///
 
         draw();
@@ -178,6 +199,7 @@ void Core::run()
 
 Core::~Core()
 {
-delete m_ag;delete m_a;//test area
-delete m_graphic;
+    delete m_ag;delete m_a;//test area
+    delete m_graphic;
+    delete m_controller;
 }

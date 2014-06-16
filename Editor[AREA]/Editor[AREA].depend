@@ -856,10 +856,10 @@
 	<string>
 	<vector>
 
-1402608388 source:c:\users\bérenger\desktop\projet-bleu-canard\src\animationfactory.cpp
+1402619362 source:c:\users\bérenger\desktop\projet-bleu-canard\src\animationfactory.cpp
 	"animationfactory.h"
 
-1402608389 c:\users\bérenger\desktop\projet-bleu-canard\include\animationfactory.h
+1402619362 c:\users\bérenger\desktop\projet-bleu-canard\include\animationfactory.h
 	<iostream>
 	<fstream>
 	<SFML/Graphics.hpp>
@@ -870,7 +870,7 @@
 	"global.h"
 	"tilefactory.h"
 
-1402599932 c:\users\bérenger\desktop\projet-bleu-canard\include\graphics.h
+1402620943 c:\users\bérenger\desktop\projet-bleu-canard\include\graphics.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -906,7 +906,7 @@
 	"tile.h"
 	"positionable.h"
 
-1402608389 c:\users\bérenger\desktop\projet-bleu-canard\include\global.h
+1402921668 c:\users\bérenger\desktop\projet-bleu-canard\include\global.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -932,7 +932,7 @@
 	<iostream>
 	"object.h"
 
-1402608389 c:\users\bérenger\desktop\projet-bleu-canard\include\texturefactory.h
+1402618573 c:\users\bérenger\desktop\projet-bleu-canard\include\texturefactory.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -941,7 +941,7 @@
 	"entitygraphic.h"
 	"global.h"
 
-1402608388 source:c:\users\bérenger\desktop\projet-bleu-canard\src\area.cpp
+1402622491 source:c:\users\bérenger\desktop\projet-bleu-canard\src\area.cpp
 	"area.h"
 
 1402022985 source:c:\users\bérenger\desktop\projet-bleu-canard\src\areafactory.cpp
@@ -1031,4 +1031,13 @@
 1402605645 c:\users\bérenger\desktop\projet-bleu-canard\include\positionable.h
 	<iostream>
 	<utility>
+
+1402606674 source:c:\users\bérenger\desktop\projet-bleu-canard\src\collisionable.cpp
+	"collisionable.h"
+
+1402606773 c:\users\bérenger\desktop\projet-bleu-canard\include\collisionable.h
+	<iostream>
+
+1402605016 source:c:\users\bérenger\desktop\projet-bleu-canard\src\positionable.cpp
+	"positionable.h"
 

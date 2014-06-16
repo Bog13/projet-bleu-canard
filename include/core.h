@@ -11,6 +11,9 @@
 #include "areagraphic.h"
 #include "areafactory.h"
 #include "character.h"
+
+#include "controller.h"
+#include "keyboardcontroller.h"
 using namespace std;
 using namespace sf;
 
@@ -21,6 +24,7 @@ class Core
         Core(RenderWindow *window);
         void run();
         void update();
+        void lookAtControl();
         void draw();
 
         virtual ~Core();
@@ -28,6 +32,8 @@ class Core
     protected:
         RenderWindow* m_window;
         Graphics* m_graphic;
+        Controller* m_controller;
+
         AreaGraphic *m_ag;
         Area *m_a;
         ///

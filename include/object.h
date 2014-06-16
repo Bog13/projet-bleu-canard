@@ -3,8 +3,9 @@
 
 #include "tile.h"
 #include "positionable.h"
+#include "collisionable.h"
 
-class Object : public Tile,public Positionable
+class Object : public Tile,public Positionable,public Collisionable
 {
     public:
         Object();
