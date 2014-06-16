@@ -62,6 +62,7 @@ bool TextureFactory::loadPngRect(string nameTXT, int x,int y, int tileWidth, int
 
 
 bool TextureFactory::load(string path)
+///Création de texture 5: CHARGER LA TEXTURE (FIN)
 {
 
     if(
@@ -75,6 +76,7 @@ bool TextureFactory::load(string path)
        && loadPng(path+"desert.png",1,Global::NB_FRAME_ID[DESERT])
        && loadPng(path+"snow.png",1,Global::NB_FRAME_ID[SNOW])
        && loadPng(path+"floor_wood.png",1,Global::NB_FRAME_ID[FLOOR_WOOD])
+       && loadPng(path+"pineTree.png",1,Global::NB_FRAME_ID[PINE_TREE],64,64)
             ///Characters
        &&loadPng(path+"player.png",2,3)){cout<<"Textures loaded !"<<endl;}
         else{cerr<<"Problem appeared during textures loading." << endl;}

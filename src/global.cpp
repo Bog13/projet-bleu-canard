@@ -9,6 +9,7 @@ Global::Global()
 
 
 int const Global::ID[]=
+/// Création de texture 3:AJOUTER LE NOM ICI (4 plus bas)
 {
     TILE_NONE,
     HIGHT_GRASS,
@@ -19,10 +20,12 @@ int const Global::ID[]=
     DESERT,
     SNOW,
     FLOOR_WOOD,
+    PINE_TREE,
     CHAR_NONE
 };
 
 int const Global::NB_FRAME_ID[]=
+///Création de texture 4: AJOUTER LES FRAMES (5 dans Texturefactory)
 {
     1,
     4,
@@ -33,6 +36,7 @@ int const Global::NB_FRAME_ID[]=
     7,
     1,
     1,
+    9,
     3
 };
   /*static const int NB_STATE_NONE=0;

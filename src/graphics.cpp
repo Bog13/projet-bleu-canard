@@ -154,6 +154,7 @@ void Graphics::moveView(float right, float left, float up, float down)
     moveViewDown(down);
     moveViewLeft(left);
     moveViewRight(right);
+    moveViewUp(up);
 
 }
 

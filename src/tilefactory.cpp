@@ -6,8 +6,10 @@ vector<EntityGraphic> TileFactory::m_vector;
 
 void TileFactory::loadTile(int clue)
 {
+    int width=AnimationFactory::get(clue).getFrame(0)->getSize().x, ///largeur de la première frame, postulat de la constance.
+        height=AnimationFactory::get(clue).getFrame(0)->getSize().y;///hauteur de la première frame
 
-    ConvexShape c=Graphics::createSquare(0,0,Global::TILE_WIDTH,Global::TILE_HEIGHT);
+    ConvexShape c=Graphics::createSquare(0,0,width,height); ///Changement: S'adapte maintenant à la texture qu'elle reçoit.
     Animation a(AnimationFactory::get(clue));
     EntityGraphic tg(a,c);
     m_vector.push_back(tg);

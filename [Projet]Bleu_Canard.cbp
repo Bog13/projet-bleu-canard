@@ -56,6 +56,7 @@
 		<Unit filename="include/global.h" />
 		<Unit filename="include/graphics.h" />
 		<Unit filename="include/includes.h" />
+		<Unit filename="include/movable.h" />
 		<Unit filename="include/object.h" />
 		<Unit filename="include/positionable.h" />
 		<Unit filename="include/texturefactory.h" />
@@ -73,6 +74,7 @@
 		<Unit filename="src/entitygraphic.cpp" />
 		<Unit filename="src/global.cpp" />
 		<Unit filename="src/graphics.cpp" />
+		<Unit filename="src/movable.cpp" />
 		<Unit filename="src/object.cpp" />
 		<Unit filename="src/positionable.cpp" />
 		<Unit filename="src/texturefactory.cpp" />
