@@ -25,16 +25,38 @@ void Area::initTile()
 
 }
 
-bool Area::isAccessible(Positionable *pos,Positionable *zone)
+bool Area::isAccessible(Positionable &pos)
 {
-    bool collide(false);
-
+    int nbCollide=0;
     for(int i=0;i<m_objects.size();i++)
     {
+        //cout<<"objet"<<i<<") x="<<m_objects[i]->getX()<<" y="<<m_objects[i]->getY()<<" w="<<m_objects[i]->getWidth()<<" h="<<m_objects[i]->getHeight()<<endl;
 
+        /*if(pos.getY() + pos.getHeight() < m_objects[i]->getY()
+        || pos.getY() > m_objects[i]->getY() + m_objects[i]->getHeight()
+        || pos.getX() + pos.getWidth() < m_objects[i]->getX()
+        || pos.getX() > m_objects[i]->getX() + m_objects[i]->getWidth()
+
+        )
+        if(pos.getX()>=0 && pos.getX()+pos.getWidth()<=m_width*Global::TILE_WIDTH
+        && pos.getY()>=0 && pos.getY()+pos.getHeight()<=m_height*Global::TILE_HEIGHT)*/
+
+        if(pos.getY() + pos.getHeight() < m_objects[i]->getY()
+        || pos.getY() > m_objects[i]->getY() + m_objects[i]->getHeight()
+        || pos.getX() + pos.getWidth() < m_objects[i]->getX()
+        || pos.getX() > m_objects[i]->getX() + m_objects[i]->getWidth()
+        )
+        {
+        }
+        else
+        {
+            nbCollide++;
+        }
+
+        if(nbCollide>1)return false;
     }
 
-    return true;
+    return !(nbCollide>1);
 }
 
 void Area::addTiles(int w, int h)

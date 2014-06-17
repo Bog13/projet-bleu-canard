@@ -137,7 +137,7 @@ void AreaFactory::loadArea(Area *a,string fileName)
                     }
                 }
 
-                a->addObject(new Object(obj_type,obj_x,obj_y,obj_w,obj_h,obj_obstacle));//on ajoute l'objet à la zone
+                a->addObject(new Object(a,obj_type,obj_x,obj_y,obj_w,obj_h,obj_obstacle));//on ajoute l'objet à la zone
 
 
             }

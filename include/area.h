@@ -35,7 +35,7 @@ class Area
 
         void getInfo();
 
-        bool isAccessible(Positionable *pos,Positionable *zone);
+        bool isAccessible(Positionable &pos);
 
         virtual ~Area();
     protected:

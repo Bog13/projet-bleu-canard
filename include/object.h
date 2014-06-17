@@ -16,9 +16,9 @@ public Collisionable
 
 {
     public:
-        Object();
-        Object(int type,float x, float y,float w,float h);
-        Object(int type,float x, float y,float w,float h,bool obs);
+        Object(Area *a);
+        Object(Area *a, int type,float x, float y,float w,float h);
+        Object(Area *a, int type,float x, float y,float w,float h,bool obs);
         virtual ~Object();
         void update();
 

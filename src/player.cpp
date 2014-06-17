@@ -1,16 +1,16 @@
 #include "player.h"
 
-Player::Player(Controller* c):Controlable(c), Movable(this),Object()
+Player::Player(Area *a, Controller* c):Controlable(c), Movable(this),Object(a)
 {
     init();
 }
 
 void Player::init()
 {
-    m_speed=pair<float,float>(0.5,0.5);
+    m_speed=pair<float,float>(0.25,0.25);
 }
 
-Player::Player(Controller* c, int type,float x, float y,float w,float h,bool obs): Controlable(c),Object(type,x,y,w,h,obs), Movable(this)
+Player::Player(Area *a, Controller* c, int type,float x, float y,float w,float h,bool obs): Controlable(c),Object(a,type,x,y,w,h,obs), Movable(this)
 {
     init();
 }

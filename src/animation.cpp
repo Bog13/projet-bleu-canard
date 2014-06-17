@@ -31,7 +31,7 @@ void Animation::addFrame(Texture t)
 void Animation::init()
 {
      m_clock.restart();
-     m_delay=250;
+     m_delay=100;
      m_running=true;
      m_current=0;
 

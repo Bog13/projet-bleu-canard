@@ -10,7 +10,6 @@
 #include "entitygraphic.h"
 #include "areagraphic.h"
 #include "areafactory.h"
-#include "character.h"
 #include "player.h"
 #include "controller.h"
 #include "keyboardcontroller.h"

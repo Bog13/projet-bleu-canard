@@ -23,12 +23,15 @@ class Movable
         void moveDown(float d) {addPosition(0,d);}
         void moveUp(float d) {addPosition(0,-d);}
 
+        bool canMoveUp();
+        bool canMoveDown();
+        bool canMoveLeft();
         bool canMoveRight();
 
         void moveRight() { if(canMoveRight()) moveRight(m_speed.first); }
-        void moveLeft() { if(canMoveRight()) moveLeft(m_speed.first); }
-        void moveDown() { if(canMoveRight()) moveDown(m_speed.second); }
-        void moveUp() { if(canMoveRight()) moveUp(m_speed.second); }
+        void moveLeft() { if(canMoveLeft()) moveLeft(m_speed.first); }
+        void moveDown() { if(canMoveDown()) moveDown(m_speed.second); }
+        void moveUp() { if(canMoveUp()) moveUp(m_speed.second); }
         void move(float up, float right, float down, float left) {moveLeft(left); moveRight(right); moveDown(down); moveUp(up);}
         void move(float xRelativ, float yRelativ) {addPosition(xRelativ,yRelativ);}
         void move(pair<float,float> p){addPosition(p.first,p.second);}

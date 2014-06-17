@@ -19,8 +19,11 @@ Core::Core(RenderWindow* window)
     /// test area
     m_a=new Area(50,50);
     //AreaFactory::loadArea(m_a,"areaTest.txt");
-    m_a->addObject(new Player(m_controller,CHAR_NONE,10,10,32,64,true));
-    m_a->addObject(new Object(PINE_TREE,100,100,64,64,true));
+    m_a->addObject(new Player(m_a,m_controller,CHAR_NONE,10,10,32,64,true));
+    m_a->addObject(new Object(m_a,CHAR_NONE,200,100,64,64,true));
+
+
+
     m_ag=new AreaGraphic(m_a);
     m_ag->getObjectGraphic(0)->getAnimation()->setDelay(125);
     ///

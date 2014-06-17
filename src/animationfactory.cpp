@@ -12,7 +12,9 @@ void AnimationFactory::loadAnimation(int id)
         a.addFrame(*TextureFactory::get(Global::ID[id],i));
         a.setType(id);
     }
-        m_vector.push_back(a);
+    m_vector.push_back(a);
+
+
 
 }
 
@@ -23,6 +25,7 @@ void AnimationFactory::load()
     {
         loadAnimation(i);
     }
+    m_vector[PINE_TREE].setDelay(500);
 
 
     cout<<"Animations loaded ! "<<endl;

@@ -1,11 +1,11 @@
 #include "positionable.h"
 
-Positionable::Positionable()
+Positionable::Positionable(Area *a)
 {
-    Positionable(0,0);
+    Positionable(a,0,0);
 }
 
-Positionable::Positionable(pair<float,float> pos)
+Positionable::Positionable(Area *a,pair<float,float> pos):m_currentArea(a)
 {
     m_position.first=pos.first;
     m_position.second=pos.second;
@@ -14,7 +14,7 @@ Positionable::Positionable(pair<float,float> pos)
     m_height=0;
 }
 
-Positionable::Positionable(float x,float y,float w,float h)
+Positionable::Positionable(Area *a,float x,float y,float w,float h):m_currentArea(a)
 {
     setPosition(x,y);
     m_width=w;
@@ -23,7 +23,7 @@ Positionable::Positionable(float x,float y,float w,float h)
 
 }
 
-Positionable::Positionable(float x,float y)
+Positionable::Positionable(Area *a,float x,float y):m_currentArea(a)
 {
     setPosition(x,y);
     m_width=0;

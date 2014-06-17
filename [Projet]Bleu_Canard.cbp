@@ -49,7 +49,6 @@
 		<Unit filename="include/area.h" />
 		<Unit filename="include/areafactory.h" />
 		<Unit filename="include/areagraphic.h" />
-		<Unit filename="include/character.h" />
 		<Unit filename="include/collisionable.h" />
 		<Unit filename="include/controlable.h" />
 		<Unit filename="include/controller.h" />

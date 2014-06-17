@@ -10,8 +10,8 @@ using namespace std;
 class Player:public Object,public Controlable,public Movable
 {
     public:
-        Player(Controller* c);
-        Player(Controller* c, int type,float x, float y,float w,float h,bool obs);
+        Player(Area *a, Controller* c);
+        Player(Area *a, Controller* c, int type,float x, float y,float w,float h,bool obs);
         void update();
         void updateControlable();
         void init();

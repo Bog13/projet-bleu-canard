@@ -10,6 +10,7 @@ using namespace sf;
 int main()
 {
     RenderWindow window(VideoMode(800,600,64), "test");
+    //window.setFramerateLimit(120);
 
     TextureFactory::load();
     AnimationFactory::load();
