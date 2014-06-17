@@ -1,6 +1,6 @@
 #include "player.h"
 
-Player::Player(Area *a, Controller* c):Controlable(c), Movable(this),Object(a)
+Player::Player(Area *a, Controller* c):Controlable(c), Movable(this,this),Object(a)
 {
     init();
 }
@@ -8,9 +8,11 @@ Player::Player(Area *a, Controller* c):Controlable(c), Movable(this),Object(a)
 void Player::init()
 {
     m_speed=pair<float,float>(0.25,0.25);
+
+    setHitbox(0,(3/4.)*getHeight(),getWidth(),(1/4.)*getHeight());
 }
 
-Player::Player(Area *a, Controller* c, int type,float x, float y,float w,float h,bool obs): Controlable(c),Object(a,type,x,y,w,h,obs), Movable(this)
+Player::Player(Area *a, Controller* c, int type,float x, float y,float w,float h,bool obs): Controlable(c),Object(a,type,x,y,w,h,obs), Movable(this,this)
 {
     init();
 }

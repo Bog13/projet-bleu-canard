@@ -18,7 +18,8 @@ class AreaGraphic
         void initObjects();
         EntityGraphic* getTileGraphic(int x,int y);
         EntityGraphic* getObjectGraphic(int i);
-
+        int lowestObj(int maxIndex);
+        void sortObj();
         int nbObject(){return m_area->nbObject();}
         void updateTiles();
         void verifyTiles();

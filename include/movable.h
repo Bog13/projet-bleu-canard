@@ -1,6 +1,6 @@
 #ifndef MOVABLE_H
 #define MOVABLE_H
-
+#include "collisionable.h"
 #include "positionable.h"
 #include "area.h"
 using namespace std;
@@ -15,7 +15,7 @@ class Movable
 
 {
     public:
-        Movable(Positionable* p,pair<float,float> speed=pair<float,float>(1,1) );
+        Movable(Collisionable *c,Positionable* p, pair<float,float> speed=pair<float,float>(1,1) );
         void addPosition(float x,float y){m_positionable->setPosition(m_positionable->getPosition().first+x,m_positionable->getPosition().second+y);}
 
         void moveRight(float d) {addPosition(d,0);}
@@ -36,10 +36,13 @@ class Movable
         void move(float xRelativ, float yRelativ) {addPosition(xRelativ,yRelativ);}
         void move(pair<float,float> p){addPosition(p.first,p.second);}
 
+        Positionable* getPos(){return m_positionable;}
+        Collisionable* getCol(){return m_collisionable;}
 
         virtual ~Movable();
     protected:
         Positionable *m_positionable;
+        Collisionable *m_collisionable;
         pair<float,float> m_speed;
     private:
 };

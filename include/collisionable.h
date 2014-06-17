@@ -17,7 +17,8 @@ struct Hitbox
 class Collisionable
 {
     public:
-        Collisionable(bool);
+        Collisionable(bool b);
+        Collisionable(float x,float y,float w,float h,bool b=false);
         Collisionable();
         void init();
         Hitbox getHitbox(){return m_hitbox;}

@@ -25,28 +25,34 @@ void Area::initTile()
 
 }
 
-bool Area::isAccessible(Positionable &pos)
+
+
+bool Area::isAccessible(Movable &pos)
 {
     int nbCollide=0;
+
+    float
+    x=pos.getPos()->getX() + pos.getCol()->getHitbox().x,
+    y=pos.getPos()->getY() + pos.getCol()->getHitbox().y,
+    w=x  + pos.getCol()->getHitbox().w,
+    h=y  + pos.getCol()->getHitbox().h;
+
+    float obj_x,obj_y,obj_w,obj_h;
+
     for(int i=0;i<m_objects.size();i++)
     {
-        //cout<<"objet"<<i<<") x="<<m_objects[i]->getX()<<" y="<<m_objects[i]->getY()<<" w="<<m_objects[i]->getWidth()<<" h="<<m_objects[i]->getHeight()<<endl;
+        obj_x=m_objects[i]->getX() + m_objects[i]->getHitbox().x;
+        obj_y=m_objects[i]->getY() + m_objects[i]->getHitbox().y;
+        obj_w= obj_x + m_objects[i]->getHitbox().w;
+        obj_h= obj_y + m_objects[i]->getHitbox().h;
 
-        /*if(pos.getY() + pos.getHeight() < m_objects[i]->getY()
-        || pos.getY() > m_objects[i]->getY() + m_objects[i]->getHeight()
-        || pos.getX() + pos.getWidth() < m_objects[i]->getX()
-        || pos.getX() > m_objects[i]->getX() + m_objects[i]->getWidth()
-
-        )
-        if(pos.getX()>=0 && pos.getX()+pos.getWidth()<=m_width*Global::TILE_WIDTH
-        && pos.getY()>=0 && pos.getY()+pos.getHeight()<=m_height*Global::TILE_HEIGHT)*/
-
-        if(pos.getY() + pos.getHeight() < m_objects[i]->getY()
-        || pos.getY() > m_objects[i]->getY() + m_objects[i]->getHeight()
-        || pos.getX() + pos.getWidth() < m_objects[i]->getX()
-        || pos.getX() > m_objects[i]->getX() + m_objects[i]->getWidth()
+        if(  ( h < obj_y || y > obj_h || w < obj_x || x > obj_w)
+             && x>=0 && w <=m_width*Global::TILE_WIDTH
+             && y>=0 && h <=m_height*Global::TILE_HEIGHT
+             && m_objects[i]->getSolid()
         )
         {
+
         }
         else
         {

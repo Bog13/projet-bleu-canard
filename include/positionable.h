@@ -2,10 +2,11 @@
 #define POSITIONABLE_H
 #include <iostream>
 #include <utility>
-
+#include "collisionable.h"
 using namespace std;
 
 class Area;
+
 
 class Positionable
 {
@@ -23,6 +24,10 @@ class Positionable
         float getY(){return m_position.second;}
         float getWidth(){return m_width;}
         float getHeight(){return m_height;}
+
+        void setWidth(float w){m_width=w;}
+         void setHeight(float h){m_height=h;}
+
         Area* getArea(){return m_currentArea;}
         virtual ~Positionable();
     protected:

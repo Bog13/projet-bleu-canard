@@ -32,8 +32,8 @@ ConvexShape Graphics::createSquare(int x,int y,int w,int h)
     cs.setPoint(3,Vector2f(0,h));
 
     ///Désactivés pour le visuel, peut-être remis librement.
-    cs.setOutlineColor(Color::Black);
-    cs.setOutlineThickness(1.);
+    //cs.setOutlineColor(Color::Black);
+    //cs.setOutlineThickness(1.);
 
     cs.setFillColor(Color::White);
 
@@ -74,6 +74,7 @@ void Graphics::drawArea(AreaGraphic *ag)
 void Graphics::drawObjects(AreaGraphic *ag)
 {
     Object *o=0;
+
     for(int i=0;i<ag->nbObject();i++)
     {
         if(ag->getObjectGraphic(i)->hasAnEntity())

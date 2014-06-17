@@ -8,6 +8,12 @@ void Collisionable::init()
     m_hitbox.h=0;
 }
 
+Collisionable::Collisionable(float x,float y,float w,float h,bool b)
+{
+    m_solid=b;
+    setHitbox(x,y,w,h);
+}
+
 Collisionable::Collisionable()
 {
     init();

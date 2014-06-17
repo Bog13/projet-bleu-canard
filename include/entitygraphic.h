@@ -33,8 +33,16 @@ class EntityGraphic
         void setConvexShape(ConvexShape cs){m_convexShape=cs;}
         virtual ~EntityGraphic();
 
+        void operator=(EntityGraphic *e)
+        {
+            e= this;
+            if(m_entity!=0)e->m_entity=new Tile(*m_entity);
+            else e->m_entity=0;
+        }
 
     protected:
+
+
         ConvexShape m_convexShape;
         Animation m_animation;
         Tile* m_entity;

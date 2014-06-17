@@ -25,7 +25,7 @@ void AnimationFactory::load()
     {
         loadAnimation(i);
     }
-    m_vector[PINE_TREE].setDelay(500);
+    m_vector[PINE_TREE].setDelay(100);
 
 
     cout<<"Animations loaded ! "<<endl;

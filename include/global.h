@@ -4,7 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <sstream>
-
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 using namespace sf;
 
@@ -70,7 +71,7 @@ class Global
         static bool strToBool(string str);
         static bool inScreen(int i,int j){return (i>=0 && i<NB_TILE_WIDTH && j>=0 && j<NB_TILE_HEIGHT);}
         static bool isInTheRect(float xTarget,float yTarget,float x,float y,float w,float h);
-
+        static int random(int a,int b){return rand()%(b-a)+a;}
 
          template<typename T> static T strTo(string str);
         static int sizeWithoutSpace(string str);

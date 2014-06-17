@@ -17,15 +17,33 @@ Core::Core(RenderWindow* window)
     m_controller=new KeyboardController();
 
     /// test area
-    m_a=new Area(50,50);
+    m_a=new Area(20,20);
     //AreaFactory::loadArea(m_a,"areaTest.txt");
-    m_a->addObject(new Player(m_a,m_controller,CHAR_NONE,10,10,32,64,true));
-    m_a->addObject(new Object(m_a,CHAR_NONE,200,100,64,64,true));
+
+    Object* pine1=new Object(m_a,PINE_TREE,100,100,64,64,true);
+    pine1->setHitbox((1/3.)*pine1->getWidth(),(3/4.)*pine1->getHeight(),(1/3.)*pine1->getWidth(),(1/4.)*pine1->getHeight());
+
+    Object* o;
+    for(int i=0;i<5;i++)
+    {
+        for(int j=0;j<5;j++)
+        {
+            o=new Object(m_a,PINE_TREE,100,100,64,64,true);
+            o->setHitbox(pine1->getHitbox());
+            o->setPosition(64*i+5,64*j+5);
+            m_a->addObject(o);
+        }
+
+    }
+
+    m_a->addObject(new Player(m_a,m_controller,CHAR_NONE,10,300,32,64,true));
+
 
 
 
     m_ag=new AreaGraphic(m_a);
     m_ag->getObjectGraphic(0)->getAnimation()->setDelay(125);
+
     ///
 
 
@@ -40,6 +58,7 @@ Core::Core(RenderWindow* window)
 void Core::update()
 {
     //MaJ données
+    m_ag->sortObj();
     m_ag->getArea()->update();
     //MaJ Graphique
     m_ag->update();
@@ -100,6 +119,7 @@ void Core::run()
                             break;
 
                         case Keyboard::Space:
+
 
                             break;
 

@@ -13,12 +13,13 @@ class Object :
 public Tile,
 public Positionable,
 public Collisionable
-
 {
     public:
         Object(Area *a);
         Object(Area *a, int type,float x, float y,float w,float h);
         Object(Area *a, int type,float x, float y,float w,float h,bool obs);
+
+
         virtual ~Object();
         void update();
 

@@ -11,6 +11,51 @@ AreaGraphic::AreaGraphic(Area *a)
     initObjects();
 }
 
+int AreaGraphic::lowestObj(int maxIndex)
+{
+    int mini=0;
+
+    for(int i=0;i<maxIndex;i++)
+    {
+        if(m_objects[i]->getConvexShape()->getPosition().y > m_objects[mini]->getConvexShape()->getPosition().y)
+        {
+            mini=i;
+        }
+    }
+    return mini;
+}
+
+void AreaGraphic::sortObj()
+///tri à bulle optimisé
+{
+    EntityGraphic tmp;
+    bool permut;
+    int nb=0;
+    int remain=m_objects.size()-1;
+
+    do
+    {
+       nb++;
+       permut=false;
+       for(int j=0;j<m_objects.size()-1;j++)
+       {
+            if(m_objects[j]->getConvexShape()->getPosition().y >  m_objects[j+1]->getConvexShape()->getPosition().y)
+            {
+                tmp= *m_objects[j];
+                *m_objects[j] = *m_objects[j+1];
+                *m_objects[j+1]=tmp;
+                permut=true;
+            }
+
+            remain--;
+       }
+    }
+    while(permut && (nb < m_objects.size()-1));
+
+
+
+}
+
 void AreaGraphic::initObjects()
 {
 
@@ -22,6 +67,7 @@ void AreaGraphic::initObjects()
 
         a=AnimationFactory::get( o->getType() );
 
+        if(o->getType()==PINE_TREE)a.setCurrentFrame(Global::random(0,Global::NB_FRAME_ID[PINE_TREE]));
 
         eg->setConvexShape(Graphics::createSquare(o->getX(),o->getY(),o->getWidth(),o->getHeight() ));
         eg->setAnimation(a);

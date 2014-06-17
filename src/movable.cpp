@@ -1,36 +1,44 @@
 #include "movable.h"
 
-Movable::Movable(Positionable* p,pair<float,float> speed): m_positionable(p),m_speed(speed)
+Movable::Movable(Collisionable *c, Positionable* p, pair<float,float> speed): m_positionable(p),m_speed(speed),m_collisionable(c)
 {
-    //ctor
+
 }
 
 bool Movable::canMoveUp()
 {
-    Positionable p(0,m_positionable->getX(),m_positionable->getY()-m_speed.second,m_positionable->getWidth(),m_positionable->getHeight());
-    return  m_positionable->getArea()->isAccessible(p);
+    moveUp(m_speed.second);
+    bool b= m_positionable->getArea()->isAccessible(*this);
+    moveDown(m_speed.second);
+    return  b;
 }
 
 bool Movable::canMoveDown()
 {
-    Positionable p(0,m_positionable->getX(),m_positionable->getY()+m_speed.second,m_positionable->getWidth(),m_positionable->getHeight());
-    return  m_positionable->getArea()->isAccessible(p);
+    moveDown(m_speed.second);
+    bool b= m_positionable->getArea()->isAccessible(*this);
+    moveUp(m_speed.second);
+    return  b;
 }
 
 bool Movable::canMoveLeft()
 {
-    Positionable p(0,m_positionable->getX()-m_speed.first,m_positionable->getY(),m_positionable->getWidth(),m_positionable->getHeight());
-    return  m_positionable->getArea()->isAccessible(p);
+    moveLeft(m_speed.first);
+    bool b= m_positionable->getArea()->isAccessible(*this);
+    moveRight(m_speed.first);
+    return  b;
 }
 
 bool Movable::canMoveRight()
 {
-    Positionable p(0,m_positionable->getX()+m_speed.first,m_positionable->getY(),m_positionable->getWidth(),m_positionable->getHeight());
-    return  m_positionable->getArea()->isAccessible(p);
+    moveRight(m_speed.first);
+    bool b= m_positionable->getArea()->isAccessible(*this);
+    moveLeft(m_speed.first);
+    return  b;
 }
 
 
 Movable::~Movable()
 {
-    //dtor
+
 }

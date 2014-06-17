@@ -36,7 +36,7 @@ int const Global::NB_FRAME_ID[]=
     7,
     1,
     1,
-    9,
+    8,
     3
 };
   /*static const int NB_STATE_NONE=0;

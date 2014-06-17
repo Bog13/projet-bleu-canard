@@ -6,10 +6,12 @@
 #include "global.h"
 #include "object.h"
 #include "positionable.h"
+#include "movable.h"
 using namespace std;
 
 class Object;
 class Positionable;
+class Movable;
 class Area
 {
     public:
@@ -35,7 +37,7 @@ class Area
 
         void getInfo();
 
-        bool isAccessible(Positionable &pos);
+        bool isAccessible(Movable &pos);
 
         virtual ~Area();
     protected:
