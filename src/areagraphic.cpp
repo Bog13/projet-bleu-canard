@@ -22,6 +22,7 @@ void AreaGraphic::initObjects()
 
         a=AnimationFactory::get( o->getType() );
 
+
         eg->setConvexShape(Graphics::createSquare(o->getX(),o->getY(),o->getWidth(),o->getHeight() ));
         eg->setAnimation(a);
         eg->setEntity(m_area->getObject(i));
@@ -139,6 +140,10 @@ void AreaGraphic::updateObjects()
     {
         m_objects[i]->update();
 
+        if(m_objects[i]->getAnimation()->getType() != m_objects[i]->getEntity()->getType())
+        {
+            m_objects[i]->setAnimation( AnimationFactory::get( m_objects[i]->getEntity()->getType()));
+        }
     }
 }
 

@@ -19,7 +19,7 @@ Core::Core(RenderWindow* window)
     /// test area
     m_a=new Area(50,50);
     //AreaFactory::loadArea(m_a,"areaTest.txt");
-    m_a->addObject(new Object(CHAR_NONE,10,10,32,64,true));
+    m_a->addObject(new Player(m_controller,CHAR_NONE,10,10,32,64,true));
     m_a->addObject(new Object(PINE_TREE,100,100,64,64,true));
     m_ag=new AreaGraphic(m_a);
     m_ag->getObjectGraphic(0)->getAnimation()->setDelay(125);
@@ -36,8 +36,12 @@ Core::Core(RenderWindow* window)
 
 void Core::update()
 {
-
+    //MaJ données
+    m_ag->getArea()->update();
+    //MaJ Graphique
     m_ag->update();
+
+
     if(time(NULL)-m_clockFps>=1)
     {
         m_window->setTitle(Global::intToStr(m_fps)+" fps");
@@ -50,18 +54,7 @@ void Core::update()
 
 void Core::lookAtControl()
 {
-    if(m_controller->noOp() )
-    {
-    }
-    else
-    {
-        if(m_controller->up())cout<<"up"<<endl;
-        if(m_controller->down())cout<<"down"<<endl;
-        if(m_controller->left())cout<<"left"<<endl;
-        if(m_controller->right())cout<<"right"<<endl;
-        if(m_controller->yes())cout<<"yes"<<endl;
-        if(m_controller->no())cout<<"no"<<endl;
-    }
+
 
 }
 

@@ -3,28 +3,28 @@
 
 #include "tile.h"
 #include "positionable.h"
+#include "movable.h"
 #include "collisionable.h"
+#include "area.h"
 
-class Object : public Tile,public Positionable,public Collisionable
+class Area;
+
+class Object :
+public Tile,
+public Positionable,
+public Collisionable
+
 {
     public:
         Object();
         Object(int type,float x, float y,float w,float h);
         Object(int type,float x, float y,float w,float h,bool obs);
         virtual ~Object();
-
-        float getWidth(){return m_width;}
-        float getHeight(){return m_height;}
-
-        bool isAnObstacle(){return m_isAnObstacle;}
-        void setObstacleStatus(int b){m_isAnObstacle=b;}
+        void update();
 
     protected:
 
 
-        float m_width;
-        float m_height;
-        bool m_isAnObstacle;
     private:
 };
 

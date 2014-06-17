@@ -10,6 +10,7 @@ void AnimationFactory::loadAnimation(int id)
     for (int i(0); i<Global::NB_FRAME_ID[id];i++)
     {
         a.addFrame(*TextureFactory::get(Global::ID[id],i));
+        a.setType(id);
     }
         m_vector.push_back(a);
 

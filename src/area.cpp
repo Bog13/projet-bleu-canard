@@ -25,10 +25,19 @@ void Area::initTile()
 
 }
 
+bool Area::isAccessible(Positionable *pos,Positionable *zone)
+{
+    bool collide(false);
 
+    for(int i=0;i<m_objects.size();i++)
+    {
+
+    }
+
+    return true;
+}
 
 void Area::addTiles(int w, int h)
-///Fonctionne parfaitement
 {
     for(int i(0);i<m_tiles.size();i++)
     {
@@ -144,9 +153,30 @@ Object* Area::getObject(int i)
     }else cerr<<"Tentative d'acces à objects["<<i<<"] !"<<endl;
 }
 
+void Area::updateTiles()
+{
+    for(int i=0;i<m_height;i++)
+    {
+        for(int j=0;j<m_width;j++)
+        {
+            m_tiles[i][j]->update();
+        }
+    }
+}
+
+void Area::updateObjects()
+{
+    for(int i=0;i<m_objects.size();i++)
+    {
+        m_objects[i]->update();
+
+    }
+}
+
 void Area::update()
 {
-    cout << " Area::update() inutile :p" << endl;
+    updateTiles();
+    updateObjects();
 }
 
 void Area::killTiles()

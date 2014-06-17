@@ -79,7 +79,10 @@ void Graphics::drawObjects(AreaGraphic *ag)
         if(ag->getObjectGraphic(i)->hasAnEntity())
         {
             o= dynamic_cast<Object*>( ag->getObjectGraphic(i)->getEntity() );
-            ag->getObjectGraphic(i)->getConvexShape()->setPosition(Vector2f(o->getX(),o->getY()));
+            if(o != 0)
+            {
+                ag->getObjectGraphic(i)->getConvexShape()->setPosition(Vector2f(o->getX(),o->getY()));
+            }else cerr<<"Erreur conversion object entity (drawObjects)"<<endl;
         }
         else
         {

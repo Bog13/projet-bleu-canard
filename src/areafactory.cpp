@@ -33,7 +33,7 @@ void AreaFactory::saveArea(Area *area,string fileName)
         {
             o=area->getObject(i);
             /// '@' indique qu'il s'agit d'un objet
-            file<<'@'<<" "<<o->getType()<<" "<<o->getX()<<" "<<o->getY()<<" "<<o->getWidth()<<" "<<o->getHeight()<<" "<<o->isAnObstacle()<<" "<<endl;
+            file<<'@'<<" "<<o->getType()<<" "<<o->getX()<<" "<<o->getY()<<" "<<o->getWidth()<<" "<<o->getHeight()<<" "<<o->getSolid()<<" "<<endl;
         }
         file.close();
 

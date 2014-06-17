@@ -1,13 +1,13 @@
 #include "tile.h"
 
-Tile::Tile()
+Tile::Tile():Typable()
 {
-    //ctor
+
 }
 
-Tile::Tile(int type)
+Tile::Tile(int type):Typable(type)
 {
-    m_type=type;
+
 }
 
 void Tile::update()

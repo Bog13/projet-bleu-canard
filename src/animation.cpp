@@ -1,13 +1,14 @@
 #include "animation.h"
 
-Animation::Animation()
+
+Animation::Animation(int t):Typable(t)
 {
     init();
 }
 
 
 
-Animation::Animation(int delay)
+Animation::Animation(int t,int delay):Typable(t)
 {
    init();
    setDelay(delay);

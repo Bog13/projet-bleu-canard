@@ -1,12 +1,23 @@
 #include "collisionable.h"
 
-Collisionable::Collisionable()
+void Collisionable::init()
 {
     m_hitbox.x=0;
     m_hitbox.y=0;
     m_hitbox.w=0;
     m_hitbox.h=0;
+}
+
+Collisionable::Collisionable()
+{
+    init();
     m_solid=false;
+}
+
+Collisionable::Collisionable(bool solid)
+{
+    init();
+    m_solid=solid;
 }
 
 void Collisionable::setHitbox(float x,float y,float w,float h)
@@ -19,8 +30,18 @@ void Collisionable::setHitbox(float x,float y,float w,float h)
 
 void Collisionable::setHitbox(ConvexShape cs)
 {
-    m_hitbox.x=cs.getPosition().x;
-    m_hitbox.y=cs.getPosition().y;
+    RectangleShape *rs=0;
+    rs=dynamic_cast<RectangleShape*>(&cs);
+
+    if(rs!=0)
+    {
+        cout<<"OK- setHitbox"<<endl;
+        m_hitbox.x=rs->getPosition().x;
+        m_hitbox.y=rs->getPosition().y;
+        m_hitbox.w=rs->getSize().x;
+        m_hitbox.h=rs->getSize().y;
+    }else cout<<"NOPE- setHitbox"<<endl;
+
 }
 
 Collisionable::~Collisionable()

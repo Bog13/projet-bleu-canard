@@ -5,8 +5,11 @@
 #include "tile.h"
 #include "global.h"
 #include "object.h"
+#include "positionable.h"
 using namespace std;
 
+class Object;
+class Positionable;
 class Area
 {
     public:
@@ -24,11 +27,15 @@ class Area
         int nbObject(){return m_objects.size();}
         bool in(int i,int j){return (i>=0 && i<m_width && j>=0 && j<m_height);}
         void update();
+        void updateObjects();
+        void updateTiles();
 
         int getWidth(){return m_width;}
         int getHeight(){return m_height;}
 
         void getInfo();
+
+        bool isAccessible(Positionable *pos,Positionable *zone);
 
         virtual ~Area();
     protected:

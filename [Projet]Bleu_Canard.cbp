@@ -51,6 +51,7 @@
 		<Unit filename="include/areagraphic.h" />
 		<Unit filename="include/character.h" />
 		<Unit filename="include/collisionable.h" />
+		<Unit filename="include/controlable.h" />
 		<Unit filename="include/controller.h" />
 		<Unit filename="include/core.h" />
 		<Unit filename="include/entitygraphic.h" />
@@ -60,18 +61,20 @@
 		<Unit filename="include/keyboardcontroller.h" />
 		<Unit filename="include/movable.h" />
 		<Unit filename="include/object.h" />
+		<Unit filename="include/player.h" />
 		<Unit filename="include/positionable.h" />
 		<Unit filename="include/texturefactory.h" />
 		<Unit filename="include/tile.h" />
 		<Unit filename="include/tilefactory.h" />
+		<Unit filename="include/typable.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/animation.cpp" />
 		<Unit filename="src/animationfactory.cpp" />
 		<Unit filename="src/area.cpp" />
 		<Unit filename="src/areafactory.cpp" />
 		<Unit filename="src/areagraphic.cpp" />
-		<Unit filename="src/character.cpp" />
 		<Unit filename="src/collisionable.cpp" />
+		<Unit filename="src/controlable.cpp" />
 		<Unit filename="src/controller.cpp" />
 		<Unit filename="src/core.cpp" />
 		<Unit filename="src/entitygraphic.cpp" />
@@ -80,10 +83,12 @@
 		<Unit filename="src/keyboardcontroller.cpp" />
 		<Unit filename="src/movable.cpp" />
 		<Unit filename="src/object.cpp" />
+		<Unit filename="src/player.cpp" />
 		<Unit filename="src/positionable.cpp" />
 		<Unit filename="src/texturefactory.cpp" />
 		<Unit filename="src/tile.cpp" />
 		<Unit filename="src/tilefactory.cpp" />
+		<Unit filename="src/typable.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

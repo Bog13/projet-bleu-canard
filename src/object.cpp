@@ -1,25 +1,25 @@
 #include "object.h"
 
-Object::Object():Tile(),Positionable()
+Object::Object():Tile(),Positionable(),Collisionable()
 {
     m_width=0;
     m_height=0;
-    m_isAnObstacle=false;
 }
 
-Object::Object(int type,float x, float y,float w,float h):Tile(type),Positionable(x,y)
+Object::Object(int type,float x, float y,float w,float h):Tile(type),Positionable(x,y,w,h),Collisionable()
 {
-    m_width=w;
-    m_height=h;
-    m_isAnObstacle=false;
+
+
 }
 
-Object::Object(int type,float x, float y,float w,float h,bool obs):Tile(type),Positionable(x,y)
+void Object::update()
 {
-    m_width=w;
-    m_height=h;
+    Tile::update();
+}
 
-    m_isAnObstacle=obs;
+Object::Object(int type,float x, float y,float w,float h,bool obs):Tile(type),Positionable(x,y,w,h),Collisionable(obs)
+{
+
 }
 
 Object::~Object()
