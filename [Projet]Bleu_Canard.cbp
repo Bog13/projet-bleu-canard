@@ -49,6 +49,7 @@
 		<Unit filename="include/area.h" />
 		<Unit filename="include/areafactory.h" />
 		<Unit filename="include/areagraphic.h" />
+		<Unit filename="include/behavior.h" />
 		<Unit filename="include/collisionable.h" />
 		<Unit filename="include/controlable.h" />
 		<Unit filename="include/controller.h" />
@@ -56,9 +57,12 @@
 		<Unit filename="include/entitygraphic.h" />
 		<Unit filename="include/global.h" />
 		<Unit filename="include/graphics.h" />
+		<Unit filename="include/ia.h" />
+		<Unit filename="include/iddlebehavior.h" />
 		<Unit filename="include/includes.h" />
 		<Unit filename="include/keyboardcontroller.h" />
 		<Unit filename="include/movable.h" />
+		<Unit filename="include/npc.h" />
 		<Unit filename="include/object.h" />
 		<Unit filename="include/player.h" />
 		<Unit filename="include/positionable.h" />
@@ -72,6 +76,7 @@
 		<Unit filename="src/area.cpp" />
 		<Unit filename="src/areafactory.cpp" />
 		<Unit filename="src/areagraphic.cpp" />
+		<Unit filename="src/behavior.cpp" />
 		<Unit filename="src/collisionable.cpp" />
 		<Unit filename="src/controlable.cpp" />
 		<Unit filename="src/controller.cpp" />
@@ -79,8 +84,11 @@
 		<Unit filename="src/entitygraphic.cpp" />
 		<Unit filename="src/global.cpp" />
 		<Unit filename="src/graphics.cpp" />
+		<Unit filename="src/ia.cpp" />
+		<Unit filename="src/iddlebehavior.cpp" />
 		<Unit filename="src/keyboardcontroller.cpp" />
 		<Unit filename="src/movable.cpp" />
+		<Unit filename="src/npc.cpp" />
 		<Unit filename="src/object.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/positionable.cpp" />

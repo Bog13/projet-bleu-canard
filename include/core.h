@@ -11,6 +11,9 @@
 #include "areagraphic.h"
 #include "areafactory.h"
 #include "player.h"
+#include "npc.h"
+#include "behavior.h"
+#include "iddlebehavior.h"
 #include "controller.h"
 #include "keyboardcontroller.h"
 using namespace std;
