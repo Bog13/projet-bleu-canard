@@ -17,7 +17,7 @@ void Area::initTile()
 
         for(int j=0;j<m_width;j++)
         {
-            vecTile.push_back(new Tile(Global::ID[FLOOR_WOOD]));
+            vecTile.push_back(new Tile(Global::ID[FLOOR_PAVEMENT])); ///Ici pour mettre la texture de base des tiles de l'area
         }
 
         m_tiles.push_back(vecTile);

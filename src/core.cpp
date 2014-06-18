@@ -20,7 +20,7 @@ Core::Core(RenderWindow* window)
     m_a=new Area(20,20);
     //AreaFactory::loadArea(m_a,"areaTest.txt");
 
-    Object* pine1=new Object(m_a,PINE_TREE,100,100,64,64,true);
+    Object* pine1=new Object(m_a,PINE_TREE,100,100,128,128,true);
     pine1->setHitbox((1/3.)*pine1->getWidth(),(3/4.)*pine1->getHeight(),(1/3.)*pine1->getWidth(),(1/4.)*pine1->getHeight());
 
     Object* o;
@@ -28,9 +28,9 @@ Core::Core(RenderWindow* window)
     {
         for(int j=0;j<5;j++)
         {
-            o=new Object(m_a,PINE_TREE,100,100,64,64,true);
+            o=new Object(m_a,PINE_TREE,100,100,128,128,true);
             o->setHitbox(pine1->getHitbox());
-            o->setPosition(64*i+5,64*j+5);
+            o->setPosition(128*i+5,128*j+5);
             m_a->addObject(o);
         }
 

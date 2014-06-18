@@ -20,6 +20,7 @@ int const Global::ID[]=
     DESERT,
     SNOW,
     FLOOR_WOOD,
+    FLOOR_PAVEMENT,
     PINE_TREE,
     CHAR_NONE
 };
@@ -34,6 +35,7 @@ int const Global::NB_FRAME_ID[]=
     1,
     1,
     7,
+    1,
     1,
     1,
     8,

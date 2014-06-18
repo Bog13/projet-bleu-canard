@@ -21,8 +21,9 @@ enum
     DESERT=6,
     SNOW=7,
     FLOOR_WOOD=8,
-    PINE_TREE=9,
-    CHAR_NONE=10
+    FLOOR_PAVEMENT=9,
+    PINE_TREE=10,
+    CHAR_NONE=11
 };
 
 class Global
@@ -58,7 +59,7 @@ class Global
 
 
     ///Création de texture 2:INCREMENTER LE TOTAL (3 dans le cpp)
-        static const int NB_TOTAL_TILE=11;
+        static const int NB_TOTAL_TILE=12;
         static const int NB_TOTAL_ID=NB_TOTAL_TILE;
 
         static const int ID[NB_TOTAL_ID];

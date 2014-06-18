@@ -33,13 +33,27 @@ void AreaGraphic::sortObj()
     int nb=0;
     int remain=m_objects.size()-1;
 
+    Object* o1= 0;
+    int hy1 =0;
+
+    Object* o2= 0;
+    int hy2 =0;
+
     do
     {
        nb++;
        permut=false;
        for(int j=0;j<m_objects.size()-1;j++)
        {
-            if(m_objects[j]->getConvexShape()->getPosition().y >  m_objects[j+1]->getConvexShape()->getPosition().y)
+            o1=dynamic_cast<Object*>(m_objects[j]->getEntity());
+            if(o1!=0){hy1=o1->getHitbox().y;}
+            else hy1=0;
+
+            o2=dynamic_cast<Object*>(m_objects[j+1]->getEntity());
+            if(o2!=0){hy2=o2->getHitbox().y;}
+            else hy2=0;
+
+            if(m_objects[j]->getConvexShape()->getPosition().y +hy1  >  m_objects[j+1]->getConvexShape()->getPosition().y+ hy2 )
             {
                 tmp= *m_objects[j];
                 *m_objects[j] = *m_objects[j+1];
