@@ -11,7 +11,9 @@ class IddleBehavior:public Behavior
 {
     public:
         IddleBehavior(Object* obj);
+        IddleBehavior();
         void doSomething();
+        void squareWalk();
         virtual ~IddleBehavior();
     protected:
     private:

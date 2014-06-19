@@ -2,7 +2,7 @@
 
 IA::IA(Behavior *b):m_behavior(b)
 {
-    //ctor
+
 }
 
 void IA::doSomething()

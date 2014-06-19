@@ -5,7 +5,12 @@ IddleBehavior::IddleBehavior(Object* obj):Behavior(obj)
     //ctor
 }
 
-void IddleBehavior::doSomething()
+IddleBehavior::IddleBehavior():Behavior(0)
+{
+    //ctor
+}
+
+void IddleBehavior::squareWalk()
 {
     Movable *m= dynamic_cast<Movable*>(m_object);
 
@@ -17,6 +22,12 @@ void IddleBehavior::doSomething()
         else if(time(NULL)%4==3)m->moveLeft();
 
     }
+}
+
+void IddleBehavior::doSomething()
+{
+    if(time(NULL)%8<4){}
+    else {squareWalk();}
 }
 
 IddleBehavior::~IddleBehavior()

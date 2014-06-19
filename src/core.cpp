@@ -38,9 +38,8 @@ Core::Core(RenderWindow* window)
 
     m_a->addObject(new Player(m_a,m_controller,CHAR_NONE,10,300,32,64,true));
 
-    IddleBehavior* ib=new IddleBehavior(0);
-    Object* test= new NPC(ib,m_a,CHAR_NONE,80,400,32,64,true);
-    ib->setObject(test);
+    Object* test= new NPC(new IddleBehavior,m_a,CHAR_NONE,80,400,32,64,true);
+
     m_a->addObject(test);
 
 
@@ -49,6 +48,7 @@ Core::Core(RenderWindow* window)
 
     m_ag=new AreaGraphic(m_a);
     m_ag->getObjectGraphic(0)->getAnimation()->setDelay(125);
+
 
     ///
 

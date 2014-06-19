@@ -46,17 +46,18 @@ bool Area::isAccessible(Movable &pos)
         obj_w= obj_x + m_objects[i]->getHitbox().w;
         obj_h= obj_y + m_objects[i]->getHitbox().h;
 
-        if(  ( h < obj_y || y > obj_h || w < obj_x || x > obj_w)
+
+        if(( h < obj_y || y > obj_h || w < obj_x || x > obj_w)
              && x>=0 && w <=m_width*Global::TILE_WIDTH
              && y>=0 && h <=m_height*Global::TILE_HEIGHT
-             && m_objects[i]->getSolid()
         )
+        //pas de collision
         {
 
         }
         else
         {
-            nbCollide++;
+            if(m_objects[i]->getSolid()==true) nbCollide++;
         }
 
         if(nbCollide>1)return false;

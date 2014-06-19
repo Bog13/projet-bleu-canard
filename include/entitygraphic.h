@@ -31,6 +31,10 @@ class EntityGraphic
         void synchronise(int f);
         void setAnimation(Animation a){m_animation=a;}
         void setConvexShape(ConvexShape cs){m_convexShape=cs;}
+
+        void setVisibility(bool b){m_visible=b;}
+        bool isVisible(){return m_visible;}
+
         virtual ~EntityGraphic();
 
         void operator=(EntityGraphic *e)
@@ -47,6 +51,7 @@ class EntityGraphic
         Animation m_animation;
         Tile* m_entity;
         bool m_hasAnEntity;
+        bool m_visible;
     private:
 };
 

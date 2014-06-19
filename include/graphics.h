@@ -3,6 +3,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <cmath>
 #include "tilefactory.h"
 #include "entitygraphic.h"
 #include "areagraphic.h"
@@ -21,6 +22,9 @@ class Graphics
         void drawVisibleArea(AreaGraphic *ag);
         void drawObjects(AreaGraphic *ag);
         void drawCharacter(EntityGraphic t);
+        void setVisibleEntities(AreaGraphic *ag);
+        void setVisibleObjects(AreaGraphic *ag);
+        bool inView(AreaGraphic *ag, float i,float j);
         void update();
 
         ///Controle de la view

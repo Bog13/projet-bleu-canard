@@ -18,6 +18,7 @@ void EntityGraphic::init(Animation &a,ConvexShape &c)
     m_animation=a;
     m_convexShape=c;
     m_hasAnEntity=false;
+    m_visible=true;
 }
 
 EntityGraphic::EntityGraphic(Tile* t,Animation a,ConvexShape c)

@@ -8,6 +8,7 @@ class Behavior
 {
     public:
         Behavior(Object* obj);
+        Behavior();
 
         virtual void doSomething()=0;
 

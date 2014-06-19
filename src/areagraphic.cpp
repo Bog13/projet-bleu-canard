@@ -39,32 +39,41 @@ void AreaGraphic::sortObj()
     Object* o2= 0;
     int hy2 =0;
 
+
     do
     {
-       nb++;
-       permut=false;
-       for(int j=0;j<m_objects.size()-1;j++)
-       {
-            o1=dynamic_cast<Object*>(m_objects[j]->getEntity());
-            if(o1!=0){hy1=o1->getHitbox().y;}
-            else hy1=0;
+        nb++;
+        permut=false;
 
-            o2=dynamic_cast<Object*>(m_objects[j+1]->getEntity());
-            if(o2!=0){hy2=o2->getHitbox().y;}
-            else hy2=0;
-
-            if(m_objects[j]->getConvexShape()->getPosition().y +hy1  >  m_objects[j+1]->getConvexShape()->getPosition().y+ hy2 )
+        for(int j=0;j<m_objects.size()-1;j++)
+        {
+            if(m_objects[j]->isVisible())
+            //On se moque des objets invisibles
             {
-                tmp= *m_objects[j];
-                *m_objects[j] = *m_objects[j+1];
-                *m_objects[j+1]=tmp;
-                permut=true;
+                o1=dynamic_cast<Object*>(m_objects[j]->getEntity());
+                if(o1!=0){hy1=o1->getHitbox().y;}
+                else hy1=0;
+
+                o2=dynamic_cast<Object*>(m_objects[j+1]->getEntity());
+                if(o2!=0){hy2=o2->getHitbox().y;}
+                else hy2=0;
+
+                if(m_objects[j]->getConvexShape()->getPosition().y +hy1  >  m_objects[j+1]->getConvexShape()->getPosition().y+ hy2 )
+                {
+                    tmp= *m_objects[j];
+                    *m_objects[j] = *m_objects[j+1];
+                    *m_objects[j+1]=tmp;
+                    permut=true;
+                }
+
+                remain--;
             }
 
-            remain--;
-       }
+        }
+
     }
     while(permut && (nb < m_objects.size()-1));
+
 
 
 
