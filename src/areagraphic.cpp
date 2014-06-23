@@ -91,7 +91,6 @@ void AreaGraphic::initObjects()
         a=AnimationFactory::get( o->getType() );
 
         if(o->getType()==PINE_TREE)a.setCurrentFrame(Global::random(0,Global::NB_FRAME_ID[PINE_TREE]));
-
         eg->setConvexShape(Graphics::createSquare(o->getX(),o->getY(),o->getWidth(),o->getHeight() ));
         eg->setAnimation(a);
         eg->setEntity(m_area->getObject(i));

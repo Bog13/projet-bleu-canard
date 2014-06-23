@@ -64,6 +64,7 @@
 		<Unit filename="include/movable.h" />
 		<Unit filename="include/npc.h" />
 		<Unit filename="include/object.h" />
+		<Unit filename="include/objectfactory.h" />
 		<Unit filename="include/player.h" />
 		<Unit filename="include/positionable.h" />
 		<Unit filename="include/texturefactory.h" />
@@ -90,6 +91,7 @@
 		<Unit filename="src/movable.cpp" />
 		<Unit filename="src/npc.cpp" />
 		<Unit filename="src/object.cpp" />
+		<Unit filename="src/objectfactory.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/positionable.cpp" />
 		<Unit filename="src/texturefactory.cpp" />

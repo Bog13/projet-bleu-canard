@@ -17,6 +17,7 @@ int main()
     AnimationFactory::load();
     TileFactory::load();
     AreaFactory::load();
+    ObjectFactory::load();
     Core core(&window);
 
 

@@ -24,11 +24,14 @@ class Positionable
         float getY(){return m_position.second;}
         float getWidth(){return m_width;}
         float getHeight(){return m_height;}
+        Vector2f getSize() {return Vector2f(m_width,m_height);}
 
         void setWidth(float w){m_width=w;}
          void setHeight(float h){m_height=h;}
+         void setSize(Vector2f v) {m_width=v.x; m_height=v.y;}
 
         Area* getArea(){return m_currentArea;}
+        void setArea(Area* a) {m_currentArea=a;}
         virtual ~Positionable();
     protected:
         pair<float,float> m_position;

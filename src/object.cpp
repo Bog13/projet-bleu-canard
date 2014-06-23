@@ -21,6 +21,25 @@ Object::Object(Area *a, int type,float x, float y,float w,float h,bool obs):Tile
 
 }
 
+void Object::operator << (std::ostream& os)
+{
+cout    << " _________OBJECT DEFINITION _________" << endl
+        << " Type: " << m_type << endl
+        << "Position: " << endl
+        << "    " << " x = " << getX() << "  y = " << getY() << endl
+        << "Size: " << endl
+        << "    " << " w = " << getSize().x << " h = " << getSize().y << endl
+        << "HitBox:" << endl
+        << "    " << " x = " << getHitbox().x << " y = " << getHitbox().y <<" w = " << getHitbox().w << " h = " << getHitbox().h << endl
+        << " __________END_______________________" << endl << endl;
+}
+
+void Object::operator=(Object o)
+{
+    *this=o;
+    setPosition(o.getPosition());
+}
+
 Object::~Object()
 {
     //dtor

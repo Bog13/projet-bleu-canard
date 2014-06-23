@@ -16,6 +16,7 @@
 #include "iddlebehavior.h"
 #include "controller.h"
 #include "keyboardcontroller.h"
+#include "objectfactory.h"
 using namespace std;
 using namespace sf;
 

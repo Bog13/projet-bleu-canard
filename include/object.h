@@ -19,10 +19,11 @@ public Collisionable
         Object(Area *a, int type,float x, float y,float w,float h);
         Object(Area *a, int type,float x, float y,float w,float h,bool obs);
 
-
+        const void getInfo() {*this <<(cout);}
+        void operator <<( std::ostream& os);
         virtual ~Object();
         void update();
-
+        void operator=(Object o);
     protected:
 
 

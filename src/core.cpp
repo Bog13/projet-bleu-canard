@@ -20,36 +20,14 @@ Core::Core(RenderWindow* window)
     m_a=new Area(20,20);
     //AreaFactory::loadArea(m_a,"areaTest.txt");
 
-    Object* pine1=new Object(m_a,PINE_TREE,100,100,128,128,true);
-    pine1->setHitbox((1/3.)*pine1->getWidth(),(3/4.)*pine1->getHeight(),(1/3.)*pine1->getWidth(),(1/4.)*pine1->getHeight());
 
-    Object* o;
-    for(int i=0;i<5;i++)
-    {
-        for(int j=0;j<5;j++)
-        {
-            o=new Object(m_a,PINE_TREE,100,100,128,128,true);
-            o->setHitbox(pine1->getHitbox());
-            o->setPosition(128*i+5,128*j+5);
-            m_a->addObject(o);
-        }
-
-    }
-
+    m_a->addObject(ObjectFactory::get(PINE_TREE),100,100);
     m_a->addObject(new Player(m_a,m_controller,CHAR_NONE,10,300,32,64,true));
 
     Object* test= new NPC(new IddleBehavior,m_a,CHAR_NONE,80,400,32,64,true);
-
     m_a->addObject(test);
 
-
-
-
-
     m_ag=new AreaGraphic(m_a);
-    m_ag->getObjectGraphic(0)->getAnimation()->setDelay(125);
-
-
     ///
 
 
