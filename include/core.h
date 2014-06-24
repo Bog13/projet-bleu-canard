@@ -32,6 +32,8 @@ class Core
 
         virtual ~Core();
 
+
+
     protected:
         RenderWindow* m_window;
         Graphics* m_graphic;
@@ -42,6 +44,7 @@ class Core
         ///
 
         int m_fps;
+
         int m_clockFps;
         Clock m_clock;
 

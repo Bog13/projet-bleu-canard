@@ -15,21 +15,22 @@ class AreaGraphic;
 class Graphics
 {
     public:
-        Graphics(RenderWindow* window);
+        Graphics(RenderWindow* window,AreaGraphic *ag);
         static ConvexShape createSquare(int x,int y,int w,int h);
         void drawEntity(EntityGraphic *t);
-        void drawArea(AreaGraphic *ag);
-        void drawVisibleArea(AreaGraphic *ag);
-        void drawObjects(AreaGraphic *ag);
+
+        void drawVisibleArea();
+        void drawObjects();
         void drawCharacter(EntityGraphic t);
-        void setVisibleEntities(AreaGraphic *ag);
-        void setVisibleObjects(AreaGraphic *ag);
-        bool inView(AreaGraphic *ag, float i,float j);
+        void setVisibleEntities();
+        void setVisibleObjects();
+        bool inView(float i,float j);
         bool inView(Object* obj);
-        bool collideWithObject(int i,int j,AreaGraphic* ag);
+        bool collideWithObject(int i,int j);
         void updateViewMoving();
-        vector<Object*>* getObjectInView(AreaGraphic* ag);
+        vector<Object*>* getObjectInView();
         void update();
+        void verifyViewInArea();
 
         ///Controle de la view
         void enableView     (bool b);
@@ -38,7 +39,7 @@ class Graphics
         View* getView(){return& m_mainView;}
 
         ///Mouvement de bases pouvant servir plus tard, éventuellement...
-        void moveView       (float right, float left, float up, float down);
+        void moveView       (bool right, bool left, bool up, bool down);
         void moveViewUp     (float d);
         void moveViewDown   (float d);
         void moveViewRight  (float d);
@@ -48,17 +49,18 @@ class Graphics
         virtual ~Graphics();
     protected:
         RenderWindow* m_window;
-
+        AreaGraphic *m_ag;
         View m_mainView;
         float m_viewWidth;
         float m_viewHeight;
         float m_viewX;
         float m_viewY;
+        float m_viewSpeed;
         bool  m_viewActivated;
         bool m_isViewMoving;
         int m_autoRefresh;
         int m_lastViewMoving;
-        const int VIEW_REFRESH_DELAY=5;
+        const int VIEW_REFRESH_DELAY;
 
     private:
 };

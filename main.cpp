@@ -8,8 +8,6 @@
 using namespace std;
 using namespace sf;
 
-// \note (Bérenger#3#06/24/14): Petit test.
-//test TODO
 
 int main()
 {

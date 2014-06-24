@@ -3,7 +3,10 @@
 #include "collisionable.h"
 #include "positionable.h"
 #include "area.h"
+
 using namespace std;
+
+class Core;
 
 class Movable
 /**
@@ -36,14 +39,18 @@ class Movable
         void move(float xRelativ, float yRelativ) {addPosition(xRelativ,yRelativ);}
         void move(pair<float,float> p){addPosition(p.first,p.second);}
 
+        pair<float,float> getSpeed(){return m_absoluteSpeed;}
+        void setSpeed(float x,float y){m_speed=pair<float,float>(x,y);}
         Positionable* getPos(){return m_positionable;}
         Collisionable* getCol(){return m_collisionable;}
+        void updateMovable();
 
         virtual ~Movable();
     protected:
         Positionable *m_positionable;
         Collisionable *m_collisionable;
         pair<float,float> m_speed;
+        pair<float,float> m_absoluteSpeed;
     private:
 };
 

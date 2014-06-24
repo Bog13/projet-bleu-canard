@@ -12,19 +12,15 @@ Core::Core(RenderWindow* window)
 {
 
     m_window=window;
-    m_graphic=new Graphics(m_window);
-    m_graphic->setViewSize(Global::WINDOW_WIDTH,Global::WINDOW_HEIGHT);
+
     m_controller=new KeyboardController();
 
     /// test area
-    m_a=new Area(40,40);
-    //AreaFactory::loadArea(m_a,"areaTest.txt");
+    m_a=new Area(Global::NB_TILE_WIDTH*3,Global::NB_TILE_HEIGHT*2);
 
-
-
-    for(int i=0;i<3;i++)
+    for(int i=1;i<2;i++)
     {
-        for(int j=0;j<3;j++)
+        for(int j=1;j<2;j++)
         {
 
             m_a->addObject(new Object(ObjectFactory::get(PINE_TREE)),i*150,j*150);
@@ -32,13 +28,19 @@ Core::Core(RenderWindow* window)
     }
 
 
+    Player *p=new Player(m_a,m_controller,CHAR_NONE,10,300,32,64,true);
 
-    m_a->addObject(new Player(m_a,m_controller,CHAR_NONE,10,300,32,64,true));
+    m_a->addObject(p);
 
     Object* test= new NPC(new IddleBehavior,m_a,CHAR_NONE,80,400,32,64,true);
     m_a->addObject(test);
 
     m_ag=new AreaGraphic(m_a);
+    ///
+
+    ///graphics
+    m_graphic=new Graphics(m_window,m_ag);
+    m_graphic->setViewSize(Global::WINDOW_WIDTH,Global::WINDOW_HEIGHT);
     ///
 
 
@@ -58,6 +60,7 @@ void Core::update()
 
     //MaJ Graphique
     m_ag->update();
+    m_graphic->update();
 
 
     if(time(NULL)-m_clockFps>=1)
@@ -67,7 +70,7 @@ void Core::update()
         m_clockFps=time(NULL);
     }
 
-    m_graphic->update();
+
 }
 
 void Core::lookAtControl()
@@ -79,8 +82,8 @@ void Core::lookAtControl()
 void Core::draw()
 {
     //m_window->clear();
-    m_graphic->drawVisibleArea(m_ag);
-    m_graphic->drawObjects(m_ag);
+    m_graphic->drawVisibleArea();
+    m_graphic->drawObjects();
 }
 
 
@@ -91,7 +94,7 @@ void Core::run()
     bool viewMoovement[4]; ///Bool pour le contrôle de la view
     for(int i(0);i<4;i++){viewMoovement[i]=false;}
 
-    m_graphic->drawVisibleArea(m_ag);
+    m_graphic->drawVisibleArea();
     while (m_window->isOpen())
     {
         m_clock.restart();
@@ -191,20 +194,19 @@ void Core::run()
         lookAtControl();
 
         ///View Update
-        if(viewMoovement[RIGHT]){m_graphic->moveViewRight(0.5);}
-        if(viewMoovement[UP]){m_graphic->moveViewUp(0.5);}
-        if(viewMoovement[LEFT]){m_graphic->moveViewLeft(0.5);}
-        if(viewMoovement[DOWN]){m_graphic->moveViewDown(0.5);}
-        else{}
-        ///
+        m_graphic->moveView(viewMoovement[RIGHT],viewMoovement[LEFT],viewMoovement[UP],viewMoovement[DOWN]);
 
-        draw();
+
+        ///
         update();
+        draw();
+
         m_window->display();
 
 
         ///fps
         if(m_clock.getElapsedTime().asMilliseconds() != 0) m_fps= 1000/m_clock.getElapsedTime().asMilliseconds();
+        Global::FPS=m_fps;
         ///
     }
 }

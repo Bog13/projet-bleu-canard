@@ -7,7 +7,7 @@ Player::Player(Area *a, Controller* c):Controlable(c), Movable(this,this),Object
 
 void Player::init()
 {
-    m_speed=pair<float,float>(0.25,0.25);
+    m_absoluteSpeed=pair<float,float>(3*Global::TILE_WIDTH,2*Global::TILE_HEIGHT);
 
     setHitbox(0,(3/4.)*getHeight(),getWidth(),(1/4.)*getHeight());
 }
@@ -37,6 +37,7 @@ void Player::updateControlable()
 
 void Player::update()
 {
+    updateMovable();
     Object::update();
     updateControlable();
 

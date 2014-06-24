@@ -1,6 +1,6 @@
 #include "movable.h"
 
-Movable::Movable(Collisionable *c, Positionable* p, pair<float,float> speed): m_positionable(p),m_speed(speed),m_collisionable(c)
+Movable::Movable(Collisionable *c, Positionable* p, pair<float,float> speed): m_positionable(p),m_absoluteSpeed(speed),m_collisionable(c)
 {
 
 }
@@ -37,6 +37,11 @@ bool Movable::canMoveRight()
     return  b;
 }
 
+void Movable::updateMovable()
+{
+    m_speed.first=m_absoluteSpeed.first / Global::FPS ;
+    m_speed.second=m_absoluteSpeed.second / Global::FPS;
+}
 
 Movable::~Movable()
 {

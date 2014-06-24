@@ -6,7 +6,7 @@ Global::Global()
 }
 
 
-
+int Global::FPS=-1;
 
 int const Global::ID[]=
 /// Création de texture 3:AJOUTER LE NOM ICI (4 plus bas)

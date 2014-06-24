@@ -4,12 +4,13 @@ NPC::NPC(Behavior* be,Area *a, int type,float x, float y,float w,float h,bool b)
 {
     be->setObject(this);
 
-    m_speed=pair<float,float>(0.15,0.15);
+    m_absoluteSpeed=pair<float,float>(3*Global::TILE_WIDTH,2*Global::TILE_WIDTH);
     setHitbox(0,(3/4.)*getHeight(),getWidth(),(1/4.)*getHeight());
 }
 
 void NPC::update()
 {
+    updateMovable();
     if(m_behavior!=0)
     {
         doSomething();

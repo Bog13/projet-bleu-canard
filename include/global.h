@@ -75,6 +75,8 @@ class Global
         static bool inCollision(float Ax,float Ay, float Aw, float Ah,float Bx,float By, float Bw, float Bh);
         static int random(int a,int b){return rand()%(b-a)+a;}
 
+        static int FPS;
+
          template<typename T> static T strTo(string str);
         static int sizeWithoutSpace(string str);
 
