@@ -107,6 +107,23 @@ float Global::strToFloat(string str)
     return f;
 }
 
+bool Global::inCollision(float Ax,float Ay, float Aw, float Ah,float Bx,float By, float Bw, float Bh)
+{
+    float Au=Ay,
+    Ad=Ay+Au,
+    Al=Ax,
+    Ar=Ax+Aw;
+
+    float Bu=By,
+    Bd=By+Bu,
+    Bl=Bx,
+    Br=Bx+Bw;
+
+    return !(Ay>Bh || Ah<By || Aw<Bx || Ax>Bw);
+
+
+}
+
 Global::~Global()
 {
 

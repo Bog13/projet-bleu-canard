@@ -21,6 +21,7 @@ Core::Core(RenderWindow* window)
     //AreaFactory::loadArea(m_a,"areaTest.txt");
 
 
+
     m_a->addObject(ObjectFactory::get(PINE_TREE),100,100);
     m_a->addObject(new Player(m_a,m_controller,CHAR_NONE,10,300,32,64,true));
 

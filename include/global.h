@@ -72,6 +72,7 @@ class Global
         static bool strToBool(string str);
         static bool inScreen(int i,int j){return (i>=0 && i<NB_TILE_WIDTH && j>=0 && j<NB_TILE_HEIGHT);}
         static bool isInTheRect(float xTarget,float yTarget,float x,float y,float w,float h);
+        static bool inCollision(float Ax,float Ay, float Aw, float Ah,float Bx,float By, float Bw, float Bh);
         static int random(int a,int b){return rand()%(b-a)+a;}
 
          template<typename T> static T strTo(string str);

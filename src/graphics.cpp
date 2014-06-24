@@ -201,18 +201,35 @@ void Graphics::setVisibleObjects(AreaGraphic *ag)
     Area* a=ag->getArea();
     EntityGraphic* e=0;
     Positionable *pos=0;
-    int x=0,y=0;
+    float x(0),y(0),w(0),h(0);
+
+    float view_x=m_mainView.getCenter().x - m_mainView.getSize().x/2,
+    view_y=m_mainView.getCenter().y - m_mainView.getSize().y/2,
+    view_w=m_mainView.getSize().x,
+    view_h=m_mainView.getSize().y;
 
 
     for(int i=0;i<ag->nbObject();i++)
     {
         e=ag->getObjectGraphic(i);
 
-        x=e->getConvexShape()->getPosition().x / Global::TILE_WIDTH;
-        y=e->getConvexShape()->getPosition().y / Global::TILE_HEIGHT;
 
-        ///OPTIMISATION POSSIBLE: ne pas afficher tous les objets
-        if( true ) //trouver la bonne fonction: on veut qu'un objet soit détecté comme étant dans la vue ou non
+        pos=dynamic_cast<Positionable*>(ag->getObjectGraphic(i)->getEntity());
+        if(pos!=0)
+        {
+            x=pos->getX();
+            y=pos->getY();
+            w=pos->getWidth();
+            h=pos->getHeight();
+        }
+
+        view_x=m_mainView.getCenter().x - m_mainView.getSize().x/2;
+        view_y=m_mainView.getCenter().y - m_mainView.getSize().y/2;
+        view_w=m_mainView.getSize().x;
+        view_h=m_mainView.getSize().y;
+
+
+        if( (x+w>=view_x && x<=view_x+view_w && y+h>=view_y && y<=view_y+view_h) )
         {
             e->setVisibility(true);
         }

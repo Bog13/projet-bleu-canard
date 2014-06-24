@@ -25,8 +25,6 @@ void Area::initTile()
 
 }
 
-
-
 bool Area::isAccessible(Movable &pos)
 {
     int nbCollide=0;
@@ -47,7 +45,7 @@ bool Area::isAccessible(Movable &pos)
         obj_h= obj_y + m_objects[i]->getHitbox().h;
 
 
-        if(( h < obj_y || y > obj_h || w < obj_x || x > obj_w)
+        if( !Global::inCollision(x,y,w,h,obj_x,obj_y,obj_w,obj_h)
              && x>=0 && w <=m_width*Global::TILE_WIDTH
              && y>=0 && h <=m_height*Global::TILE_HEIGHT
         )
@@ -65,6 +63,8 @@ bool Area::isAccessible(Movable &pos)
 
     return !(nbCollide>1);
 }
+
+
 
 void Area::addTiles(int w, int h)
 {
