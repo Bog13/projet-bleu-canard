@@ -23,6 +23,11 @@ Positionable::Positionable(Area *a,float x,float y,float w,float h):m_currentAre
 
 }
 
+bool Positionable::collideWith(float x,float y,float w,float h)
+{
+    return Global::inCollision(m_position.first,m_position.second,m_width,m_height,x,y,w,h);
+}
+
 Positionable::Positionable(Area *a,float x,float y):m_currentArea(a)
 {
     setPosition(x,y);

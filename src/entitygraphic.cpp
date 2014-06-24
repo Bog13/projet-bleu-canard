@@ -13,6 +13,15 @@ EntityGraphic::EntityGraphic()
     m_hasAnEntity=false;
 }
 
+Positionable* EntityGraphic::getPosition()
+{
+    if(!m_hasAnEntity)return 0;
+
+    Positionable* pos=0;
+    pos=dynamic_cast<Positionable*>(m_entity);
+    return pos;
+}
+
 void EntityGraphic::init(Animation &a,ConvexShape &c)
 {
     m_animation=a;

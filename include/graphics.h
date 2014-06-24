@@ -7,7 +7,7 @@
 #include "tilefactory.h"
 #include "entitygraphic.h"
 #include "areagraphic.h"
-
+#include "object.h"
 using namespace std;
 using namespace sf;
 
@@ -25,6 +25,9 @@ class Graphics
         void setVisibleEntities(AreaGraphic *ag);
         void setVisibleObjects(AreaGraphic *ag);
         bool inView(AreaGraphic *ag, float i,float j);
+        bool inView(Object* obj);
+        bool collideWithObject(int i,int j,AreaGraphic* ag);
+        vector<Object*>* getObjectInView(AreaGraphic* ag);
         void update();
 
         ///Controle de la view
@@ -48,9 +51,11 @@ class Graphics
         View m_mainView;
         float m_viewWidth;
         float m_viewHeight;
-        float m_viewPositionX;
-        float m_viewPositionY;
+        float m_viewX;
+        float m_viewY;
         bool  m_viewActivated;
+        bool m_isViewMoving;
+
     private:
 };
 

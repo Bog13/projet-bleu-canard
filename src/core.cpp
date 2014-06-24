@@ -67,9 +67,9 @@ void Core::lookAtControl()
 
 void Core::draw()
 {
-     m_window->clear(Color(4,139,154));
-     m_graphic->drawVisibleArea(m_ag);
-     m_graphic->drawObjects(m_ag);
+    //m_window->clear();
+    m_graphic->drawVisibleArea(m_ag);
+    m_graphic->drawObjects(m_ag);
 }
 
 
@@ -80,7 +80,7 @@ void Core::run()
     bool viewMoovement[4]; ///Bool pour le contrôle de la view
     for(int i(0);i<4;i++){viewMoovement[i]=false;}
 
-
+    m_graphic->drawVisibleArea(m_ag);
     while (m_window->isOpen())
     {
         m_clock.restart();

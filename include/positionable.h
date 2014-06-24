@@ -3,6 +3,7 @@
 #include <iostream>
 #include <utility>
 #include "collisionable.h"
+#include "global.h"
 using namespace std;
 
 class Area;
@@ -25,6 +26,8 @@ class Positionable
         float getWidth(){return m_width;}
         float getHeight(){return m_height;}
         Vector2f getSize() {return Vector2f(m_width,m_height);}
+
+        bool collideWith(float x,float y,float w,float h);
 
         void setWidth(float w){m_width=w;}
          void setHeight(float h){m_height=h;}

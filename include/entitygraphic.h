@@ -31,7 +31,7 @@ class EntityGraphic
         void synchronise(int f);
         void setAnimation(Animation a){m_animation=a;}
         void setConvexShape(ConvexShape cs){m_convexShape=cs;}
-
+        Positionable* getPosition();
         void setVisibility(bool b){m_visible=b;}
         bool isVisible(){return m_visible;}
 

@@ -5,13 +5,17 @@ Graphics::Graphics(RenderWindow* window)
     m_window=window;
 
      //View
+
     m_viewWidth=10*Global::TILE_WIDTH;
     m_viewHeight=10*Global::TILE_HEIGHT;
-    m_viewPositionX=0;
-    m_viewPositionY=0;
+    m_viewX=0;
+    m_viewY=0;
     m_mainView.setSize(m_viewWidth,m_viewHeight);
-    m_mainView.setCenter(m_viewPositionX,m_viewPositionY);
+    m_mainView.setCenter(m_viewX,m_viewY);
     m_viewActivated=true;
+    m_isViewMoving=false;
+
+    m_window->setView(m_mainView);
 
 }
 
@@ -105,6 +109,78 @@ void Graphics::setView(View const &view)
     m_mainView=View(view);
 }
 
+bool Graphics::inView(Object* obj)
+{
+    float view_x=m_mainView.getCenter().x - m_mainView.getSize().x/2;
+    float view_y=m_mainView.getCenter().y - m_mainView.getSize().y/2;
+    float view_w=m_mainView.getSize().x;
+    float view_h=m_mainView.getSize().y;
+
+    Positionable* pos=0;
+    float x=0,y=0,w=0,h=0;
+
+    pos=dynamic_cast<Positionable*>(obj);
+    if(pos!=0)
+    {
+        x=pos->getX();
+        y=pos->getY();
+        w=pos->getWidth();
+        h=pos->getHeight();
+    }else return false;
+
+    return (x+w>=view_x && x<=view_x+view_w && y+h>=view_y && y<=view_y+view_h);
+}
+
+
+
+vector<Object*>* Graphics::getObjectInView(AreaGraphic* ag)
+{
+    vector<Object*>* vec=new vector<Object*>();
+    Area *a=ag->getArea();
+
+    for(int i=0;i<a->nbObject();i++)
+    {
+
+
+        if( inView( a->getObject(i) ) )
+        {
+            vec->push_back( a->getObject(i) );
+        }
+
+    }
+    return vec;
+}
+
+bool Graphics::collideWithObject(int i,int j,AreaGraphic* ag)
+{
+
+    vector<Object*> *vec=getObjectInView(ag);
+    float objx,objy,objw,objh,x,y,w,h;
+
+    for(int k=0;k<vec->size();k++)
+    {
+        objx=(*vec)[k]->getPosition().first;
+        objy=(*vec)[k]->getPosition().second;
+        objw=(*vec)[k]->getWidth();
+        objh=(*vec)[k]->getHeight();
+        y=i*Global::TILE_WIDTH;
+        x=j*Global::TILE_HEIGHT;
+        w=Global::TILE_WIDTH;
+        h=Global::TILE_HEIGHT;
+
+
+        if( !( x>objx+objw || x+w < objx || y> objy+objh || y+h<objy ) )
+        {
+            return true;
+        }
+
+
+
+    }
+    return false;
+
+}
+
 void Graphics::drawVisibleArea(AreaGraphic *ag)
 {
 
@@ -121,7 +197,19 @@ void Graphics::drawVisibleArea(AreaGraphic *ag)
             if( e->isVisible() )
             {
                 e->getConvexShape()->setPosition(j*Global::TILE_WIDTH,i*Global::TILE_HEIGHT);
-                drawEntity(e);
+
+                if(m_isViewMoving)
+                {
+                     drawEntity(e);
+                }
+                else
+                {
+                    if( collideWithObject(i,j,ag) )
+                    {
+                        drawEntity(e);
+                    }
+                }
+
             }
         }
     }
@@ -139,8 +227,8 @@ void Graphics::enableView(bool b)
 
 void Graphics::setViewPosition (float x, float y)
 {
-    m_viewPositionX=x;
-    m_viewPositionY=y;
+    m_viewX=x;
+    m_viewY=y;
 }
 
 
@@ -155,19 +243,19 @@ void Graphics::moveView(float right, float left, float up, float down)
 
 void Graphics::moveViewUp     (float d)
 {
-    if(m_viewPositionY-d>=0) {m_viewPositionY-=d;}
+    if(m_viewY-d>=0) {m_viewY-=d;m_isViewMoving=true;}
 }
 void Graphics::moveViewDown   (float d) ///Besoin d'une valeur max, en attendant illimité
 {
-    if(m_viewPositionY+d>0) {m_viewPositionY+=d;}
+    if(m_viewY+d>0) {m_viewY+=d;m_isViewMoving=true;}
 }
 void Graphics::moveViewRight  (float d)
 {
-    if(m_viewPositionX+d>=0) {m_viewPositionX+=d;}
+    if(m_viewX+d>=0) {m_viewX+=d;m_isViewMoving=true;}
 }
 void Graphics::moveViewLeft   (float d)
 {
-    if(m_viewPositionX-d>=0) {m_viewPositionX-=d;}
+    if(m_viewX-d>=0) {m_viewX-=d;m_isViewMoving=true;}
 }
 
 bool Graphics::inView(AreaGraphic *ag, float i,float j)
@@ -200,36 +288,15 @@ void Graphics::setVisibleObjects(AreaGraphic *ag)
 {
     Area* a=ag->getArea();
     EntityGraphic* e=0;
-    Positionable *pos=0;
-    float x(0),y(0),w(0),h(0);
-
-    float view_x=m_mainView.getCenter().x - m_mainView.getSize().x/2,
-    view_y=m_mainView.getCenter().y - m_mainView.getSize().y/2,
-    view_w=m_mainView.getSize().x,
-    view_h=m_mainView.getSize().y;
+    Object* obj=0;
 
 
     for(int i=0;i<ag->nbObject();i++)
     {
         e=ag->getObjectGraphic(i);
+        obj= dynamic_cast<Object*>(e->getEntity());
 
-
-        pos=dynamic_cast<Positionable*>(ag->getObjectGraphic(i)->getEntity());
-        if(pos!=0)
-        {
-            x=pos->getX();
-            y=pos->getY();
-            w=pos->getWidth();
-            h=pos->getHeight();
-        }
-
-        view_x=m_mainView.getCenter().x - m_mainView.getSize().x/2;
-        view_y=m_mainView.getCenter().y - m_mainView.getSize().y/2;
-        view_w=m_mainView.getSize().x;
-        view_h=m_mainView.getSize().y;
-
-
-        if( (x+w>=view_x && x<=view_x+view_w && y+h>=view_y && y<=view_y+view_h) )
+        if( inView( obj ) )
         {
             e->setVisibility(true);
         }
@@ -269,10 +336,19 @@ void Graphics::setVisibleEntities(AreaGraphic *ag)
 
 void Graphics::update()
 {
+
     if(m_viewActivated)
     {
-        m_mainView.setCenter(m_viewPositionX,m_viewPositionY);
-        m_window->setView(m_mainView);
+        if(m_isViewMoving)
+        {
+            m_mainView.setCenter(m_viewX,m_viewY);
+            m_window->setView(m_mainView);
+
+        }
+        //m_window->setView(m_mainView);
+
+
+        m_isViewMoving=false;
     }
     else{m_window->setView(m_window->getDefaultView());}
 }

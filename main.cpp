@@ -10,7 +10,7 @@ using namespace sf;
 
 int main()
 {
-    RenderWindow window(VideoMode(800,600,64), "test");
+    RenderWindow window(VideoMode(800,600,64), "PB");
     //window.setFramerateLimit(120);
     srand(time(NULL));
     TextureFactory::load();
