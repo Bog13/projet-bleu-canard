@@ -33,7 +33,7 @@ void AnimationFactory::load()
 
 
 /*
-bool AnimationFactory::loadAnimation(Animation *a,string fileName)///TODO
+bool AnimationFactory::loadAnimation(Animation *a,string fileName)
 {
 
     fstream file(fileName.c_str(),ios::in);

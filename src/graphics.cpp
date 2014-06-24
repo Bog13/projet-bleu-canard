@@ -1,5 +1,6 @@
 #include "graphics.h"
 
+
 Graphics::Graphics(RenderWindow* window)
 {
     m_window=window;
@@ -15,7 +16,6 @@ Graphics::Graphics(RenderWindow* window)
     m_viewActivated=true;
     m_isViewMoving=false;
     m_lastViewMoving=false;
-
     m_window->setView(m_mainView);
 
     m_autoRefresh=60;
