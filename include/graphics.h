@@ -27,6 +27,7 @@ class Graphics
         bool inView(AreaGraphic *ag, float i,float j);
         bool inView(Object* obj);
         bool collideWithObject(int i,int j,AreaGraphic* ag);
+        void updateViewMoving();
         vector<Object*>* getObjectInView(AreaGraphic* ag);
         void update();
 
@@ -55,6 +56,9 @@ class Graphics
         float m_viewY;
         bool  m_viewActivated;
         bool m_isViewMoving;
+        int m_autoRefresh;
+        int m_lastViewMoving;
+        const int VIEW_REFRESH_DELAY=5;
 
     private:
 };

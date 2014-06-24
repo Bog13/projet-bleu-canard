@@ -107,6 +107,9 @@ void Area::addObject(Object* o, float x, float y)
     o->setPosition(x,y);
     m_objects.push_back(o);
 }
+
+
+
 ///OPTIMISATION POSSIBLE (cad sans tout reallouer)
 /*void Area::addTiles(int w,int h)
 {

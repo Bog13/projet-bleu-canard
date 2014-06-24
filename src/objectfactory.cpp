@@ -7,13 +7,13 @@ ObjectFactory::ObjectFactory()
     //ctor
 }
 
-Object* ObjectFactory::get(int id)
+Object ObjectFactory::get(int id)
 {
     if(id>=0 && id<m_objects.size())
     {
 
         //if (id==PINE_TREE) {m_objects[id]<<(cout);}
-        return &m_objects[id];
+        return m_objects[id];
     }else {cerr << " Tentative d'accèder à un ID incorrect (ObjectFactory::get(" << id << "). "  << endl; return 0;}
 }
 

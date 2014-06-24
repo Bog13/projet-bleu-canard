@@ -17,12 +17,22 @@ Core::Core(RenderWindow* window)
     m_controller=new KeyboardController();
 
     /// test area
-    m_a=new Area(20,20);
+    m_a=new Area(40,40);
     //AreaFactory::loadArea(m_a,"areaTest.txt");
 
 
 
-    m_a->addObject(ObjectFactory::get(PINE_TREE),100,100);
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<3;j++)
+        {
+
+            m_a->addObject(new Object(ObjectFactory::get(PINE_TREE)),i*150,j*150);
+        }
+    }
+
+
+
     m_a->addObject(new Player(m_a,m_controller,CHAR_NONE,10,300,32,64,true));
 
     Object* test= new NPC(new IddleBehavior,m_a,CHAR_NONE,80,400,32,64,true);
@@ -45,6 +55,7 @@ void Core::update()
     //MaJ données
     m_ag->sortObj();
     m_ag->getArea()->update();
+
     //MaJ Graphique
     m_ag->update();
 

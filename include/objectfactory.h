@@ -8,7 +8,7 @@ class ObjectFactory
     public:
         ObjectFactory();
 
-        static Object* get(int id);
+        static Object get(int id);
         static void load();
         virtual ~ObjectFactory();
     protected:

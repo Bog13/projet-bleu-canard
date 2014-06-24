@@ -14,8 +14,11 @@ Graphics::Graphics(RenderWindow* window)
     m_mainView.setCenter(m_viewX,m_viewY);
     m_viewActivated=true;
     m_isViewMoving=false;
+    m_lastViewMoving=false;
 
     m_window->setView(m_mainView);
+
+    m_autoRefresh=60;
 
 }
 
@@ -198,9 +201,10 @@ void Graphics::drawVisibleArea(AreaGraphic *ag)
             {
                 e->getConvexShape()->setPosition(j*Global::TILE_WIDTH,i*Global::TILE_HEIGHT);
 
-                if(m_isViewMoving)
+                if( (m_isViewMoving) || (m_lastViewMoving<=VIEW_REFRESH_DELAY)   || time(NULL)%m_autoRefresh==0)
                 {
                      drawEntity(e);
+
                 }
                 else
                 {
@@ -208,6 +212,7 @@ void Graphics::drawVisibleArea(AreaGraphic *ag)
                     {
                         drawEntity(e);
                     }
+
                 }
 
             }
@@ -241,21 +246,27 @@ void Graphics::moveView(float right, float left, float up, float down)
 
 }
 
+void Graphics::updateViewMoving()
+{
+    m_isViewMoving=true;
+    m_lastViewMoving=0;
+}
+
 void Graphics::moveViewUp     (float d)
 {
-    if(m_viewY-d>=0) {m_viewY-=d;m_isViewMoving=true;}
+    if(m_viewY-d>=0) {m_viewY-=d;updateViewMoving();}
 }
 void Graphics::moveViewDown   (float d) ///Besoin d'une valeur max, en attendant illimité
 {
-    if(m_viewY+d>0) {m_viewY+=d;m_isViewMoving=true;}
+    if(m_viewY+d>0) {m_viewY+=d;m_isViewMoving=true;updateViewMoving();}
 }
 void Graphics::moveViewRight  (float d)
 {
-    if(m_viewX+d>=0) {m_viewX+=d;m_isViewMoving=true;}
+    if(m_viewX+d>=0) {m_viewX+=d;updateViewMoving();}
 }
 void Graphics::moveViewLeft   (float d)
 {
-    if(m_viewX-d>=0) {m_viewX-=d;m_isViewMoving=true;}
+    if(m_viewX-d>=0) {m_viewX-=d;updateViewMoving();}
 }
 
 bool Graphics::inView(AreaGraphic *ag, float i,float j)
@@ -344,11 +355,12 @@ void Graphics::update()
             m_mainView.setCenter(m_viewX,m_viewY);
             m_window->setView(m_mainView);
 
+            m_isViewMoving=false;
         }
-        //m_window->setView(m_mainView);
+
+        m_lastViewMoving++;
 
 
-        m_isViewMoving=false;
     }
     else{m_window->setView(m_window->getDefaultView());}
 }
