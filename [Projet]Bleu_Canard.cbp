@@ -50,6 +50,7 @@
 		<Unit filename="include/areafactory.h" />
 		<Unit filename="include/areagraphic.h" />
 		<Unit filename="include/behavior.h" />
+		<Unit filename="include/camera.h" />
 		<Unit filename="include/collisionable.h" />
 		<Unit filename="include/controlable.h" />
 		<Unit filename="include/controller.h" />
@@ -60,6 +61,7 @@
 		<Unit filename="include/ia.h" />
 		<Unit filename="include/iddlebehavior.h" />
 		<Unit filename="include/includes.h" />
+		<Unit filename="include/jostickcontroller.h" />
 		<Unit filename="include/keyboardcontroller.h" />
 		<Unit filename="include/movable.h" />
 		<Unit filename="include/npc.h" />
@@ -78,6 +80,7 @@
 		<Unit filename="src/areafactory.cpp" />
 		<Unit filename="src/areagraphic.cpp" />
 		<Unit filename="src/behavior.cpp" />
+		<Unit filename="src/camera.cpp" />
 		<Unit filename="src/collisionable.cpp" />
 		<Unit filename="src/controlable.cpp" />
 		<Unit filename="src/controller.cpp" />
@@ -87,6 +90,7 @@
 		<Unit filename="src/graphics.cpp" />
 		<Unit filename="src/ia.cpp" />
 		<Unit filename="src/iddlebehavior.cpp" />
+		<Unit filename="src/jostickcontroller.cpp" />
 		<Unit filename="src/keyboardcontroller.cpp" />
 		<Unit filename="src/movable.cpp" />
 		<Unit filename="src/npc.cpp" />

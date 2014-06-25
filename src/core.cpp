@@ -16,7 +16,7 @@ Core::Core(RenderWindow* window)
     m_controller=new KeyboardController();
 
     /// test area
-    m_a=new Area(Global::NB_TILE_WIDTH*5,Global::NB_TILE_HEIGHT*5);
+    m_a=new Area(Global::NB_TILE_WIDTH*3,Global::NB_TILE_HEIGHT*3);
 
 
     for(int i=1;i<2;i++)
@@ -43,7 +43,8 @@ Core::Core(RenderWindow* window)
 
     ///graphics
     m_graphic=new Graphics(m_window,m_ag);
-    m_graphic->setViewSize(Global::WINDOW_WIDTH,Global::WINDOW_HEIGHT);
+    m_graphic->getCamera()->setTarget(p);
+    m_graphic->getCamera()->setViewSize(Global::WINDOW_WIDTH,Global::WINDOW_HEIGHT);
     ///
 
 
@@ -62,9 +63,8 @@ void Core::update()
     m_ag->getArea()->update();
 
     //MaJ Graphique
-    m_graphic->updateAreaTilesInView();
+    m_graphic->updateAreaTilesInCamera();
     m_ag->updateObjects();
-
     m_graphic->update();
 
 
@@ -138,7 +138,7 @@ void Core::run()
                         case Keyboard::V:
 
                             m_viewActivated=!m_viewActivated;
-                            m_graphic->enableView(m_viewActivated);
+                            m_graphic->enableCamera(m_viewActivated);
                             break;
 
                         case Keyboard::Right:
@@ -199,11 +199,10 @@ void Core::run()
 
         lookAtControl();
 
-        ///View Update
-        m_graphic->moveView(viewMoovement[RIGHT],viewMoovement[LEFT],viewMoovement[UP],viewMoovement[DOWN]);
+        // camera (Obsolète)
+        m_graphic->getCamera()->moveView(viewMoovement[RIGHT],viewMoovement[LEFT],viewMoovement[UP],viewMoovement[DOWN]);
+        //
 
-
-        ///
         update();
         draw();
 

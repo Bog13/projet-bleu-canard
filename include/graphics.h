@@ -8,9 +8,12 @@
 #include "entitygraphic.h"
 #include "areagraphic.h"
 #include "object.h"
+#include "camera.h"
+
 using namespace std;
 using namespace sf;
 
+class Camera;
 class AreaGraphic;
 class Graphics
 {
@@ -22,48 +25,31 @@ class Graphics
         void drawVisibleArea();
         void drawObjects();
         void drawCharacter(EntityGraphic t);
-        void setVisibleEntities();
-        void setVisibleObjects();
-        bool inView(float i,float j);
-        bool inView(Object* obj);
-        bool collideWithObject(int i,int j);
-        void updateViewMoving();
-        void updateAreaTilesInView();
-        vector<Object*>* getObjectInView();
-        void update();
-        void verifyViewInArea();
 
-        ///Controle de la view
-        void enableView     (bool b);
-        void setViewPosition(float x=0, float y=0);
-        void setView(View const &view);
-        View* getView(){return& m_mainView;}
+        void setVisibleObjects();
+        bool collideWithObject(int i,int j);
+
+        Camera* getCamera(){return m_cam;}
+        void enableCamera(bool b);
+
+
+        void updateAreaTilesInCamera();
+        void update();
+
+
+
+
 
         ///Mouvement de bases pouvant servir plus tard, éventuellement...
-        void moveView       (bool right, bool left, bool up, bool down);
-        void moveViewUp     (float d);
-        void moveViewDown   (float d);
-        void moveViewRight  (float d);
-        void moveViewLeft   (float d);
-        void setViewSize(int w,int h);
+
+
 
         virtual ~Graphics();
     protected:
         RenderWindow* m_window;
         AreaGraphic *m_ag;
-        View m_mainView;
+        Camera *m_cam;
 
-        int m_viewWidth;
-        int m_viewHeight;
-        float m_viewX;
-        float m_viewY;
-        int m_viewSpeed;
-
-        bool  m_viewActivated;
-        bool m_isViewMoving;
-        int m_autoRefresh;
-        int m_lastViewMoving;
-        const int VIEW_REFRESH_DELAY;
 
     private:
 };

@@ -21,6 +21,7 @@ void IddleBehavior::squareWalk()
         else if(time(NULL)%4==2)m->moveDown();
         else if(time(NULL)%4==3)m->moveLeft();
 
+
     }
 }
 
