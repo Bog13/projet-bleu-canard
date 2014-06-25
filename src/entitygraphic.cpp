@@ -48,6 +48,7 @@ void EntityGraphic::setGraphicalType(int type)
     }
 }
 
+
 void EntityGraphic::update()
 {
     m_animation.update();

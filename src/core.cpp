@@ -16,7 +16,8 @@ Core::Core(RenderWindow* window)
     m_controller=new KeyboardController();
 
     /// test area
-    m_a=new Area(Global::NB_TILE_WIDTH*3,Global::NB_TILE_HEIGHT*2);
+    m_a=new Area(Global::NB_TILE_WIDTH*5,Global::NB_TILE_HEIGHT*5);
+
 
     for(int i=1;i<2;i++)
     {
@@ -35,7 +36,9 @@ Core::Core(RenderWindow* window)
     Object* test= new NPC(new IddleBehavior,m_a,CHAR_NONE,80,400,32,64,true);
     m_a->addObject(test);
 
+
     m_ag=new AreaGraphic(m_a);
+
     ///
 
     ///graphics
@@ -59,7 +62,9 @@ void Core::update()
     m_ag->getArea()->update();
 
     //MaJ Graphique
-    m_ag->update();
+    m_graphic->updateAreaTilesInView();
+    m_ag->updateObjects();
+
     m_graphic->update();
 
 
@@ -82,7 +87,7 @@ void Core::lookAtControl()
 void Core::draw()
 {
     //m_window->clear();
-    m_graphic->drawVisibleArea();
+    m_graphic->drawVisibleArea();///DEBUG
     m_graphic->drawObjects();
 }
 
@@ -94,7 +99,8 @@ void Core::run()
     bool viewMoovement[4]; ///Bool pour le contrôle de la view
     for(int i(0);i<4;i++){viewMoovement[i]=false;}
 
-    m_graphic->drawVisibleArea();
+
+
     while (m_window->isOpen())
     {
         m_clock.restart();
@@ -205,8 +211,9 @@ void Core::run()
 
 
         ///fps
-        if(m_clock.getElapsedTime().asMilliseconds() != 0) m_fps= 1000/m_clock.getElapsedTime().asMilliseconds();
+        if(m_clock.getElapsedTime().asMicroseconds() != 0) m_fps= 1000000/m_clock.getElapsedTime().asMicroseconds();
         Global::FPS=m_fps;
+        //if(Global::FPS>500)Global::FPS=500;
         ///
     }
 }

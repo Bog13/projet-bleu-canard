@@ -111,7 +111,7 @@ void Area::addObject(Object* o, float x, float y)
 
 
 ///OPTIMISATION POSSIBLE (cad sans tout reallouer)
-/*void Area::addTiles(int w,int h)
+/*void Area::addTiles(int w,int h)//TODO
 {
     m_height+=h;
     m_width+=w;

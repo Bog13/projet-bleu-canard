@@ -7,8 +7,10 @@ AreaGraphic::AreaGraphic(Area *a)
     m_width=a->getWidth();
     m_height=a->getHeight();
 
+
     initTiles();
     initObjects();
+
 }
 
 int AreaGraphic::lowestObj(int maxIndex)
@@ -104,6 +106,9 @@ void AreaGraphic::initTiles()
     vector<EntityGraphic*>* vecTile=0;
     EntityGraphic* eg=0;
 
+    const int nbTiles=m_height*m_width;
+    int nbTileDone=0;
+
     for(int i=0;i<m_height;i++)
     {
         vecTile=new vector<EntityGraphic*>;
@@ -114,10 +119,17 @@ void AreaGraphic::initTiles()
             *eg= TileFactory::get( m_area->getTile(j,i)->getType() );
             eg->setEntity(m_area->getTile(j,i));
             vecTile->push_back(eg);
+            nbTileDone++;
 
         }
 
         m_tiles.push_back(*vecTile);
+
+        Global::clearConsole();
+        cout<<Global::loadingString(nbTileDone,nbTiles);
+
+
+
     }
 
     delete vecTile;
@@ -177,6 +189,12 @@ void AreaGraphic::updateTiles()
     }
 }
 
+void AreaGraphic::updateTiles(int i,int j)
+{
+    m_tiles[i][j]->update();
+
+}
+
 void AreaGraphic::synchroniseTiles(int f)
 {
     Clock c;
@@ -226,7 +244,7 @@ const void AreaGraphic::getInfo()
 
 void AreaGraphic::update()
 {
-    updateTiles();
+    // Le Graphics s'en charge //updateTiles();
     updateObjects();
 }
 

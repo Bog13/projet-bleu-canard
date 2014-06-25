@@ -2,6 +2,7 @@
 #define AREAGRAPHIC_H
 #include <iostream>
 #include <vector>
+#include <iomanip>
 #include "tile.h"
 #include "global.h"
 #include "entitygraphic.h"
@@ -22,6 +23,7 @@ class AreaGraphic
         void sortObj();
         int nbObject(){return m_area->nbObject();}
         void updateTiles();
+        void updateTiles(int i,int j);
         void verifyTiles();
         void updateObjects();
         void update();

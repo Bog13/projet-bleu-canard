@@ -94,7 +94,7 @@ bool TextureFactory::load(string path)
 
 bool TextureFactory::load()
 {
-    TextureFactory::load("data/img/");
+    TextureFactory::load(Global::PATH);
 }
 
 

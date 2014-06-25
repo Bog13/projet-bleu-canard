@@ -46,6 +46,7 @@ class Global
         //Window
         static const int WINDOW_WIDTH=640;
         static const int WINDOW_HEIGHT=480;
+        static const string PATH;
         //Tile
         static const int TILE_WIDTH=32;
         static const int TILE_HEIGHT=32;
@@ -74,7 +75,8 @@ class Global
         static bool isInTheRect(float xTarget,float yTarget,float x,float y,float w,float h);
         static bool inCollision(float Ax,float Ay, float Aw, float Ah,float Bx,float By, float Bw, float Bh);
         static int random(int a,int b){return rand()%(b-a)+a;}
-
+        static string loadingString(int now,int max);
+        static void clearConsole();
         static int FPS;
 
          template<typename T> static T strTo(string str);

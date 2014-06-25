@@ -7,6 +7,7 @@ Global::Global()
 
 
 int Global::FPS=-1;
+const string Global::PATH="data/img/";
 
 int const Global::ID[]=
 /// Création de texture 3:AJOUTER LE NOM ICI (4 plus bas)
@@ -59,7 +60,60 @@ bool Global::isInTheRect(float xTarget,float yTarget,float x,float y,float w,flo
     return false;
 }
 
+void Global::clearConsole()
+{
+    #ifdef WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 
+}
+
+string Global::loadingString(int i,int N)
+{
+
+    string load="";
+    string percent="    ";
+    int sizeOfLoading=20;
+
+    string loading="";
+
+    int n= (int)( sizeOfLoading*((float)i)/((float)N) );
+
+    //anim horloge
+    loading+="LOADING... ";
+    if(time(NULL)%4==0)loading+="_o_";
+    else if(time(NULL)%4==1)loading+="\\o/";
+    else if(time(NULL)%4==2)loading+="|o| *clap*";
+    else loading+="\\o/";
+    //
+
+    loading +="\n\n";
+
+    for(int k=0;k<sizeOfLoading+2;k++)   loading+='-';
+    loading+='\n';
+
+    loading+='|';
+
+    for(int k=0;k<sizeOfLoading;k++)load+=' ';
+    for(int k=0;k<n;k++)load[k]='|';
+
+    percent=intToStr( (int)( 100*((float)i)/((float)N) ) ) + "%";
+
+    for(int k=(sizeOfLoading>>1)-2;k<(sizeOfLoading>>1)+2;k++) load[k]=percent[k - ((sizeOfLoading>>1)-2)];
+
+
+
+    loading+=load+"|\n";
+
+    for(int k=0;k<sizeOfLoading+2;k++)    loading+='-';
+    loading+='\n';
+
+    return loading;
+
+
+}
 int Global:: sizeWithoutSpace(string str)
 {
     int strSize=0;

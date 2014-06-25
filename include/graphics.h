@@ -28,6 +28,7 @@ class Graphics
         bool inView(Object* obj);
         bool collideWithObject(int i,int j);
         void updateViewMoving();
+        void updateAreaTilesInView();
         vector<Object*>* getObjectInView();
         void update();
         void verifyViewInArea();
@@ -51,11 +52,13 @@ class Graphics
         RenderWindow* m_window;
         AreaGraphic *m_ag;
         View m_mainView;
-        float m_viewWidth;
-        float m_viewHeight;
+
+        int m_viewWidth;
+        int m_viewHeight;
         float m_viewX;
         float m_viewY;
-        float m_viewSpeed;
+        int m_viewSpeed;
+
         bool  m_viewActivated;
         bool m_isViewMoving;
         int m_autoRefresh;
