@@ -1,6 +1,6 @@
 #include "movable.h"
 
-Movable::Movable(Collisionable *c, Positionable* p, pair<float,float> speed): m_positionable(p),m_absoluteSpeed(speed),m_collisionable(c)
+Movable::Movable(Collisionable *c, Positionable* p, pair<float,float> speed): m_positionable(p),m_collisionable(c),m_absoluteSpeed(speed)
 {
 
 }

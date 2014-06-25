@@ -20,7 +20,7 @@ class TextureFactory
         static bool load(string path);
         static bool loadPng(string nameTXT, int nbTileHauteur, int nbTileLargeur, int tileWidth=Global::TILE_WIDTH, int tileHeight=Global::TILE_HEIGHT);
         static bool loadPngRect(string nameTXT, int x,int y, int tileWidth=32, int tileHeight=32);
-        static Texture* get(unsigned int i, unsigned int j);
+        static Texture* get(int i,int j);
 
     protected:
         static vector<vector<Texture> >m_textures;

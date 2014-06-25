@@ -50,7 +50,7 @@ class Movable
         Positionable *m_positionable;
         Collisionable *m_collisionable;
         pair<float,float> m_speed;
-        pair<float,float> m_absoluteSpeed;
+        pair<float,float> m_absoluteSpeed; //Warning
     private:
 };
 

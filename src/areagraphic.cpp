@@ -47,7 +47,7 @@ void AreaGraphic::sortObj()
         nb++;
         permut=false;
 
-        for(int j=0;j<m_objects.size()-1;j++)
+        for(int j=0;j<(int)(m_objects.size()-1);j++)
         {
             o1=dynamic_cast<Object*>(m_objects[j]->getEntity());
             if(o1!=0){hy1=o1->getHitbox().y;}
@@ -70,7 +70,7 @@ void AreaGraphic::sortObj()
         }
 
     }
-    while(permut && (nb < m_objects.size()-1));
+    while(permut && (nb < (int)(m_objects.size()-1)));
 
 
 
@@ -138,17 +138,17 @@ void AreaGraphic::initTiles()
 
 EntityGraphic* AreaGraphic::getTileGraphic(int x,int y)
 {
-    if(y>=0 && y<m_tiles.size() && x>=0 && x<m_tiles[y].size()) {return m_tiles[y][x];}
-    else cerr<<"getTile hors normes (Area::getTile) indice x:" << x << " y:" << y <<"."<<endl;
+    if(y>=0 && y<(int)(m_tiles.size()) && x>=0 && x<(int)(m_tiles[y].size())) {return m_tiles[y][x];}
+    else {cerr<<"getTile hors normes (Area::getTile) indice x:" << x << " y:" << y <<"."<<endl; return 0;}
 }
 
 EntityGraphic* AreaGraphic::getObjectGraphic(int i)
 {
-    if(i>=0 && i<m_objects.size())
+    if(i>=0 && i<(int)(m_objects.size()))
     {
         EntityGraphic *eg=m_objects[i];
         return eg;
-    }else cerr<<"Tentative d'acces à objects["<<i<<"] !"<<endl;
+    }else {cerr<<"Tentative d'acces à objects["<<i<<"] !"<<endl;return 0;}
 }
 
 void AreaGraphic::verifyTiles()
@@ -218,7 +218,7 @@ void AreaGraphic::synchroniseTiles(int f)
 
 void AreaGraphic::updateObjects()
 {
-    for(int i=0;i<m_objects.size();i++)
+    for(int i=0;i<(int)(m_objects.size());i++)
     {
         m_objects[i]->update();
 
@@ -232,9 +232,9 @@ void AreaGraphic::updateObjects()
 
 const void AreaGraphic::getInfo()
 {
-    for (int i(0);i<m_tiles.size();i++)
+    for (int i(0);i<(int)(m_tiles.size());i++)
     {
-        for (int j(0); j<m_tiles[i].size();j++)
+        for (int j(0); j<(int)(m_tiles[i].size());j++)
         {
             cout<<m_tiles[i][j]->getEntity()->getType();
         }

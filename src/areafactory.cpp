@@ -79,7 +79,7 @@ void AreaFactory::loadArea(Area *a,string fileName)
                     tmp=new vector<int>;
 
 
-                    for(int j=0;j<line.size();j++)
+                    for(int j=0;j<(int)(line.size());j++)
                     {
                         if(line[j]==' ')
                         {
@@ -93,7 +93,7 @@ void AreaFactory::loadArea(Area *a,string fileName)
                         }
                     }
                     ///détermination de la hauteur et largeur de l'area
-                    if(tmp->size()<w)w=tmp->size(); //on prend la ligne la plus petite
+                    if((int)(tmp->size())<w)w=tmp->size(); //on prend la ligne la plus petite
                     h++;
                     ///
 
@@ -112,7 +112,7 @@ void AreaFactory::loadArea(Area *a,string fileName)
             else ///CHARGEMENT DES OBJETS
             {
                 posInfo=0;
-                for(int i=0;i<line.size();i++)
+                for(int i=0;i<(int)(line.size());i++)
                 {
                     if(line[i]!=' ')
                     {
@@ -162,7 +162,7 @@ void AreaFactory::loadArea(Area *a,string fileName)
 
 AreaGraphic AreaFactory::get(int i)
 {
-    if(i<=0 || i>= m_vector.size())cerr<<"ERREUR ACCES AREA FACTORY"<<endl;
+    if(i<=0 || i>= (int)(m_vector.size())){cerr<<"ERREUR ACCES AREA FACTORY"<<endl; return AreaGraphic(0);}
     else
     {
         return m_vector[i];

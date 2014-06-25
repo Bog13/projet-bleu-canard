@@ -128,7 +128,6 @@ bool Camera::inView(float i,float j)
     float  vw_x=m_mainView.getCenter().x,
             vw_y=m_mainView.getCenter().y;
 
-    Vector2f center=m_mainView.getCenter();
     int offsetDisplay=1;
     int view_height_up= (vw_y- (vw_h>>1) )/Global::TILE_HEIGHT;
     int view_height_down=(vw_y+ (vw_h>>1) )/Global::TILE_HEIGHT+offsetDisplay;

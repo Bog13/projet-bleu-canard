@@ -44,22 +44,22 @@ Texture* Animation::getCurrentFrame()
         return &m_textures[m_current];
     }
 
-    cout<<"ERREUR ANIMATION CURRENT FRAME: pas de frame dans l'anim"<<endl;
+    else {cout<<"ERREUR ANIMATION CURRENT FRAME: pas de frame dans l'anim"<<endl; return 0;}
 }
 
 Texture* Animation::getFrame(int i)
 {
-    if(i>=0 &&i<m_textures.size())
+    if(i>=0 &&i<(int)(m_textures.size()))
     {
         return &m_textures[m_current];
     }
 
-    cout<<"ERREUR ANIMATION FRAME: "<<i<<" !"<<endl;
+    else{cout<<"ERREUR ANIMATION FRAME: "<<i<<" !"<<endl;return 0;}
 }
 
 bool Animation::operator ==(Animation a)
 {
-    for (int i(0); i<a.nbFrame() || i<m_textures.size();i++)
+    for (int i(0); i<a.nbFrame() || i<(int)(m_textures.size());i++)
     {
         if (getFrame(i)!=a.getFrame(i)) {return false;}
     }

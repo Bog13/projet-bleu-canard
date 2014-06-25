@@ -117,7 +117,7 @@ string Global::loadingString(int i,int N)
 int Global:: sizeWithoutSpace(string str)
 {
     int strSize=0;
-    for(int i=0;i<str.size();i++)if(str[i]!=' ')strSize++;
+    for(int i=0;i<(int)(str.size());i++)if(str[i]!=' ')strSize++;
     return strSize;
 }
 
@@ -163,16 +163,6 @@ float Global::strToFloat(string str)
 
 bool Global::inCollision(float Ax,float Ay, float Aw, float Ah,float Bx,float By, float Bw, float Bh)
 {
-    float Au=Ay,
-    Ad=Ay+Au,
-    Al=Ax,
-    Ar=Ax+Aw;
-
-    float Bu=By,
-    Bd=By+Bu,
-    Bl=Bx,
-    Br=Bx+Bw;
-
     return !(Ay>Bh || Ah<By || Aw<Bx || Ax>Bw);
 
 

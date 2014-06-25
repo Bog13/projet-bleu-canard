@@ -3,7 +3,7 @@
 vector<vector<Texture> > TextureFactory::m_textures;
 
 
-Texture* TextureFactory::get(unsigned int i, unsigned int j)
+Texture* TextureFactory::get(int i,int j)
 {
 
     if(i>=0 && i<Global::NB_TOTAL_TILE)
@@ -79,22 +79,15 @@ bool TextureFactory::load(string path)
        && loadPng(path+"floor_pavement.png",1,Global::NB_FRAME_ID[FLOOR_WOOD])
        && loadPng(path+"pineTree.png",1,Global::NB_FRAME_ID[PINE_TREE],128,128)
             ///Characters
-       &&loadPng(path+"player.png",2,3)){cout<<"Textures loaded !"<<endl;}
-        else{cerr<<"Problem appeared during textures loading." << endl;}
-
-
-
-    ///
-
-
-    ///
-
+       &&loadPng(path+"player.png",2,3)){cout<<"Textures loaded !"<<endl;return true;}
+        else{cerr<<"Problem appeared during textures loading." << endl;return false;}
 
 }
 
 bool TextureFactory::load()
 {
-    TextureFactory::load(Global::PATH);
+    if(TextureFactory::load(Global::PATH))return true;
+    return false;
 }
 
 

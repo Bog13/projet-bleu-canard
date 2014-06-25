@@ -96,7 +96,7 @@ bool Graphics::collideWithObject(int i,int j)
     vector<Object*> *vec=m_cam->getObjectInView();
     float objx,objy,objw,objh,x,y,w,h;
 
-    for(int k=0;k<vec->size();k++)
+    for(int k=0;k<(int)(vec->size());k++)
     {
         objx=(*vec)[k]->getPosition().first;
         objy=(*vec)[k]->getPosition().second;
@@ -122,8 +122,6 @@ bool Graphics::collideWithObject(int i,int j)
 
 void Graphics::drawVisibleArea()
 {
-    Area* a=m_ag->getArea();
-
     EntityGraphic* e=0;
 
     const int A=( m_cam->getY() - m_cam->getHH() )/Global::TILE_HEIGHT;
@@ -174,7 +172,6 @@ void Graphics::drawVisibleArea()
 
 void Graphics::setVisibleObjects()
 {
-    Area* a=m_ag->getArea();
     EntityGraphic* e=0;
     Object* obj=0;
 

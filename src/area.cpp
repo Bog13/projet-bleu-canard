@@ -37,7 +37,7 @@ bool Area::isAccessible(Movable &pos)
 
     float obj_x,obj_y,obj_w,obj_h;
 
-    for(int i=0;i<m_objects.size();i++)
+    for(int i=0;i<(int)(m_objects.size());i++)
     {
         obj_x=m_objects[i]->getX() + m_objects[i]->getHitbox().x;
         obj_y=m_objects[i]->getY() + m_objects[i]->getHitbox().y;
@@ -68,7 +68,7 @@ bool Area::isAccessible(Movable &pos)
 
 void Area::addTiles(int w, int h)
 {
-    for(int i(0);i<m_tiles.size();i++)
+    for(int i(0);i<(int)(m_tiles.size());i++)
     {
         for (int j(0);j<w;j++)
         {
@@ -92,9 +92,9 @@ void Area::addTiles(int w, int h)
 void Area::getInfo()
 ///Affiche le contenu d'une area.
 {
-    for(int i(0);i<m_tiles.size();i++)
+    for(int i(0);i<(int)(m_tiles.size());i++)
     {
-        for (int j(0);j<m_tiles[i].size();j++)
+        for (int j(0);j<(int)(m_tiles[i].size());j++)
         {
             cout<<m_tiles[i][j]->getType();
         }
@@ -178,17 +178,17 @@ void Area::setTiles(vector<vector<int> > values)
 
 Tile* Area::getTile(int x,int y)
 {
-    if(y>=0 && y<m_tiles.size() && x>=0 && x<m_tiles[y].size()) {return m_tiles[y][x];}
-    else cerr<<"getTile hors normes (Area::getTile) indice x:" << x << " y:" << y <<"."<<endl;
+    if(y>=0 && y<(int)(m_tiles.size()) && x>=0 && x<(int)(m_tiles[y].size())) {return m_tiles[y][x];}
+    else {cerr<<"getTile hors normes (Area::getTile) indice x:" << x << " y:" << y <<"."<<endl;return 0;}
 
 }
 
 Object* Area::getObject(int i)
 {
-    if(i>=0 && i<m_objects.size())
+    if(i>=0 && i<(int)(m_objects.size()))
     {
         return m_objects[i];
-    }else cerr<<"Tentative d'acces à objects["<<i<<"] !"<<endl;
+    }else {cerr<<"Tentative d'acces à objects["<<i<<"] !"<<endl; return 0;}
 }
 
 void Area::updateTiles()
@@ -204,7 +204,7 @@ void Area::updateTiles()
 
 void Area::updateObjects()
 {
-    for(int i=0;i<m_objects.size();i++)
+    for(int i=0;i<(int)(m_objects.size());i++)
     {
         m_objects[i]->update();
 
@@ -230,14 +230,14 @@ void Area::killTiles()
 
 void Area::modifyTile(int x, int y, int tileID)
 {
-     if(y>=0 && y<m_tiles.size() && x>=0 && x<m_tiles[y].size()) {m_tiles[y][x]->setType(tileID);}
+     if(y>=0 && y<(int)(m_tiles.size()) && x>=0 && x<(int)(m_tiles[y].size())) {m_tiles[y][x]->setType(tileID);}
      else cerr<<"Tring to access a m_tiles[x][y] impossible [Area::modifyTile()]"<<endl;
 
 }
 
 void Area::killObjects()
 {
-    for(int i=0;i<m_objects.size();i++)
+    for(int i=0;i<(int)(m_objects.size());i++)
     {
         delete m_objects[i];
     }

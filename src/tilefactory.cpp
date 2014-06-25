@@ -27,7 +27,7 @@ void TileFactory::load()
 
 EntityGraphic TileFactory::get(int i)
 {
-    if(i>=0 && i< m_vector.size())
+    if(i>=0 && i< (int)(m_vector.size()))
     {
         return m_vector[i];
     }

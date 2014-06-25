@@ -9,7 +9,7 @@ ObjectFactory::ObjectFactory()
 
 Object ObjectFactory::get(int id)
 {
-    if(id>=0 && id<m_objects.size())
+    if(id>=0 && id<(int)(m_objects.size()))
     {
 
         //if (id==PINE_TREE) {m_objects[id]<<(cout);}
