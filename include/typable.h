@@ -11,7 +11,7 @@ class Typable
         Typable(int id);
 
         void setType(int id){m_type=id;}
-        int getType(){return m_type;}
+        int getType() const {return m_type;}
 
         virtual ~Typable();
     protected:

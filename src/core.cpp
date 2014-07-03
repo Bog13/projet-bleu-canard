@@ -13,22 +13,26 @@ Core::Core(RenderWindow* window)
     m_a=new Area(Global::NB_TILE_WIDTH*3,Global::NB_TILE_HEIGHT*3);
 
 
-    for(int i=1;i<2;i++)
+
+    Player *p=new Player(m_a,m_controller,CHAR_NONE,10,300,32,64,true);
+    m_a->addObject(p);
+
+    Object* jimmy= new NPC(new IddleBehavior,m_a,CHAR_NONE,80,400,32,64,true);
+    m_a->addObject(jimmy);
+
+    for(int i=1;i<5;i++)
     {
-        for(int j=1;j<2;j++)
+        for(int j=1;j<5;j++)
         {
 
             m_a->addObject(new Object(ObjectFactory::get(PINE_TREE)),i*150,j*150);
+
         }
     }
 
 
-    Player *p=new Player(m_a,m_controller,CHAR_NONE,10,300,32,64,true);
 
-    m_a->addObject(p);
 
-    Object* test= new NPC(new IddleBehavior,m_a,CHAR_NONE,80,400,32,64,true);
-    m_a->addObject(test);
 
 
     m_ag=new AreaGraphic(m_a);
@@ -52,13 +56,15 @@ Core::Core(RenderWindow* window)
 
 void Core::update()
 {
+
     //MaJ données
-    m_ag->sortObj();
     m_ag->getArea()->update();
 
     //MaJ Graphique
     m_graphic->updateAreaTilesInCamera();
+
     m_ag->updateObjects();
+
     m_graphic->update();
 
 
@@ -194,7 +200,7 @@ void Core::run()
         lookAtControl();
 
         // camera (Obsolète)
-        m_graphic->getCamera()->moveView(viewMoovement[RIGHT],viewMoovement[LEFT],viewMoovement[UP],viewMoovement[DOWN]);
+        //m_graphic->getCamera()->moveView(viewMoovement[RIGHT],viewMoovement[LEFT],viewMoovement[UP],viewMoovement[DOWN]);
         //
 
         update();

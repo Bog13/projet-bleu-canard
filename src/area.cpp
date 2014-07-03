@@ -27,6 +27,15 @@ void Area::initTile()
 
 bool Area::isAccessible(Movable &pos)
 {
+    /*Positionable* o=dynamic_cast<Positionable*>(pos.getClosestNeighbor());
+    if(o==0) {cout << " YO ! " <<endl; return true ;}
+    else
+    {
+    return !(Global::inCollision(pos.getPos()->getX(),pos.getPos()->getY(),pos.getPos()->getWidth(),pos.getPos()->getHeight(),o->getX(),o->getY(),o->getWidth(),o->getHeight()));
+    }*/
+
+    //else return !(Global::inCollision(pos.getPos()->getX(),pos.getPos()->getY(),pos.getPos()->getWidth(),pos.getPos()->getHeight(),o->getX(),o->getX(),o->getWidth(),o->getHeight()));
+    /*
     int nbCollide=0;
 
     float
@@ -37,7 +46,7 @@ bool Area::isAccessible(Movable &pos)
 
     float obj_x,obj_y,obj_w,obj_h;
 
-    for(int i=0;i<(int)(m_objects.size());i++)
+    /*for(int i=0;i<(int)(m_objects.size());i++) AVANT OPTI
     {
         obj_x=m_objects[i]->getX() + m_objects[i]->getHitbox().x;
         obj_y=m_objects[i]->getY() + m_objects[i]->getHitbox().y;
@@ -61,7 +70,29 @@ bool Area::isAccessible(Movable &pos)
         if(nbCollide>1)return false;
     }
 
-    return !(nbCollide>1);
+
+        obj_x=pos.getClosestNeighbor()->getX() + pos.getClosestNeighbor()->getHitbox().x;
+        obj_y=pos.getClosestNeighbor()->getY() + pos.getClosestNeighbor()->getHitbox().y;
+        obj_w= obj_x + pos.getClosestNeighbor()->getHitbox().w;
+        obj_h= obj_y + pos.getClosestNeighbor()->getHitbox().h;
+
+
+        if( !Global::inCollision(x,y,w,h,obj_x,obj_y,obj_w,obj_h)
+             && x>=0 && w <=m_width*Global::TILE_WIDTH
+             && y>=0 && h <=m_height*Global::TILE_HEIGHT
+        )
+        //pas de collision
+        {
+            return true;
+        }
+        else
+        {
+            if(pos.getClosestNeighbor()->getSolid()==true) return false;
+
+        }
+
+        return true;
+*/
 }
 
 

@@ -163,7 +163,7 @@ float Global::strToFloat(string str)
 
 bool Global::inCollision(float Ax,float Ay, float Aw, float Ah,float Bx,float By, float Bw, float Bh)
 {
-    return !(Ay>Bh || Ah<By || Aw<Bx || Ax>Bw);
+    return !(Ay>By+Bh || Ay+Ah<By || Ax+Aw<Bx || Ax>Bw+Bx);
 
 
 }

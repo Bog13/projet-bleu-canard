@@ -11,9 +11,36 @@ AreaGraphic::AreaGraphic(Area *a)
     initTiles();
     initObjects();
 
+    initSortObj();
+
+
+}
+void AreaGraphic::initSortObj()
+{
+    EntityGraphic* tmp=new EntityGraphic();
+    int lowest=1000000;
+
+    for(unsigned int i=nbObject()-1;i>0;--i)
+    {
+        lowest= lowestObj(i);
+
+        if( lowest != i)
+        {
+            *tmp=*m_objects[lowest];
+            *m_objects[lowest] = *m_objects[i];
+            *m_objects[i] = *tmp;
+        }
+
+        Global::clearConsole();
+        cout<<"OBJECTS SORTING: "<<endl;
+        cout<<"\t"<<Global::loadingString( nbObject()-1-i,nbObject()-1);
+
+
+    }
 }
 
 int AreaGraphic::lowestObj(int maxIndex)
+//indice du plus bas
 {
     int mini=0;
 
@@ -27,7 +54,7 @@ int AreaGraphic::lowestObj(int maxIndex)
     return mini;
 }
 
-void AreaGraphic::sortObj()
+void AreaGraphic::sortObj() const
 ///tri à bulle optimisé
 {
     EntityGraphic tmp;
@@ -74,7 +101,6 @@ void AreaGraphic::sortObj()
 
 
 
-
 }
 
 void AreaGraphic::initObjects()
@@ -95,6 +121,9 @@ void AreaGraphic::initObjects()
 
         m_objects.push_back(eg);
 
+        Global::clearConsole();
+        cout<<"OBJECTS: "<<endl;
+        cout<<"\t"<<Global::loadingString( i,m_area->nbObject()-1);
 
 
 
@@ -126,7 +155,8 @@ void AreaGraphic::initTiles()
         m_tiles.push_back(*vecTile);
 
         Global::clearConsole();
-        cout<<Global::loadingString(nbTileDone,nbTiles);
+        cout<<"TILES: "<<endl;
+        cout<<"\t"<<Global::loadingString(nbTileDone,nbTiles);
 
 
 
@@ -227,6 +257,8 @@ void AreaGraphic::updateObjects()
             m_objects[i]->setAnimation( AnimationFactory::get( m_objects[i]->getEntity()->getType()));
         }
     }
+
+
 }
 
 

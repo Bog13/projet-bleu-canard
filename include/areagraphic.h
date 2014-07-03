@@ -20,7 +20,9 @@ class AreaGraphic
         EntityGraphic* getTileGraphic(int x,int y);
         EntityGraphic* getObjectGraphic(int i);
         int lowestObj(int maxIndex);
-        void sortObj();
+        void sortObj() const;
+        void initSortObj();
+
         int nbObject(){return m_area->nbObject();}
         void updateTiles();
         void updateTiles(int i,int j);
@@ -43,6 +45,7 @@ class AreaGraphic
         Area *m_area;
         vector<vector<EntityGraphic*> > m_tiles;
         vector<EntityGraphic* > m_objects;
+
     private:
 };
 #endif // AREAGRAPHIC_H

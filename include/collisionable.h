@@ -21,7 +21,7 @@ class Collisionable
         Collisionable(float x,float y,float w,float h,bool b=false);
         Collisionable();
         void init();
-        Hitbox getHitbox(){return m_hitbox;}
+        Hitbox getHitbox() const {return m_hitbox;}
         void setHitbox(float x,float y,float w,float h);
         void setHitbox(Hitbox hit){m_hitbox=hit;}
         void setHitbox(ConvexShape cs);

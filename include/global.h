@@ -98,6 +98,7 @@ class Global
          template<typename T> static T strTo(string str);
         static int sizeWithoutSpace(string str);
 
+
     protected:
 
 

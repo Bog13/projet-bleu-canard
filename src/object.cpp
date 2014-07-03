@@ -21,7 +21,7 @@ Object::Object(Area *a, int type,float x, float y,float w,float h,bool obs):Tile
 
 }
 
-void Object::operator << (std::ostream& os)
+void Object::operator <<  (std::ostream& os) const
 {
 cout    << " _________OBJECT DEFINITION _________" << endl
         << " Type: " << m_type << endl

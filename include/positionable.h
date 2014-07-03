@@ -2,6 +2,7 @@
 #define POSITIONABLE_H
 #include <iostream>
 #include <utility>
+#include <cmath>
 #include "collisionable.h"
 #include "global.h"
 using namespace std;
@@ -21,20 +22,25 @@ class Positionable
         void setPosition(float x,float y){m_position=pair<float,float>(x,y);}
 
         void setPosition(pair<float,float> pos){m_position=pos;}
-        float getX(){return m_position.first;}
-        float getY(){return m_position.second;}
-        float getWidth(){return m_width;}
-        float getHeight(){return m_height;}
-        Vector2f getSize() {return Vector2f(m_width,m_height);}
+        float getX() const {return m_position.first;}
+        float getY() const {return m_position.second;}
+        float getWidth() const{return m_width;}
+        float getHeight() const{return m_height;}
+        Vector2f getSize()const {return Vector2f(m_width,m_height);}
 
         bool collideWith(float x,float y,float w,float h);
 
+        void setX(float x){m_position.first=x;}
+        void setY(float y){m_position.second=y;}
         void setWidth(float w){m_width=w;}
          void setHeight(float h){m_height=h;}
          void setSize(Vector2f v) {m_width=v.x; m_height=v.y;}
 
-        Area* getArea(){return m_currentArea;}
+        Area* getArea() const{return m_currentArea;}
         void setArea(Area* a) {m_currentArea=a;}
+
+        int getDistanceTo (const Positionable* pos) const;
+
         virtual ~Positionable();
     protected:
         pair<float,float> m_position;

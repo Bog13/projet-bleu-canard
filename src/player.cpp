@@ -30,8 +30,8 @@ void Player::updateControlable()
         if(m_controller->down())moveDown();
         if(m_controller->left())moveLeft();
         if(m_controller->right())moveRight();
-        if(m_controller->yes()){cout << m_direction <<endl;}
-        if(m_controller->no()){}
+        if(m_controller->yes()){}
+        if(m_controller->no()){getInfo();}
     }
 }
 

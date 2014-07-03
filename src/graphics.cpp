@@ -209,6 +209,7 @@ void Graphics::updateAreaTilesInCamera()
 void Graphics::update()
 {
     m_cam->update(m_window);
+    m_ag->sortObj();
 
 }
 

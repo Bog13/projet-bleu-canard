@@ -23,6 +23,11 @@ Positionable::Positionable(Area *a,float x,float y,float w,float h):m_currentAre
 
 }
 
+int Positionable::getDistanceTo (const Positionable* pos) const
+{
+    return abs(pos->m_position.first-m_position.first) + abs(pos->m_position.second-m_position.second);
+}
+
 bool Positionable::collideWith(float x,float y,float w,float h)
 {
     return Global::inCollision(m_position.first,m_position.second,m_width,m_height,x,y,w,h);
