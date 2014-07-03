@@ -1,109 +1,127 @@
 #include "editor.h"
+/*
+ public:
 
 
+
+
+
+
+        void update(Vector2i mouseWindowPosition,bool interact);
+        void synchroniseTiles();
+        virtual ~Editor();
+
+    private:
+        RenderWindow* m_window;
+
+        Area* m_currentArea;            ///Area sur laquelle on bosse
+        AreaGraphic* m_ag;              ///L'apparence qui en découle
+        Graphics* m_graphics;           ///L'outils qui affiche le tout ( ou presque, voir drawVisibleArea )
+     negligé   vector<EntityGraphic> m_vector; ///Stockage des 11 tiles différentes
+
+        Vector2i m_mouseWindowPosition; ///Position de la souris depuis le Haut gauche de la fenetre
+        Vector2f m_mouseMenuPosition;   ///Position de la souris depuis la view menu (en bas)
+        Vector2f m_mouseGlobalPosition; ///Position de la souris depuis le hautgauche du MONDE ( absolu )
+
+        View* m_mainView;               ///Vue de l'area
+        View* m_menuView;               ///Vue du menu
+
+        bool m_isTheMouseInTheMenu;     ///Parle de lui-même, sert à savoir quoi faire si vrai ou faux
+        int m_currentModifer;           ///Indice de la tile qui serait crée par un clique
+*/
 Editor::Editor(RenderWindow* window)
 {
-
+    ///INITIALISATION
     m_window=window;
-    ///Members
-        //data
-    m_currentArea= new Area(25,25);
-    m_ag= new AreaGraphic(m_currentArea);
-    m_graphics= new Graphics(m_window);
-        //tools
-    m_mouseWindowPosition=Vector2i(0,0);
-    m_mouseMenuPosition=Vector2f(0,0);
-    m_isTheMouseInTheMenu=false;
-    m_currentModifer=0;
-        //graphics
-    ///view
-    m_mainView=m_graphics->getView();
-    m_mainView->setViewport(FloatRect(0,0,1,0.88));
+    m_currentArea=new Area(20,20);
+    m_ag=new AreaGraphic(m_currentArea);
+    m_graphics=new Graphics(m_window,m_ag);
+    m_viewCenter=pair<float,float>(0,0);
 
-    m_menuView=new View(FloatRect(0,0,Global::TILE_WIDTH*Global::NB_TOTAL_TILE,Global::TILE_WIDTH*10));
+    m_mouseWindowPosition=Vector2i(0,0); ///Position de la souris depuis le Haut gauche de la fenetre
+    m_mouseMenuPosition=Vector2f(0,0);   ///Position de la souris depuis la view menu (en bas)
+    m_mouseGlobalPosition=Vector2f(0,0); ///Position de la souris depuis le hautgauche du MONDE ( absolu )
 
-    m_menuView->setViewport(FloatRect(0,0.88f,1,1));
+    m_isTheMouseInTheMenu=false;     ///Parle de lui-même, sert à savoir quoi faire si vrai ou faux
+    m_currentModifer=0;           ///Indice de la tile qui serait crée par un clique
 
-
-
-    ///Remplissage du vector possèdant les différentes tiles. Peut surement être supprimé.
-    /// A la base il devait surtout stoquer des positions pour savoir quelle tile sélectionner.
-    for(int i(0);i<Global::NB_TOTAL_TILE;i++)
-        {m_vector.push_back(TileFactory::get(i));}
+    ///SETTINGS
+    m_graphics->enableCamera(true);
+    m_graphics->getCamera()->setTarget(new Positionable(m_currentArea,m_viewCenter));
 }
 
-void Editor::Modify(Vector2f pos, int id)
-/**
-    Modifie une tile précise de l'area. Utilise en général la position de la souris d'où l'usage d'un Vector2f
-**/
+void Editor::modifyTile(Vector2f pos, int id)
 {
-    //position absolue
-    float   x=pos.x,
-            y=pos.y;
-    //position dans un tableau de tile
-    int x_tile=int(x/Global::TILE_WIDTH),
-        y_tile=int(y/Global::TILE_HEIGHT);
-
-    //Si est dans la zone
-    if( m_currentArea->in(x_tile,y_tile) )
+    if(m_currentArea->modifyTile(Global::toTileWidth(pos.x),Global::toTileHeight(pos.y),id))
     {
-        m_currentArea->modifyTile(x_tile,y_tile,id);
-        m_ag->getTileGraphic(x_tile,y_tile)->setGraphicalType(id);
-        synchroniseTiles();
-    }
-
-
+    }else {cerr<<"Veuillez cliquer dans la zone."<<endl;}
 }
+
+void Editor::zoom(float f)
+{
+    m_graphics->getCamera()->zoom(f);
+}
+
+
+const void Editor::saveCurrentArea(string name)
+{
+    AreaFactory::saveArea(m_currentArea, name);
+}
+const void Editor::loadArea(string name)
+{
+    AreaFactory::loadArea(m_currentArea,name);
+}
+
+const void Editor::draw()
+// TODO (j0sh-u_a#4#): Affichage du menu
+{
+    ///Mainview
+        //m_window->setView(*m_mainView);
+        m_graphics->drawVisibleArea();
+        m_graphics->drawObjects();
+
+    ///Menuview
+       // m_window->setView(*m_menuView);
+        drawMenu();
+}
+
 
 void Editor::synchroniseTiles()
 {
     m_ag->synchroniseTiles(0);
 }
 
-const void Editor::draw()
-/**
-    Regroupement de tous les draw.
-    Rappel:
-        Pour chaque view il faut dessiner quelque chose.
-        Tout ce qui est dessiner après un SetView() sera situé sur la vue en arguement.
-**/
-{
-
-        ///Mainview
-        m_window->setView(*m_mainView);
-        m_graphics->drawVisibleArea(m_ag);
-        m_graphics->drawObjects(m_ag);
-
-        ///Menuview
-        m_window->setView(*m_menuView);
-        drawMenu();
-
-}
-
 const void Editor::drawMenu()
-/**
-    Methode explicite par son nom.
-    A la ligne marquée il y aura tôt ou tard un problème avec la variation de Global::NB_TOTAL_TILE.
-    De plus, je précise que le vector<Entity> est peut-être optimisable en pointeur, j'ai failli.
-
-**/
 {
-    for(int i(0);i<m_vector.size();i++)
+    /*for(int i(0);i<Global::NB_TOTAL_TILE;i++)
     {
-        m_vector[i].getConvexShape()->setPosition(i*Global::TILE_WIDTH,5); /// A revoir prochainement
-        m_graphics->drawEntity(&m_vector[i]);
-    }
-
-
+        EntityGraphic e= TileFactory::get(i);
+        e.getConvexShape()->setPosition(i*Global::TILE_WIDTH,0);
+        m_graphics->drawEntity(&e);
+    }*/
 }
 
-void Editor::moveView(float x,float y)
+const void Editor::drawArea()
 {
-    m_mainView->move(x,y);
+    m_graphics->drawVisibleArea();
 }
 
 
-void Editor::Update(Vector2i mouseWindowPosition,bool interact)
+void Editor::updateMouse(Vector2i mouseWindowPosition)
+{
+    ///Actualisation de la position de la souris
+    m_mouseWindowPosition=mouseWindowPosition;
+    m_mouseMenuPosition=m_window->mapPixelToCoords(m_mouseWindowPosition,*m_graphics->getCamera()->getView());
+    m_mouseGlobalPosition=m_window->mapPixelToCoords(m_mouseWindowPosition,*m_graphics->getCamera()->getView());
+}
+
+void Editor::updateMenu()
+///OBSOLETE!
+{
+    //for(int i(0);i<m_vector.size();i++){m_vector[i].update();} ///Affiche les animations en bas
+}
+
+void Editor::update(Vector2i mouseWindowPosition,bool interact)
 /**
     Globalement:
         * la position de la souris est actualisée
@@ -111,82 +129,37 @@ void Editor::Update(Vector2i mouseWindowPosition,bool interact)
         * Modification de l'area si clique activé
 **/
 {
-
-
-    //m_mainView->move(movingLeft*-0.5,movingUp*-0.5); fonctionne surement mais pas avec les bool actuels
-
-    ///Actualisation de la position de la souris
-    m_mouseWindowPosition=mouseWindowPosition;
-    m_mouseMenuPosition=m_window->mapPixelToCoords(m_mouseWindowPosition,*m_menuView);
-    m_mouseGlobalPosition=m_window->mapPixelToCoords(m_mouseWindowPosition,*m_mainView);
+    m_ag->updateTiles();
+    m_graphics->update();
+    updateMouse(mouseWindowPosition);
+    updateMenu();///NON
 
     ///Est-elle dans le menu ?
      if(m_mouseWindowPosition.y>m_window->getSize().y*0.88){m_isTheMouseInTheMenu=true;} //0.88 c'est précis hein ? :p J'ai pas trouvé mieux pour le moment.
             else m_isTheMouseInTheMenu=false;
 
     ///Elle clique
-        //dans le monde donc on modifie
-    if(interact && m_isTheMouseInTheMenu==false) {Modify(m_mouseGlobalPosition, m_currentModifer);}
+        ///dans le monde donc on modifie
+    if(interact && m_isTheMouseInTheMenu==false) {modifyTile(m_mouseGlobalPosition, m_currentModifer);}
 
-        //dans le menu donc on sélectionne.
+        ///dans le menu donc on sélectionne.
     else if(interact && m_isTheMouseInTheMenu)
     {
-
-        int clue=int(m_mouseMenuPosition.x/Global::TILE_WIDTH);
-            ///Ca va probablement faire chier quand il y aura trop de tile
-            ///Faudra penser à faire une seconde ligne pour garder Global::TILE_WIDHT (c'était mon idée de base)
+// TODO (j0sh-u_a#2#): Afficher le menu sur plusieurs lignes
+        int clue=int(Global::toTileWidth(m_mouseMenuPosition.x));
 
         cout <<"clue = " << clue << endl; ///Assurance de la tile qu'on a en ce moment
         if(clue<=Global::NB_TOTAL_TILE){m_currentModifer=clue;}
-            else {cerr << " Warning, trying to modify out of the area's borders." << endl;}
+            else {cerr << " Warning, trying to modify with error value" << endl;}
     }
 
-
-
-    for(int i(0);i<m_vector.size();i++){m_vector[i].update();} ///Affiche les animations en bas
-
-    ///actualisation de la view Graphics
-    m_ag->updateTiles();
-
-
 }
 
 
-
-
-const void Editor::DrawArea()
-///Explicite, précisons que l'on parle de l'area membre.
-{
-    m_graphics->drawArea(m_ag);
-}
-
-
-
-
-const void Editor::SaveCurrentArea(string name)
-/**
-    Merci pour ce gain de temps :3
-**/
-{
-    AreaFactory::saveArea(m_currentArea, name);
-}
-
-const void Editor::LoadArea(string name)
-/**
-     Re-merci...
-**/
-{
-    m_currentArea=new Area(0,0);
-    AreaFactory::loadArea(m_currentArea, name);
-    m_ag=new AreaGraphic(m_currentArea);
-
-}
 
 
 Editor::~Editor()
-/**
-   Normalement y'a tout !
-**/
+
 {
     delete m_currentArea;
     delete m_ag;

@@ -10,8 +10,17 @@ using namespace std;
 using namespace sf;
 
 enum
+{
+    RIGHT=0,
+    DOWN=1,
+    LEFT=2,
+    UP=3
+};
+
+enum
 ///Création de texture 1: AJOUTER LE NOM ICI (2 plus bas)
 {
+    //TILE
     TILE_NONE=0,
     HIGHT_GRASS=1,
     HIGHT_GRASS_tGROUND_1=2,
@@ -22,7 +31,9 @@ enum
     SNOW=7,
     FLOOR_WOOD=8,
     FLOOR_PAVEMENT=9,
+    //Object
     PINE_TREE=10,
+    //CHAR
     CHAR_NONE=11
 };
 
@@ -60,8 +71,10 @@ class Global
 
 
     ///Création de texture 2:INCREMENTER LE TOTAL (3 dans le cpp)
-        static const int NB_TOTAL_TILE=12;
-        static const int NB_TOTAL_ID=NB_TOTAL_TILE;
+        static const int NB_TOTAL_TILE=10;
+        static const int NB_TOTAL_OBJECT=1;
+        static const int NB_TOTAL_CHAR=1;
+        static const int NB_TOTAL_ID=NB_TOTAL_TILE+NB_TOTAL_OBJECT+NB_TOTAL_CHAR;
 
         static const int ID[NB_TOTAL_ID];
         static const int NB_FRAME_ID[NB_TOTAL_ID];
@@ -78,6 +91,9 @@ class Global
         static string loadingString(int now,int max);
         static void clearConsole();
         static int FPS;
+
+        static inline int toTileWidth(float nb) {return nb/TILE_WIDTH;}
+        static inline int toTileHeight(float nb) {return nb/TILE_HEIGHT;}
 
          template<typename T> static T strTo(string str);
         static int sizeWithoutSpace(string str);

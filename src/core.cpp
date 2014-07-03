@@ -1,12 +1,6 @@
 #include "core.h"
 
-enum
-{
-    RIGHT=0,
-    DOWN=1,
-    LEFT=2,
-    UP=3
-};
+
 
 Core::Core(RenderWindow* window)
 {
@@ -186,7 +180,7 @@ void Core::run()
 
                         default:
                             break;
-                        }
+                        } break;
 
                         default:
                             break;

@@ -30,6 +30,7 @@ class Graphics
         bool collideWithObject(int i,int j);
 
         Camera* getCamera(){return m_cam;}
+        void setCamera(Camera* cam) {m_cam=cam;}
         void enableCamera(bool b);
 
 

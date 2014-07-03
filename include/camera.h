@@ -28,6 +28,7 @@ class Camera
         int getHH(){return (m_viewHeight>>1);}
         int getHW(){return (m_viewWidth>>1);}
 
+        void inline zoom(float f) {m_mainView.zoom(f);}
         void moveView       (bool right, bool left, bool up, bool down);
         void moveViewUp     (float d);
         void moveViewDown   (float d);

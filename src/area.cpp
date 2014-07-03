@@ -89,6 +89,16 @@ void Area::addTiles(int w, int h)
     m_height+=h;
 }
 
+bool Area::modifyTile(int x, int y, int id)
+{
+    bool tmp=in(x,y) && id<=Global::NB_TOTAL_ID && id>=0;
+    if(tmp)
+    {
+        m_tiles[y][x]->setType(id);
+    }
+    return tmp;
+}
+
 void Area::getInfo()
 ///Affiche le contenu d'une area.
 {
@@ -228,12 +238,6 @@ void Area::killTiles()
     }
 }
 
-void Area::modifyTile(int x, int y, int tileID)
-{
-     if(y>=0 && y<(int)(m_tiles.size()) && x>=0 && x<(int)(m_tiles[y].size())) {m_tiles[y][x]->setType(tileID);}
-     else cerr<<"Tring to access a m_tiles[x][y] impossible [Area::modifyTile()]"<<endl;
-
-}
 
 void Area::killObjects()
 {

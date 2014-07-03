@@ -11,9 +11,7 @@ class Core;
 class Movable
 /**
     Permet à un positionnable de bouger.
-    ATTENTION, la sécurité "Est-il dans l'area" est à insérer avant ces méthodes.
-    ex: Positionnable::move(d)
-    { if (isInArea==true) {moveLeft(d);}}
+
 **/
 
 {
@@ -31,18 +29,25 @@ class Movable
         bool canMoveLeft();
         bool canMoveRight();
 
-        void moveRight() { if(canMoveRight()) moveRight(m_speed.first); }
-        void moveLeft() { if(canMoveLeft()) moveLeft(m_speed.first); }
-        void moveDown() { if(canMoveDown()) moveDown(m_speed.second); }
-        void moveUp() { if(canMoveUp()) moveUp(m_speed.second); }
+        void moveRight() { if(canMoveRight()){m_direction=RIGHT; moveRight(m_speed.first); }}
+        void moveLeft() { if(canMoveLeft()) {m_direction=LEFT;moveLeft(m_speed.first); }}
+        void moveDown() { if(canMoveDown()) {m_direction=DOWN;moveDown(m_speed.second); }}
+        void moveUp() { if(canMoveUp()) {m_direction=UP;moveUp(m_speed.second); }}
         void move(float up, float right, float down, float left) {moveLeft(left); moveRight(right); moveDown(down); moveUp(up);}
         void move(float xRelativ, float yRelativ) {addPosition(xRelativ,yRelativ);}
         void move(pair<float,float> p){addPosition(p.first,p.second);}
 
-        pair<float,float> getSpeed(){return m_absoluteSpeed;}
+
         void setSpeed(float x,float y){m_speed=pair<float,float>(x,y);}
+        void setDirection(int val) {if(val<4)m_direction=val;}
+
+        pair<float,float> getSpeed(){return m_absoluteSpeed;}
         Positionable* getPos(){return m_positionable;}
         Collisionable* getCol(){return m_collisionable;}
+        int getDirection() {return m_direction;}
+
+
+
         void updateMovable();
 
         virtual ~Movable();
@@ -51,6 +56,7 @@ class Movable
         Collisionable *m_collisionable;
         pair<float,float> m_speed;
         pair<float,float> m_absoluteSpeed; //Warning
+        int m_direction; //Sert à l'animation et à la position de la vue
     private:
 };
 

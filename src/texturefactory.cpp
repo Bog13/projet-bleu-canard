@@ -6,7 +6,7 @@ vector<vector<Texture> > TextureFactory::m_textures;
 Texture* TextureFactory::get(int i,int j)
 {
 
-    if(i>=0 && i<Global::NB_TOTAL_TILE)
+    if(i>=0 && i<Global::NB_TOTAL_ID)
     {
         if( j>=0 && j<Global::NB_FRAME_ID[i] )
         {
@@ -77,6 +77,7 @@ bool TextureFactory::load(string path)
        && loadPng(path+"snow.png",1,Global::NB_FRAME_ID[SNOW])
        && loadPng(path+"floor_wood.png",1,Global::NB_FRAME_ID[FLOOR_WOOD])
        && loadPng(path+"floor_pavement.png",1,Global::NB_FRAME_ID[FLOOR_WOOD])
+        ///OBJECT
        && loadPng(path+"pineTree.png",1,Global::NB_FRAME_ID[PINE_TREE],128,128)
             ///Characters
        &&loadPng(path+"player.png",2,3)){cout<<"Textures loaded !"<<endl;return true;}

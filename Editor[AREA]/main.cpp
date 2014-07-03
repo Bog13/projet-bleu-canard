@@ -6,11 +6,13 @@
 #include"../include/animationfactory.h"
 #include"../include/tilefactory.h"
 #include"../include/areafactory.h"
+#include"../include/objectfactory.h"
 #include "editor.h"
 #include <SFML/Graphics.hpp>
 
 using namespace std;
 using namespace sf;
+
 void updateFps(float &fps,int &clockFps,RenderWindow *window);
 
 int main()
@@ -21,7 +23,9 @@ int main()
     TextureFactory::load("../data/img/");
     AnimationFactory::load();
     TileFactory::load();
+    ObjectFactory::load;
     AreaFactory::load();
+
 
     ///FPS
     Clock clock;//pour calculer le fps
@@ -31,17 +35,14 @@ int main()
     ///
 
     ///VIEW
-    bool interact=false,
-        movingRight=false,
-        movingUp=false,
-        movingLeft=false,
-        movingDown=false;
+    bool viewMoovement[4], interact=false;
 
 
     ///
 
 
     Editor theEditor(&window);
+
     Event event;
 
     while (window.isOpen())
@@ -59,39 +60,75 @@ int main()
                 {
                   switch(event.key.code)
                   {
-                      case Keyboard::Escape: window.close();
+                    case Keyboard::Escape: window.close();
+
                       ///VIEW CONTROL
-                      case Keyboard::Subtract:  theEditor.zoom(1.1f);break;
-                      case Keyboard::Add:       theEditor.zoom(0.9f) ;break;
-                      default: break;
+// TODO (j0sh-u_a#1#): Refonte de editor::zoom(float f)
+                    case Keyboard::Subtract:  theEditor.zoom(1.1f);break;
+                    case Keyboard::Add:       theEditor.zoom(0.9f) ;break;
+
+                    case Keyboard::Right:
+                            viewMoovement[RIGHT]=true;
+                            break;
+
+                        case Keyboard::Left:
+                            viewMoovement[LEFT]=true;
+                            break;
+
+                        case Keyboard::Up:
+                            viewMoovement[UP]=true;
+                            break;
+
+                        case Keyboard::Down:
+                            viewMoovement[DOWN]=true;
+                            break;
+
+                        default:
+                            break;
                   }
                 }
-                case:: Event::KeyReleased:
+
+                case Event::KeyReleased:
+
                     switch(event.key.code)
                     {
-                        default: break;
-                    }
+                        case Keyboard::Right:
+                            viewMoovement[RIGHT]=false;
+                            break;
 
+                        case Keyboard::Left:
+                            viewMoovement[LEFT]=false;
+                            break;
 
+                        case Keyboard::Up:
+                            viewMoovement[UP]=false;
+                            break;
+
+                        case Keyboard::Down:
+                            viewMoovement[DOWN]=false;
+                            break;
+
+                        default:
+                            break;
+                        } break;
+
+                ///MOUSE
                 case Event::MouseButtonPressed:
                     if(Mouse::isButtonPressed(Mouse::Left))interact=true;;
                     //if(Mouse::isButtonPressed(Mouse::Right)); on peux ajouter un clique droit ici On peut même mettre un deuxième modifier tiens !
-                    break;
+                break;
 
                 case Event::MouseButtonReleased:
                     interact=false;
                     break;
+
+
                 default: break;
 
 
             }
-            ///Keyboard
-            if(Keyboard::isKeyPressed(Keyboard::Up)){movingUp=true;}else movingUp=false;
-            if(Keyboard::isKeyPressed(Keyboard::Down)){movingDown=true;}else movingDown=false;
-            if(Keyboard::isKeyPressed(Keyboard::Left)){movingLeft=true;}else movingLeft=false;
-            if(Keyboard::isKeyPressed(Keyboard::Right)){movingRight=true;}else movingRight=false;
 
-            if(Keyboard::isKeyPressed(Keyboard::Space)){theEditor.LoadArea("areaTest.area");}///DEBUG
+            if(Keyboard::isKeyPressed(Keyboard::Space)){theEditor.loadArea("areaTest.area");}///DEBUG
 
 
 
@@ -107,7 +144,7 @@ int main()
         string name;
         cout<<" Sous quel nom enregistrer cette Area ? (x.txt) " << endl;
         cin >> name;
-        theEditor.SaveCurrentArea(name);
+        theEditor.saveCurrentArea(name);
     }
         //Load
     if(Keyboard::isKeyPressed(Keyboard::LControl) && Keyboard::isKeyPressed(Keyboard::L) )
@@ -115,21 +152,20 @@ int main()
         string name;
         cout<<" Sous quel nom est enregistree l'Area souhaitee ?(x.txt) " << endl;
         cin >> name;
-        theEditor.LoadArea(name);
+        theEditor.loadArea(name);
     }
 
-    ///Directions
-    //cout<<movingRight<<endl;
-    if(movingUp)theEditor.moveView(0,-.5);
-    if(movingDown)theEditor.moveView(0,.5);
-    if(movingLeft)theEditor.moveView(-.5,0);
-    if(movingRight)theEditor.moveView(.5,0);
-    if(!movingUp && !movingDown && !movingLeft && !movingRight)theEditor.moveView(0,0);
+
+    /// camera
+    theEditor.getCamera()->moveView(viewMoovement[RIGHT],viewMoovement[LEFT], viewMoovement[UP],viewMoovement[DOWN]);
+
+
     ///Mouse
+        //position de la souris relative à la fenêtre
         Vector2i mouseWindowPosition=Mouse::getPosition(window);
 
     ///Updates
-        theEditor.Update(mouseWindowPosition,interact);
+        theEditor.update(mouseWindowPosition,interact);
 
     ///WINDOW
         window.clear(Color(4,139,154));
@@ -137,15 +173,13 @@ int main()
         window.display();
         ////
 
-        if(clock.getElapsedTime().asMilliseconds()!=0)fps=1000/clock.getElapsedTime().asMilliseconds();
-        updateFps(fps,clockFps,&window);
-
-
+    ///FPS
+        if(clock.getElapsedTime().asMilliseconds()!=0)Global::FPS=1000/clock.getElapsedTime().asMilliseconds();
     }
 
     return 0;
 }
-
+///A voir
 void updateFps(float &fps,int &clockFps,RenderWindow *window)
 {
     if(time(NULL)-clockFps>1)
