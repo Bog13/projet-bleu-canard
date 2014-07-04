@@ -3,6 +3,7 @@
 Movable::Movable(Collisionable *c, Positionable* p, pair<float,float> speed): m_positionable(p),m_collisionable(c),m_absoluteSpeed(speed)
 {
     m_direction=RIGHT;
+    m_isMoving=false;
 }
 
 bool Movable::canMoveUp()
@@ -85,6 +86,7 @@ void Movable::updateMovable()
 {
     m_speed.first=m_absoluteSpeed.first / Global::FPS ;
     m_speed.second=m_absoluteSpeed.second / Global::FPS;
+    m_isMoving=false;
 
 
 

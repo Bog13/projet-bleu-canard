@@ -168,6 +168,11 @@ bool Global::inCollision(float Ax,float Ay, float Aw, float Ah,float Bx,float By
 
 }
 
+/*template<typename A,B> B Global::convertInto(A a,B b);
+{
+    return dynamic_cast<B>(a);
+}*/
+
 Global::~Global()
 {
 

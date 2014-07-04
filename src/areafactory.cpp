@@ -162,7 +162,7 @@ void AreaFactory::loadArea(Area *a,string fileName)
 
 AreaGraphic AreaFactory::get(int i)
 {
-    if(i<=0 || i>= (int)(m_vector.size())){cerr<<"ERREUR ACCES AREA FACTORY"<<endl; return AreaGraphic(0);}
+    if(i<=0 || i>= (int)(m_vector.size())){cerr<<"ERREUR ACCES AREA FACTORY"<<endl; return AreaGraphic(0,0);}
     else
     {
         return m_vector[i];

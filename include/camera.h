@@ -50,6 +50,9 @@ class Camera
 
         bool inView(float i,float j);
         bool inView(Object* obj);
+        bool inView(Movable* m);
+        bool inView(Positionable* pos);
+
         vector<Object*>* getObjectInView();
 
         void verifyViewInArea();

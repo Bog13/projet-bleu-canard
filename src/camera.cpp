@@ -95,18 +95,13 @@ void Camera::moveViewLeft   (float d)
     if(m_viewX-d>=0 && d!=0 ) {m_viewX-=d;updateViewMoving();}
 }
 
-
-bool Camera::inView(Object* obj)
+bool Camera::inView(Positionable* pos)
 {
     float view_x=m_mainView.getCenter().x - (m_mainView.getSize().x/2);
     float view_y=m_mainView.getCenter().y - (m_mainView.getSize().y/2);
     float view_w=m_mainView.getSize().x;
     float view_h=m_mainView.getSize().y;
-
-    Positionable* pos=0;
     float x=0,y=0,w=0,h=0;
-
-    pos=dynamic_cast<Positionable*>(obj);
     if(pos!=0)
     {
         x=pos->getX();
@@ -115,7 +110,29 @@ bool Camera::inView(Object* obj)
         h=pos->getHeight();
     }else return false;
 
-    return (x+w>=view_x && x<=view_x+view_w && y+h>=view_y && y<=view_y+view_h);
+    return Global::inCollision(view_x,view_y,view_w,view_h,x,y,w,h);
+}
+
+
+bool Camera::inView(Object* obj)
+{
+
+
+    Positionable* pos=0;
+    float x=0,y=0,w=0,h=0;
+
+    pos=dynamic_cast<Positionable*>(obj);
+
+    return (inView(pos) && pos!=0 );
+}
+
+
+
+bool Camera::inView(Movable* m)
+{
+    Positionable* pos=m->getPos();
+
+    return inView(pos);;
 }
 
 bool Camera::inView(float i,float j)

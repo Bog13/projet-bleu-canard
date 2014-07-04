@@ -96,7 +96,9 @@ class Global
         static inline int toTileHeight(float nb) {return nb/TILE_HEIGHT;}
 
          template<typename T> static T strTo(string str);
+         //template<typename A,B> static B convertInto(A,B);
         static int sizeWithoutSpace(string str);
+
 
 
     protected:

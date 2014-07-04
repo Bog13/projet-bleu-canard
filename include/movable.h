@@ -20,10 +20,10 @@ class Movable
         Movable(Collisionable *c,Positionable* p, pair<float,float> speed=pair<float,float>(1,1) );
         void addPosition(float x,float y){m_positionable->setPosition(m_positionable->getPosition().first+x,m_positionable->getPosition().second+y);}
 
-        void goRight(float d) {addPosition(d,0);}
-        void goLeft(float d) {addPosition(-d,0);}
-        void goDown(float d) {addPosition(0,d);}
-        void goUp(float d) {addPosition(0,-d);}
+        void goRight(float d) {addPosition(d,0);m_isMoving=true;}
+        void goLeft(float d) {addPosition(-d,0);m_isMoving=true;}
+        void goDown(float d) {addPosition(0,d);m_isMoving=true;}
+        void goUp(float d) {addPosition(0,-d);m_isMoving=true;}
 
         bool canMoveUp();
         bool canMoveDown();
@@ -34,11 +34,6 @@ class Movable
         void moveLeft() { if(canMoveLeft()) {m_direction=LEFT;goLeft(m_speed.first); }}
         void moveDown() { if(canMoveDown()) {m_direction=DOWN;goDown(m_speed.second); }}
         void moveUp() { if(canMoveUp()) {m_direction=UP;goUp(m_speed.second); }}
-
-        /*void move(float up, float right, float down, float left) {moveLeft(left); moveRight(right); moveDown(down); moveUp(up);}
-        void move(float xRelativ, float yRelativ) {addPosition(xRelativ,yRelativ);}
-        void move(pair<float,float> p){addPosition(p.first,p.second);}*/
-
 
         void setSpeed(float x,float y){m_speed=pair<float,float>(x,y);}
         void setDirection(int val) {if(val<4)m_direction=val;}
@@ -53,7 +48,7 @@ class Movable
         bool collideWithObjects(float x, float y);
         bool collideWithArea(float x, float y);
         bool collide(float x, float y);
-
+        bool isMoving() {return m_isMoving;}
 
         void updateCloserNeighbor();
         void updateMovable();
@@ -65,7 +60,7 @@ class Movable
         pair<float,float> m_speed;
         pair<float,float> m_absoluteSpeed; //Warning
         int m_direction; //Sert à l'animation et à la position de la vue
-
+        bool m_isMoving;
         const Object * m_closestNeighbor;
     private:
 };

@@ -2,13 +2,11 @@
 
 
 
-Graphics::Graphics(RenderWindow* window,AreaGraphic *ag)
+Graphics::Graphics(RenderWindow* window,AreaGraphic *ag):m_ag(ag)
 {
     m_window=window;
-    m_ag=ag;
+    m_ag->setGraphics(this);
     m_cam=new Camera(m_ag,NULL);
-
-
 }
 
 
@@ -57,8 +55,8 @@ void Graphics::drawObjects()
 {
     Object *o=0;
 
-    setVisibleObjects();
-
+    //setVisibleObjects();
+/*
     for(int i=0;i<m_ag->nbObject();i++)
     {
         if(m_ag->getObjectGraphic(i)->hasAnEntity())
@@ -79,6 +77,27 @@ void Graphics::drawObjects()
         {
             drawEntity(m_ag->getObjectGraphic(i) );
         }
+    }
+    */
+
+    for(int i=0;i<m_ag->nbVisibleObject();i++)
+    {
+        if(m_ag->getVisibleObjectGraphic(i)->hasAnEntity())
+        {
+            o= dynamic_cast<Object*>( m_ag->getVisibleObjectGraphic(i)->getEntity() );
+            if(o != 0)
+            {
+                m_ag->getVisibleObjectGraphic(i)->getConvexShape()->setPosition(Vector2f(o->getX(),o->getY()));
+            }else cerr<<"Erreur conversion object entity (drawObjects)"<<endl;
+        }
+        else
+        {
+             m_ag->getVisibleObjectGraphic(i)->getConvexShape()->setPosition(Vector2f(0,0));
+             cerr<<"Affichage d'un objet graphique indépendant"<<endl;
+        }
+
+        drawEntity(m_ag->getVisibleObjectGraphic(i) );
+
     }
 }
 

@@ -1,9 +1,7 @@
 #include "areagraphic.h"
 
-AreaGraphic::AreaGraphic(Area *a)
+AreaGraphic::AreaGraphic(Area *a,Graphics* g):m_graphic(g),m_area(a)
 {
-    m_area=a;
-
     m_width=a->getWidth();
     m_height=a->getHeight();
 
@@ -74,21 +72,21 @@ void AreaGraphic::sortObj() const
         nb++;
         permut=false;
 
-        for(int j=0;j<(int)(m_objects.size()-1);j++)
+        for(int j=0;j<(int)(m_visibleObjects.size()-1);j++)
         {
-            o1=dynamic_cast<Object*>(m_objects[j]->getEntity());
+            o1=dynamic_cast<Object*>(m_visibleObjects[j]->getEntity());
             if(o1!=0){hy1=o1->getHitbox().y;}
             else hy1=0;
 
-            o2=dynamic_cast<Object*>(m_objects[j+1]->getEntity());
+            o2=dynamic_cast<Object*>(m_visibleObjects[j+1]->getEntity());
             if(o2!=0){hy2=o2->getHitbox().y;}
             else hy2=0;
 
-            if(m_objects[j]->getConvexShape()->getPosition().y +hy1  >  m_objects[j+1]->getConvexShape()->getPosition().y+ hy2 )
+            if(m_visibleObjects[j]->getConvexShape()->getPosition().y +hy1  >  m_visibleObjects[j+1]->getConvexShape()->getPosition().y+ hy2 )
             {
-                tmp= *m_objects[j];
-                *m_objects[j] = *m_objects[j+1];
-                *m_objects[j+1]=tmp;
+                tmp= *m_visibleObjects[j];
+                *m_visibleObjects[j] = *m_visibleObjects[j+1];
+                *m_visibleObjects[j+1]=tmp;
                 permut=true;
             }
 
@@ -97,7 +95,7 @@ void AreaGraphic::sortObj() const
         }
 
     }
-    while(permut && (nb < (int)(m_objects.size()-1)));
+    while(permut && (nb < (int)(m_visibleObjects.size()-1)));
 
 
 
@@ -124,9 +122,6 @@ void AreaGraphic::initObjects()
         Global::clearConsole();
         cout<<"OBJECTS: "<<endl;
         cout<<"\t"<<Global::loadingString( i,m_area->nbObject()-1);
-
-
-
     }
 }
 
@@ -177,6 +172,15 @@ EntityGraphic* AreaGraphic::getObjectGraphic(int i)
     if(i>=0 && i<(int)(m_objects.size()))
     {
         EntityGraphic *eg=m_objects[i];
+        return eg;
+    }else {cerr<<"Tentative d'acces à objects["<<i<<"] !"<<endl;return 0;}
+}
+
+EntityGraphic* AreaGraphic::getVisibleObjectGraphic(int i)
+{
+    if(i>=0 && i<(int)(m_visibleObjects.size()))
+    {
+        EntityGraphic *eg=m_visibleObjects[i];
         return eg;
     }else {cerr<<"Tentative d'acces à objects["<<i<<"] !"<<endl;return 0;}
 }
@@ -245,17 +249,57 @@ void AreaGraphic::synchroniseTiles(int f)
 
 
 }
+void AreaGraphic::updateVisibleObject(unsigned int i)
+{
+    if( m_objects[i]->hasAnEntity () )
+        {
+            Positionable* o= dynamic_cast<Positionable*>( m_objects[i]->getEntity() ) ;
+
+            if( o !=0 /*&&  m_graphic->getCamera() !=0*/)
+            {
+                if( m_graphic->getCamera()->inView( o ) )
+                {
+                    m_objects[i]->setVisibility( true );
+
+                    m_visibleObjects.push_back( m_objects[i] );
+
+                }
+                else
+                {
+                    m_objects[i]->setVisibility( false );
+                    cout << " DEHORS " << i <<endl;
+                }
+            }else cout<<"Erreur: adr o= "<<o<<"."<<endl;
+
+        }
+}
 
 void AreaGraphic::updateObjects()
 {
+
+
     for(int i=0;i<(int)(m_objects.size());i++)
     {
+
         m_objects[i]->update();
 
+        //update animation
         if(m_objects[i]->getAnimation()->getType() != m_objects[i]->getEntity()->getType())
         {
             m_objects[i]->setAnimation( AnimationFactory::get( m_objects[i]->getEntity()->getType()));
         }
+
+        //update visible
+
+        if( /*(Global::isMovable(m_object[i]->getEntity()) && m_object[i]->getEntity()->isMoving()) ||*/ (m_graphic->getCamera()->wasMoving() ))
+        {
+            if(i==0)m_visibleObjects.erase(m_visibleObjects.begin(),m_visibleObjects.end());
+            updateVisibleObject(i);
+        }
+
+
+
+
     }
 
 
