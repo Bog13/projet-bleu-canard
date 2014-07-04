@@ -97,10 +97,13 @@ void Camera::moveViewLeft   (float d)
 
 bool Camera::inView(Positionable* pos)
 {
-    float view_x=m_mainView.getCenter().x - (m_mainView.getSize().x/2);
-    float view_y=m_mainView.getCenter().y - (m_mainView.getSize().y/2);
-    float view_w=m_mainView.getSize().x;
-    float view_h=m_mainView.getSize().y;
+    ///Position de la vue
+    float view_x=m_mainView.getCenter().x - (m_mainView.getSize().x/2+Global::TILE_WIDTH);
+    float view_y=m_mainView.getCenter().y - (m_mainView.getSize().y/2+Global::TILE_HEIGHT);
+    float view_w=m_mainView.getSize().x+Global::TILE_WIDTH;
+    float view_h=m_mainView.getSize().y+Global::TILE_HEIGHT;
+
+    ///position du positionnable
     float x=0,y=0,w=0,h=0;
     if(pos!=0)
     {
@@ -110,7 +113,7 @@ bool Camera::inView(Positionable* pos)
         h=pos->getHeight();
     }else return false;
 
-    return Global::inCollision(view_x,view_y,view_w,view_h,x,y,w,h);
+    return Global::inCollision(x,y,w,h,view_x,view_y,view_w,view_h);
 }
 
 
@@ -131,8 +134,8 @@ bool Camera::inView(Object* obj)
 bool Camera::inView(Movable* m)
 {
     Positionable* pos=m->getPos();
-
-    return inView(pos);;
+    cout << "Perso en x: " << pos->getX() << "   bord gauche de la vue: " << m_mainView.getCenter().x - (m_mainView.getSize().x/2) << endl;
+    return inView(pos);
 }
 
 bool Camera::inView(float i,float j)

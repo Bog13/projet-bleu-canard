@@ -95,8 +95,9 @@ class Global
         static inline int toTileWidth(float nb) {return nb/TILE_WIDTH;}
         static inline int toTileHeight(float nb) {return nb/TILE_HEIGHT;}
 
-         template<typename T> static T strTo(string str);
-         //template<typename A,B> static B convertInto(A,B);
+        template<typename T> static T strTo(string str);
+        template<typename Type1, typename Type2> static Type2 convertInto(Type1 target,Type2) {return dynamic_cast<Type2>(target);}
+
         static int sizeWithoutSpace(string str);
 
 

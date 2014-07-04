@@ -161,17 +161,14 @@ float Global::strToFloat(string str)
     return f;
 }
 
-bool Global::inCollision(float Ax,float Ay, float Aw, float Ah,float Bx,float By, float Bw, float Bh)
+bool Global::inCollision(float Ax,float Ay, float Aw, float Ah,float Bx,float By, float Bw, float Bh) //sens important
 {
     return !(Ay>By+Bh || Ay+Ah<By || Ax+Aw<Bx || Ax>Bw+Bx);
 
 
 }
 
-/*template<typename A,B> B Global::convertInto(A a,B b);
-{
-    return dynamic_cast<B>(a);
-}*/
+
 
 Global::~Global()
 {

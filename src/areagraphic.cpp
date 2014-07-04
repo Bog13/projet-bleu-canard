@@ -16,7 +16,7 @@ AreaGraphic::AreaGraphic(Area *a,Graphics* g):m_graphic(g),m_area(a)
 void AreaGraphic::initSortObj()
 {
     EntityGraphic* tmp=new EntityGraphic();
-    int lowest=1000000;
+    int lowest=INT_MAX;
 
     for(unsigned int i=nbObject()-1;i>0;--i)
     {
@@ -31,7 +31,7 @@ void AreaGraphic::initSortObj()
 
         Global::clearConsole();
         cout<<"OBJECTS SORTING: "<<endl;
-        cout<<"\t"<<Global::loadingString( nbObject()-1-i,nbObject()-1);
+        cout<<"\t"<<Global::loadingString( nbObject()-1-i,nbObject());
 
 
     }
@@ -253,23 +253,37 @@ void AreaGraphic::updateVisibleObject(unsigned int i)
 {
     if( m_objects[i]->hasAnEntity () )
         {
-            Positionable* o= dynamic_cast<Positionable*>( m_objects[i]->getEntity() ) ;
+            Positionable* o=
+             Global::convertInto(m_objects[i]->getEntity(),o);
+            Movable* m=Global::convertInto(o,m);
 
-            if( o !=0 /*&&  m_graphic->getCamera() !=0*/)
+            if( o !=0 && m_graphic->getCamera() !=0)
+            ///Si l'objet i existe et si la camera existe
             {
-                if( m_graphic->getCamera()->inView( o ) )
+
+                if( m_graphic->getCamera()->inView( o )  )
+                ///si l'objet est déjà dans la vue on ajoute
                 {
                     m_objects[i]->setVisibility( true );
-
                     m_visibleObjects.push_back( m_objects[i] );
 
                 }
+                else if (o !=0 && m!=0 && m->isMoving() && m_graphic->getCamera()->inView(m)  )
+                ///Ou si c'est un mouvable qui entre dans la vue
+                  {
+                        m_objects[i]->setVisibility( true );
+                        m_visibleObjects.push_back( m_objects[i] );
+                   }
+
+
+
                 else
+                ///SINON c'est dehors
                 {
                     m_objects[i]->setVisibility( false );
                     cout << " DEHORS " << i <<endl;
                 }
-            }else cout<<"Erreur: adr o= "<<o<<"."<<endl;
+            }else cout<<"Erreur: adr o= "<<o<<". (ag::updateObjects())"<<endl;
 
         }
 }
