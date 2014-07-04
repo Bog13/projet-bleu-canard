@@ -29,9 +29,9 @@ void AreaGraphic::initSortObj()
             *m_objects[i] = *tmp;
         }
 
-        Global::clearConsole();
+        /*Global::clearConsole();
         cout<<"OBJECTS SORTING: "<<endl;
-        cout<<"\t"<<Global::loadingString( nbObject()-1-i,nbObject());
+        cout<<"\t"<<Global::loadingString( nbObject()-1-i,nbObject());*/
 
 
     }
@@ -106,22 +106,32 @@ void AreaGraphic::initObjects()
 
     for(int i=0;i<m_area->nbObject();i++)
     {
-        EntityGraphic* eg=new EntityGraphic;
-        Animation a;
-        Object *o=m_area->getObject(i);
 
-        a=AnimationFactory::get( o->getType() );
+                ///On prépare l'entité stoquée
+                EntityGraphic* eg=new EntityGraphic;
+                Animation a;
+                ///On récupère l'objet i
+                Object *o=m_area->getObject(i);
+                a=AnimationFactory::get( o->getType() );
 
-        if(o->getType()==PINE_TREE)a.setCurrentFrame(Global::random(0,Global::NB_FRAME_ID[PINE_TREE]));
-        eg->setConvexShape(Graphics::createSquare(o->getX(),o->getY(),o->getWidth(),o->getHeight() ));
-        eg->setAnimation(a);
-        eg->setEntity(m_area->getObject(i));
 
-        m_objects.push_back(eg);
+                ///Si c'est un arbre on décale aléatoirement
+                if(o->getType()==PINE_TREE)a.setCurrentFrame(Global::random(0,Global::NB_FRAME_ID[PINE_TREE]));
 
-        Global::clearConsole();
-        cout<<"OBJECTS: "<<endl;
+                ///On crée un shape animé avec le bon ID
+                eg->setConvexShape(Graphics::createSquare(o->getX(),o->getY(),o->getWidth(),o->getHeight() ));
+                eg->setAnimation(a);
+                eg->setEntity(m_area->getObject(i));
+
+                ///On l'ajoute aux autres objets
+                m_objects.push_back(eg);
+
+        ///Affichage du chargement
+
+        /*cout<<"OBJECTS: "<<endl;
         cout<<"\t"<<Global::loadingString( i,m_area->nbObject()-1);
+        Global::clearConsole();*/
+        ///
     }
 }
 
@@ -149,9 +159,9 @@ void AreaGraphic::initTiles()
 
         m_tiles.push_back(*vecTile);
 
-        Global::clearConsole();
+        /*Global::clearConsole();
         cout<<"TILES: "<<endl;
-        cout<<"\t"<<Global::loadingString(nbTileDone,nbTiles);
+        cout<<"\t"<<Global::loadingString(nbTileDone,nbTiles);*/
 
 
 
@@ -252,6 +262,7 @@ void AreaGraphic::synchroniseTiles(int f)
 void AreaGraphic::updateVisibleObject(unsigned int i)
 {
     if( m_objects[i]->hasAnEntity () )
+
         {
             Positionable* o=
              Global::convertInto(m_objects[i]->getEntity(),o);
@@ -281,7 +292,6 @@ void AreaGraphic::updateVisibleObject(unsigned int i)
                 ///SINON c'est dehors
                 {
                     m_objects[i]->setVisibility( false );
-                    cout << " DEHORS " << i <<endl;
                 }
             }else cout<<"Erreur: adr o= "<<o<<". (ag::updateObjects())"<<endl;
 
@@ -290,7 +300,6 @@ void AreaGraphic::updateVisibleObject(unsigned int i)
 
 void AreaGraphic::updateObjects()
 {
-
 
     for(int i=0;i<(int)(m_objects.size());i++)
     {
@@ -305,7 +314,7 @@ void AreaGraphic::updateObjects()
 
         //update visible
 
-        if( /*(Global::isMovable(m_object[i]->getEntity()) && m_object[i]->getEntity()->isMoving()) ||*/ (m_graphic->getCamera()->wasMoving() ))
+        if(m_graphic->getCamera()->wasMoving() )
         {
             if(i==0)m_visibleObjects.erase(m_visibleObjects.begin(),m_visibleObjects.end());
             updateVisibleObject(i);

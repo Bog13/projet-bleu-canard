@@ -134,7 +134,6 @@ bool Camera::inView(Object* obj)
 bool Camera::inView(Movable* m)
 {
     Positionable* pos=m->getPos();
-    cout << "Perso en x: " << pos->getX() << "   bord gauche de la vue: " << m_mainView.getCenter().x - (m_mainView.getSize().x/2) << endl;
     return inView(pos);
 }
 

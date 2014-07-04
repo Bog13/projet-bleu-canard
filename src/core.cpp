@@ -20,9 +20,9 @@ Core::Core(RenderWindow* window)
     Object* jimmy= new NPC(new IddleBehavior,m_a,CHAR_NONE,80,400,32,64,true);
     m_a->addObject(jimmy);
 
-    for(int i=1;i<4;i++)
+    for(int i=1;i<10;i++)
     {
-        for(int j=1;j<4;j++)
+        for(int j=1;j<10;j++)
         {
 
             m_a->addObject(new Object(ObjectFactory::get(PINE_TREE)),i*150,j*150);
