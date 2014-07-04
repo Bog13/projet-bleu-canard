@@ -75,7 +75,10 @@ bool Movable::collideWithObjects(float xt, float yt)
             wn= o->getHitbox().w;
             hn= o->getHitbox().h;
 
-            if(Global::inCollision(x,y,w,h,xn,yn,wn,hn)){return true;}
+            ///Actualisation du statut "En collision" de l'objet.
+            m_collisionable->setCollide(Global::inCollision(x,y,w,h,xn,yn,wn,hn));
+
+            if(m_collisionable->isInCollision()){return true;}
         }
     }
 

@@ -28,10 +28,14 @@ class Collisionable
         void setSolid(bool b){m_solid=b;}
         bool getSolid(){return m_solid;}
 
+        bool isInCollision() {return m_inCollisionWithObject;}
+        void setCollide(bool b=true) {m_inCollisionWithObject=b;}
+
         virtual ~Collisionable();
     protected:
         Hitbox m_hitbox;
         bool m_solid;
+        bool m_inCollisionWithObject; ///ATTENTION ! Ne prend pas en compte une collision avec le bord de l'area, car pas une vraie collision
     private:
 };
 

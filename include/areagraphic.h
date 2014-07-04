@@ -25,7 +25,7 @@ class AreaGraphic
         EntityGraphic* getObjectGraphic(int i);
         EntityGraphic* getVisibleObjectGraphic(int i);
         int lowestObj(int maxIndex);
-        void sortObj() const;
+        void sortObj() ;
         void initSortObj();
 
         void setGraphics( Graphics* g) {m_graphic=g;}
@@ -46,6 +46,9 @@ class AreaGraphic
         Area* getArea(){return m_area;}
         const void getInfo();
 
+        bool needToResort() {return m_mustResort;}
+        void setResortNecessity(bool b) {m_mustResort=b;}
+
 
 
         virtual ~AreaGraphic();
@@ -54,6 +57,7 @@ class AreaGraphic
         int m_height;
         Area *m_area;
         Graphics* m_graphic;
+        bool m_mustResort;
         vector<vector<EntityGraphic*> > m_tiles;
         vector<EntityGraphic* > m_objects;
         vector<EntityGraphic* > m_visibleObjects;

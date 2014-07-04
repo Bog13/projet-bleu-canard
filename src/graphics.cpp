@@ -228,7 +228,7 @@ void Graphics::updateAreaTilesInCamera()
 void Graphics::update()
 {
     m_cam->update(m_window);
-    m_ag->sortObj();
+    if(m_ag->needToResort()){m_ag->sortObj();} ///Littéralement, si y'a besoin on tri, défini dans AreaGraphic::updateVisibleObject(unsigned int i)
 
 }
 

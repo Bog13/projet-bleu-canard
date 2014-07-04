@@ -96,7 +96,22 @@ class Global
         static inline int toTileHeight(float nb) {return nb/TILE_HEIGHT;}
 
         template<typename T> static T strTo(string str);
-        template<typename Type1, typename Type2> static Type2 convertInto(Type1 target,Type2) {return dynamic_cast<Type2>(target);}
+        /// La méthode suivante s'utilise comme ceci:
+        /**
+            Positionable* p=Global::convertInto(laChoseATester,p)
+                et se lit
+            "Le positionable p devient la conversion de laChoseATester"
+        **/
+        template<typename Type1, typename Type2> static Type2 convertInto(Type1 target,Type2 newType) {return dynamic_cast<Type2>(target);} ///Tant attendu et fonctionne à merveille !
+
+        /// La méthode suivante s'utilise comme ceci: !!! (pas encore testée) !!!
+        /**
+            Positionable* p;
+            Global::directConvertInto(p,laChoseDontSinspirer)
+                et se lit
+            "Transforme p en laChoseDontSinspirer"
+        **/
+        template<typename Type1, typename Type2> static void directConvertInto(Type1 target,Type2 newType) {target=dynamic_cast<Type2>(target);}
 
         static int sizeWithoutSpace(string str);
 

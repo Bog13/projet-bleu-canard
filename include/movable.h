@@ -49,6 +49,9 @@ class Movable
         bool collideWithArea(float x, float y);
         bool collide(float x, float y);
         bool isMoving() {return m_isMoving;}
+        bool isMovingVertical() {if((m_direction==UP || m_direction==DOWN) && isMoving())return true;return false;}
+        bool isMovingHorizontal() {if((m_direction==LEFT || m_direction==RIGHT) && isMoving())return true;return false;}
+
 
         void updateCloserNeighbor();
         void updateMovable();

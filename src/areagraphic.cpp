@@ -2,6 +2,7 @@
 
 AreaGraphic::AreaGraphic(Area *a,Graphics* g):m_graphic(g),m_area(a)
 {
+
     m_width=a->getWidth();
     m_height=a->getHeight();
 
@@ -10,7 +11,7 @@ AreaGraphic::AreaGraphic(Area *a,Graphics* g):m_graphic(g),m_area(a)
     initObjects();
 
     initSortObj();
-
+    m_mustResort=false;
 
 }
 void AreaGraphic::initSortObj()
@@ -52,7 +53,7 @@ int AreaGraphic::lowestObj(int maxIndex)
     return mini;
 }
 
-void AreaGraphic::sortObj() const
+void AreaGraphic::sortObj()
 ///tri à bulle optimisé
 {
     EntityGraphic tmp;
@@ -66,7 +67,7 @@ void AreaGraphic::sortObj() const
     Object* o2= 0;
     int hy2 =0;
 
-
+    //cout<<" I start sorting" << Global::random(0,500)<<endl; //Pour surveiller quand ca tri
     do
     {
         nb++;
@@ -96,7 +97,8 @@ void AreaGraphic::sortObj() const
 
     }
     while(permut && (nb < (int)(m_visibleObjects.size()-1)));
-
+    //cout<<" I finished" <<endl; //idem qu'au-dessus
+    setResortNecessity(false); ///Après le tri, plus besoin de trier
 
 
 }
@@ -280,7 +282,7 @@ void AreaGraphic::updateVisibleObject(unsigned int i)
 
                 }
                 else if (o !=0 && m!=0 && m->isMoving() && m_graphic->getCamera()->inView(m)  )
-                ///Ou si c'est un mouvable qui entre dans la vue
+                ///Ou si c'est un mouvable qui est dans la vue
                   {
                         m_objects[i]->setVisibility( true );
                         m_visibleObjects.push_back( m_objects[i] );
@@ -319,6 +321,11 @@ void AreaGraphic::updateObjects()
             if(i==0)m_visibleObjects.erase(m_visibleObjects.begin(),m_visibleObjects.end());
             updateVisibleObject(i);
         }
+
+        //update tri
+        ///Si l'objet i est dans la zone et bouge à la vertical on tri.
+        Movable* m=Global::convertInto(m_objects[i]->getEntity(),m);
+        if(m!=0 && m->isMovingVertical() && m_graphic->getCamera()->inView(m)){setResortNecessity(true);}
 
 
 

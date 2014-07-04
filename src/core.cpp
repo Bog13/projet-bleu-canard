@@ -20,7 +20,7 @@ Core::Core(RenderWindow* window)
     Object* jimmy= new NPC(new IddleBehavior,m_a,CHAR_NONE,80,400,32,64,true);
     m_a->addObject(jimmy);
 
-    for(int i=1;i<10;i++)
+    for(int i=1;i<10;i++) ///50*50 MAX (bug a partir de là)
     {
         for(int j=1;j<10;j++)
         {

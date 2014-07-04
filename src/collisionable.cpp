@@ -10,6 +10,7 @@ void Collisionable::init()
 
 Collisionable::Collisionable(float x,float y,float w,float h,bool b)
 {
+    m_inCollisionWithObject=false;
     m_solid=b;
     setHitbox(x,y,w,h);
 }
@@ -18,12 +19,14 @@ Collisionable::Collisionable()
 {
     init();
     m_solid=false;
+    m_inCollisionWithObject=false;
 }
 
 Collisionable::Collisionable(bool solid)
 {
     init();
     m_solid=solid;
+    m_inCollisionWithObject=false;
 }
 
 void Collisionable::setHitbox(float x,float y,float w,float h)
