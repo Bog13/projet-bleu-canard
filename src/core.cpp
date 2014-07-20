@@ -1,57 +1,25 @@
 #include "core.h"
 
 
+Controller* Core::m_controller=new KeyboardController();
 
 Core::Core(RenderWindow* window)
 {
-
+    ///données
     m_window=window;
-
-    m_controller=new KeyboardController();
-
-    /// test area
-    m_a=new Area(Global::NB_TILE_WIDTH*3,Global::NB_TILE_HEIGHT*3);
-
-
-
-    Player *p=new Player(m_a,m_controller,CHAR_NONE,10,300,32,64,true);
-    m_a->addObject(p);
-
-    Object* jimmy= new NPC(new IddleBehavior,m_a,CHAR_NONE,80,400,32,64,true);
-    m_a->addObject(jimmy);
-
-    for(int i=1;i<10;i++) ///50*50 MAX (bug a partir de là)
-    {
-        for(int j=1;j<10;j++)
-        {
-
-            m_a->addObject(new Object(ObjectFactory::get(PINE_TREE)),i*150,j*150);
-
-        }
-    }
-
-
-
-
-
-
-
-
-    ///
+    //if(AreaFactory::loadArea(m_a,"ICI.txt")==false)m_a=new Area(20,20);
+    m_a=new Area(20,20);
+    AreaFactory::loadArea(m_a,"ICI.txt");
+        //player
+    m_player1= new Player(m_a,m_controller,CHAR_NONE,10,300,32,64,true);
+    m_a->addObject(m_player1);
 
     ///graphics
     m_ag=new AreaGraphic(m_a);
     m_graphic=new Graphics(m_window,m_ag);
 
-    m_graphic->getCamera()->setTarget(p);
+    //m_graphic->getCamera()->setTarget(m_player1);
     m_graphic->getCamera()->setViewSize(Global::WINDOW_WIDTH,Global::WINDOW_HEIGHT);
-
-
-    ///areagraphic
-
-
-    ///
-
 
     m_fps=0;
     m_clockFps=0;
@@ -60,6 +28,14 @@ Core::Core(RenderWindow* window)
     m_viewActivated=false;
 }
 
+void Core::changeCurrentArea(string fileName)
+{
+    AreaFactory::loadArea(m_a,fileName.c_str());
+    m_ag=new AreaGraphic(m_a,m_graphic);
+    m_graphic->getCamera()->mustRefresh();
+    m_graphic->getCamera()->setTarget(m_player1);
+
+}
 
 void Core::update()
 {
@@ -94,7 +70,7 @@ void Core::lookAtControl()
 void Core::draw()
 {
     //m_window->clear();
-    m_graphic->drawVisibleArea();///DEBUG
+    m_graphic->drawVisibleArea();
     m_graphic->drawObjects();
 }
 
@@ -147,6 +123,17 @@ void Core::run()
                             m_viewActivated=!m_viewActivated;
                             m_graphic->enableCamera(m_viewActivated);
                             break;
+
+                        ///TEST
+                            case Keyboard::P:
+
+                            changeCurrentArea("areaTest.txt");
+                            break;
+
+                            case Keyboard::M:
+                            AreaFactory::loadArea(m_a,"test2.txt");
+                            break;
+                        ///
 
                         case Keyboard::Right:
                             viewMoovement[RIGHT]=true;
@@ -226,7 +213,8 @@ void Core::run()
 
 Core::~Core()
 {
-    delete m_ag;delete m_a;//test area
-    delete m_graphic;
     delete m_controller;
+    delete m_graphic;
+    delete m_ag;
+    delete m_a;
 }

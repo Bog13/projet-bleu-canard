@@ -44,6 +44,7 @@ class AreaGraphic
         int getWidth(){return m_width;}
         int getHeight(){return m_height;}
         Area* getArea(){return m_area;}
+        void  setArea(Area* a) {if(a!=0)m_area=a;}
         const void getInfo();
 
         bool needToResort() {return m_mustResort;}

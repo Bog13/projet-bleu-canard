@@ -41,7 +41,7 @@ void AreaFactory::saveArea(Area *area,string fileName)
     }else cerr<<"Cant save "<<fileName<<" in AreaFactory::saveArea !"<<endl;
 }
 
-void AreaFactory::loadArea(Area *a,string fileName)
+bool AreaFactory::loadArea(Area *a,string fileName)
 {
     fstream file(fileName.c_str(),ios::in);
     string line;
@@ -53,7 +53,7 @@ void AreaFactory::loadArea(Area *a,string fileName)
     vector<int> *tmp=0;
     vector<vector<int> > content;
 
-    int w=10000;
+    int w=INT_MAX;
     int h=0;
 
     /// pour le chargement de l'objet
@@ -76,7 +76,7 @@ void AreaFactory::loadArea(Area *a,string fileName)
             {
                 if(line[0]!='@')//on vérifie qu'on a pas terminé les tuiles
                 {
-                    tmp=new vector<int>;
+                    tmp=new vector<int>();
 
 
                     for(int j=0;j<(int)(line.size());j++)
@@ -137,7 +137,8 @@ void AreaFactory::loadArea(Area *a,string fileName)
                     }
                 }
 
-                a->addObject(new Object(a,obj_type,obj_x,obj_y,obj_w,obj_h,obj_obstacle));//on ajoute l'objet à la zone
+                a->addObject(ObjectFactory::create(a,obj_type,obj_x,obj_y,obj_w,obj_h,obj_obstacle));
+                //a->addObject(new Object(a,obj_type,obj_x,obj_y,obj_w,obj_h,obj_obstacle));//on ajoute l'objet à la zone
 
 
             }
@@ -153,7 +154,8 @@ void AreaFactory::loadArea(Area *a,string fileName)
 
 
         cout<<fileName<<" loaded !"<<endl;
-    }else cerr<<"Cant load "<<fileName<<" in AreaFactory::loadArea !"<<endl;
+        return true;
+    }else cerr<<"Cant load "<<fileName<<" in AreaFactory::loadArea !"<<endl;return false;
 
 
 

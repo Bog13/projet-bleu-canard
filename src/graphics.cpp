@@ -186,6 +186,37 @@ void Graphics::drawVisibleArea()
 
 }
 
+void Graphics::drawVisibleAreaUnoptimized()
+{
+    EntityGraphic* e=0;
+
+    const int A=( m_cam->getY() - m_cam->getHH() )/Global::TILE_HEIGHT;
+    const int B=( m_cam->getY() + m_cam->getHH() )/Global::TILE_HEIGHT;
+
+    const int C=( m_cam->getX() - m_cam->getHW() )/Global::TILE_WIDTH ;
+    const int D=( m_cam->getX() + m_cam->getHW() )/Global::TILE_WIDTH;
+    for(int i= A;i<=B ;i++)
+    {
+        for(int j= C ;j<=D ;j++)
+        {
+            if(i>=0 && i<m_ag->getHeight() && j>=0 && j<m_ag->getWidth())
+            {
+
+                e= m_ag->getTileGraphic(j,i);
+
+
+                e->getConvexShape()->setPosition(j*Global::TILE_WIDTH,i*Global::TILE_HEIGHT);
+
+                drawEntity(e);
+
+
+            }
+
+        }
+    }
+
+
+}
 
 
 

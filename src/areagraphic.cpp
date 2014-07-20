@@ -13,6 +13,7 @@ AreaGraphic::AreaGraphic(Area *a,Graphics* g):m_graphic(g),m_area(a)
     initSortObj();
     m_mustResort=false;
 
+    if(g!=0) g->setAreaGraphic(this);
 }
 void AreaGraphic::initSortObj()
 {

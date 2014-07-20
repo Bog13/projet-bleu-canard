@@ -2,9 +2,12 @@
 
 Area::Area(int w,int h)
 {
+    m_tiles=vector<vector<Tile*> > ();
+    m_objects=vector<Object* >();
     m_width=w;
     m_height=h;
     initTile();
+
 
 }
 
@@ -27,6 +30,7 @@ void Area::initTile()
 
 bool Area::isAccessible(Movable &pos)
 {
+    cout << " j'ai rien fait. " << endl;
     /*Positionable* o=dynamic_cast<Positionable*>(pos.getClosestNeighbor());
     if(o==0) {cout << " YO ! " <<endl; return true ;}
     else
@@ -150,52 +154,11 @@ void Area::addObject(Object* o, float x, float y)
 }
 
 
-
-///OPTIMISATION POSSIBLE (cad sans tout reallouer)
-/*void Area::addTiles(int w,int h)//TODO
-{
-    m_height+=h;
-    m_width+=w;
-    for(int i=0;i<h;i++)
-    {
-        vector<Tile*> vecTile;
-
-        for(int j=0;j<w;j++)
-        {
-            vecTile.push_back(new Tile(Global::ID_GRASS));
-        }
-
-        m_tiles.push_back(vecTile);
-    }
-}
-
-void Area::newSize(int w,int h)
-{
-    if(w>m_width && h>m_height)
-    {
-        addTiles(w-m_width, h-m_height);
-    }
-    else if(w==m_width && h==m_height){cerr<<"Warning: newSize inutile !"<<endl;}
-    else if()
-
-    for(int i=0;i<m_height;i++)
-    {
-        vector<Tile*> vecTile;
-
-        for(int j=0;j<m_width;j++)
-        {
-            vecTile.push_back(new Tile(Global::ID_GRASS));
-        }
-
-        m_tiles.push_back(vecTile);
-    }
-
-}*/
-
 void Area::newSize(int w,int h)
 {
     killTiles();
-    m_tiles=vector<vector<Tile*> >();
+    //m_tiles=vector<vector<Tile*> >();
+    m_tiles.erase(m_tiles.begin(),m_tiles.end());
 
     m_height=h;
     m_width=w;
@@ -280,6 +243,7 @@ void Area::killObjects()
 
 Area::~Area()
 {
-    killTiles();
     killObjects();
+    killTiles();
+
 }

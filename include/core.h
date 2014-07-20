@@ -17,6 +17,7 @@
 #include "controller.h"
 #include "keyboardcontroller.h"
 #include "objectfactory.h"
+
 using namespace std;
 using namespace sf;
 
@@ -31,15 +32,15 @@ class Core
         void update();
         void lookAtControl();
         void draw();
+        void changeCurrentArea(string fileName);
 
         virtual ~Core();
 
-
+        static Controller* m_controller;
 
     protected:
         RenderWindow* m_window;
         Graphics* m_graphic;
-        Controller* m_controller;
 
         AreaGraphic *m_ag;
         Area *m_a;
@@ -49,6 +50,8 @@ class Core
 
         int m_clockFps;
         Clock m_clock;
+
+        Player* m_player1;
 
         bool m_viewActivated;
 

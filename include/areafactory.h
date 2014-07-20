@@ -8,6 +8,7 @@
 #include "area.h"
 #include "areagraphic.h"
 #include "global.h"
+#include "objectfactory.h"
 using namespace std;
 using namespace sf;
 
@@ -22,7 +23,7 @@ class AreaFactory
         static AreaGraphic get(int i);
 
         static void saveArea(Area *area,string fileName);
-        static void loadArea(Area *a,string fileName);
+        static bool loadArea(Area *a,string fileName);
 
     protected:
         static vector<AreaGraphic> m_vector;

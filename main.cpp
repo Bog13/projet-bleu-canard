@@ -6,6 +6,7 @@
 
 #include <ctime>
 #include "core.h"
+
 using namespace std;
 using namespace sf;
 

@@ -23,6 +23,7 @@ class Graphics
         void drawEntity(EntityGraphic *t);
 
         void drawVisibleArea();
+        void drawVisibleAreaUnoptimized();
         void drawObjects();
         void drawCharacter(EntityGraphic t);
 
@@ -38,12 +39,7 @@ class Graphics
         void update();
 
 
-
-
-
-        ///Mouvement de bases pouvant servir plus tard, éventuellement...
-
-
+        void setAreaGraphic(AreaGraphic* ag) {if(ag!=0)m_ag=ag;}
 
         virtual ~Graphics();
     protected:
