@@ -13,6 +13,7 @@ Collisionable::Collisionable(float x,float y,float w,float h,bool b)
     m_inCollisionWithObject=false;
     m_solid=b;
     setHitbox(x,y,w,h);
+    m_parameters=vector<Effect*>();
 }
 
 Collisionable::Collisionable()
@@ -20,6 +21,7 @@ Collisionable::Collisionable()
     init();
     m_solid=false;
     m_inCollisionWithObject=false;
+    m_parameters=vector<Effect*>();
 }
 
 Collisionable::Collisionable(bool solid)
@@ -27,6 +29,7 @@ Collisionable::Collisionable(bool solid)
     init();
     m_solid=solid;
     m_inCollisionWithObject=false;
+    m_parameters=vector<Effect*>();
 }
 
 void Collisionable::setHitbox(float x,float y,float w,float h)
@@ -53,7 +56,21 @@ void Collisionable::setHitbox(ConvexShape cs)
 
 }
 
+void Collisionable::addEffect(Effect* e)
+{
+    if(e!=0)m_parameters.push_back(e);
+}
+
+void Collisionable::collide(Object* o)
+{
+   for(unsigned int i(0);i<m_parameters.size();i++)
+   {
+       m_parameters[i]->apply();
+   }
+}
+
+
 Collisionable::~Collisionable()
 {
-    //dtor
+    for(unsigned int i(0);i<m_parameters.size();i++)  {delete m_parameters[i];}
 }

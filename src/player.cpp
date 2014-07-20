@@ -35,6 +35,8 @@ void Player::updateControlable()
     }
 }
 
+
+
 void Player::update()
 {
     updateMovable();

@@ -9,22 +9,32 @@ ObjectFactory::ObjectFactory()
 
 Object* ObjectFactory::create(Area* a,int id,float x,float y,float w,float h,bool solid)
 {
-    Object* obj=new Object(a,id,x,y,w,h,solid);
 
-   switch(id)
-   {
-        case CHAR_NONE:
-            delete obj;
-            return new NPC(new IddleBehavior, a, id,x,y,w,h,solid);
-        break;
 
-        case PINE_TREE:
-            obj->setHitbox(m_objects[PINE_TREE].getHitbox());
-            //obj=m_objects[PINE_TREE];
-        break;
-   }
+    if(id==CHAR_NONE)
+        {
+            NPC* n=new NPC(new IddleBehavior, a, id,x,y,w,h,solid);
+//            n->setParameter(SHOWLOVE);
+            return n;
+        }
+    else
+        {
+            Object* obj=new Object(a,id,x,y,w,h,solid);
 
-   return obj;
+            if(id==PINE_TREE)
+            {
+                obj->setHitbox(m_objects[PINE_TREE].getHitbox());
+                ///DEBUG
+//                obj->setParameter(SHOWHELLO);
+            }
+            else
+            {
+                ///Autre obj
+            }
+
+            return obj;
+        }
+
 
 
 }
@@ -63,5 +73,5 @@ void ObjectFactory::load()
 
 ObjectFactory::~ObjectFactory()
 {
-    //dtor
+
 }

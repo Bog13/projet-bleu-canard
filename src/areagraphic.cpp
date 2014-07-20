@@ -268,8 +268,9 @@ void AreaGraphic::updateVisibleObject(unsigned int i)
 
         {
             Positionable* o=
-             Global::convertInto(m_objects[i]->getEntity(),o);
-            Movable* m=Global::convertInto(o,m);
+             Global::convertInto<Tile*,Positionable*>(m_objects[i]->getEntity());
+
+            Movable* m=Global::convertInto<Positionable*,Movable*>(o);
 
             if( o !=0 && m_graphic->getCamera() !=0)
             ///Si l'objet i existe et si la camera existe
@@ -325,7 +326,7 @@ void AreaGraphic::updateObjects()
 
         //update tri
         ///Si l'objet i est dans la zone et bouge à la vertical on tri.
-        Movable* m=Global::convertInto(m_objects[i]->getEntity(),m);
+        Movable* m=Global::convertInto<Tile*,Movable*>(m_objects[i]->getEntity());
         if(m!=0 && m->isMovingVertical() && m_graphic->getCamera()->inView(m)){setResortNecessity(true);}
 
 

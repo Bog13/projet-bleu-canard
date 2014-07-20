@@ -78,7 +78,12 @@ bool Movable::collideWithObjects(float xt, float yt)
             ///Actualisation du statut "En collision" de l'objet.
             m_collisionable->setCollide(Global::inCollision(x,y,w,h,xn,yn,wn,hn));
 
-            if(m_collisionable->isInCollision()){return true;}
+            if(m_collisionable->isInCollision())
+                {
+                    Global::convertInto<Movable*,Object*>(this)->collide(o);
+
+                    return true;
+                }
         }
     }
 

@@ -16,6 +16,8 @@ void Object::update()
     Tile::update();
 }
 
+
+
 Object::Object(Area *a, int type,float x, float y,float w,float h,bool obs):Tile(type),Positionable(a,x,y,w,h),Collisionable(0,0,w,h,obs)
 {
 
@@ -32,6 +34,11 @@ cout    << " _________OBJECT DEFINITION _________" << endl
         << "HitBox:" << endl
         << "    " << " x = " << getHitbox().x << " y = " << getHitbox().y <<" w = " << getHitbox().w << " h = " << getHitbox().h << endl
         << " __________END_______________________" << endl << endl;
+}
+
+void Object::collide(Object* o)
+{
+    for(unsigned int i(0);i<m_parameters.size();i++){m_parameters[i]->apply();}
 }
 
 void Object::operator=(Object o)

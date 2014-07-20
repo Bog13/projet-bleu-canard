@@ -4,6 +4,9 @@
 #include "positionable.h"
 #include "area.h"
 #include "object.h"
+
+///DEBUG
+#include "teleport.h"
 using namespace std;
 
 class Core;

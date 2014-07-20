@@ -188,6 +188,7 @@ void Graphics::drawVisibleArea()
 
 void Graphics::drawVisibleAreaUnoptimized()
 {
+
     EntityGraphic* e=0;
 
     const int A=( m_cam->getY() - m_cam->getHH() )/Global::TILE_HEIGHT;

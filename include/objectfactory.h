@@ -4,6 +4,7 @@
 #include "object.h"
 #include "player.h"
 #include "core.h"
+#include "collisionable.h"
 
 class ObjectFactory
 {

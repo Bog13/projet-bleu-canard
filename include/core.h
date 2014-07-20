@@ -17,7 +17,7 @@
 #include "controller.h"
 #include "keyboardcontroller.h"
 #include "objectfactory.h"
-
+#include "teleport.h"
 using namespace std;
 using namespace sf;
 

@@ -55,6 +55,7 @@
 		<Unit filename="include/controlable.h" />
 		<Unit filename="include/controller.h" />
 		<Unit filename="include/core.h" />
+		<Unit filename="include/effect.h" />
 		<Unit filename="include/entitygraphic.h" />
 		<Unit filename="include/global.h" />
 		<Unit filename="include/graphics.h" />
@@ -69,6 +70,7 @@
 		<Unit filename="include/objectfactory.h" />
 		<Unit filename="include/player.h" />
 		<Unit filename="include/positionable.h" />
+		<Unit filename="include/teleport.h" />
 		<Unit filename="include/texturefactory.h" />
 		<Unit filename="include/tile.h" />
 		<Unit filename="include/tilefactory.h" />
@@ -85,6 +87,7 @@
 		<Unit filename="src/controlable.cpp" />
 		<Unit filename="src/controller.cpp" />
 		<Unit filename="src/core.cpp" />
+		<Unit filename="src/effect.cpp" />
 		<Unit filename="src/entitygraphic.cpp" />
 		<Unit filename="src/global.cpp" />
 		<Unit filename="src/graphics.cpp" />
@@ -98,6 +101,7 @@
 		<Unit filename="src/objectfactory.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/positionable.cpp" />
+		<Unit filename="src/teleport.cpp" />
 		<Unit filename="src/texturefactory.cpp" />
 		<Unit filename="src/tile.cpp" />
 		<Unit filename="src/tilefactory.cpp" />
