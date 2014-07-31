@@ -1,4 +1,10 @@
 #include "tilefactory.h"
+#include "animationfactory.h"
+#include "animation.h"
+#include "graphics.h"
+#include "entitygraphic.h"
+
+#include "global.h"
 
 vector<EntityGraphic> TileFactory::m_vector;
 

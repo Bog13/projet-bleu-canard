@@ -1,5 +1,8 @@
 #include "iddlebehavior.h"
 
+#include "movable.h"
+#include "object.h"
+
 IddleBehavior::IddleBehavior(Object* obj):Behavior(obj)
 {
     //ctor

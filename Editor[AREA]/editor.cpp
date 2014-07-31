@@ -33,7 +33,7 @@ Editor::Editor(RenderWindow* window)
 {
     ///INITIALISATION
     m_window=window;
-    m_currentArea=new Area(20,20);
+    m_currentArea=new Area(80,80);
     m_ag=new AreaGraphic(m_currentArea);
     m_graphics=new Graphics(m_window,m_ag);
     m_viewCenter=pair<float,float>(0,0);
@@ -47,7 +47,7 @@ Editor::Editor(RenderWindow* window)
 
     ///SETTINGS
     m_graphics->enableCamera(true);
-    m_graphics->getCamera()->setTarget(new Positionable(m_currentArea,m_viewCenter));
+    //m_graphics->getCamera()->setTarget(new Positionable(m_currentArea,m_viewCenter));
 }
 
 void Editor::modifyTile(Vector2f pos, int id)
@@ -82,7 +82,7 @@ const void Editor::draw()
 
     ///Menuview
        // m_window->setView(*m_menuView);
-        drawMenu();
+        //drawMenu();
 }
 
 

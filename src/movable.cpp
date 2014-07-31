@@ -1,5 +1,11 @@
 #include "movable.h"
 
+#include "collisionable.h"
+#include "positionable.h"
+#include "area.h"
+#include "object.h"
+
+
 Movable::Movable(Collisionable *c, Positionable* p, pair<float,float> speed): m_positionable(p),m_collisionable(c),m_absoluteSpeed(speed)
 {
     m_direction=RIGHT;
@@ -32,6 +38,12 @@ bool Movable::canMoveRight()
    return !collide(m_speed.first,0);
 
 }
+
+void Movable::addPosition(float x,float y)
+{
+    m_positionable->setPosition(m_positionable->getPosition().first+x,m_positionable->getPosition().second+y);
+}
+
 bool Movable::collide(float xt, float yt)
 {
     return ( collideWithArea(xt,yt) || collideWithObjects(xt,yt) );

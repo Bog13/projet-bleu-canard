@@ -1,5 +1,11 @@
 #include "entitygraphic.h"
 
+//#include "animation.h"
+#include "animationfactory.h"
+#include "positionable.h"
+#include "tile.h"
+//#include "object.h"
+
 EntityGraphic::EntityGraphic(Animation a,ConvexShape c)
 {
     m_entity=0;
@@ -59,6 +65,12 @@ void EntityGraphic::synchronise(int f)
     m_animation.setCurrentFrame(f);
 }
 
+void EntityGraphic::operator=(EntityGraphic *e)
+        {
+            e= this;
+            if(m_entity!=0)e->m_entity=new Tile(*m_entity);
+            else e->m_entity=0;
+        }
 
 
 

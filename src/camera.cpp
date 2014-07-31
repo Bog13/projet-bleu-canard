@@ -1,5 +1,12 @@
 #include "camera.h"
 
+#include "tilefactory.h"
+#include "entitygraphic.h"
+#include "areagraphic.h"
+#include "object.h"
+#include "movable.h"
+#include "area.h"
+
 Camera::Camera(AreaGraphic *ag,Positionable* target): m_ag(ag),VIEW_REFRESH_DELAY(5)
 {
     setViewSize(10*Global::TILE_WIDTH, 10*Global::TILE_HEIGHT);

@@ -1,13 +1,17 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
+/*
 #include "tile.h"
 #include "positionable.h"
 #include "movable.h"
-#include "area.h"
+#include "area.h"*/
+
+#include "tile.h"
+#include "positionable.h"
+#include "collisionable.h"
 
 class Area;
-class Movable;
 
 class Object :
 public Tile,

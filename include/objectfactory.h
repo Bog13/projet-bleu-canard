@@ -1,10 +1,15 @@
 #ifndef OBJECTFACTORY_H
 #define OBJECTFACTORY_H
-
+/*
 #include "object.h"
 #include "player.h"
 #include "core.h"
 #include "collisionable.h"
+*/
+
+#include "object.h"
+
+class Area;
 
 class ObjectFactory
 {

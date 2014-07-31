@@ -3,17 +3,22 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+/*
 #include "tile.h"
 #include "global.h"
 #include "entitygraphic.h"
 #include "tilefactory.h"
 #include "area.h"
 #include "camera.h"
-#include "graphics.h"
+#include "graphics.h"*/
+
+
 using namespace std;
 
 class EntityGraphic;
 class Graphics;
+class Area;
+
 class AreaGraphic
 {
     public:
@@ -30,7 +35,7 @@ class AreaGraphic
 
         void setGraphics( Graphics* g) {m_graphic=g;}
 
-        int nbObject(){return m_area->nbObject();}
+        int nbObject();
         int nbVisibleObject(){return m_visibleObjects.size();}
         void updateTiles();
         void updateTiles(int i,int j);

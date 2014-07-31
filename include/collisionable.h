@@ -3,12 +3,14 @@
 #include <iostream>
 #include <utility>
 #include <SFML/Graphics.hpp>
-#include "effect.h"
+
+//#include "effect.h"
 
 using namespace std;
 using namespace sf;
 
 class Object;
+class Effect;
 
 struct Hitbox
 {

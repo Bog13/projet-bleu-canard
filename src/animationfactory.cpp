@@ -1,5 +1,10 @@
 #include "animationfactory.h"
 
+#include "graphics.h"
+#include "animation.h"
+#include "texturefactory.h"
+#include "global.h"
+#include "tilefactory.h"
 
 vector<Animation> AnimationFactory::m_vector;
 

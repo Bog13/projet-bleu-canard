@@ -6,6 +6,14 @@
 
 #include <ctime>
 #include "core.h"
+#include "global.h"
+#include "graphics.h"
+
+#include "tilefactory.h"
+#include "texturefactory.h"
+#include "areafactory.h"
+#include "animationfactory.h"
+#include "objectfactory.h"
 
 using namespace std;
 using namespace sf;

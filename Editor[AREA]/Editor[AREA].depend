@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1403727316 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\animation.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\animation.cpp
 	"animation.h"
 
-1403726669 c:\users\j0sh-u_a\desktop\projetbleucanard\include\animation.h
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\animation.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
 	"typable.h"
 
-1403726667 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
 	<SFML/Graphics/BlendMode.hpp>
 	<SFML/Graphics/Color.hpp>
@@ -31,7 +31,7 @@
 	<SFML/Graphics/VertexArray.hpp>
 	<SFML/Graphics/View.hpp>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window.hpp
 	<SFML/System.hpp>
 	<SFML/Window/Context.hpp>
 	<SFML/Window/ContextSettings.hpp>
@@ -43,7 +43,7 @@
 	<SFML/Window/Window.hpp>
 	<SFML/Window/WindowStyle.hpp>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system.hpp
 	<SFML/Config.hpp>
 	<SFML/System/Clock.hpp>
 	<SFML/System/Err.hpp>
@@ -59,65 +59,65 @@
 	<SFML/System/Vector2.hpp>
 	<SFML/System/Vector3.hpp>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\config.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\config.hpp
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\clock.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\clock.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/Time.hpp>
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\export.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\export.hpp
 	<SFML/Config.hpp>
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\time.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\err.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\err.hpp
 	<SFML/System/Export.hpp>
 	<ostream>
 
-1403726665 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\inputstream.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\inputstream.hpp
 	<SFML/Config.hpp>
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\lock.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\lock.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 
-1403726665 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\noncopyable.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\noncopyable.hpp
 	<SFML/System/Export.hpp>
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\mutex.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\mutex.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 
-1403726665 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\sleep.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\sleep.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/Time.hpp>
 
-1403726665 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\string.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\string.hpp
 	<SFML/System/Export.hpp>
 	<locale>
 	<string>
 
-1403726665 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\thread.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\thread.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 	<cstdlib>
 	<SFML/System/Thread.inl>
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\thread.inl
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\thread.inl
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\threadlocal.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\threadlocal.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 	<cstdlib>
 
-1403726665 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\threadlocalptr.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\threadlocalptr.hpp
 	<SFML/System/ThreadLocal.hpp>
 	<SFML/System/ThreadLocalPtr.inl>
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\threadlocalptr.inl
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\threadlocalptr.inl
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\utf.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\utf.hpp
 	<SFML/Config.hpp>
 	<algorithm>
 	<locale>
@@ -125,53 +125,53 @@
 	<cstdlib>
 	<SFML/System/Utf.inl>
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\utf.inl
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\utf.inl
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\vector2.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\vector2.hpp
 	<SFML/System/Vector2.inl>
 
-1403726665 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\vector2.inl
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\vector2.inl
 
-1403726664 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\vector3.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\vector3.hpp
 	<SFML/System/Vector3.inl>
 
-1403726667 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\vector3.inl
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\system\vector3.inl
 
-1403726667 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\context.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\context.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/Window/GlResource.hpp>
 	<SFML/Window/ContextSettings.hpp>
 	<SFML/System/NonCopyable.hpp>
 
-1403726667 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\export.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\export.hpp
 	<SFML/Config.hpp>
 
-1403726668 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\glresource.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\glresource.hpp
 	<SFML/Window/Export.hpp>
 
-1403726668 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\contextsettings.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\contextsettings.hpp
 
-1403726667 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\event.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\event.hpp
 	<SFML/Config.hpp>
 	<SFML/Window/Joystick.hpp>
 	<SFML/Window/Keyboard.hpp>
 	<SFML/Window/Mouse.hpp>
 
-1403726667 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\joystick.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\joystick.hpp
 	<SFML/Window/Export.hpp>
 
-1403726667 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\keyboard.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\keyboard.hpp
 	<SFML/Window/Export.hpp>
 
-1403726668 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\mouse.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\mouse.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/System/Vector2.hpp>
 
-1403726668 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\videomode.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\videomode.hpp
 	<SFML/Window/Export.hpp>
 	<vector>
 
-1403726668 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\window.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\window.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/Window/ContextSettings.hpp>
 	<SFML/Window/VideoMode.hpp>
@@ -183,20 +183,20 @@
 	<SFML/System/NonCopyable.hpp>
 	<SFML/System/String.hpp>
 
-1403726667 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\windowhandle.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\windowhandle.hpp
 	<SFML/Config.hpp>
 
-1403726668 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\windowstyle.hpp
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\window\windowstyle.hpp
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\blendmode.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\blendmode.hpp
 
-1403726663 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\color.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\color.hpp
 	<SFML/Graphics/Export.hpp>
 
-1403726663 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\export.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\export.hpp
 	<SFML/Config.hpp>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\font.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\font.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Glyph.hpp>
 	<SFML/Graphics/Texture.hpp>
@@ -207,45 +207,45 @@
 	<string>
 	<vector>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\glyph.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\glyph.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\rect.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\rect.hpp
 	<SFML/System/Vector2.hpp>
 	<algorithm>
 	<SFML/Graphics/Rect.inl>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\rect.inl
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\rect.inl
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\texture.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\texture.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Image.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\image.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\image.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Color.hpp>
 	<SFML/Graphics/Rect.hpp>
 	<string>
 	<vector>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\renderstates.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\renderstates.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/BlendMode.hpp>
 	<SFML/Graphics/Transform.hpp>
 
-1403726663 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\transform.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\transform.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
 	<SFML/System/Vector2.hpp>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\rendertexture.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\rendertexture.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Texture.hpp>
 	<SFML/Graphics/RenderTarget.hpp>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\rendertarget.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\rendertarget.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Color.hpp>
 	<SFML/Graphics/Rect.hpp>
@@ -257,27 +257,27 @@
 	<SFML/Graphics/Vertex.hpp>
 	<SFML/System/NonCopyable.hpp>
 
-1403726663 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\view.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\view.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
 	<SFML/Graphics/Transform.hpp>
 	<SFML/System/Vector2.hpp>
 
-1403726663 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\primitivetype.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\primitivetype.hpp
 
-1403726663 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\vertex.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\vertex.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Color.hpp>
 	<SFML/System/Vector2.hpp>
 
-1403726662 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\renderwindow.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\renderwindow.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/RenderTarget.hpp>
 	<SFML/Graphics/Image.hpp>
 	<SFML/Window/Window.hpp>
 	<string>
 
-1403726662 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\shader.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\shader.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Transform.hpp>
 	<SFML/Graphics/Color.hpp>
@@ -288,22 +288,22 @@
 	<map>
 	<string>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\shape.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\shape.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Graphics/Transformable.hpp>
 	<SFML/Graphics/VertexArray.hpp>
 	<SFML/System/Vector2.hpp>
 
-1403726663 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\drawable.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\drawable.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/RenderStates.hpp>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\transformable.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\transformable.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Transform.hpp>
 
-1403726663 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\vertexarray.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\vertexarray.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Vertex.hpp>
 	<SFML/Graphics/PrimitiveType.hpp>
@@ -311,27 +311,27 @@
 	<SFML/Graphics/Drawable.hpp>
 	<vector>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\circleshape.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\circleshape.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Shape.hpp>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\rectangleshape.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\rectangleshape.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Shape.hpp>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\convexshape.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\convexshape.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Shape.hpp>
 	<vector>
 
-1403726662 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\sprite.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\sprite.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Graphics/Transformable.hpp>
 	<SFML/Graphics/Vertex.hpp>
 	<SFML/Graphics/Rect.hpp>
 
-1403726661 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\text.hpp
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\sfml\graphics\text.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Graphics/Transformable.hpp>
@@ -342,10 +342,10 @@
 	<string>
 	<vector>
 
-1404407100 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\animationfactory.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\animationfactory.cpp
 	"animationfactory.h"
 
-1403726659 c:\users\j0sh-u_a\desktop\projetbleucanard\include\animationfactory.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\animationfactory.h
 	<iostream>
 	<fstream>
 	<SFML/Graphics.hpp>
@@ -356,7 +356,7 @@
 	"global.h"
 	"tilefactory.h"
 
-1404404234 c:\users\j0sh-u_a\desktop\projetbleucanard\include\graphics.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\graphics.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -367,7 +367,7 @@
 	"object.h"
 	"camera.h"
 
-1403726669 c:\users\j0sh-u_a\desktop\projetbleucanard\include\tilefactory.h
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\tilefactory.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -377,7 +377,7 @@
 	"animationfactory.h"
 	"global.h"
 
-1403726660 c:\users\j0sh-u_a\desktop\projetbleucanard\include\entitygraphic.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\entitygraphic.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -386,20 +386,19 @@
 	"tile.h"
 	"object.h"
 
-1403726659 c:\users\j0sh-u_a\desktop\projetbleucanard\include\tile.h
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\tile.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
 	"typable.h"
 
-1403726659 c:\users\j0sh-u_a\desktop\projetbleucanard\include\object.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\object.h
 	"tile.h"
 	"positionable.h"
 	"movable.h"
-	"collisionable.h"
 	"area.h"
 
-1404407031 c:\users\j0sh-u_a\desktop\projetbleucanard\include\global.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\global.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -407,7 +406,7 @@
 	<cstdlib>
 	<ctime>
 
-1403726659 c:\users\j0sh-u_a\desktop\projetbleucanard\include\areagraphic.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\areagraphic.h
 	<iostream>
 	<vector>
 	<iomanip>
@@ -416,8 +415,10 @@
 	"entitygraphic.h"
 	"tilefactory.h"
 	"area.h"
+	"camera.h"
+	"graphics.h"
 
-1404402275 c:\users\j0sh-u_a\desktop\projetbleucanard\include\area.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\area.h
 	<iostream>
 	<vector>
 	"tile.h"
@@ -433,7 +434,7 @@
 	<sstream>
 	"object.h"
 
-1403727278 c:\users\j0sh-u_a\desktop\projetbleucanard\include\texturefactory.h
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\texturefactory.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -442,13 +443,13 @@
 	"entitygraphic.h"
 	"global.h"
 
-1404402275 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\area.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\area.cpp
 	"area.h"
 
-1403727278 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\areafactory.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\areafactory.cpp
 	"areafactory.h"
 
-1403726659 c:\users\j0sh-u_a\desktop\projetbleucanard\include\areafactory.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\areafactory.h
 	<iostream>
 	<fstream>
 	<SFML/Graphics.hpp>
@@ -457,8 +458,9 @@
 	"area.h"
 	"areagraphic.h"
 	"global.h"
+	"objectfactory.h"
 
-1403727278 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\areagraphic.cpp
+1405900490 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\areagraphic.cpp
 	"areagraphic.h"
 
 1402414917 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\character.cpp
@@ -470,10 +472,10 @@
 1402414909 c:\users\j0sh-u_a\desktop\projetbleucanard\include\charactergraphic.h
 	"entitygraphic.h"
 
-1404387801 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\core.cpp
+1405900360 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\core.cpp
 	"core.h"
 
-1403728908 c:\users\j0sh-u_a\desktop\projetbleucanard\include\core.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\core.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -491,29 +493,30 @@
 	"controller.h"
 	"keyboardcontroller.h"
 	"objectfactory.h"
+	"teleport.h"
 
-1403726671 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\entitygraphic.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\entitygraphic.cpp
 	"entitygraphic.h"
 
-1403727422 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\global.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\global.cpp
 	"global.h"
 
-1403727278 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\graphics.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\graphics.cpp
 	"graphics.h"
 
-1403726673 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\object.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\object.cpp
 	"object.h"
 
-1404406536 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\texturefactory.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\texturefactory.cpp
 	"texturefactory.h"
 
-1403726672 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\tile.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\tile.cpp
 	"tile.h"
 
-1403727278 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\tilefactory.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\tilefactory.cpp
 	"tilefactory.h"
 
-1404406096 source:c:\users\j0sh-u_a\desktop\projetbleucanard\editor[area]\main.cpp
+1405901796 source:c:\users\j0sh-u_a\desktop\projetbleucanard\editor[area]\main.cpp
 	<iostream>
 	<ctime>
 	<iomanip>
@@ -526,10 +529,10 @@
 	"editor.h"
 	<SFML/Graphics.hpp>
 
-1404405973 source:c:\users\j0sh-u_a\desktop\projetbleucanard\editor[area]\editor.cpp
+1405901480 source:c:\users\j0sh-u_a\desktop\projetbleucanard\editor[area]\editor.cpp
 	"editor.h"
 
-1404405812 c:\users\j0sh-u_a\desktop\projetbleucanard\editor[area]\editor.h
+1405883451 c:\users\j0sh-u_a\desktop\projetbleucanard\editor[area]\editor.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	"../include/global.h"
@@ -1063,26 +1066,30 @@
 1402605016 source:c:\users\bérenger\desktop\projet-bleu-canard\src\positionable.cpp
 	"positionable.h"
 
-1403726659 c:\users\j0sh-u_a\desktop\projetbleucanard\include\typable.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\typable.h
 	<iostream>
 
-1403726669 c:\users\j0sh-u_a\desktop\projetbleucanard\include\positionable.h
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\positionable.h
 	<iostream>
 	<utility>
+	<cmath>
 	"collisionable.h"
 	"global.h"
 
-1403727278 c:\users\j0sh-u_a\desktop\projetbleucanard\include\collisionable.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\collisionable.h
 	<iostream>
 	<utility>
 	<SFML/Graphics.hpp>
+	"effect.h"
 
-1403729043 c:\users\j0sh-u_a\desktop\projetbleucanard\include\movable.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\movable.h
 	"collisionable.h"
 	"positionable.h"
 	"area.h"
+	"object.h"
+	"teleport.h"
 
-1404404266 c:\users\j0sh-u_a\desktop\projetbleucanard\include\camera.h
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\camera.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -1092,26 +1099,26 @@
 	"areagraphic.h"
 	"object.h"
 
-1403726672 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\collisionable.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\collisionable.cpp
 	"collisionable.h"
 
-1403726659 c:\users\j0sh-u_a\desktop\projetbleucanard\include\player.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\player.h
 	<iostream>
 	"global.h"
 	"object.h"
 	"controlable.h"
 	"movable.h"
 
-1403726659 c:\users\j0sh-u_a\desktop\projetbleucanard\include\controlable.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\controlable.h
 	<iostream>
 	"controller.h"
 
-1403726669 c:\users\j0sh-u_a\desktop\projetbleucanard\include\controller.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\controller.h
 	<iostream>
 	<utility>
 	<SFML/Graphics.hpp>
 
-1403726669 c:\users\j0sh-u_a\desktop\projetbleucanard\include\npc.h
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\npc.h
 	<iostream>
 	"global.h"
 	"object.h"
@@ -1120,74 +1127,85 @@
 	"ia.h"
 	"behavior.h"
 
-1403726669 c:\users\j0sh-u_a\desktop\projetbleucanard\include\ia.h
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\ia.h
 	<iostream>
 	"behavior.h"
 
-1403726659 c:\users\j0sh-u_a\desktop\projetbleucanard\include\behavior.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\behavior.h
 	<iostream>
 	"object.h"
 
-1403726659 c:\users\j0sh-u_a\desktop\projetbleucanard\include\iddlebehavior.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\iddlebehavior.h
 	<iostream>
 	<ctime>
 	"object.h"
 	"behavior.h"
 
-1403726659 c:\users\j0sh-u_a\desktop\projetbleucanard\include\keyboardcontroller.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\keyboardcontroller.h
 	<iostream>
 	<utility>
 	<SFML/Graphics.hpp>
 	"controller.h"
 
-1403726659 c:\users\j0sh-u_a\desktop\projetbleucanard\include\objectfactory.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\objectfactory.h
 	"object.h"
+	"player.h"
+	"core.h"
+	"collisionable.h"
 
-1403726672 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\positionable.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\positionable.cpp
 	"positionable.h"
 
-1403726673 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\behavior.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\behavior.cpp
 	"behavior.h"
 
-1403727278 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\camera.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\camera.cpp
 	"camera.h"
 
-1403726673 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\controlable.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\controlable.cpp
 	"controlable.h"
 
-1403726672 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\controller.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\controller.cpp
 	"controller.h"
 
-1403726672 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\ia.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\ia.cpp
 	"ia.h"
 
-1403726673 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\iddlebehavior.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\iddlebehavior.cpp
 	"iddlebehavior.h"
 
-1403726671 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\jostickcontroller.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\jostickcontroller.cpp
 	"jostickcontroller.h"
 
-1403726660 c:\users\j0sh-u_a\desktop\projetbleucanard\include\jostickcontroller.h
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\jostickcontroller.h
 	<iostream>
 	<utility>
 	<SFML/Graphics.hpp>
 	"controller.h"
 
-1403726673 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\keyboardcontroller.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\keyboardcontroller.cpp
 	"keyboardcontroller.h"
 
-1403728886 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\movable.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\movable.cpp
 	"movable.h"
 
-1403726672 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\npc.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\npc.cpp
 	"npc.h"
 
-1403727278 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\objectfactory.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\objectfactory.cpp
 	"objectfactory.h"
 
-1403729043 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\player.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\player.cpp
 	"player.h"
 
-1403726673 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\typable.cpp
+1405900074 source:c:\users\j0sh-u_a\desktop\projetbleucanard\src\typable.cpp
 	"typable.h"
+
+1405900074 c:\users\j0sh-u_a\desktop\projetbleucanard\include\effect.h
+	"tile.h"
+
+1405900073 c:\users\j0sh-u_a\desktop\projetbleucanard\include\teleport.h
+	"effect.h"
+	"global.h"
+	"positionable.h"
 

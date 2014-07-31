@@ -1,8 +1,12 @@
 #ifndef IA_H
 #define IA_H
 #include <iostream>
-#include "behavior.h"
+
+//#include "behavior.h"
+
 using namespace std;
+
+class Behavior;
 
 class IA
 {

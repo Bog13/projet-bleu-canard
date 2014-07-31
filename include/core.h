@@ -3,6 +3,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <vector>
+/*
 #include "texturefactory.h"
 #include "animationfactory.h"
 #include "animation.h"
@@ -18,9 +19,15 @@
 #include "keyboardcontroller.h"
 #include "objectfactory.h"
 #include "teleport.h"
+*/
 using namespace std;
 using namespace sf;
 
+class Graphics;
+class AreaGraphic;
+class Area;
+class Player;
+class Controller;
 
 
 class Core

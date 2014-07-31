@@ -3,6 +3,7 @@
 #include <iostream>
 #include <utility>
 #include <SFML/Graphics.hpp>
+
 #include "controller.h"
 using namespace std;
 using namespace sf;

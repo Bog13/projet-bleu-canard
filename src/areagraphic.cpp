@@ -1,5 +1,16 @@
 #include "areagraphic.h"
 
+#include "tile.h"
+#include "object.h"
+#include "global.h"
+#include "entitygraphic.h"
+#include "tilefactory.h"
+#include "animationfactory.h"
+#include "area.h"
+#include "camera.h"
+#include "graphics.h"
+#include "movable.h"
+
 AreaGraphic::AreaGraphic(Area *a,Graphics* g):m_graphic(g),m_area(a)
 {
 
@@ -15,6 +26,11 @@ AreaGraphic::AreaGraphic(Area *a,Graphics* g):m_graphic(g),m_area(a)
 
     if(g!=0) g->setAreaGraphic(this);
 }
+int AreaGraphic::nbObject()
+    {
+        return m_area->nbObject();
+    }
+
 void AreaGraphic::initSortObj()
 {
     EntityGraphic* tmp=new EntityGraphic();

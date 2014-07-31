@@ -1,5 +1,7 @@
 #include "effect.h"
 
+//#include "tile.h"
+
 Effect::Effect()
 {
     m_target=0;

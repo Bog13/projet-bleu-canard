@@ -1,5 +1,7 @@
 #ifndef MOVABLE_H
 #define MOVABLE_H
+
+/*
 #include "collisionable.h"
 #include "positionable.h"
 #include "area.h"
@@ -7,9 +9,13 @@
 
 ///DEBUG
 #include "teleport.h"
+*/
+#include "global.h"
+
 using namespace std;
 
-class Core;
+class Collisionable;
+class Positionable;
 class Object;
 
 class Movable
@@ -21,7 +27,7 @@ class Movable
 {
     public:
         Movable(Collisionable *c,Positionable* p, pair<float,float> speed=pair<float,float>(1,1) );
-        void addPosition(float x,float y){m_positionable->setPosition(m_positionable->getPosition().first+x,m_positionable->getPosition().second+y);}
+        void addPosition(float x,float y);
 
         void goRight(float d) {addPosition(d,0);m_isMoving=true;}
         void goLeft(float d) {addPosition(-d,0);m_isMoving=true;}

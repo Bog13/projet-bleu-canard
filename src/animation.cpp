@@ -1,6 +1,5 @@
 #include "animation.h"
 
-
 Animation::Animation(int t):Typable(t)
 {
     init();

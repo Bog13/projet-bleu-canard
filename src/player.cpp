@@ -1,5 +1,7 @@
 #include "player.h"
 
+#include "controller.h"
+
 Player::Player(Area *a, Controller* c):Object(a),Controlable(c), Movable(this,this)
 {
     init();

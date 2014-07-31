@@ -3,11 +3,17 @@
 #include <iostream>
 #include <utility>
 #include <cmath>
+/*
 #include "collisionable.h"
+
+*/
+
 #include "global.h"
+
 using namespace std;
 
 class Area;
+
 
 
 class Positionable

@@ -4,14 +4,17 @@
 #include <fstream>
 #include <SFML/Graphics.hpp>
 #include <vector>
+/*
 #include "graphics.h"
 #include "animation.h"
 #include "texturefactory.h"
 #include "global.h"
 #include "tilefactory.h"
+*/
 using namespace std;
 using namespace sf;
 
+class Animation;
 
 class AnimationFactory
 {

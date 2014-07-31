@@ -2,16 +2,18 @@
 #define AREA_H
 #include <iostream>
 #include <vector>
+/*
 #include "tile.h"
 #include "global.h"
 #include "object.h"
 #include "positionable.h"
-#include "movable.h"
+#include "movable.h"*/
 using namespace std;
 
 class Object;
-class Positionable;
+class Tile;
 class Movable;
+
 class Area
 {
     public:

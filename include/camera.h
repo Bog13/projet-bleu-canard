@@ -4,13 +4,21 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <cmath>
+/*
 #include "tilefactory.h"
 #include "entitygraphic.h"
 #include "areagraphic.h"
-#include "object.h"
+#include "object.h"*/
+
 using namespace std;
 using namespace sf;
+
 class AreaGraphic;
+class Positionable;
+class AreaGraphic;
+class Object;
+class Movable;
+
 
 
 

@@ -1,5 +1,8 @@
 #include "teleport.h"
 
+#include "tile.h"
+#include "positionable.h"
+
 Teleport::Teleport()
 {
     m_target=0;

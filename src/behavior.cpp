@@ -1,5 +1,7 @@
 #include "behavior.h"
 
+//#include "object.h"
+
 Behavior::Behavior(Object *obj):m_object(obj)
 {
     //ctor

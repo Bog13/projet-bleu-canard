@@ -3,6 +3,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <vector>
+
 #include "typable.h"
 using namespace std;
 using namespace sf;

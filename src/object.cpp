@@ -1,5 +1,10 @@
 #include "object.h"
 
+#include "effect.h"
+#include "tile.h"
+#include "positionable.h"
+#include "collisionable.h"
+
 Object::Object(Area *a):Tile(),Positionable(a),Collisionable()
 {
     m_width=0;

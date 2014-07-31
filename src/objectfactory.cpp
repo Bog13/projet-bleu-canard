@@ -1,5 +1,10 @@
 #include "objectfactory.h"
 
+#include "iddlebehavior.h"
+#include "npc.h"
+
+#include "player.h"
+
 vector<Object> ObjectFactory::m_objects;
 
 ObjectFactory::ObjectFactory()

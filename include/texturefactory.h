@@ -3,12 +3,16 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <vector>
+/*
 #include "graphics.h"
 #include "animation.h"
 #include "entitygraphic.h"
 #include "global.h"
+*/
 using namespace std;
 using namespace sf;
+
+#include "global.h"
 
 class TextureFactory
 {

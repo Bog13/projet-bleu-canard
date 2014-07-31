@@ -1,5 +1,9 @@
 #include "area.h"
 
+#include "tile.h"
+#include "global.h"
+#include "object.h"
+
 Area::Area(int w,int h)
 {
     m_tiles=vector<vector<Tile*> > ();

@@ -1,10 +1,18 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <iostream>
+/*
 #include "global.h"
 #include "object.h"
 #include "controlable.h"
 #include "movable.h"
+*/
+#include "object.h"
+#include "controlable.h"
+#include "movable.h"
+
+class Area;
+
 using namespace std;
 
 class Player:public Object,public Controlable,public Movable

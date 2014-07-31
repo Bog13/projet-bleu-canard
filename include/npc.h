@@ -1,13 +1,21 @@
 #ifndef NPC_H
 #define NPC_H
 #include <iostream>
+
+/*
 #include "global.h"
-#include "object.h"
 #include "controlable.h"
+#include "behavior.h"*/
+
+#include "object.h"
 #include "movable.h"
 #include "ia.h"
-#include "behavior.h"
+
 using namespace std;
+
+class Behavior;
+class Area;
+
 
 class NPC: public Object, public Movable, public IA
 {

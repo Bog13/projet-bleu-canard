@@ -1,4 +1,5 @@
 #include "ia.h"
+#include "behavior.h"
 
 IA::IA(Behavior *b):m_behavior(b)
 {

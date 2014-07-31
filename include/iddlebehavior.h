@@ -2,10 +2,13 @@
 #define IDDLEBEHAVIOR_H
 #include <iostream>
 #include <ctime>
-#include "object.h"
+/*
+#include "object.h"*/
 #include "behavior.h"
 
 using namespace std;
+
+class Object;
 
 class IddleBehavior:public Behavior
 {

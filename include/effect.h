@@ -1,7 +1,9 @@
 #ifndef EFFECT_H
 #define EFFECT_H
 
-#include "tile.h"
+//#include "tile.h"
+
+class Tile;
 
 class Effect
 {

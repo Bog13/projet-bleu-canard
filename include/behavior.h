@@ -1,8 +1,11 @@
 #ifndef BEHAVIOR_H
 #define BEHAVIOR_H
 #include <iostream>
-#include "object.h"
+
+//#include "object.h"
 using namespace std;
+
+class Object;
 
 class Behavior
 {

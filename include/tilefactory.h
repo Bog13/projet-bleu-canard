@@ -3,17 +3,21 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <vector>
+
+/*
 #include "entitygraphic.h"
 #include "graphics.h"
 #include "animation.h"
 #include "animationfactory.h"
 #include "global.h"
+*/
 using namespace std;
 using namespace sf;
 
 
 
 class EntityGraphic;
+
 class TileFactory
 {
     public:

@@ -1,6 +1,10 @@
 #include "graphics.h"
 
-
+#include "tilefactory.h"
+#include "entitygraphic.h"
+#include "areagraphic.h"
+#include "object.h"
+#include "camera.h"
 
 Graphics::Graphics(RenderWindow* window,AreaGraphic *ag):m_ag(ag)
 {

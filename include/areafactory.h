@@ -4,13 +4,17 @@
 #include <fstream>
 #include <SFML/Graphics.hpp>
 #include <vector>
+/*
 #include "entitygraphic.h"
 #include "area.h"
 #include "areagraphic.h"
 #include "global.h"
-#include "objectfactory.h"
+#include "objectfactory.h"*/
 using namespace std;
 using namespace sf;
+
+class Area;
+class AreaGraphic;
 
 class AreaFactory
 {

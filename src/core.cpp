@@ -1,5 +1,34 @@
 #include "core.h"
 
+//data
+#include "area.h"
+
+//Graphism
+#include "animation.h"
+#include "graphics.h"
+#include "entitygraphic.h"
+#include "areagraphic.h"
+#include "camera.h"
+
+
+//Player
+#include "player.h"
+//#include "controller.h"
+#include "keyboardcontroller.h"
+
+//Ia etc
+#include "npc.h"
+#include "behavior.h"
+#include "iddlebehavior.h"
+
+//Usines
+#include "objectfactory.h"
+#include "areafactory.h"
+#include "texturefactory.h"
+#include "animationfactory.h"
+
+//Tests
+#include "teleport.h"
 
 Controller* Core::m_controller=new KeyboardController();
 

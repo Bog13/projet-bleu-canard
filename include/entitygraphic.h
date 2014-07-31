@@ -3,10 +3,16 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <vector>
+
 #include "animation.h"
+/*
 #include "animationfactory.h"
 #include "tile.h"
-#include "object.h"
+#include "object.h"*/
+
+class Tile;
+class Positionable;
+
 using namespace std;
 using namespace sf;
 
@@ -37,12 +43,7 @@ class EntityGraphic
 
         virtual ~EntityGraphic();
 
-        void operator=(EntityGraphic *e)
-        {
-            e= this;
-            if(m_entity!=0)e->m_entity=new Tile(*m_entity);
-            else e->m_entity=0;
-        }
+        void operator=(EntityGraphic *e);
 
     protected:
 

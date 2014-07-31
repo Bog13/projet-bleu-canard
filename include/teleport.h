@@ -1,9 +1,14 @@
 #ifndef TELEPORT_H
 #define TELEPORT_H
-
+/*
 #include "effect.h"
 #include "global.h"
 #include "positionable.h"
+*/
+
+#include "effect.h"
+
+class Tile;
 
 
 class Teleport : public Effect

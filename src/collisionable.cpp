@@ -1,5 +1,7 @@
 #include "collisionable.h"
 
+#include "effect.h"
+
 void Collisionable::init()
 {
     m_hitbox.x=0;

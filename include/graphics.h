@@ -4,17 +4,20 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <cmath>
+/*
 #include "tilefactory.h"
 #include "entitygraphic.h"
 #include "areagraphic.h"
 #include "object.h"
 #include "camera.h"
-
+*/
 using namespace std;
 using namespace sf;
 
 class Camera;
 class AreaGraphic;
+class EntityGraphic;
+
 class Graphics
 {
     public:

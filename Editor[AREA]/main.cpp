@@ -35,7 +35,9 @@ int main()
     ///
 
     ///VIEW
-    bool viewMoovement[4], interact=false;
+    vector<bool> viewMoovement(4,0);
+    bool interact=false;
+
 
 
     ///
@@ -83,6 +85,10 @@ int main()
                             viewMoovement[DOWN]=true;
                             break;
 
+                        case Keyboard::P:
+                           theEditor.drawArea();
+                            break;
+
                         default:
                             break;
                   }
@@ -128,12 +134,6 @@ int main()
 
             }
 
-            if(Keyboard::isKeyPressed(Keyboard::Space)){theEditor.loadArea("areaTest.area");}///DEBUG
-
-
-
-
-
 
         }
 
@@ -168,13 +168,14 @@ int main()
         theEditor.update(mouseWindowPosition,interact);
 
     ///WINDOW
-        window.clear(Color(4,139,154));
+        //window.clear(Color(4,139,154));
         theEditor.draw();
         window.display();
         ////
 
     ///FPS
         if(clock.getElapsedTime().asMilliseconds()!=0)Global::FPS=1000/clock.getElapsedTime().asMilliseconds();
+        window.setTitle(Global::intToStr(Global::FPS));
     }
 
     return 0;

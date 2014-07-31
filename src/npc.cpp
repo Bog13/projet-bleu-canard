@@ -1,5 +1,11 @@
 #include "npc.h"
 
+#include "global.h"
+#include "object.h"
+#include "movable.h"
+#include "ia.h"
+#include "behavior.h"
+
 NPC::NPC(Behavior* be,Area *a, int type,float x, float y,float w,float h,bool b):Object(a,type,x,y,w,h,b), Movable(this,this), IA(be)
 {
 

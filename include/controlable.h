@@ -1,8 +1,11 @@
 #ifndef CONTROLABLE_H
 #define CONTROLABLE_H
 #include <iostream>
-#include "controller.h"
+
+//#include "controller.h"
 using namespace std;
+
+class Controller;
 
 class Controlable
 {

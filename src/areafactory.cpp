@@ -1,5 +1,12 @@
 #include "areafactory.h"
 
+#include "entitygraphic.h"
+#include "area.h"
+#include "areagraphic.h"
+#include "global.h"
+#include "objectfactory.h"
+#include "tile.h"
+#include "object.h"
 
 vector<AreaGraphic> AreaFactory::m_vector;
 
