@@ -20,6 +20,7 @@ using namespace sf;
 
 #define INT_MAX 100000
 /*TEST bog commit de l'amour */
+// Iam a duck with a gun in his hair <3 
 int main()
 {
 
