@@ -7,7 +7,16 @@ Global::Global()
 
 
 int Global::FPS=-1;
-const string Global::PATH="data/img/";
+
+
+const string Global::PATH_IMG="data/img/";
+const string Global::PATH_LVL="";
+
+///LINUX
+//const string Global::PATH_IMG="/usr/local/share/PBC/data/img/";
+//const string Global::PATH_LVL="/usr/local/share/PBC/";
+///
+
 
 int const Global::ID[]=
 /// Création de texture 3:AJOUTER LE NOM ICI (4 plus bas)

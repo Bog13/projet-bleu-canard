@@ -57,7 +57,9 @@ class Global
         //Window
         static const int WINDOW_WIDTH=640;
         static const int WINDOW_HEIGHT=480;
-        static const string PATH;
+        
+        static const string PATH_IMG;
+        static const string PATH_LVL;
         //Tile
         static const int TILE_WIDTH=32;
         static const int TILE_HEIGHT=32;

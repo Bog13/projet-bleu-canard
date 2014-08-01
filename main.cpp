@@ -30,7 +30,7 @@ int main()
 
     ///loading Screen
     Texture texture;
-    texture.loadFromFile(Global::PATH+"loading.png");
+    texture.loadFromFile(Global::PATH_IMG+"loading.png");
 
     ConvexShape cs=Graphics::createSquare(0,0,Global::WINDOW_WIDTH,Global::WINDOW_HEIGHT);
 

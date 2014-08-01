@@ -38,7 +38,7 @@ Core::Core(RenderWindow* window)
     m_window=window;
     //if(AreaFactory::loadArea(m_a,"ICI.txt")==false)m_a=new Area(20,20);
     m_a=new Area(20,20);
-    AreaFactory::loadArea(m_a,"ICI.txt");
+    AreaFactory::loadArea(m_a,Global::PATH_LVL+"ICI.txt");
         //player
     m_player1= new Player(m_a,m_controller,CHAR_NONE,10,300,32,64,true);
     Teleport* tp=new Teleport(0,0,0);

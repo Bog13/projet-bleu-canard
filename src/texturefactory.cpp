@@ -87,7 +87,7 @@ bool TextureFactory::load(string path)
 
 bool TextureFactory::load()
 {
-    if(TextureFactory::load(Global::PATH))return true;
+    if(TextureFactory::load(Global::PATH_IMG))return true;
     return false;
 }
 
