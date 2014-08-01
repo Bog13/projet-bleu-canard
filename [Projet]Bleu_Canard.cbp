@@ -18,10 +18,15 @@
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
-					<Add library="libSFML\libsfml-audio-s-d.a" />
-					<Add library="libSFML\libsfml-graphics-s-d.a" />
-					<Add library="libSFML\libsfml-window-s-d.a" />
-					<Add library="libSFML\libsfml-system-s-d.a" />
+					<Add library="libSFML/libsfml-audio-s-d.a" />
+					<Add library="libSFML/libsfml-graphics-s-d.a" />
+					<Add library="libSFML/libsfml-window-s-d.a" />
+					<Add library="libSFML/libsfml-system-s-d.a" />
+					<Add library="libSFML/libsfml-audio.so" />
+					<Add library="libSFML/libsfml-graphics.so" />
+					<Add library="libSFML/libsfml-network.so" />
+					<Add library="libSFML/libsfml-system.so" />
+					<Add library="libSFML/libsfml-window.so" />
 					<Add directory="libSFML" />
 					<Add directory="binSFML" />
 				</Linker>

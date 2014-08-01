@@ -10,7 +10,7 @@
 #include "camera.h"
 #include "graphics.h"
 #include "movable.h"
-
+#include <limits>
 AreaGraphic::AreaGraphic(Area *a,Graphics* g):m_graphic(g),m_area(a)
 {
 
@@ -34,7 +34,7 @@ int AreaGraphic::nbObject()
 void AreaGraphic::initSortObj()
 {
     EntityGraphic* tmp=new EntityGraphic();
-    int lowest=INT_MAX;
+    int lowest=numeric_limits<int>::max();
 
     for(unsigned int i=nbObject()-1;i>0;--i)
     {

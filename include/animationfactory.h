@@ -4,6 +4,7 @@
 #include <fstream>
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <limits>
 /*
 #include "graphics.h"
 #include "animation.h"

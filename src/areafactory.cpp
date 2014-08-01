@@ -7,7 +7,7 @@
 #include "objectfactory.h"
 #include "tile.h"
 #include "object.h"
-
+#include <limits>
 vector<AreaGraphic> AreaFactory::m_vector;
 
 
@@ -60,7 +60,7 @@ bool AreaFactory::loadArea(Area *a,string fileName)
     vector<int> *tmp=0;
     vector<vector<int> > content;
 
-    int w=INT_MAX;
+    int w=numeric_limits<int>::max();
     int h=0;
 
     /// pour le chargement de l'objet
